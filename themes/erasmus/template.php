@@ -5,6 +5,18 @@
  */
 
 /**
+ * Implements template_preprocess_HOOK().
+ */
+function erasmus_preprocess_html(&$variables) {
+	$settings['erasmus']['videohome_youtube_id'] = theme_get_setting('videohome_youtube_id');
+	drupal_add_js($settings, 'setting');
+	drupal_add_js(drupal_get_path('theme', 'erasmus') . '/scripts/videohome.js', array(
+		'scope' => 'footer',
+	));
+
+}
+
+/**
  * Implement template_preprocess_om_maximenu_submenu().
  */
 function erasmus_preprocess_om_maximenu_submenu(&$variables) {
@@ -54,9 +66,18 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   $variables['langintro'] = t('The site is currently only available in English, other languages will be available later.');
   $variables['langlink'] = l(t('The previous version'), "http://ec.europa.eu/programmes/erasmus-plus/index_en.htm&pk_campaign=NewErasmus&pk_kwd=LinkToOldVersion", array('attributes' => array('class' => 'linklanguage')));
   $variables['langsummary'] = t('(available in all languages) has been archived and will be taken offline on 01/01/2016.');
-  $variables['eventlink'] = l(t('Events'), $base_url . "/" . $language->language . "/events", array('attributes' => array('class' => 'linklanguage')));
-  $variables['callslink'] = l(t('Calls'), $base_url . "/" . $language->language . "/en/calls-for-proposals-tenders", array('attributes' => array('class' => 'linklanguage')));
-  $variables['newslink'] = l(t('News'), $base_url . "/" . $language->language . "/en/news", array('attributes' => array('class' => 'linklanguage')));
+  $variables['eventlink'] = l(t('Events'), "events", array('attributes' => array('class' => 'linklanguage')));
+  $variables['callslink'] = l(t('Calls'), "calls-for-proposals-tenders", array('attributes' => array('class' => 'linklanguage')));
+  $variables['newslink'] = l(t('News'), "news", array('attributes' => array('class' => 'linklanguage')));
+	$variables['nav_ico'] = theme('image', array(
+		'path' => '/images/mobile-nav-ico.svg',
+  ));
+	$variables['flat_ec_logo'] = theme('image', array(
+		'path' => '/images/mobile-flat-ec-logo.svg',
+  ));
+	$variables['logo_ce_en'] = theme('image', array(
+		'path' => '/images/logo_ce-en.svg',
+  ));
 }
 
 /**
@@ -101,19 +122,19 @@ function erasmus_preprocess_page(&$variables) {
       ),
     ));
   $variables['updatestitle'] = t('Updates');
-  $variables['allevents'] = l(t('All events'), $base_url . "/" . $language->language . "/events", array('attributes' => array('class' => 'link-more-white-blue')));
-  $variables['allcalls'] = l(t('All calls'), $base_url . "/" . $language->language . "/calls-for-proposals-tenders", array('attributes' => array('class' => 'link-more-white-blue')));
-  $variables['allnews'] = l(t('All news'), $base_url . "/" . $language->language . "/news", array('attributes' => array('class' => 'link-more-white-blue')));
+  $variables['allevents'] = l(t('All events'), "events", array('attributes' => array('class' => 'link-more-white-blue')));
+  $variables['allcalls'] = l(t('All calls'), "calls-for-proposals-tenders", array('attributes' => array('class' => 'link-more-white-blue')));
+  $variables['allnews'] = l(t('All news'), "news", array('attributes' => array('class' => 'link-more-white-blue')));
 
   if (isset($variables['node'])) {
     $node = $variables['node'];
-    if ($node->type == 'opportunities_for_individuals' OR $node->type == 'document_library' OR $node->type == 'opportunities_for_organisations' OR $node->type == 'resources') {
+    if ($node->type == 'opportunities_for_individuals' || $node->type == 'document_library' || $node->type == 'opportunities_for_organisations' || $node->type == 'resources') {
       $variables['colheightortwelve'] = 'col-lg-8';
     }
     else {
       $variables['colheightortwelve'] = 'col-lg-12';
     }
-    $variables['is_newlayoutr'] = $node->type == 'opportunities_for_individuals' || $node->type == 'document_library' OR $node->type == 'opportunities_for_organisations' OR $node->type == 'resources';
+    $variables['is_newlayoutr'] = $node->type == 'opportunities_for_individuals' || $node->type == 'document_library' || $node->type == 'opportunities_for_organisations' || $node->type == 'resources';
     if ($node->type == 'opportunities_for_individuals') {
       $variables['bgpage'] = 'individualsbg';
     }

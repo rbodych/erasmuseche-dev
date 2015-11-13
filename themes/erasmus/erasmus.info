@@ -1,11 +1,14 @@
 name = erasmus
 description = subtheme by DG EAC
-package = Traineeship_theme
+package = erasmus_theme
 version = "7.x-1.0"
 core = "7.x"
 multisite_version = "2.0"
 base theme = ec_resp
 php = 5.2.4
+
+; SETTINGS
+settings[videohome_youtube_id] = "3fiCRpgOpvU"
 
 ; STYLESHEETS
 stylesheets[all][] = css/erasmustwo.css
@@ -17,7 +20,6 @@ stylesheets[all][] = css/animate.css
 scripts[] = scripts/contacttabs.js
 scripts[] = scripts/counter.js
 scripts[] = scripts/type.js
-scripts[] = scripts/videohome.js
 scripts[] = scripts/custom.js
 
 ; REGIONS
@@ -47,3 +49,5 @@ regions[sidebar_right_below] = "Sidebar Right Below"
 regions[therightcolumn] = "The Right Column"
 regions[announcement] = "announcement"
 regions[feedbackform] = "Feedback form"
+
+
