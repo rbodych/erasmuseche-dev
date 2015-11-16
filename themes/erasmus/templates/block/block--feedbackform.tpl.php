@@ -52,7 +52,6 @@
   </div>
 <?php endif;?>
 <?php print render($title_suffix); ?>
-	<!-- MEHDI: CLASS ADDED col-md-offset-3 col-md-6 -->
   <div class="<?php print ($panel && $body_class ? 'panel-body col-md-offset-3 col-md-6' : ''); ?> content"<?php print $content_attributes; ?>>
   <?php
     print $content;

@@ -7,7 +7,7 @@
     var player;
     var vidNum;
     var appendJ = "?enablejsapi=1"
-    var video1 = "//www.youtube.com/embed/3fiCRpgOpvU" + appendJ;
+    var video1 = "//www.youtube.com/embed/" + Drupal.settings.erasmus.videohome_youtube_id + appendJ;
     $(function(){
         $(".link-video").click(function(){
             $("html, body").animate({ scrollTop: 0 }, "slow");

@@ -53,15 +53,15 @@
 <nav class="mobile-nav-wrapper visible-xs-block visible-sm-block" role="navigation">
 	<div class="mobile-nav-bar">
 		<button>
-			<img src="<?php print $GLOBALS['base_url'] . "/" . path_to_theme() ?>/images/mobile-nav-ico.svg"/>
+			<?php print $nav_ico; ?>
 		</button>
 		<h1><?php print $namesite; ?></h1>
-		<img src="<?php print $GLOBALS['base_url'] . "/" . path_to_theme() ?>/images/mobile-flat-ec-logo.svg"/>
+			<?php print $flat_ec_logo; ?>
 	</div>
 	<div class="mobile-nav-panel">
 		<header>
 			<div class="nav-mobile-wrapper">
-				<img src="<?php print $GLOBALS['base_url'] . "/" . path_to_theme() ?>/images/logo_ce-en.svg"/>
+      	<?php print $logo_ce_en; ?>
     <h1><?php print $namesite; ?></h1>
 			</div>
 		</header>
