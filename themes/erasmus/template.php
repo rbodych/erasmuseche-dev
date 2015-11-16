@@ -5,7 +5,7 @@
  */
 
 /**
- * Implements template_preprocess_HOOK().
+ * Implements template_preprocess_html().
  */
 function erasmus_preprocess_html(&$variables) {
 	$settings['erasmus']['videohome_youtube_id'] = theme_get_setting('videohome_youtube_id');
@@ -17,7 +17,7 @@ function erasmus_preprocess_html(&$variables) {
 }
 
 /**
- * Implement template_preprocess_om_maximenu_submenu().
+ * Implements template_preprocess_om_maximenu_submenu().
  */
 function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   global $base_url;
