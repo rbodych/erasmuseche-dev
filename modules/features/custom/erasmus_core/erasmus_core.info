@@ -13,6 +13,7 @@ dependencies[] = ds_ui
 dependencies[] = easy_breadcrumb
 dependencies[] = feeds
 dependencies[] = feeds_ui
+dependencies[] = migrate
 dependencies[] = field_group
 dependencies[] = file
 dependencies[] = file_entity
