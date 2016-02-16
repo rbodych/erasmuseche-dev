@@ -18,17 +18,12 @@
  *
  * Ec_resp's theme implementation to display a single Drupal page.
  */
+
 /**
  * Implements Erasmus_Preprocess_html().
- *
- * @param array $variables
- *   array contianing values for video lightview on HP
- *
- * @return $variables
  */
 function erasmus_preprocess_html(&$variables) {
-  $settings['erasmus']['videohome_youtube_id']
-        = theme_get_setting('videohome_youtube_id');
+  $settings['erasmus']['videohome_youtube_id'] = theme_get_setting('videohome_youtube_id');
   drupal_add_js($settings, 'setting');
   drupal_add_js(
         drupal_get_path('theme', 'erasmus') . '/scripts/videohome.js', array(
@@ -39,11 +34,6 @@ function erasmus_preprocess_html(&$variables) {
 
 /**
  * Implements Erasmus_Preprocess_Om_Maximenu_submenu().
- *
- * @param array $variables
- *   array contianing values for menu elements
- *
- * @return $variables
  */
 function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   global $base_url;
@@ -143,26 +133,18 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
           ),
         )
     );
-  /**
- *  $variables['eventlink'] = l(t('Events'),
-     * "all-events", array('attributes' => array('class' => 'linklanguage')));
- * $variables['callslink'] = l(t('Calls'),
-     * "calls-for-proposals-tenders",
-     * array('attributes' => array('class' => 'linklanguage')));
- * $variables['newslink'] = l(
-     * t('News'), "all-news", array('attributes' => array('class' => 'linklanguage')));
- */    $variables['nav_ico'] = theme(
+  $variables['nav_ico'] = theme(
     'image', array(
       'path' => $base_url . '/sites/all/themes/erasmus' . '/images/mobile-nav-ico.svg',
     )
-);
-$variables['flat_ec_logo'] = theme(
+   );
+  $variables['flat_ec_logo'] = theme(
         'image', array(
           'path' => $base_url . '/sites/all/themes/erasmus'
           . '/images/mobile-flat-ec-logo.svg',
         )
     );
-$variables['logo_ce_en'] = theme(
+  $variables['logo_ce_en'] = theme(
         'image', array(
           'path' => $base_url . '/sites/all/themes/erasmus' . '/images/logo_ce-en.svg',
         )
@@ -171,11 +153,6 @@ $variables['logo_ce_en'] = theme(
 
 /**
  * Implements Erasmus_Preprocess_page().
- *
- * @param array $variables
- *   array containing general content
- *
- * @return $variables
  */
 function erasmus_preprocess_page(&$variables) {
   $header = drupal_get_http_header("status");
@@ -319,14 +296,8 @@ function erasmus_preprocess_page(&$variables) {
 
 /**
  * Implements Erasmus_Preprocess_node().
- *
- * @param array $variables
- *   array containing field variables for node video_gallery
- *
- * @return $variables
  */
 function erasmus_preprocess_node(&$variables) {
-
   $node = $variables['node'];
   if ($node->type == 'video_gallery') {
     $content = $variables['content'];
