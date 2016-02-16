@@ -1,6 +1,21 @@
 <?php
 /**
  * @file
+ * Node.tpl.php.
+ *
+ * PHP version 5
+ *
+ * @category Production
+ *
+ * @package ErasmusCore/Theme
+ *
+ * @author EAC WEB <EAC-LIST-C4@nomail.ec.europa.eu>
+ *
+ * @copyright 2015 European-Commission
+ *
+ * @license http://ec.europa.eu Europa
+ * @link NA
+ *
  * Ec_resp's theme implementation to display a node.
  *
  * Available variables:
@@ -78,16 +93,17 @@
  * @see template_process()
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php print render($title_prefix); ?>
-  <?php if (!$page): ?>
+<div id="node-<?php print $node->nid; ?>" 
+class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+    <?php print render($title_prefix); ?>
+    <?php if (!$page) : ?>
     <h2<?php print $title_attributes; ?>>
       <a href="<?php print filter_xss($node_url); ?>"><?php print $title; ?></a>
     </h2>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
+    <?php endif; ?>
+    <?php print render($title_suffix); ?>
   <div class="content clearfix"<?php print $content_attributes; ?>>
-    <?php if ($prefix_display):?>
+    <?php if ($prefix_display) :?>
       <div class="node-private label label-default clearfix">
         <span class="glyphicon glyphicon-lock"></span>
         <?php print t('This content is private'); ?>
@@ -98,20 +114,21 @@
     hide($content['links']);
     ?>
     <?php print render($content); ?>
-    <?php if ($suffix_display): ?>
+    <?php if ($suffix_display) : ?>
       <div class="row node-info">
-        <div class="node-info-submitted col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-6 col-md-offset-6 col-sm-offset-6">
+        <div class="node-info-submitted col-lg-6 col-md-6 col-sm-6 col-xs-12
+        col-lg-offset-6 col-md-offset-6 col-sm-offset-6">
           <div class="well well-sm node-submitted clearfix">
             <small>
-              <?php print $user_picture; ?>
-              <?php print $submitted; ?>
+                <?php print $user_picture; ?>
+                <?php print $submitted; ?>
             </small>
           </div>
         </div>
       </div>
     <?php endif;?>
     <div class="link-wrapper right">
-      <?php print render($content['links']); ?>
+        <?php print render($content['links']); ?>
     </div>
     <?php print render($content['comments']); ?>
   </div>

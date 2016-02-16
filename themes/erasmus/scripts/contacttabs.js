@@ -1,24 +1,43 @@
 /**
  * @file
- * Contact.
+ * Contacttabs.js.
+ *
+ * Javascript.
+ *
+ * @category Production
+ *
+ * @package ErasmusCore/Theme
+ *
+ * @author EAC WEB <EAC-LIST-C4@nomail.ec.europa.eu>
+ *
+ * @copyright 2015 European-Commission
+ *
+ * @license http://ec.europa.eu Europa
+ * @link NA
+ *
+ * Contact tabs.
  */
 
 (function($) {
 
-    $(document).ready(function () {
-        $("#delCookie").click(function(){
-            del_cookie("cookie");
-        });
+    $(document).ready(
+        function () {
+            $("#delCookie").click(
+                function(){
+                    del_cookie("cookie");
+                }
+            );
 
-        console.log(document.cookie);
-        var visit = getCookie("cookie");
-        if (visit == null) {
-            $("#ErasmusDisclaimer").modal("show");
-            var expire = new Date();
-            expire = new Date(expire.getTime() + 7776000000);
-            document.cookie = "cookie=here; expires=" + expire;
+            console.log(document.cookie);
+            var visit = getCookie("cookie");
+            if (visit == null) {
+                $("#ErasmusDisclaimer").modal("show");
+                var expire = new Date();
+                expire = new Date(expire.getTime() + 7776000000);
+                document.cookie = "cookie=here; expires=" + expire;
+            }
         }
-    });
+    );
 
     function del_cookie(name)
     {
