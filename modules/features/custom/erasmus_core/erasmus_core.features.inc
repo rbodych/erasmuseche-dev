@@ -149,6 +149,14 @@ function erasmus_core_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'video_gallery' => array(
+      'name' => t('Video Gallery'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Video Gallery'),
+      'help' => '',
+    ),
     'webform' => array(
       'name' => t('Webform'),
       'base' => 'node_content',

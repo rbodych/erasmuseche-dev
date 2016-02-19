@@ -4,15 +4,14 @@
  * Erasmus core install.
  */
 
-
 /**
  * Implements hook_disable().
  */
 function erasmus_core_disable() {
   $t = get_t();
 
-  // MULTISITE guideline #11
-  drupal_set_message($t('Erasmus core feature is now disabled on your site.'));
+  // MULTISITE guideline #11.
+  drupal_set_message($t('erasmus core feature is now disabled on your site.'));
 }
 
 /**
@@ -21,8 +20,8 @@ function erasmus_core_disable() {
 function erasmus_core_enable() {
   $t = get_t();
 
-  // MULTISITE guideline #11
-  drupal_set_message($t('Erasmus core feature is now active from your site.'));
+  // MULTISITE guideline #11.
+  drupal_set_message($t('erasmus core feature is now active from your site.'));
 }
 
 /**
@@ -30,7 +29,7 @@ function erasmus_core_enable() {
  */
 function erasmus_core_install() {
   $t = get_t();
-  drupal_set_message($t('Erasmus core feature is now installed on your site.'));
+  drupal_set_message($t('erasmus core feature is now installed on your site.'));
 }
 
 /**
@@ -38,6 +37,5 @@ function erasmus_core_install() {
  */
 function erasmus_core_uninstall() {
   $t = get_t();
-  drupal_set_message($t('Erasmus core feature is now uninstalled from your site.'));
+  drupal_set_message($t('erasmus core feature is now uninstalled from your site.'));
 }
-

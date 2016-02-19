@@ -17,17 +17,6 @@ function erasmus_core_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'calls';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'view_all_calls' => array(
-      'weight' => '1',
-      'label' => 'hidden',
-      'format' => 'default',
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-          'classes' => 'class-1',
-        ),
-      ),
-    ),
     'field_calls_type' => array(
       'formatter_settings' => array(
         'ft' => array(
@@ -150,75 +139,6 @@ function erasmus_core_ds_field_settings_info() {
     ),
   );
   $export['node|calls|viewresults'] = $ds_fieldsetting;
-
-  $ds_fieldsetting = new stdClass();
-  $ds_fieldsetting->api_version = 1;
-  $ds_fieldsetting->id = 'node|events|default';
-  $ds_fieldsetting->entity_type = 'node';
-  $ds_fieldsetting->bundle = 'events';
-  $ds_fieldsetting->view_mode = 'default';
-  $ds_fieldsetting->settings = array(
-    'valor' => array(
-      'weight' => '11',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
-    'field_events_date' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-          'classes' => 'class-1',
-        ),
-      ),
-    ),
-    'field_events_venue' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-          'classes' => 'class-1',
-        ),
-      ),
-    ),
-    'field_events_report' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-          'classes' => 'class-1',
-        ),
-      ),
-    ),
-    'field_events_reference_documents' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-          'classes' => 'class-1',
-        ),
-      ),
-    ),
-    'field_events_presentations' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-        ),
-      ),
-    ),
-    'field_reading_materials' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-          'classes' => 'class-1',
-        ),
-      ),
-    ),
-    'field_events_photos' => array(
-      'formatter_settings' => array(
-        'ft' => array(
-          'func' => 'theme_ds_field_minimal',
-        ),
-      ),
-    ),
-  );
-  $export['node|events|default'] = $ds_fieldsetting;
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
@@ -346,11 +266,6 @@ function erasmus_core_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'news';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'valor' => array(
-      'weight' => '4',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
     'post_date' => array(
       'weight' => '0',
       'label' => 'hidden',
@@ -464,27 +379,31 @@ function erasmus_core_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'left' => array(
-        0 => 'body',
+        0 => 'field_calls_type',
+        1 => 'field_calls_deadline',
+        2 => 'field_calls_status',
+        3 => 'field_calls_reference',
+        4 => 'field_calls_clarifications',
+        5 => 'field_calls_documents',
       ),
       'right' => array(
-        1 => 'view_all_calls',
-        2 => 'field_calls_reference',
-        3 => 'field_calls_status',
-        4 => 'field_calls_deadline',
-        5 => 'field_calls_documents',
-        6 => 'field_calls_type',
-        7 => 'field_calls_clarifications',
+        6 => 'field_calls_images',
+        7 => 'field_calls_abstract',
+        8 => 'body',
+        9 => 'language',
       ),
     ),
     'fields' => array(
-      'body' => 'left',
-      'view_all_calls' => 'right',
-      'field_calls_reference' => 'right',
-      'field_calls_status' => 'right',
-      'field_calls_deadline' => 'right',
-      'field_calls_documents' => 'right',
-      'field_calls_type' => 'right',
-      'field_calls_clarifications' => 'right',
+      'field_calls_type' => 'left',
+      'field_calls_deadline' => 'left',
+      'field_calls_status' => 'left',
+      'field_calls_reference' => 'left',
+      'field_calls_clarifications' => 'left',
+      'field_calls_documents' => 'left',
+      'field_calls_images' => 'right',
+      'field_calls_abstract' => 'right',
+      'body' => 'right',
+      'language' => 'right',
     ),
     'classes' => array(
       'layout_class' => array(
@@ -579,38 +498,44 @@ function erasmus_core_ds_layout_settings_info() {
   $ds_layout->layout = 'ds_2col_stacked';
   $ds_layout->settings = array(
     'regions' => array(
+      'header' => array(
+        0 => 'language',
+      ),
       'left' => array(
-        0 => 'field_events_summary',
-        1 => 'field_events_context',
-        2 => 'body',
-        3 => 'field_events_find_out_more',
+        1 => 'field_events_date',
+        2 => 'field_events_venue',
+        3 => 'field_events_presentations',
+        4 => 'field_events_context',
+        5 => 'field_events_summary',
       ),
       'right' => array(
-        4 => 'field_events_presentations',
-        5 => 'field_events_venue',
+        6 => 'field_events_images',
+        7 => 'field_events_abstract',
+        8 => 'body',
       ),
       'footer' => array(
-        6 => 'field_events_reference_documents',
-        7 => 'field_events_report',
-        8 => 'field_events_date',
-        9 => 'field_reading_materials',
+        9 => 'field_events_find_out_more',
         10 => 'field_events_photos',
-        11 => 'valor',
+        11 => 'field_events_reference_documents',
+        12 => 'field_events_report',
+        13 => 'field_reading_materials',
       ),
     ),
     'fields' => array(
-      'field_events_summary' => 'left',
+      'language' => 'header',
+      'field_events_date' => 'left',
+      'field_events_venue' => 'left',
+      'field_events_presentations' => 'left',
       'field_events_context' => 'left',
-      'body' => 'left',
-      'field_events_find_out_more' => 'left',
-      'field_events_presentations' => 'right',
-      'field_events_venue' => 'right',
+      'field_events_summary' => 'left',
+      'field_events_images' => 'right',
+      'field_events_abstract' => 'right',
+      'body' => 'right',
+      'field_events_find_out_more' => 'footer',
+      'field_events_photos' => 'footer',
       'field_events_reference_documents' => 'footer',
       'field_events_report' => 'footer',
-      'field_events_date' => 'footer',
       'field_reading_materials' => 'footer',
-      'field_events_photos' => 'footer',
-      'valor' => 'footer',
     ),
     'classes' => array(
       'layout_class' => array(
@@ -778,15 +703,11 @@ function erasmus_core_ds_layout_settings_info() {
         1 => 'body',
         2 => 'field_news_abstract',
       ),
-      'footer' => array(
-        3 => 'valor',
-      ),
     ),
     'fields' => array(
       'post_date' => 'header',
       'body' => 'header',
       'field_news_abstract' => 'header',
-      'valor' => 'footer',
     ),
     'classes' => array(
       'layout_class' => array(

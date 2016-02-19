@@ -10,7 +10,7 @@
 function erasmus_core_menu_default_menu_links() {
   $menu_links = array();
 
-  // Exported menu link: main-menu_about:<front>
+  // Exported menu link: main-menu_about:<front>.
   $menu_links['main-menu_about:<front>'] = array(
     'menu_name' => 'main-menu',
     'link_path' => '<front>',
@@ -34,7 +34,7 @@ function erasmus_core_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_contact:<front>
+  // Exported menu link: main-menu_contact:<front>.
   $menu_links['main-menu_contact:<front>'] = array(
     'menu_name' => 'main-menu',
     'link_path' => '<front>',
@@ -58,7 +58,7 @@ function erasmus_core_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_home:<front>
+  // Exported menu link: main-menu_home:<front>.
   $menu_links['main-menu_home:<front>'] = array(
     'menu_name' => 'main-menu',
     'link_path' => '<front>',
@@ -82,7 +82,7 @@ function erasmus_core_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_individuals:<front>
+  // Exported menu link: main-menu_individuals:<front>.
   $menu_links['main-menu_individuals:<front>'] = array(
     'menu_name' => 'main-menu',
     'link_path' => '<front>',
@@ -106,7 +106,7 @@ function erasmus_core_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_newsletters:my_subscriptions
+  // Exported menu link: main-menu_newsletters:my_subscriptions.
   $menu_links['main-menu_newsletters:my_subscriptions'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'my_subscriptions',
@@ -125,7 +125,7 @@ function erasmus_core_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 0,
   );
-  // Exported menu link: main-menu_organisations:<front>
+  // Exported menu link: main-menu_organisations:<front>.
   $menu_links['main-menu_organisations:<front>'] = array(
     'menu_name' => 'main-menu',
     'link_path' => '<front>',
@@ -149,7 +149,7 @@ function erasmus_core_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_ressources:<front>
+  // Exported menu link: main-menu_ressources:<front>.
   $menu_links['main-menu_ressources:<front>'] = array(
     'menu_name' => 'main-menu',
     'link_path' => '<front>',
@@ -173,7 +173,7 @@ function erasmus_core_menu_default_menu_links() {
     'language' => 'und',
     'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_search:search/site
+  // Exported menu link: main-menu_search:search/site.
   $menu_links['main-menu_search:search/site'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'search/site',
@@ -202,7 +202,6 @@ function erasmus_core_menu_default_menu_links() {
   t('Organisations');
   t('Ressources');
   t('Search');
-
 
   return $menu_links;
 }
