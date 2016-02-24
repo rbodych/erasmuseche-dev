@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Page--front.tpl.php.
+ * Page--document-library.tpl.php.
  *
  * PHP version 5
  *
@@ -16,7 +16,7 @@
  * @license http://ec.europa.eu Europa
  * @link NA
  *
- * Ec_resp's theme implementation to display a single Drupal page.
+ * Erasmus theme implementation to display the document library.
  *
  * The doctype, html, head and body tags are not in this template. Instead they
  * can be found in the html.tpl.php template normally located in the
@@ -114,42 +114,13 @@
   <section class="notification">
     <div class="container-fluid">
       <div class="notification__content">
-        <div class="notification__text">
+        <div class="notification__text" align="center">
           <p><?php print render($page['announcement']); ?></p>
         </div>
       </div>
     </div>
   </section>
 <?php endif; ?>
-<div id="ErasmusDisclaimer" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div id="ErasmusDisclaimer" class="modal-content">
-      <div class="modal-header">
-        <img src="<?php print $GLOBALS['base_url'] .
-        "/" . path_to_theme() ?>/images/disclaimer.png">
-      </div>
-      <div>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-5" id="modalleft">
-            <h1><?php print $modallefttitlelineone; ?></h1>
-            <h1><?php print $modallefttitlelinetwo; ?></h1>
-          </div>
-          <div class="col-md-7" id="modalright">
-            <p><?php print $modalrighttext; ?></p>
-          </div>
-          <div class="col-md-12" id="modalbottom">
-            <a type="button" class="link-more" data-dismiss="modal">
-                <?php print $modalclose; ?>
-            </a>
-            <?php print $modalnewsletter; ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="videowrap">
   <label class="closebox">×</label>
   <iframe id="video" frameborder="0" allowfullscreen></iframe>
@@ -181,8 +152,9 @@
         <div class="navbar-header" data-spy="affix" data-offset-top="165">
             <?php if ($menu_visible) : ?>
             <button id="menu-button" type="button" class="navbar-toggle"
- 	    data-toggle="collapse" data-target=".navbar-ex1-collapse">
-              <div class="arrow-down"></div>
+            data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true">
+              </span>
             </button>
             <?php endif; ?>
             <?php if ($has_responsive_sidebar) : ?>
@@ -199,18 +171,16 @@
     </div>
     <?php endif; ?>
     <?php print $regions['featured']; ?>
-  <div class="frontbg">
+  <header class="documentlibrarybg" role="banner">
     <div id="layout-body imgbg" class="container">
-      <div class="row">
-        <div id="main" class="posabso">
-          <div class="col-md-12 frontheadline animated bounceInDown">
-            <?php print render($page['headline']); ?>
-          </div>
-        </div>
-        <?php print render($page['headerbox']); ?>
+      <div class="col-xs-12 col-md-10 col-md-offset-1
+      animated bounceInDown" id="intro-box">
+        <h1><?php print $documentlibrarytitle; ?></h1>
+        <hr>
+        <p><?php print $documentlibrarysubtitle; ?></p>
       </div>
     </div>
-  </div>
+  </header>
 </div>
 <?php if ($has_responsive_sidebar) : ?>
   <div id="responsive-sidebar">
@@ -219,53 +189,67 @@
     <div id="responsive-sidebar-right"></div>
   </div>
 <?php endif; ?>
-<div id="layout-body" class="container">
-  <div class="row marginthirty">
-    <div id="sidebar-left" class="col-lg-8 col-md-8 col-sm-12 
-    col-xs-12 sidebar-left visible-lg visible-md visible-sm visible-xs">
-      <div class="region region-sidebar-left">
-        <div class="block-region">
-          <div class="region region-sidebar-right" data-thmr="thmr_116">
-            <div id="block" class="block panel panel-default clearfix"
-            data-thmr="thmr_115">
-              <div class="panel-heading" id="block">
-                <h2><?php print $updatestitle; ?></h2>
-              </div>
-              <div class="row">
-                <div class="col-md-6 col-xs-12" id="updatesleft">
-                    <?php print render($page['updates_left']); ?>
-                </div>
-                <div class="col-md-6 col-xs-12" id="updatesright">
-                    <?php print render($page['updates_right']); ?>
-                </div>
-              </div>
-              <div id="viewalllinks" class="row">
-                <div class="col-xs-12">
-                    <?php print $allevents . $allcalls . $allnews; ?>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="sidebar-left" class="col-lg-4 col-md-4 col-sm-4 col-xs-12
-    sidebar-left visible-lg visible-md visible-sm visible-xs">
-      <div class="region region-sidebar-left">
-        <div class="block-region">
-            <?php print $regions['sidebar_right']; ?>
-          <div>
-          </div>
-        </div>
-      </div>
+<div id="layout-body1">
+  <div class="mobile-subnav-wrapper visible-xs visible-sm">
+    <button class="btn">
+        <?php print $submenuresources; ?>
+      <span class="glyphicon glyphicon-chevron-down" aria-hidden="true">
+      </span>
+    </button>
+  </div>
+  <div class="row hidden">
+    <?php print render($title_prefix); ?>
+    <?php print render($title_suffix); ?>
+    <div class="col-lg-<?php print $cols['tools']['lg']; ?>
+    col-md-<?php print $cols['tools']['md']; ?> 
+    col-sm-<?php print $cols['tools']['sm']; ?>
+    col-xs-<?php print $cols['tools']['xs']; ?>">
+        <?php print $regions['tools']; ?>
     </div>
   </div>
-</div>
-<?php print render($page['stats']); ?>
-<div id="layout-body2" class="valor-stripe">
-	<div class="container">
-    <?php print render($page['content_bottom1']); ?>
+    <?php if ($messages) : ?>
+    <div id="messages">
+        <?php print $messages; ?>
     </div>
+    <?php endif; ?>
+    <?php if ($regions['sidebar_left']) : ?>
+    <div id="sidebar-left" 
+    class="col-lg-3 col-md-4 col-sm-0 col-xs-0 sidebar-left visible-lg visible-md">
+        <?php print $regions['sidebar_left']; ?>
+    </div>
+    <?php endif; ?>
+  <div id="content-wrapper" class="container">
+    <a id="content"></a>
+    <?php if ($title) : ?>
+      <h1 class="title" id="content-title">
+        <?php print $title; ?>
+      </h1>
+    <?php endif; ?>
+    <?php print $regions['content_top']; ?>
+    <a id="main-content"></a>
+    <?php if ($tabs) : ?>
+      <div class="tabs">
+        <?php print render($tabs); ?>
+      </div>
+    <?php endif; ?>
+    <?php print $regions['help']; ?>
+    <?php print $regions['content']; ?>
+    <div class="col-lg-<?php print $cols['content_right']['lg']; ?>
+    col-md-<?php print $cols['content_right']['md']; ?>
+    col-sm-<?php print $cols['content_right']['sm']; ?>
+    col-xs-<?php print $cols['content_right']['xs']; ?>">
+        <?php print $regions['content_right']; ?>
+    </div>
+    <?php print $feed_icons; ?>
+    <?php print $regions['content_bottom']; ?>
+  </div>
+  <div class="clearfix visible-sm visible-xs"></div>
+    <?php if ($cols['sidebar_right']['md'] == 12) : ?>
+    <div class="clearfix visible-md"></div>
+    <?php endif; ?>
+</div>
+<div id="layout-body1" class="container">
+    <?php print render($page['content_bottom1']); ?>
 </div>
 <div class="feedbackform">
   <div class="container">
