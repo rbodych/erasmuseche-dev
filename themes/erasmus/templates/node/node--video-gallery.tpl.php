@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Node-contact.tpl.php.
+ * Node--video-gallery.tpl.php.
  *
  * PHP version 5
  *
@@ -93,38 +93,26 @@
  * @see template_process()
  */
 ?>
-<div id="node-<?php print $node->nid; ?>" 
-class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-    <?php print render($title_prefix); ?>
-    <?php print render($title_suffix); ?>
-  <div class="content clearfix"<?php print $content_attributes; ?>>
-    <?php if ($prefix_display) :?>
-      <div class="node-private label label-default clearfix">
-        <span class="glyphicon glyphicon-lock"></span>
-        <?php print t('This content is private'); ?>
-      </div>
+<article class="col-md-8 video-content--wrapper">
+    <?php if (isset($embed_code)) : ?>
+    <div class="row">
+    <?php print $embed_code; ?>
+	</div>
     <?php endif; ?>
-    <?php
-    hide($content['comments']);
-    hide($content['links']);
-    ?>
-    <?php print render($content); ?>
-    <?php if ($suffix_display) : ?>
-      <div class="row node-info">
-        <div class="node-info-submitted col-lg-6 col-md-6 col-sm-6 
-        col-xs-12 col-lg-offset-6 col-md-offset-6 col-sm-offset-6">
-          <div class="well well-sm node-submitted clearfix">
-            <small>
-                <?php print $user_picture; ?>
-                <?php print $submitted; ?>
-            </small>
-          </div>
-        </div>
-      </div>
-    <?php endif;?>
-    <div class="link-wrapper right">
-        <?php print render($content['links']); ?>
+
+  <h1><?php print $article_title; ?></h1>
+
+    <?php if (isset($page_banner)) : ?>
+    <div class="row page-banner-wrapper">
+        <?php print $page_banner ?>
     </div>
-    <?php print render($content['comments']); ?>
-  </div>
-</div>
+    <?php endif; ?>
+
+    <?php if (isset($abstract)) : ?>
+    <p class="content-abstract">
+        <?php print $abstract; ?>
+    </p>
+    <?php endif; ?>
+
+    <?php print $body; ?>
+</article>

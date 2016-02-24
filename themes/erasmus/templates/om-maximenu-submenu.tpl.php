@@ -1,6 +1,21 @@
 <?php
 /**
  * @file
+ * Om-maximenu-submenu.tpl.php.
+ *
+ * PHP version 5
+ *
+ * @category Production
+ *
+ * @package ErasmusCore/Theme
+ *
+ * @author EAC WEB <EAC-LIST-C4@nomail.ec.europa.eu>
+ *
+ * @copyright 2015 European-Commission
+ *
+ * @license http://ec.europa.eu Europa
+ * @link NA
+ *
  * Default theme implementation of om maximenu with submenu blocks.
  *
  * Available variables:
@@ -23,45 +38,51 @@
  * @see template_preprocess_om_maximenu_submenu_content()
  */
 ?>
-<div id="om-menu-<?php print $maximenu_name; ?>-ul-wrapper" class="om-menu-ul-wrapper">
+<div id="om-menu-<?php print $maximenu_name; ?>-ul-wrapper"
+class="om-menu-ul-wrapper">
   <div class="navbar navbar-default" data-spy="affix" data-offset-top="165">
     <div class="container">
       <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul id="om-menu-<?php print $maximenu_name; ?>" class="om-menu nav navbar-nav">
-          <?php foreach ($links['links'] as $key => $content): ?>
+        <ul id="om-menu-<?php print $maximenu_name; ?>"
+        class="om-menu nav navbar-nav">
+            <?php foreach ($links['links'] as $key => $content): ?>
             <?php $count++; ?>
             <?php
-            print theme('om_maximenu_submenu_links', array(
-              'content' => $content,
-              'maximenu_name' => $maximenu_name,
-              'skin' => $skin,
-              'disabled' => $disabled,
-              'key' => $key,
-              'code' => $code,
-              'count' => $count,
-              'total' => $total,
-              )); ?>
-          <?php endforeach; ?>
+            print theme(
+                'om_maximenu_submenu_links', array(
+                  'content' => $content,
+                  'maximenu_name' => $maximenu_name,
+                  'skin' => $skin,
+                  'disabled' => $disabled,
+                  'key' => $key,
+                  'code' => $code,
+                  'count' => $count,
+                  'total' => $total,
+                )
+            ); ?>
+            <?php endforeach; ?>
           </ul>
           <div id="socialicons" class="socialiconsmenu ">
-           <?php print $iconnewsletter . $newsletterdesktop . $facebook . $twitter; ?>
+            <?php print $iconnewsletter . $newsletterdesktop .
+            $facebook . $twitter . $gplus; ?>
          </div>
        </div>
      </div>
    </div>
  </div>
-<nav class="mobile-nav-wrapper visible-xs-block visible-sm-block" role="navigation">
+<nav class="mobile-nav-wrapper visible-xs-block visible-sm-block" 
+role="navigation">
 	<div class="mobile-nav-bar">
 		<button>
-			<?php print $nav_ico; ?>
+    <?php print $nav_ico; ?>
 		</button>
 		<h1><?php print $namesite; ?></h1>
-			<?php print $flat_ec_logo; ?>
+    <?php print $flat_ec_logo; ?>
 	</div>
 	<div class="mobile-nav-panel">
 		<header>
 			<div class="nav-mobile-wrapper">
-      	<?php print $logo_ce_en; ?>
+        <?php print $logo_ce_en; ?>
     <h1><?php print $namesite; ?></h1>
 			</div>
 		</header>
@@ -83,24 +104,21 @@
 		</div>
 		<div class="nav-main-wrapper">
 			<ul>
-			<?php foreach ($links['links'] as $key => $content): ?>
+    <?php foreach ($links['links'] as $key => $content): ?>
 				<?php $count++; ?>
-				<?php print theme('om_maximenu_submenu_links', array(
-                  'content' => $content,
-                  'maximenu_name' => $maximenu_name,
-                  'skin' => $skin,
-                  'disabled' => $disabled,
-                  'key' => $key,
-                  'code' => $code,
-                  'count' => $count,
-                  'total' => $total,
-                  )); ?>
-			  <?php endforeach; ?>
-			</ul>
-			<ul>
-				<li><?php print $newslink; ?></li>
-				<li><?php print $eventlink; ?></li>
-				<li><?php print $callslink; ?></li>
+				<?php print theme(
+    'om_maximenu_submenu_links', array(
+      'content' => $content,
+      'maximenu_name' => $maximenu_name,
+      'skin' => $skin,
+      'disabled' => $disabled,
+      'key' => $key,
+      'code' => $code,
+      'count' => $count,
+      'total' => $total,
+    )
+); ?>
+    <?php endforeach; ?>
 			</ul>
 		</div>
 	</div>

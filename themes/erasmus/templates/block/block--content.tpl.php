@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Block--multisite-twitterblock--fpfis-twitter.tpl.php.
+ * Block--content.tpl.php.
  *
  * PHP version 5
  *
@@ -58,19 +58,15 @@
  * @ingroup themeable
  */
 ?>
-<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?> 
-<?php print ($panel ? 'panel panel-default clearfix' : ''); ?>" id="block">
-    <?php print render($title_prefix); ?>
-    <?php if ($title && $block->subject) : ?>
-    <div class="<?php print ($panel ? 'panel-heading' : ''); ?>" id="block">
-      <h2 align="center"><?php print $block->subject ?></h2>
-    </div>
-    <?php endif;?>
-    <?php print render($title_suffix); ?>
-  <div class="<?php print ($panel && $body_class ? 'panel-body' : ''); ?> content" 
-    <?php print $content_attributes; ?> id="block">
-    <?php
-    print $content;
-    ?>
+  
+<?php print render($title_prefix); ?>
+<?php if ($title && $block->subject) : ?>
+  <div class="<?php print ($panel ? 'panel-heading' : ''); ?>">
+    <?php print $block->subject ?>
   </div>
-</div>
+<?php endif;?>
+<?php print render($title_suffix); ?>
+
+<?php
+  print $content;
+?>

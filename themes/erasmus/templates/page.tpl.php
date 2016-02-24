@@ -1,6 +1,21 @@
 <?php
 /**
  * @file
+ * Page.tpl.php.
+ *
+ * PHP version 5
+ *
+ * @category Production
+ *
+ * @package ErasmusCore/Theme
+ *
+ * @author EAC WEB <EAC-LIST-C4@nomail.ec.europa.eu>
+ *
+ * @copyright 2015 European-Commission
+ *
+ * @license http://ec.europa.eu Europa
+ * @link NA
+ *
  * Erasmus theme implementation to display a page.
  *
  * The doctype, html, head and body tags are not in this template. Instead they
@@ -95,7 +110,7 @@
  */
 ?>
 <a id="top-page"></a>
-<?php if($page['announcement']): ?>
+<?php if($page['announcement']) : ?>
   <section class="notification">
     <div class="container-fluid">
       <div class="notification__content">
@@ -110,7 +125,8 @@
   <div class="modal-dialog">
     <div id="ErasmusDisclaimer" class="modal-content">
       <div class="modal-header">
-        <img src="<?php print $GLOBALS['base_url'] . "/" . path_to_theme() ?>/images/disclaimer.png">
+        <img src="<?php print $GLOBALS['base_url'] .
+        "/" . path_to_theme() ?>/images/disclaimer.png">
       </div>
       <div>
       </div>
@@ -125,7 +141,7 @@
           </div>
           <div class="col-md-12" id="modalbottom">
             <a type="button" class="link-more" data-dismiss="modal">
-              <?php print $modalclose; ?>
+                <?php print $modalclose; ?>
             </a>
             <?php print $modalnewsletter; ?>
           </div>
@@ -139,11 +155,12 @@
   <iframe id="video" frameborder="0" allowfullscreen></iframe>
 </div>
 <div class="container">
-  <?php print $regions['header_top']; ?>
+    <?php print $regions['header_top']; ?>
 </div>
 <div id="layout-header">
   <div class="container">
-    <img alt="European Commission logo" id="banner-flag" src="<?php print $logo; ?>" />
+    <img alt="European Commission logo" 
+    id="banner-flag" src="<?php print $logo; ?>" />
     <span id="banner-image-right" class="hidden-sm hidden-xs">
         <?php print $regions['header_right']; ?>
     </span>
@@ -151,17 +168,20 @@
     <div id="sub-title" class="hidden-xs"><?php print $site_slogan; ?></div>
   </div>
 </div>
-<div class="region-featured-wrapper <?php print ($has_responsive_sidebar ? 'sidebar-visible-sm' : ''); ?>">
-  <?php if ($menu_visible || $has_responsive_sidebar): ?>
-    <div class="mobile-user-bar navbar navbar-default visible-sm visible-xs" data-spy="affix" data-offset-top="82">
+<div class="region-featured-wrapper 
+<?php print ($has_responsive_sidebar ? 'sidebar-visible-sm' : ''); ?>">
+    <?php if ($menu_visible || $has_responsive_sidebar) : ?>
+    <div class="mobile-user-bar navbar navbar-default visible-sm visible-xs" 
+    data-spy="affix" data-offset-top="82">
       <div class="container">
         <div class="navbar-header" data-spy="affix" data-offset-top="165">
-          <?php if ($menu_visible): ?>
-            <button id="menu-button" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <?php if ($menu_visible) : ?>
+            <button id="menu-button" type="button" class="navbar-toggle" 
+            data-toggle="collapse" data-target=".navbar-ex1-collapse">
               <div class="arrow-down"></div>
             </button>
-          <?php endif; ?>
-          <?php if ($has_responsive_sidebar): ?>
+            <?php endif; ?>
+            <?php if ($has_responsive_sidebar) : ?>
             <div class="sidebar-button-wrapper">
               <button class="sidebar-button">
                 <span class="icon-bar"></span>
@@ -169,18 +189,21 @@
                 <span class="icon-bar"></span>
               </button>
             </div>
-          <?php endif; ?>
+            <?php endif; ?>
         </div>
       </div>
     </div>
-  <?php endif; ?>
-  <?php print $regions['featured']; ?>
-  <div class="<?php if(isset($bgpage)): print $bgpage; endif; ?> pagemargin">
-    <div id="layout-body imgbg" class="container">
+    <?php endif; ?>
+    <?php print $regions['featured']; ?>
+    <?php if (isset($node) && $node->type != 'video_gallery') : ?>
+    <div class="<?php if(isset($bgpage)) : print $bgpage;
+   endif; ?> pagemargin">
+      <div id="layout-body imgbg" class="container">
+      </div>
     </div>
-  </div>
+    <?php endif; ?>
 </div>
-<?php if ($has_responsive_sidebar): ?>
+<?php if ($has_responsive_sidebar) : ?>
   <div id="responsive-sidebar">
     <div id="responsive-header-right"></div>
     <div id="responsive-sidebar-left"></div>
@@ -188,53 +211,65 @@
   </div>
 <?php endif; ?>
 <div class="container">
+
   <div class="row">
-    <?php if ($regions['sidebar_left']): ?>
-      <div id="sidebar-left" class="col-lg-3 col-md-4 col-sm-0 col-xs-0 sidebar-left visible-lg visible-md">
+    <?php if ($regions['sidebar_left']) : ?>
+      <div id="sidebar-left" 
+      class="col-lg-3 col-md-4 col-sm-0 col-xs-0 sidebar-left visible-lg visible-md">
         <?php print $regions['sidebar_left']; ?>
       </div>
     <?php endif; ?>
-    <div id="content-wrapper" class="col-lg-12 col-md-<?php print $cols['content_main']['md']; ?> col-sm-<?php print $cols['content_main']['sm']; ?> col-md-<?php print $cols['content_main']['xs']; ?>">
+    <div id="content-wrapper" class="col-lg-12 
+    col-md-<?php print $cols['content_main']['md']; ?>
+    col-sm-<?php print $cols['content_main']['sm']; ?>
+    col-md-<?php print $cols['content_main']['xs']; ?>">
       <a id="content"></a>
-      <?php print $regions['content_top']; ?>
+        <?php print $regions['content_top']; ?>
       <a id="main-content"></a>
-      <?php if ($action_links): ?>
+        <?php if ($action_links) : ?>
         <ul class="action-links">
-          <?php print render($action_links); ?>
+            <?php print render($action_links); ?>
         </ul>
-      <?php endif; ?>
+        <?php endif; ?>
       <div class="row">
-        <div class="<?php if(isset($colheightortwelve)): print $colheightortwelve; endif; ?>" id="newlayout">
-          <?php if ($tabs): ?>
+        <div class="<?php if(isset($colheightortwelve)) : print $colheightortwelve;
+       endif; ?>" id="newlayout">
+            <?php if ($tabs) : ?>
             <div class="tabs"><?php print render($tabs); ?></div>
-          <?php endif; ?>
-          <?php print $regions['help']; ?>
-          <?php if ($title): ?>
+            <?php endif; ?>
+            <?php print $regions['help']; ?>
+            <?php if ($title && isset($node) && $node->type != 'video_gallery') : ?>
             <h1><?php print $title; ?></h1>
-          <?php endif; ?>
-          <?php if ($messages): ?>
+            <?php endif; ?>
+            <?php if ($messages) : ?>
             <div id="messages"><?php print $messages; ?></div>
-          <?php endif; ?>
-          <?php print $regions['tools']; ?>
-          <?php print $regions['content']; ?>
+            <?php endif; ?>
+            <?php print $regions['tools']; ?>
+            <?php print $regions['content']; ?>
+		  
+		  <?php if (isset($node) && $node->type == 'video_gallery') : ?>
+	        <aside class="col-md-4">
+                <?php print render($page['list_latest_items']); ?>
+		    </aside>
+    <?php endif; ?>
         </div>
-        <?php if ($is_newlayoutr): ?>
+        <?php if ($is_newlayoutr) : ?>
           <div class="col-lg-4" id="newlayoutr">
             <?php print render($page['therightcolumn']); ?>
           </div>
         <?php endif;?>
       </div>
-      <?php print $feed_icons; ?>
-      <?php print $regions['content_bottom']; ?>
+        <?php print $feed_icons; ?>
+        <?php print $regions['content_bottom']; ?>
     </div>
     <div class="clearfix visible-sm visible-xs"></div>
-    <?php if ($cols['sidebar_right']['md'] == 12): ?>
+    <?php if ($cols['sidebar_right']['md'] == 12) : ?>
       <div class="clearfix visible-md"></div>
     <?php endif; ?>
   </div>
 </div>
 <div id="layout-body1" class="container">
-  <?php print render($page['content_bottom1']); ?>
+    <?php print render($page['content_bottom1']); ?>
 </div>
 <div class="feedbackform">
   <div class="container">
