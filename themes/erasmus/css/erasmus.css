@@ -1465,14 +1465,14 @@ div#block-views-valor-projects-block .panel-body {
 }
 .frontbox {
   background-color: rgba(255,255,255,.9);
-  position: absolute;
   bottom: 30px;
   padding-top: 20px;
   font-size: 1em;
   /*noinspection CssNoGenericFontName*/
   font-family: 'ECSquareSansProLight';
   color: #727272;
-  z-index: 5;
+  z-index:99999999999999999;
+  margin-top:455px;
 }
 .front ul {
   padding: 0;
@@ -5111,7 +5111,6 @@ span.date-published em {
     float: left;
   }
   .frontbox {
-    bottom: -1px;
     background: #fff;
   }
   .overview-block {
