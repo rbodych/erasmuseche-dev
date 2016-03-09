@@ -1,0 +1,202 @@
+[33mcommit 0e1e4d4cffd28981b93b01a4055cea72bcd49c9b[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Tue Mar 8 12:40:02 2016 +0100
+
+    MULTISITE: Fix Frontbox headers css
+
+[33mcommit 7dc5700842a2276999788bfeff2c76245b6e59c3[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Tue Mar 8 09:38:37 2016 +0100
+
+    MULTISITE-9077 : Add webform as a dependency
+
+[33mcommit c0837d03b2cf2ff5be03f767398ec09f8cbd852d[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Wed Feb 24 15:58:34 2016 +0100
+
+    MULTISITE-8820 : Feature : erasmus_core.features.field_base.inc
+    change datetime to datestamp
+
+[33mcommit d5dfd7693ba6205b90b85570d59d6b1565690cab[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Wed Feb 24 15:39:35 2016 +0100
+
+    MULTISITE-8820: Increment multisite_version to 2.1
+
+[33mcommit 5cf85cc01750ffc41a77638f5e00b2630dc3cd0c[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Wed Feb 24 10:14:03 2016 +0100
+
+    MULTISITE-8820 : Remove simplehtmldom lib & html_import (feeds)
+
+[33mcommit 491c9c41b5cd2aed47ccd70aafbef79ac648b7eb[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Fri Feb 19 12:58:30 2016 +0100
+
+    MULTISITE-8820 : Feature : Feature update
+
+[33mcommit 4d66bc614495e84d8ff81e6308f5b1be6f93fa89[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Wed Feb 17 14:39:41 2016 +0100
+
+    MULTISITE-8820 - Erasmus.css fixed for PHPCS - info updated
+
+[33mcommit 271397fac616d0b2e83affd91b9960fb7a58b51c[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Wed Feb 17 14:34:35 2016 +0100
+
+    MULTISITE-8820 - Erasmus.css fixed for PHPCS
+
+[33mcommit 7980934615f2886d31d8bd77b191a5348804c4f4[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Tue Feb 16 17:36:34 2016 +0100
+
+    MULTISITE-8820 - Initial Commit for theme
+
+[33mcommit 1144de811325cf8d3f5399a34f4baf4b675b08d1[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Tue Feb 16 16:16:03 2016 +0100
+
+    Erasmus 1.1 : Theme
+
+[33mcommit 83812c2e6935ad7cd5f39645784a1a2aaf5181e5[m
+Author: Christophe Maertens <christophe.maertens@ext.ec.europa.eu>
+Date:   Tue Feb 16 14:07:29 2016 +0100
+
+    Erasmus 1.1 : Theme
+
+[33mcommit 6206906f31352c0cc1beaed7aa348658b29eeeb4[m
+Merge: 1f0a026 2d5b4c1
+Author: TATAR Balazs Janos <balazs-janos.tatar@ext.ec.europa.eu>
+Date:   Tue Nov 24 10:44:50 2015 +0100
+
+    Merge pull request #3 in MULTISITE/erasmus-reference from MULTISITE/erasmus-dev:master to master
+    
+    * commit '2d5b4c1f6752b3a8b42ae72c3d8389482b134380':
+      Add the migrate UI as depedency
+      Add the migrate module as depedency
+
+[33mcommit 2d5b4c1f6752b3a8b42ae72c3d8389482b134380[m
+Author: MAERTENS Christophe <christophe.maertens@ext.ec.europa.eu>
+Date:   Tue Nov 17 11:50:28 2015 +0100
+
+    Add the migrate UI as depedency
+
+[33mcommit 206dd1eb0526e05480010577c0b6cb64025d6559[m
+Author: MAERTENS Christophe <christophe.maertens@ext.ec.europa.eu>
+Date:   Tue Nov 17 11:45:54 2015 +0100
+
+    Add the migrate module as depedency
+
+[33mcommit 1f0a026b1b1addb0da383c93473a7156a7eb4bbd[m
+Merge: 9b48a1c 087f42c
+Author: TATAR Balazs Janos <balazs-janos.tatar@ext.ec.europa.eu>
+Date:   Mon Nov 16 17:26:28 2015 +0100
+
+    Merge pull request #2 in MULTISITE/erasmus-reference from MULTISITE/erasmus-dev:master to master
+    
+    * commit '087f42cd8df159dc67bcedec09f094c5e8184706':
+      MULTISITE-7739 Add the missing dependencies.
+
+[33mcommit 087f42cd8df159dc67bcedec09f094c5e8184706[m
+Merge: 9b48a1c 7563680
+Author: TATAR Balazs Janos <balazs-janos.tatar@ext.ec.europa.eu>
+Date:   Mon Nov 16 17:26:10 2015 +0100
+
+    Merge pull request #3 in MULTISITE/erasmus-dev from hotfix/MULTISITE-7739 to master
+    
+    * commit '7563680e8dc47eb70b8f2590c23b51bb13b41dc4':
+      MULTISITE-7739 Add the missing dependencies.
+
+[33mcommit 7563680e8dc47eb70b8f2590c23b51bb13b41dc4[m
+Author: TATAR Balazs Janos <balazs-janos.tatar@ext.ec.europa.eu>
+Date:   Mon Nov 16 17:24:50 2015 +0100
+
+    MULTISITE-7739 Add the missing dependencies.
+
+[33mcommit 9b48a1c6fe6acafbb833a3e81e919854399df46b[m
+Merge: d41327a 6bcece7
+Author: TATAR Balazs Janos <balazs-janos.tatar@ext.ec.europa.eu>
+Date:   Mon Nov 16 17:11:41 2015 +0100
+
+    Merge pull request #1 in MULTISITE/erasmus-reference from MULTISITE/erasmus-dev:master to master
+    
+    * commit '6bcece763053f88c2c40e29a7e64086b9c3b4a72':
+      MULTISITE Theme fixes
+      Theme fix
+      Install file for the erasmus core feature.
+      MULTISITE-7679
+      MULTISITE-7739 : Erasmus Core Feature
+      MULTISITE-7679 Attached the sent package to the repository to make it QAable.
+
+[33mcommit 6bcece763053f88c2c40e29a7e64086b9c3b4a72[m
+Merge: 40a7900 6421938
+Author: TATAR Balazs Janos <balazs-janos.tatar@ext.ec.europa.eu>
+Date:   Mon Nov 16 17:11:23 2015 +0100
+
+    Merge pull request #2 in MULTISITE/erasmus-dev from feature/MULTISITE-7739 to master
+    
+    * commit '6421938a134b4e73d2207874140cc4dfa58b05be':
+      Theme fix
+      Install file for the erasmus core feature.
+      MULTISITE-7679
+      MULTISITE-7739 : Erasmus Core Feature
+
+[33mcommit 40a79000add22b6aeb24ee68da80c2ecd903fc04[m
+Author: MAERTENS Christophe <christophe.maertens@ext.ec.europa.eu>
+Date:   Mon Nov 16 16:48:25 2015 +0100
+
+    MULTISITE Theme fixes
+
+[33mcommit 6421938a134b4e73d2207874140cc4dfa58b05be[m
+Author: MAERTENS Christophe <christophe.maertens@ext.ec.europa.eu>
+Date:   Mon Nov 16 16:30:25 2015 +0100
+
+    Theme fix
+
+[33mcommit 32023facb6f1cdf414a7b9a4532ac59bd3862c04[m
+Author: MAERTENS Christophe <christophe.maertens@ext.ec.europa.eu>
+Date:   Mon Nov 16 15:38:52 2015 +0100
+
+    Install file for the erasmus core feature.
+
+[33mcommit 7d3d36de3614a0aea7b666ae296aec1fa50726f4[m
+Merge: d41327a abf1209
+Author: MAERTENS Christophe <christophe.maertens@ext.ec.europa.eu>
+Date:   Fri Nov 13 17:26:01 2015 +0100
+
+    Merge pull request #1 in MULTISITE/erasmus-dev from feature/MULTISITE-7679 to master
+    
+    * commit 'abf12093e8ca4a1e5c620edb348eb49f2b4c8d25':
+      MULTISITE-7679 Attached the sent package to the repository to make it QAable.
+
+[33mcommit 0736370df2d80f68a039bfa30bf1a011fb663d81[m
+Author: MAERTENS Christophe <christophe.maertens@ext.ec.europa.eu>
+Date:   Fri Nov 13 17:18:20 2015 +0100
+
+    MULTISITE-7679
+
+[33mcommit 9b2c664f0f3ed56257b9928cb53a52c88dae27b4[m
+Merge: fd056f5 abf1209
+Author: MAERTENS Christophe <christophe.maertens@ext.ec.europa.eu>
+Date:   Fri Nov 13 17:14:12 2015 +0100
+
+    Merge branch 'feature/MULTISITE-7679' of https://webgate.ec.europa.eu/CITnet/stash/scm/multisite/erasmus-dev into feature/MULTISITE-7739
+
+[33mcommit fd056f51b302ff5cd6f4f8a6460975cbc0f7f663[m
+Author: MAERTENS Christophe <christophe.maertens@ext.ec.europa.eu>
+Date:   Fri Nov 13 17:04:00 2015 +0100
+
+    MULTISITE-7739 : Erasmus Core Feature
+
+[33mcommit abf12093e8ca4a1e5c620edb348eb49f2b4c8d25[m
+Author: TATAR Balazs Janos <balazs-janos.tatar@ext.ec.europa.eu>
+Date:   Thu Nov 12 10:43:26 2015 +0100
+
+    MULTISITE-7679 Attached the sent package to the repository to make it QAable.
+
+[33mcommit d41327a2f62e0ec0a040ae3e914ce1269b8da111[m
+Author: TATAR Balazs Janos <balazs-janos.tatar@ext.ec.europa.eu>
+Date:   Thu Nov 12 10:31:07 2015 +0100
+
+    Initial commit.
