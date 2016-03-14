@@ -33,7 +33,6 @@ dependencies[] = smart_trim
 dependencies[] = taxonomy_manager
 dependencies[] = views
 dependencies[] = views_bootstrap
-dependencies[] = webform
 features[context][] = calls-sidebar
 features[context][] = not_found_page_404
 features[context][] = programmeguide
