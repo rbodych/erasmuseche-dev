@@ -31,7 +31,6 @@ stylesheets[all][] = css/erasmus.css
 stylesheets[all][] = css/animate.css
 
 ; SCRIPTS
-scripts[] = scripts/announcement.js
 scripts[] = scripts/contacttabs.js
 scripts[] = scripts/counter.js
 scripts[] = scripts/type.js
