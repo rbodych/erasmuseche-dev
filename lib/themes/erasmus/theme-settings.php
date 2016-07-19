@@ -29,6 +29,7 @@ function erasmus_form_system_theme_settings_alter(&$form, &$form_state) {
     '#default_value' => theme_get_setting('videohome_youtube_id'),
   );
 }
+
 /**
  * Helper function that inserts sample content into empty regions.
  */
@@ -37,6 +38,7 @@ function erasmus_preprocess_page(&$variables) {
     $variables['theme_hook_suggestions'][] = 'page__node__' . $variables['node']->type;
   }
 }
+
 /**
  * Form alter for dynamic theme variables.
  */
@@ -71,13 +73,13 @@ function erasmus_form_system_theme_settings_alter(&$form, &$form_state) {
     '#title' => t('organisationstitle'),
     '#default_value' => theme_get_setting('organisationstitle'),
     '#description' => t('Title for organisations section.'),
-  );  
+  );
   $form['organisationssubtitle'] = array(
     '#type' => 'textfield',
     '#title' => t('organisationssubtitle'),
     '#default_value' => theme_get_setting('organisationssubtitle'),
     '#description' => t('Subtitle for the organisations section.'),
-  ); 
+  );
   $form['resourcestitle'] = array(
     '#type' => 'textfield',
     '#title' => t('resourcestitle'),
@@ -89,5 +91,5 @@ function erasmus_form_system_theme_settings_alter(&$form, &$form_state) {
     '#title' => t('resourcessubtitle'),
     '#default_value' => theme_get_setting('resourcessubtitle'),
     '#description' => t('Title for resources section.'),
-  );  
+  );
 }

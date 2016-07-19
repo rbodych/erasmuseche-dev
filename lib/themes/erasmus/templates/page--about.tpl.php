@@ -137,7 +137,7 @@
         <div class="navbar-header" data-spy="affix" data-offset-top="165">
             <?php if ($menu_visible) : ?>
             <button id="menu-button" type="button" class="navbar-toggle"
- 	    data-toggle="collapse" data-target=".navbar-ex1-collapse">
+         data-toggle="collapse" data-target=".navbar-ex1-collapse">
               <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true">
               </span>
             </button>

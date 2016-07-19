@@ -206,12 +206,12 @@
             <?php endif; ?>
             <?php print $regions['tools']; ?>
             <?php print $regions['content']; ?>
-		  
-		  <?php if (isset($node) && $node->type == 'video_gallery') : ?>
-	        <aside class="col-md-4">
+          
+          <?php if (isset($node) && $node->type == 'video_gallery') : ?>
+            <aside class="col-md-4">
                 <?php print render($page['list_latest_items']); ?>
-		    </aside>
-    <?php endif; ?>
+            </aside>
+          <?php endif; ?>
         </div>
         <?php if ($is_newlayoutr) : ?>
           <div class="col-lg-4" id="newlayoutr">

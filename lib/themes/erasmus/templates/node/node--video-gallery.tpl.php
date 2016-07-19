@@ -97,7 +97,7 @@
     <?php if (isset($embed_code)) : ?>
     <div class="row">
     <?php print $embed_code; ?>
-	</div>
+    </div>
     <?php endif; ?>
 
   <h1><?php print $article_title; ?></h1>

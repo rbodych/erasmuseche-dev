@@ -167,12 +167,12 @@
 <?php if ($title) : ?>
   <div class="title-stripe">
     <div class="container">
-	  <div class="row">
+      <div class="row">
         <h1 class="title" id="content-title">
             <?php print $title; ?>
         </h1>
-	  </div>
-	</div>
+      </div>
+    </div>
   </div>
 <?php endif; ?>
 <div class="container">
@@ -201,10 +201,10 @@ col-xs-<?php print $cols['tools']['xs']; ?>">
     <a id="main-content"></a>
     <?php print $regions['help']; ?>
     <div class="row notfound-content-wrapper">
-	  <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2">
         <?php print render($page['content']); ?>
-	  </div>
-	</div>
+      </div>
+    </div>
     <?php print $feed_icons; ?>
     <?php print $regions['content_bottom']; ?>
   </div>
