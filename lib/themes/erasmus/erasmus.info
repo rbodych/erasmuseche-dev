@@ -9,6 +9,21 @@ php = 5.2.4
 
 ; SETTINGS
 settings[videohome_youtube_id] = "3fiCRpgOpvU"
+settings[abouttitle] = "About"
+settings[aboutsubtitle] = "Erasmus+ is the EU's programme to support education, training, youth and sport in Europe. Its budget of €14.7 billion will provide opportunities for over 4 million Europeans to study, train gain experience, and volunteers abroad."
+settings[individualstitle] = "Opportunities for individuals"
+settings[individualssubtitle] = "Erasmus+ has opportunities for people of all ages, helping them develop and share knowledge and experience at institutions and organisations in different countries"
+settings[organisationstitle] = "Opportunities for organisations"
+settings[organisationssubtitle] = "Erasmus+ has opportunities for a wide range of organisations including universities, education and training providers, think thanks, research organisations, and private businesses."
+settings[resourcestitle] = "Resources"
+settings[resourcessubtitle] = "Key tools and documents for organisations and individuals that you'll need to get started with Erasmus+"
+settings[documentlibrarytitle] = "Document library"
+settings[documentlibrarysubtitle] = ""The full texts of European legislation (Directives, Regulations, Decisions etc…) and other official documents (Communications etc…) are available from the EU's Eur-Lex website.""
+settings[contacttitle] = "Contact"
+settings[contactsubtitle] = "For any questions not answered in the Programme Guide, you can contact National Agencies, National Offices or the European Commission."
+settings[newsletter] = "https://ec.europa.eu/coreservices/mailing/index.cfm"
+settings[videoabout] = "http://www.sample-videos.com/video/mp4/720/big_buck_bunny_720p_1mb.mp4"
+
 
 ; STYLESHEETS
 stylesheets[all][] = css/font-awesome.css
