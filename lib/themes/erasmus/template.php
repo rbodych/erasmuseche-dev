@@ -164,51 +164,17 @@ function erasmus_preprocess_page(&$variables) {
   global $language;
   $variables['is_newlayoutr'] = FALSE;
   $variables['language'] = $language;
-  $variables['abouttitle'] = t('About');
-  $variables['aboutsubtitle'] = t(
-        "Erasmus+ is the EU's programme to support education, training, 
-        youth and sport in Europe. Its budget of €14.7 billion will 
-        provide opportunities for over 4 million Europeans to study, 
-        train gain experience, and volunteers abroad."
-    );
-  $variables['individualstitle'] = t('Opportunities for individuals');
-  $variables['individualssubtitle'] = t(
-        "Erasmus+ has opportunities for 
-        people of all ages, helping them develop and share knowledge and 
-        experience at institutions and organisations in different countries"
-    );
-  $variables['organisationstitle'] = t('Opportunities for organisations');
-  $variables['organisationssubtitle'] = t(
-        "Erasmus+ has opportunities for 
-        a wide range of organisations including universities, education and 
-        training providers, think thanks, research organisations, 
-        and private businesses."
-    );
-  $variables['resourcestitle'] = t('Resources');
-  $variables['resourcessubtitle'] = t(
-        "Key tools and documents for organisations and individuals 
-        that you'll need to get started with Erasmus+"
-    );
-  $variables['documentlibrarytitle'] = t('Document library');
-  $variables['documentlibrarysubtitle'] = t(
-        "The full texts of European legislation (Directives, 
-        Regulations, Decisions etc…) and other official documents 
-        (Communications etc…) are available from the EU's Eur-Lex website."
-    );
-  $variables['contacttitle'] = t('Contact');
-  $variables['contactsubtitle'] = t(
-        "For any questions not answered in the Programme Guide, 
-        you can contact National Agencies, National Offices or 
-        the European Commission."
-    );
-  $variables['modallefttitlelineone'] = t('Changing lives,');
-  $variables['modallefttitlelinetwo'] = t('opening minds');
-  $variables['modalrighttext'] = t(
-        'Over the past few months, we have been working very hard on a 
-        complete overhaul to make our site easier to navigate, 
-        more user-friendly and mobile-compatible'
-    );
-  $variables['modalclose'] = t('Explore the new site');
+  $variables['abouttitle'] = theme_get_setting('abouttitle');
+  $variables['aboutsubtitle'] = theme_get_setting('aboutsubtitle');
+  $variables['individualstitle'] = theme_get_setting('individualstitle');
+  $variables['individualssubtitle'] = theme_get_setting('individualssubtitle');
+  $variables['organisationstitle'] = theme_get_setting('organisationstitle');
+  $variables['resourcestitle'] = theme_get_setting('resourcestitle');
+  $variables['resourcessubtitle'] = theme_get_setting('resourcessubtitle');
+  $variables['documentlibrarytitle'] = theme_get_setting('documentlibrarytitle');
+  $variables['documentlibrarysubtitle'] = theme_get_setting('documentlibrarysubtitle');
+  $variables['contacttitle'] = theme_get_setting('contacttitle');
+  $variables['contactsubtitle'] = theme_get_setting('organisationssubtitle');
   $variables['submenu'] = t('Opportunities');
   $variables['submenuabout'] = t('About');
   $variables['submenuresources'] = t('Resources');
@@ -223,19 +189,7 @@ function erasmus_preprocess_page(&$variables) {
             'align' => 'center',
           ),
         )
-       );
-  $variables['$menunewsletter'] = l(
-        t('Subscribe to our newsletter'),
-        "https://ec.europa.eu/coreservices/mailing/index.cfm?
-        controller=register&action=index&serviceid=1756&pk_campaign=
-        SubscribeNewsletter&pk_kwd=Modal",
-        array(
-          'attributes' => array(
-            'class' => 'link-modal',
-            'align' => 'center',
-          ),
-        )
-    );
+      );
   $variables['updatestitle'] = t('Updates');
   $variables['allevents'] = l(
         t('All events'),

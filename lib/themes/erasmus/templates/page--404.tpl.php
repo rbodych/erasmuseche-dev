@@ -110,47 +110,6 @@
  */
 ?>
 <a id="top-page"></a>
-
-<?php if($page['announcement']) : ?>
-<section class="notification">
-  <div class="container-fluid">
-    <div class="notification__content">
-      <div class="notification__text" align="center">
-        <p><?php print render($page['announcement']); ?></p>
-      </div>
-    </div>
-  </div>
-</section>
-<?php endif; ?>
-<div id="ErasmusDisclaimer" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div id="ErasmusDisclaimer" class="modal-content">
-      <div class="modal-header">
-         <img src="<?php print $GLOBALS['base_url'] .
-            "/" . path_to_theme() ?>/images/disclaimer.png">
-      </div>
-      <div>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-5" id="modalleft">
-            <h1><?php print $modallefttitlelineone; ?></h1>
-            <h1><?php print $modallefttitlelinetwo; ?></h1>
-          </div>
-          <div class="col-md-7" id="modalright">
-            <p><?php print $modalrighttext; ?></p>
-          </div>
-          <div class="col-md-12" id="modalbottom">
-            <a type="button" class="link-more" data-dismiss="modal">
-                <?php print $modalclose; ?>
-            </a>
-            <?php print $modalnewsletter; ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="videowrap">
   <label class="closebox">×</label>
   <iframe id="video" frameborder="0" allowfullscreen></iframe>
@@ -208,12 +167,12 @@
 <?php if ($title) : ?>
   <div class="title-stripe">
     <div class="container">
-	  <div class="row">
+      <div class="row">
         <h1 class="title" id="content-title">
             <?php print $title; ?>
         </h1>
-	  </div>
-	</div>
+      </div>
+    </div>
   </div>
 <?php endif; ?>
 <div class="container">
@@ -242,10 +201,10 @@ col-xs-<?php print $cols['tools']['xs']; ?>">
     <a id="main-content"></a>
     <?php print $regions['help']; ?>
     <div class="row notfound-content-wrapper">
-	  <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-8 col-md-offset-2">
         <?php print render($page['content']); ?>
-	  </div>
-	</div>
+      </div>
+    </div>
     <?php print $feed_icons; ?>
     <?php print $regions['content_bottom']; ?>
   </div>

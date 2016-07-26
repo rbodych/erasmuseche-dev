@@ -72,41 +72,41 @@ class="om-menu-ul-wrapper">
  </div>
 <nav class="mobile-nav-wrapper visible-xs-block visible-sm-block" 
 role="navigation">
-	<div class="mobile-nav-bar">
-		<button>
+    <div class="mobile-nav-bar">
+        <button>
     <?php print $nav_ico; ?>
-		</button>
-		<h1><?php print $namesite; ?></h1>
+        </button>
+        <h1><?php print $namesite; ?></h1>
     <?php print $flat_ec_logo; ?>
-	</div>
-	<div class="mobile-nav-panel">
-		<header>
-			<div class="nav-mobile-wrapper">
+    </div>
+    <div class="mobile-nav-panel">
+        <header>
+            <div class="nav-mobile-wrapper">
         <?php print $logo_ce_en; ?>
     <h1><?php print $namesite; ?></h1>
-			</div>
-		</header>
-		<ul class="mobile-nav-tools">
-			<li>
-				<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-				<?php print $lang; ?>
-			</li>
+            </div>
+        </header>
+        <ul class="mobile-nav-tools">
+            <li>
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                <?php print $lang; ?>
+            </li>
       <li>
-				<i class="fa fa-newspaper-o"></i><?php print $newslettermobile; ?>
-			</li>
+                <i class="fa fa-newspaper-o"></i><?php print $newslettermobile; ?>
+            </li>
       <li>
-				<i class="fa fa-search"></i><?php print $searchlink; ?>
-			</li>
-		</ul>
-		<div class="mobile-tools-panel mobile-nav-lg container">
-			<p><?php print $langintro; ?></p>
-			<p><?php print $langlink . $langsummary; ?></p>
-		</div>
-		<div class="nav-main-wrapper">
-			<ul>
+                <i class="fa fa-search"></i><?php print $searchlink; ?>
+            </li>
+        </ul>
+        <div class="mobile-tools-panel mobile-nav-lg container">
+            <p><?php print $langintro; ?></p>
+            <p><?php print $langlink . $langsummary; ?></p>
+        </div>
+        <div class="nav-main-wrapper">
+            <ul>
     <?php foreach ($links['links'] as $key => $content): ?>
-				<?php $count++; ?>
-				<?php print theme(
+                <?php $count++; ?>
+                <?php print theme(
     'om_maximenu_submenu_links', array(
       'content' => $content,
       'maximenu_name' => $maximenu_name,
@@ -119,8 +119,8 @@ role="navigation">
     )
 ); ?>
     <?php endforeach; ?>
-			</ul>
-		</div>
-	</div>
-	<div class="mobile-nav-shadow"></div>
+            </ul>
+        </div>
+    </div>
+    <div class="mobile-nav-shadow"></div>
 </nav>

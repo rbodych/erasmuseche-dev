@@ -110,46 +110,6 @@
  */
 ?>
 <a id="top-page"></a>
-<?php if($page['announcement']) : ?>
-  <section class="notification">
-    <div class="container-fluid">
-      <div class="notification__content">
-        <div class="notification__text" align="center">
-          <p><?php print render($page['announcement']); ?></p>
-        </div>
-      </div>
-    </div>
-  </section>
-<?php endif; ?>
-<div id="ErasmusDisclaimer" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div id="ErasmusDisclaimer" class="modal-content">
-      <div class="modal-header">
-        <img src="<?php print $GLOBALS['base_url'] .
-        "/" . path_to_theme() ?>/images/disclaimer.png">
-      </div>
-      <div>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-5" id="modalleft">
-            <h1><?php print $modallefttitlelineone; ?></h1>
-            <h1><?php print $modallefttitlelinetwo; ?></h1>
-          </div>
-          <div class="col-md-7" id="modalright">
-            <p><?php print $modalrighttext; ?></p>
-          </div>
-          <div class="col-md-12" id="modalbottom">
-            <a type="button" class="link-more" data-dismiss="modal">
-                <?php print $modalclose; ?>
-            </a>
-            <?php print $modalnewsletter; ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="videowrap">
   <label class="closebox">×</label>
   <iframe id="video" frameborder="0" allowfullscreen></iframe>
@@ -246,12 +206,12 @@
             <?php endif; ?>
             <?php print $regions['tools']; ?>
             <?php print $regions['content']; ?>
-		  
-		  <?php if (isset($node) && $node->type == 'video_gallery') : ?>
-	        <aside class="col-md-4">
+          
+          <?php if (isset($node) && $node->type == 'video_gallery') : ?>
+            <aside class="col-md-4">
                 <?php print render($page['list_latest_items']); ?>
-		    </aside>
-    <?php endif; ?>
+            </aside>
+          <?php endif; ?>
         </div>
         <?php if ($is_newlayoutr) : ?>
           <div class="col-lg-4" id="newlayoutr">

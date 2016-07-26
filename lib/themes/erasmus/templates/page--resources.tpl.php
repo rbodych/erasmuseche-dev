@@ -110,17 +110,6 @@
  */
 ?>
 <a id="top-page"></a>
-<?php if($page['announcement']) : ?>
-  <section class="notification">
-    <div class="container-fluid">
-      <div class="notification__content">
-        <div class="notification__text" align="center">
-          <p><?php print render($page['announcement']); ?></p>
-        </div>
-      </div>
-    </div>
-  </section>
-<?php endif; ?>
 <div class="videowrap">
   <label class="closebox">×</label>
   <iframe id="video" frameborder="0" allowfullscreen></iframe>
