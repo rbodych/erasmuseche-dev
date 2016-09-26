@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Page--front.tpl.php.

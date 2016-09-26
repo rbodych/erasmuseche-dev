@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Page.tpl.php.
@@ -236,7 +237,4 @@
     <?php print render($page['feedbackform']); ?>
   </div>
 </div>
-<a href="#top-page" class="btn-back-top">
-  <span class="glyphicon glyphicon-chevron-up"></span>
-</a>
 <?php print render($page['footer']); ?>

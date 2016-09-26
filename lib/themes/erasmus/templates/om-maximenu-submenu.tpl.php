@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Om-maximenu-submenu.tpl.php.

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Page--document-library.tpl.php.
