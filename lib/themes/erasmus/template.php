@@ -21,7 +21,7 @@
  */
 
 /**
- * Implements Erasmus_Preprocess_html().
+ * Implements template_preprocess_html().
  */
 function erasmus_preprocess_html(&$variables) {
   $settings['erasmus']['videohome_youtube_id'] = theme_get_setting('videohome_youtube_id');
@@ -34,7 +34,7 @@ function erasmus_preprocess_html(&$variables) {
 }
 
 /**
- * Implements Erasmus_Preprocess_Om_Maximenu_submenu().
+ * Implements erasmus_preprocess_om_maximenu_submenu().
  */
 function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   global $base_url;
@@ -153,7 +153,7 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
 }
 
 /**
- * Implements Erasmus_Preprocess_page().
+ * Implements template_preprocess_page().
  */
 function erasmus_preprocess_page(&$variables, $hook) {
   $header = drupal_get_http_header("status");
@@ -275,7 +275,7 @@ function erasmus_preprocess_page(&$variables, $hook) {
 }
 
 /**
- * Implements Erasmus_Preprocess_node().
+ * Implements template_preprocess_node().
  */
 function erasmus_preprocess_node(&$variables) {
   $node = $variables['node'];
