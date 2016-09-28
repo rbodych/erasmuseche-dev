@@ -126,8 +126,8 @@ function erasmus_programmeguide_views_default_views() {
   $handler->display->display_options['fields']['views_conditional']['if'] = 'realname';
   $handler->display->display_options['fields']['views_conditional']['condition'] = '1';
   $handler->display->display_options['fields']['views_conditional']['equalto'] = 'Super Admin';
-  $handler->display->display_options['fields']['views_conditional']['then'] = '<img width="14" height="14" title="ok" alt="ok" src="http://erasmusplus.xoftserver.com/misc/watchdog-warning.png" typeof="foaf:Image">';
-  $handler->display->display_options['fields']['views_conditional']['or'] = '<img width="14 height="14" title="ok" alt="ok" src="http://erasmusplus.xoftserver.com/misc/watchdog-ok.png" typeof="foaf:Image">';
+  $handler->display->display_options['fields']['views_conditional']['then'] = 'pending';
+  $handler->display->display_options['fields']['views_conditional']['or'] = 'ok';
   $handler->display->display_options['fields']['views_conditional']['strip_tags'] = 0;
   /* Sort criterion: Book: Hierarchy */
   $handler->display->display_options['sorts']['p']['id'] = 'p';
