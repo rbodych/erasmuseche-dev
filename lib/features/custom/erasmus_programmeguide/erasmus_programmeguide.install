@@ -33,7 +33,8 @@ function erasmus_programmeguide_enable()
 
 function erasmus_programmeguide_install()
 	{
-	drupal_set_message('Erasmus programme guide feature is now installed on your site.');
+	$t = get_t();
+	drupal_set_message($t('Erasmus programme guide feature is now installed on your site.'));
 	}
 
 /**
@@ -42,5 +43,7 @@ function erasmus_programmeguide_install()
 
 function erasmus_programmeguide_uninstall()
 	{
-	drupal_set_message('Erasmus programme guide feature is now uninstalled from your site.');
+	$t = get_t();
+	drupal_set_message($t('Erasmus programme guide feature is now uninstalled from your site.'));
 	}
+	
