@@ -10,7 +10,6 @@ dependencies[] = features
 dependencies[] = field_group
 dependencies[] = filefield_paths
 dependencies[] = link
-dependencies[] = menu
 dependencies[] = multisite_drupal_toolbox
 dependencies[] = multisite_metatags
 dependencies[] = nexteuropa_multilingual
