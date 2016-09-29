@@ -2,21 +2,6 @@
 
 /**
  * @file
- * Block--feedbackform.tpl.php.
- *
- * PHP version 5
- *
- * @category Production
- *
- * @package ErasmusCore/Theme
- *
- * @author EAC WEB <EAC-LIST-C4@nomail.ec.europa.eu>
- *
- * @copyright 2015 European-Commission
- *
- * @license http://ec.europa.eu Europa
- * @link NA
- *
  * Default theme implementation to display a block.
  *
  * Available variables:
@@ -59,22 +44,13 @@
  * @ingroup themeable
  */
 ?>
-<div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?> 
-<?php print ($panel ? 'panel panel-default clearfix' : ''); ?>">
   
 <?php print render($title_prefix); ?>
 <?php if ($title && $block->subject) : ?>
-  <div class="<?php print ($panel ? 'panel-heading' : ''); ?>">
-    <?php print $block->subject ?>
-  </div>
+  <h2>
+    <?php print $block->subject; ?>
+  </h2>
 <?php endif;?>
 <?php print render($title_suffix); ?>
-  <div class="<?php print ($panel && $body_class ?
-    'panel-body col-md-offset-3 col-md-6' : ''); ?> 
-  content"<?php print $content_attributes; ?>>
-    <?php
-    print $content;
-    ?>
-  </div>
 
-</div>
+<?php print $content; ?>

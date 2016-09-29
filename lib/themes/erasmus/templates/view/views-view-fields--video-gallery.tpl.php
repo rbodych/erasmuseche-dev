@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Views-view-fields-video-gallery.tpl.php.

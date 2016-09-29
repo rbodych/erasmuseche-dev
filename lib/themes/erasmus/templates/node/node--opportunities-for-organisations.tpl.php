@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Node--opportunities-for-organisations.tpl.php.

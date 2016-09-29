@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Node-contact.tpl.php.

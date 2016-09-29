@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Block--multisite-twitterblock--fpfis-twitter.tpl.php.

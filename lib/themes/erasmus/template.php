@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Page.php.
@@ -20,7 +21,7 @@
  */
 
 /**
- * Implements Erasmus_Preprocess_html().
+ * Implements template_preprocess_html().
  */
 function erasmus_preprocess_html(&$variables) {
   $settings['erasmus']['videohome_youtube_id'] = theme_get_setting('videohome_youtube_id');
@@ -33,7 +34,7 @@ function erasmus_preprocess_html(&$variables) {
 }
 
 /**
- * Implements Erasmus_Preprocess_Om_Maximenu_submenu().
+ * Implements erasmus_preprocess_om_maximenu_submenu().
  */
 function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   global $base_url;
@@ -152,9 +153,9 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
 }
 
 /**
- * Implements Erasmus_Preprocess_page().
+ * Implements template_preprocess_page().
  */
-function erasmus_preprocess_page(&$variables) {
+function erasmus_preprocess_page(&$variables, $hook) {
   $header = drupal_get_http_header("status");
   if ($header == "404 Not Found") {
     $variables['theme_hook_suggestions'][] = 'page__404';
@@ -246,10 +247,35 @@ function erasmus_preprocess_page(&$variables) {
     $variables['colheightortwelve'] = 'col-lg-12';
     $variables['bgpage'] = 'frontbg';
   }
+
+  /* Add page tpl based on content type */
+
+  if ($node->type != 'programme_guide') {
+    drupal_add_css(
+      path_to_theme() . '/css/erasmus.css',
+      'theme', 'all', TRUE
+    );
+
+  }
+
+  if ($node->type == 'programme_guide') {
+    $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
+
+    drupal_add_css(
+      path_to_theme() . '/css/eac_erasmus_guide.css',
+      'theme', 'all', TRUE
+    );
+
+    drupal_add_js(
+      path_to_theme() . '/scripts/erasmus_guide.js'
+    );
+
+  }
+
 }
 
 /**
- * Implements Erasmus_Preprocess_node().
+ * Implements template_preprocess_node().
  */
 function erasmus_preprocess_node(&$variables) {
   $node = $variables['node'];
