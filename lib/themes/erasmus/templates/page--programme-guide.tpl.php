@@ -96,10 +96,6 @@
  */
 ?>
 
-<?php
-global $base_url;
-?>
-</div>
 <div id="layout-header" class="hidden-xs hidden-sm">
   <div class="container">
     <div class="europa-tools">
@@ -121,20 +117,19 @@ global $base_url;
   <div class="region-featured-wrapper <?php print ($has_responsive_sidebar ? 'sidebar-visible-sm' : ''); ?>">
     <?php print $regions['featured']; ?>
   </div>
-    <?php print render($page['content_top']); ?>
-    <?php print render($page['breadcrumbs']); ?>
-    <hgroup class="container">
-      <?php
-        print '<h1>' . $title . '</h1>';
-      ?>
-    </hgroup>
+  <?php print render($page['content_top']); ?>
+  <?php print render($page['breadcrumbs']); ?>
+  <hgroup class="container">
+    <?php
+      print '<h1>' . $title . '</h1>';
+    ?>
+  </hgroup>
 </header>
-
 
 <div id="layout-body" class="container">
   <div class="row">
     <?php if ($regions['sidebar_left']) : ?>
-     <aside class="col-sm-3 sidebar-left">
+      <aside class="col-sm-3 sidebar-left">
         <div class="sidebar-wrapper">
           <?php print $regions['sidebar_left']; ?>
         </div>
@@ -142,43 +137,37 @@ global $base_url;
     <?php endif; ?>
 
     <section class="main-content-wrapper col-sm-8" role="main">
-  <?php
-        $views_page = views_get_page_view();
-        if (is_object($views_page)) {
-            print '<h1>' . $title . '</h1>';
-        }
-  ?>
       <a id="content"></a>
-
-          <?php if ($messages) : ?>
+  
+      <?php if ($messages) : ?>
         <div id="messages">
-            <?php print $messages; ?>
+          <?php print $messages; ?>
         </div>
-          <?php endif; ?>
-        <?php if ($regions['help']) : ?>
+      <?php endif; ?>
+      <?php if ($regions['help']) : ?>
         <div class="tabs">
-        <?php print $regions['help']; ?>
-              </div>
-        <?php endif; ?>
-        <?php if ($tabs) : ?>
+          <?php print $regions['help']; ?>
+        </div>
+      <?php endif; ?>
+      <?php if ($tabs) : ?>
         <div class="tabs tab">
-            <?php print render($tabs); ?>
+          <?php print render($tabs); ?>
         </div>
-        <?php endif; ?>
-        
-        <?php print $regions['content']; ?>
-        <?php print $feed_icons; ?>
-        <?php if ($regions['content_bottom']) : ?>
+      <?php endif; ?>
+          
+      <?php print $regions['content']; ?>
+      <?php print $feed_icons; ?>
+      <?php if ($regions['content_bottom']) : ?>
         <div class="content_bottom">
-        <?php print $regions['content_bottom']; ?>
+          <?php print $regions['content_bottom']; ?>
         </div>
-        <?php endif; ?>
+      <?php endif; ?>
     </section>
 
     <?php if ($regions['sidebar_right']) : ?>
       <aside class="col-sm-3 sidebar-right">
         <div class="sidebar-wrapper">
-            <?php print $regions['sidebar_right']; ?>
+          <?php print $regions['sidebar_right']; ?>
         </div>
       </aside>
     <?php endif; ?>
@@ -197,4 +186,4 @@ global $base_url;
 
 <!-- #footer -->
 <?php print render($page['footer']); ?>
-<!-- /#footer -->      
+<!-- /#footer -->
