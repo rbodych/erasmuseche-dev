@@ -7,43 +7,38 @@
  * Implements hook_disable().
  */
 
-function erasmus_programmeguide_disable()
-	{
+function erasmus_programmeguide_disable() {
 
-	// MULTISITE guideline #11.
-
-	drupal_set_message('Erasmus programme guide  feature is now disabled on your site.');
-	}
+  // MULTISITE guideline #11.
+  $t = get_t();
+	drupal_set_message($t('Erasmus programme guide  feature is now disabled on your site.'));
+  }
 
 /**
  * Implements hook_enable().
  */
 
-function erasmus_programmeguide_enable()
-	{
+function erasmus_programmeguide_enable() {
 
-	// MULTISITE guideline #11.
-
-	drupal_set_message('Erasmus programme guide  feature is now active from your site.');
-	}
+  // MULTISITE guideline #11.
+  $t = get_t();
+	drupal_set_message($t('Erasmus programme guide  feature is now active from your site.'));
+  }
 
 /**
  * Implements hook_install().
  */
 
-function erasmus_programmeguide_install()
-	{
-	$t = get_t();
+function erasmus_programmeguide_install() {
+  $t = get_t();
 	drupal_set_message($t('Erasmus programme guide feature is now installed on your site.'));
-	}
+  }
 
 /**
  * Implements hook_uninstall().
  */
 
-function erasmus_programmeguide_uninstall()
-	{
-	$t = get_t();
+function erasmus_programmeguide_uninstall() {
+  $t = get_t();
 	drupal_set_message($t('Erasmus programme guide feature is now uninstalled from your site.'));
-	}
-	
+  }
