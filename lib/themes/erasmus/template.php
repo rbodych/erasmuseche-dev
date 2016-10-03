@@ -61,7 +61,7 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
     action=index&serviceid=1756&pk_campaign=NewErasmus&pk_kwd=NewsletterDesktop",
     array(
         'attributes' => array(
-        'class' => 'fa fa-newspaper-o',
+          'class' => 'fa fa-newspaper-o',
       ),
     )
   );
