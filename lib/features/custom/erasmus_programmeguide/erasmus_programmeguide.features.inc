@@ -53,14 +53,6 @@ function erasmus_programmeguide_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
-    'programme_guide_attached_pages' => array(
-      'name' => t('Programme guide - Attached pages'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
-    ),
   );
   drupal_alter('node_info', $items);
   return $items;
