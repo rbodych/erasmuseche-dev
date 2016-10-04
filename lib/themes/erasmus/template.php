@@ -55,37 +55,75 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
     $empty, "https://plus.google.com/communities/115077875344973792963",
     array('attributes' => array('class' => 'icon gplus'))
   );
-  $variables['iconnewsletter'] = l(
-    $empty,
-    "https://ec.europa.eu/coreservices/mailing/index.cfm?controller=register&
-    action=index&serviceid=1756&pk_campaign=NewErasmus&pk_kwd=NewsletterDesktop",
-    array(
-        'attributes' => array(
-          'class' => 'fa fa-newspaper-o',
-      ),
-    )
+  $title = $empty;
+  $url = 'https://ec.europa.eu/coreservices/mailing/index.cfm';
+  $options =   array(
+    'attributes' => array(
+      'class' => 'fa fa-newspaper-o',
+    ),
+    'absolute' => TRUE,
+    'query' => array(
+      'controller' => 'register',
+      'action' => 'index',
+      'serviceid' => 1756,
+      'pk_campaign' => 'NewErasmus',
+      'pk_kwd' => 'NewsletterDesktop',
+    ),
   );
-  $variables['newsletterdesktop'] = l(
-    t('Newsletter'),
-    "https://ec.europa.eu/coreservices/mailing/index.cfm?controller=register&
-    action=index&serviceid=1756&pk_campaign=NewErasmus&pk_kwd=NewsletterDesktop",
-    array(
-      'attributes' => array(
-        'class' => 'newsletter',
-      ),
-    )
+  $variables['iconnewsletter'] = l($title, $url, $options);
+
+  $title = $empty;
+  $url = 'https://ec.europa.eu/coreservices/mailing/index.cfm';
+  $options =   array(
+    'attributes' => array(
+      'class' => 'fa fa-newspaper-o',
+    ),
+    'absolute' => TRUE,
+    'query' => array(
+      'controller' => 'register',
+      'action' => 'index',
+      'serviceid' => 1756,
+      'pk_campaign' => 'NewErasmus',
+      'pk_kwd' => 'NewsletterDesktop',
+    ),
   );
-  $variables['newslettermobile'] = l(
-    t('Newsletter'),
-    "https://ec.europa.eu/coreservices/mailing/index.cfm?controller=register&
-    action=index&serviceid=1756&pk_campaign=NewErasmus&pk_kwd=NewsletterDesktop",
-    array(
-      'attributes' => array(
-        'class' => 'nav-tool-expand',
-        'data-expand' => 'mobile-nav-newsletter',
-      ),
-    )
+  $variables['newsletterdesktop'] = l($title, $url, $options);
+
+  $title = t('Newsletter');
+  $url = 'https://ec.europa.eu/coreservices/mailing/index.cfm';
+  $options =   array(
+    'attributes' => array(
+      'class' => 'newsletter',
+    ),
+    'absolute' => TRUE,
+    'query' => array(
+      'controller' => 'register',
+      'action' => 'index',
+      'serviceid' => 1756,
+      'pk_campaign' => 'NewErasmus',
+      'pk_kwd' => 'NewsletterDesktop',
+    ),
   );
+  $variables['newsletterdesktop'] = l($title, $url, $options);
+
+  $title = t('Newsletter');
+  $url = 'https://ec.europa.eu/coreservices/mailing/index.cfm';
+  $options =   array(
+    'attributes' => array(
+      'class' => 'nav-tool-expand',
+      'data-expand' => 'mobile-nav-newsletter',
+    ),
+    'absolute' => TRUE,
+    'query' => array(
+      'controller' => 'register',
+      'action' => 'index',
+      'serviceid' => 1756,
+      'pk_campaign' => 'NewErasmus',
+      'pk_kwd' => 'NewsletterDesktop',
+    ),
+  );
+  $variables['newslettermobile'] = l($title, $url, $options);
+
   $variables['searchlink'] = l(
     t('Search'), $base_url . "/search/site",
     array(
