@@ -72,23 +72,6 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   );
   $variables['iconnewsletter'] = l($title, $url, $options);
 
-  $title = $empty;
-  $url = 'https://ec.europa.eu/coreservices/mailing/index.cfm';
-  $options =   array(
-    'attributes' => array(
-      'class' => 'fa fa-newspaper-o',
-    ),
-    'absolute' => TRUE,
-    'query' => array(
-      'controller' => 'register',
-      'action' => 'index',
-      'serviceid' => 1756,
-      'pk_campaign' => 'NewErasmus',
-      'pk_kwd' => 'NewsletterDesktop',
-    ),
-  );
-  $variables['newsletterdesktop'] = l($title, $url, $options);
-
   $title = t('Newsletter');
   $url = 'https://ec.europa.eu/coreservices/mailing/index.cfm';
   $options =   array(
