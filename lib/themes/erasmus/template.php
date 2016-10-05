@@ -57,7 +57,7 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   );
   $title = $empty;
   $url = 'https://ec.europa.eu/coreservices/mailing/index.cfm';
-  $options =   array(
+  $options = array(
     'attributes' => array(
       'class' => 'fa fa-newspaper-o',
     ),
@@ -74,7 +74,7 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
 
   $title = t('Newsletter');
   $url = 'https://ec.europa.eu/coreservices/mailing/index.cfm';
-  $options =   array(
+  $options = array(
     'attributes' => array(
       'class' => 'newsletter',
     ),
@@ -91,7 +91,7 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
 
   $title = t('Newsletter');
   $url = 'https://ec.europa.eu/coreservices/mailing/index.cfm';
-  $options =   array(
+  $options = array(
     'attributes' => array(
       'class' => 'nav-tool-expand',
       'data-expand' => 'mobile-nav-newsletter',
