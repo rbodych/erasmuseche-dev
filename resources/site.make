@@ -14,10 +14,6 @@ projects[taxonomy_manager][version] = "1.0"
 projects[references][subdir] = "contrib"
 projects[references][version] = "2.1"
 
-projects[simplify][subdir] = "contrib"
-projects[simplify][version] = "3.3"
-projects[simplify][patch][] = "https://www.drupal.org/files/issues/hide_text_format_with_CSS-2477343-2.patch"
-
 
 ; =========
 ; Libraries
