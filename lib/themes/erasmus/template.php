@@ -283,7 +283,7 @@ function erasmus_preprocess_page(&$variables, $hook) {
   else {
     drupal_add_css(
       path_to_theme() . '/css/erasmus.css',
-       array('group' => CSS_SYSTEM + 9999, 'preprocess' => FALSE),
+       array('group' => CSS_SYSTEM + 200, 'preprocess' => FALSE),
       'theme', 'all', TRUE
     );
 
