@@ -283,35 +283,34 @@ function erasmus_preprocess_page(&$variables, $hook) {
   else {
     drupal_add_css(
       path_to_theme() . '/css/erasmus.css',
-       array('group' => CSS_SYSTEM + 9999, 'preprocess' => FALSE),
+       array('group' => CSS_SYSTEM + 200, 'preprocess' => FALSE),
       'theme', 'all', TRUE
     );
 
   }
+}
 
-  /**
-   * Implements template_preprocess_node().
-   */
-  function erasmus_preprocess_node(&$variables) {
-    $node = $variables['node'];
-    if ($node->type == 'video_gallery') {
-      $content = $variables['content'];
-      if (isset($content['field_embed_code'])) {
-        $variables['embed_code'] = $content['field_embed_code'][0]['#markup'];
-      }
+/**
+ * Implements template_preprocess_node().
+ */
+function erasmus_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  if ($node->type == 'video_gallery') {
+    $content = $variables['content'];
+    if (isset($content['field_embed_code'])) {
+      $variables['embed_code'] = $content['field_embed_code'][0]['#markup'];
+    }
 
-      if ($content['title_field']) {
-        $variables['article_title'] = $content['title_field'][0]['#markup'];
-      }
+    if ($content['title_field']) {
+      $variables['article_title'] = $content['title_field'][0]['#markup'];
+    }
 
-      if (isset($content['field_abstract'])) {
-        $variables['abstract'] = $content['field_abstract'][0]['#markup'];
-      }
+    if (isset($content['field_abstract'])) {
+      $variables['abstract'] = $content['field_abstract'][0]['#markup'];
+    }
 
-      if ($content['body']) {
-        $variables['body'] = $content['body'][0]['#markup'];
-      }
+    if ($content['body']) {
+      $variables['body'] = $content['body'][0]['#markup'];
     }
   }
-
 }
