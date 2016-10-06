@@ -313,5 +313,4 @@ function erasmus_preprocess_page(&$variables, $hook) {
       }
     }
   }
-
 }
