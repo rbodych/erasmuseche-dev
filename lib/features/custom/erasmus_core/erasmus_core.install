@@ -39,3 +39,17 @@ function erasmus_core_uninstall() {
   $t = get_t();
   drupal_set_message($t('erasmus core feature is now uninstalled from your site.'));
 }
+
+/**
+ * Enable modules Simplify, Footnotes and Workbench.
+ */
+function erasmus_core_update_7001() {
+
+  // Enable Simplify, Footnotes and Workbench Access modules.
+  $modules = array(
+    'simplify',
+    'footnotes',
+    'workbench_access',
+  );
+  module_enable($modules);
+}
