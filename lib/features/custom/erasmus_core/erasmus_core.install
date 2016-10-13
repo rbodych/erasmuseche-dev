@@ -5,7 +5,7 @@
  */
 
 /**
- * Erasmus core feature disable - hook_disable().
+ * Implements hook_disable().
  */
 function erasmus_core_disable() {
   $t = get_t();
@@ -15,7 +15,7 @@ function erasmus_core_disable() {
 }
 
 /**
- * Erasmus core feature active -  hook_enable().
+ * Implements hook_enable().
  */
 function erasmus_core_enable() {
   $t = get_t();
@@ -25,7 +25,7 @@ function erasmus_core_enable() {
 }
 
 /**
- * Erasmus core feature installed - hook_install().
+ * Implements hook_install().
  */
 function erasmus_core_install() {
   $t = get_t();
@@ -33,7 +33,7 @@ function erasmus_core_install() {
 }
 
 /**
- * Erasmus core feature unistalled - hook_uninstall().
+ * Implements hook_uninstall().
  */
 function erasmus_core_uninstall() {
   $t = get_t();
@@ -41,9 +41,9 @@ function erasmus_core_uninstall() {
 }
 
 /**
- * Enable modules Simplify, Footnotes and Workbench - hook_update_N().
+ * Enable modules Simplify, Footnotes and Workbench.
  */
-function erasmus_core_update_7000() {
+function erasmus_core_update_7001() {
 
   // Enable Simplify, Footnotes and Workbench Access modules.
   $modules = array(
