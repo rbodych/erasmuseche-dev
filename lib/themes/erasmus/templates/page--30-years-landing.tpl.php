@@ -111,7 +111,6 @@
  */
 ?>
 <a id="top-page"></a>
-<div id="delCookie"> Delete cookie</div>
 <?php print render($page['announcement']); ?>
 <div class="videowrap">
   <label class="closebox">×</label>
