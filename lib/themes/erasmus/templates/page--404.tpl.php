@@ -111,6 +111,7 @@
  */
 ?>
 <a id="top-page"></a>
+<?php print render($page['announcement']); ?>
 <div class="videowrap">
   <label class="closebox">×</label>
   <iframe id="video" frameborder="0" allowfullscreen></iframe>

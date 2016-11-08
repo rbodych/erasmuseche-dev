@@ -1,7 +1,8 @@
 <?php
+
 /**
  * @file
- * Page--video-gallery.tpl.php.
+ * Page--front.tpl.php.
  *
  * PHP version 5
  *
@@ -110,36 +111,8 @@
  */
 ?>
 <a id="top-page"></a>
+<div id="delCookie"> Delete cookie</div>
 <?php print render($page['announcement']); ?>
-<div id="ErasmusDisclaimer" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <div id="ErasmusDisclaimer" class="modal-content">
-      <div class="modal-header">
-         <img src="<?php print $GLOBALS['base_url'] .
-            "/" . path_to_theme() ?>/images/disclaimer.png">
-      </div>
-      <div>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-5" id="modalleft">
-            <h1><?php print $modallefttitlelineone; ?></h1>
-            <h1><?php print $modallefttitlelinetwo; ?></h1>
-          </div>
-          <div class="col-md-7" id="modalright">
-            <p><?php print $modalrighttext; ?></p>
-          </div>
-          <div class="col-md-12" id="modalbottom">
-            <a type="button" class="link-more" data-dismiss="modal">
-                <?php print $modalclose; ?>
-            </a>
-            <?php print $modalnewsletter; ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="videowrap">
   <label class="closebox">×</label>
   <iframe id="video" frameborder="0" allowfullscreen></iframe>
@@ -149,27 +122,30 @@
 </div>
 <div id="layout-header">
   <div class="container">
-    <img alt="European Commission logo" id="banner-flag" 
-    src="<?php print $logo; ?>" />
+    <img alt="European Commission logo" 
+    id="banner-flag" src="<?php print $logo; ?>" />
     <span id="banner-image-right" class="hidden-sm hidden-xs">
         <?php print $regions['header_right']; ?>
     </span>
-    <div id="main-title"><?php print $site_name; ?></div>
-    <div id="sub-title" class="hidden-xs"><?php print $site_slogan; ?></div>
+    <div id="main-title">
+        <?php print $site_name; ?>
+    </div>
+    <div id="sub-title" class="hidden-xs">
+        <?php print $site_slogan; ?>
+    </div>
   </div>
 </div>
 <div class="region-featured-wrapper 
 <?php print ($has_responsive_sidebar ? 'sidebar-visible-sm' : ''); ?>">
     <?php if ($menu_visible || $has_responsive_sidebar) : ?>
-    <div class="mobile-user-bar navbar navbar-default visible-sm visible-xs" 
+    <div class="mobile-user-bar navbar navbar-default visible-sm visible-xs"
     data-spy="affix" data-offset-top="82">
       <div class="container">
         <div class="navbar-header" data-spy="affix" data-offset-top="165">
             <?php if ($menu_visible) : ?>
-            <button id="menu-button" type="button" class="navbar-toggle" 
-            data-toggle="collapse" data-target=".navbar-ex1-collapse">
-              <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true">
-              </span>
+            <button id="menu-button" type="button" class="navbar-toggle"
+         data-toggle="collapse" data-target=".navbar-ex1-collapse">
+              <div class="arrow-down"></div>
             </button>
             <?php endif; ?>
             <?php if ($has_responsive_sidebar) : ?>
@@ -186,6 +162,33 @@
     </div>
     <?php endif; ?>
     <?php print $regions['featured']; ?>
+  <div class="frontbg erasmus30bg">
+    <div id="layout-body imgbg" class="container">
+      <div class="row">
+        <div id="main" class="posabso">
+          <div class="col-md-12 frontheadline animated bounceInDown intro-box"
+          id="erasmus30__box">
+            <?php print render($page['headline']); ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="layout-body2" class="erasmus30__word">
+  <?php print render($page['content_bottom']); ?>
+</div>
+<div id="layout-body2" class="erasmus30__cta">
+    <div class="container">
+      <div class="row">
+        <?php print render($page['sidebar_left']); ?>
+      </div>
+    </div>
+</div>
+<div id="layout-body2" class="valor-stripe erasmus30_videos">
+    <div class="container">
+      <?php print render($page['content_bottom1']); ?>
+    </div>
 </div>
 <?php if ($has_responsive_sidebar) : ?>
   <div id="responsive-sidebar">
@@ -194,66 +197,6 @@
     <div id="responsive-sidebar-right"></div>
   </div>
 <?php endif; ?>
-<?php if ($title) : ?>
-  <div class="title-stripe">
-    <div class="container">
-	  <div class="row">
-	    <div class="col-xs-12">
-          <h1 class="title" id="content-title">
-            <?php print $title; ?>
-          </h1>
-		</div>
-	  </div>
-	</div>
-  </div>
-<?php endif; ?>
-<div class="container video-gallery">
-
-  <div class="row hidden">
-    <?php print render($title_prefix); ?>
-    <?php print render($title_suffix); ?>
-    <div class="col-lg-<?php print $cols['tools']['lg']; ?> 
-col-md-<?php print $cols['tools']['md']; ?>
-col-sm-<?php print $cols['tools']['sm']; ?> 
-col-xs-<?php print $cols['tools']['xs']; ?>">
-    <?php print $regions['tools']; ?>
-    </div>
-  </div>
-    <?php if ($messages) : ?>
-    <div id="messages">
-        <?php print $messages; ?>
-    </div>
-    <?php endif; ?>
-  <div id="content-wrapper">
-    <a id="content"></a>
-    <?php if ($title) : ?>
-      <h1 class="title" id="content-title">
-        <?php print $title; ?>
-      </h1>
-    <?php endif; ?>
-    <a id="main-content"></a>
-    <?php print $regions['help']; ?>
-    <div class="row">
-	  <article class="col-md-8">
-        <?php print render($page['latest_item']); ?>
-	  </article>
-	  <aside class="col-md-4">
-        <?php print render($page['list_latest_items']); ?>
-	  </aside>
-    </div>
-    <div class="row">
-	  <div class="col-md-12">
-        <?php print $regions['content']; ?>
-	  </div>
-	</div>
-    <?php print $feed_icons; ?>
-    <?php print $regions['content_bottom']; ?>
-  </div>
-  <div class="clearfix visible-sm visible-xs"></div>
-    <?php if ($cols['sidebar_right']['md'] == 12) : ?>
-    <div class="clearfix visible-md"></div>
-    <?php endif; ?>
-</div>
 <div class="feedbackform">
   <div class="container">
     <?php print render($page['feedbackform']); ?>
@@ -263,3 +206,12 @@ col-xs-<?php print $cols['tools']['xs']; ?>">
   <span class="glyphicon glyphicon-chevron-up"></span>
 </a>
 <?php print render($page['footer']); ?>
+  <?php 
+    global $user;
+    if ($user->uid) {
+      print("<div class='container'><div class='row'>");
+      print $regions['content'];
+      print("</div></div>");
+      
+    } 
+  ?>

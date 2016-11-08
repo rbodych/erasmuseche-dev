@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Node-about.tpl.php.

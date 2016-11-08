@@ -275,9 +275,20 @@ function erasmus_preprocess_page(&$variables, $hook) {
       path_to_theme() . '/css/eac_erasmus_guide.css',
       'theme', 'all', TRUE
     );
-
-    drupal_add_js(
-      path_to_theme() . '/scripts/erasmus_guide.js'
+  }
+  else {
+    drupal_add_css(
+      path_to_theme() . '/css/erasmus.css',
+       array('group' => CSS_SYSTEM + 200, 'preprocess' => FALSE),
+      'theme', 'all', TRUE
+    );
+  }
+  /* Erasmus 30 years */
+  if (isset($node) && $node->type == '30_years_landing') {
+    $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
+    drupal_add_css(
+      path_to_theme() . '/css/eac_erasmus_30years.css',
+      'theme', 'all', TRUE
     );
   }
   else {
@@ -286,7 +297,6 @@ function erasmus_preprocess_page(&$variables, $hook) {
        array('group' => CSS_SYSTEM + 200, 'preprocess' => FALSE),
       'theme', 'all', TRUE
     );
-
   }
 }
 

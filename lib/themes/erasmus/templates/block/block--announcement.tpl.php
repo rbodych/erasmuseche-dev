@@ -1,7 +1,21 @@
 <?php
-
 /**
  * @file
+ * Block--content.tpl.php.
+ *
+ * PHP version 5
+ *
+ * @category Production
+ *
+ * @package ErasmusCore/Theme
+ *
+ * @author EAC WEB <EAC-LIST-C4@nomail.ec.europa.eu>
+ *
+ * @copyright 2015 European-Commission
+ *
+ * @license http://ec.europa.eu Europa
+ * @link NA
+ *
  * Default theme implementation to display a block.
  *
  * Available variables:
@@ -44,16 +58,7 @@
  * @ingroup themeable
  */
 ?>
-
-<?php print render($title_prefix); ?>
-<?php if ($title && $block->subject) : ?>
-  <h2>
-    <?php print $block->subject ?>
-  </h2>
-<?php endif;?>
-<?php print render($title_suffix); ?>
-<div class="content"<?php print $content_attributes; ?>>
-  <?php
-    print $content;
-  ?>
-</div>
+  
+<?php
+  print $content;
+?>

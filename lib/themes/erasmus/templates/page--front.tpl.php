@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Page--front.tpl.php.
@@ -111,6 +110,7 @@
  */
 ?>
 <a id="top-page"></a>
+<?php print render($page['announcement']); ?>
 <div class="videowrap">
   <label class="closebox">×</label>
   <iframe id="video" frameborder="0" allowfullscreen></iframe>
@@ -142,7 +142,7 @@
         <div class="navbar-header" data-spy="affix" data-offset-top="165">
             <?php if ($menu_visible) : ?>
             <button id="menu-button" type="button" class="navbar-toggle"
-         data-toggle="collapse" data-target=".navbar-ex1-collapse">
+ 	    data-toggle="collapse" data-target=".navbar-ex1-collapse">
               <div class="arrow-down"></div>
             </button>
             <?php endif; ?>
@@ -224,7 +224,7 @@
 </div>
 <?php print render($page['stats']); ?>
 <div id="layout-body2" class="valor-stripe">
-    <div class="container">
+	<div class="container">
     <?php print render($page['content_bottom1']); ?>
     </div>
 </div>

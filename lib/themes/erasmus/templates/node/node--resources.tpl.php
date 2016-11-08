@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Node--resources.tpl.php.
