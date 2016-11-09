@@ -34,7 +34,8 @@ function erasmus_preprocess_html(&$variables) {
 }
 
 /**
- * Implements erasmus_preprocess_om_maximenu_submenu().
+ * Process variables for om_maximenu_submenu.tpl.php
+ *
  */
 function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   global $base_url;
