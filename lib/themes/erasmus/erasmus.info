@@ -21,7 +21,6 @@ scripts[] = scripts/counter.js
 scripts[] = scripts/type.js
 scripts[] = scripts/jquery-ui.min.js
 scripts[] = scripts/custom.js
-scripts[] = scripts/eac_erasmus_30years.js
 
 
 ; REGIONS
