@@ -205,12 +205,12 @@
   <span class="glyphicon glyphicon-chevron-up"></span>
 </a>
 <?php print render($page['footer']); ?>
-  <?php 
+  <?php
     global $user;
     if ($user->uid) {
       print("<div class='container'><div class='row'>");
       print $regions['content'];
       print("</div></div>");
-      
-    } 
+
+    }
   ?>

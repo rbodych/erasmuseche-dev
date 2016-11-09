@@ -5226,46 +5226,46 @@ span.date-published em {
   }
 }
 #ErasmusDisclaimer .modal-header {
-    background-color: #0077c9;
-    color: white;
-    padding: 0;
-    color: white;
-    padding: 0;
-    z-index: 9999999999999999;
-    position: inherit;
-    background: url("../images/30years/e30_landing.png");
-    height: 258px;
-    padding-top: 15px;
+  background-color: #0077c9;
+  color: white;
+  padding: 0;
+  color: white;
+  padding: 0;
+  z-index: 9999999999999999;
+  position: inherit;
+  background: url("../images/30years/e30_landing.png");
+  height: 258px;
+  padding-top: 15px;
 }
 #ErasmusDisclaimer .punchline {
-  font-size:2em;
+  font-size: 2em;
   font-family: 'ECSquareSansProBold';
-  padding-top:15px;
+  padding-top: 15px;
 }
 #ErasmusDisclaimer .modal-body h3 {
-    font-family: 'ECSquareSansProBold';
-    font-size: 1.7em;
-    margin-top: 7px;
-    margin-bottom: 0;
+  font-family: 'ECSquareSansProBold';
+  font-size: 1.7em;
+  margin-top: 7px;
+  margin-bottom: 0;
 }
 #ErasmusDisclaimer .modal-body h3::before {
-    content:none;
+  content: none;
 }
 #ErasmusDisclaimer .slogan {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.3em;
-    margin-top: -9px;
-    opacity: 0.9;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-top: -9px;
+  opacity: 0.9;
 }
 #ErasmusDisclaimer .sloganbis {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5em;
-    margin-top: 35px;
-    font-family: 'ECSquareSansProBold';
-    padding-left: 15px;
-    padding-right: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-top: 35px;
+  font-family: 'ECSquareSansProBold';
+  padding-left: 15px;
+  padding-right: 15px;
 }
 #ErasmusDisclaimer ul.boxes {
   list-style-image: url(../images/30years/checked_box.png);
@@ -5276,7 +5276,19 @@ span.date-published em {
   color: rgba(255,255,255,0.6);
 }
 #ErasmusDisclaimer .why {
-    font-weight: bold;
-    font-size: 1.2em !important;
-    color: #5c5c5c !important;
+  font-weight: bold;
+  font-size: 1.2em !important;
+  color: #5c5c5c !important;
+}
+#ErasmusDisclaimer .link-more {
+    background-color: red !important;
+    background: #0077c9 !important;
+    color: #fff !important;
+    border: none !important;
+    transition: all .4s;
+    padding-top: -15px !important;
+    font-weight: bold !important;
+    font-family: 'ECSquareSansProBold';
+    font-size: 21px;
+    width: 100% !important;
 }

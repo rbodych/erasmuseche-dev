@@ -197,14 +197,14 @@
 <?php if ($title) : ?>
   <div class="title-stripe">
     <div class="container">
-	  <div class="row">
-	    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12">
           <h1 class="title" id="content-title">
             <?php print $title; ?>
           </h1>
-		</div>
-	  </div>
-	</div>
+        </div>
+      </div>
+    </div>
   </div>
 <?php endif; ?>
 <div class="container video-gallery">
@@ -234,18 +234,18 @@ col-xs-<?php print $cols['tools']['xs']; ?>">
     <a id="main-content"></a>
     <?php print $regions['help']; ?>
     <div class="row">
-	  <article class="col-md-8">
+      <article class="col-md-8">
         <?php print render($page['latest_item']); ?>
-	  </article>
-	  <aside class="col-md-4">
+      </article>
+      <aside class="col-md-4">
         <?php print render($page['list_latest_items']); ?>
-	  </aside>
+      </aside>
     </div>
     <div class="row">
-	  <div class="col-md-12">
+      <div class="col-md-12">
         <?php print $regions['content']; ?>
-	  </div>
-	</div>
+      </div>
+    </div>
     <?php print $feed_icons; ?>
     <?php print $regions['content_bottom']; ?>
   </div>

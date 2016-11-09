@@ -235,7 +235,7 @@
             <?php endif; ?>
             <?php print $regions['tools']; ?>
             <?php print $regions['content']; ?>
-		  
+          
         </div>
         <div class="col-xs-12 col-md-4" id="newlayoutr">
           <?php print render($regions['sidebar_right']); ?>

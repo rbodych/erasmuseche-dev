@@ -168,12 +168,12 @@ p.e30-p {
   font-family: 'ECSquareSansProRegular' !important;
 }
 .erasmus30__word .right p {
-    font-size: 1.3em;
-    line-height: 30px;
-    margin-bottom: 21px;
+  font-size: 1.3em;
+  line-height: 30px;
+  margin-bottom: 21px;
 }
 .erasmus30__cta .alert {
-    color: darkgrey;
+  color: darkgrey;
 }
 @media screen and (max-width: 480px) {
   .e30-btn,
