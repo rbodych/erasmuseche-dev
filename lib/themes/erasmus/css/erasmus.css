@@ -5281,14 +5281,14 @@ span.date-published em {
   color: #5c5c5c !important;
 }
 #ErasmusDisclaimer .link-more {
-    background-color: red !important;
-    background: #0077c9 !important;
-    color: #fff !important;
-    border: none !important;
-    transition: all .4s;
-    padding-top: -15px !important;
-    font-weight: bold !important;
-    font-family: 'ECSquareSansProBold';
-    font-size: 21px;
-    width: 100% !important;
+  background-color: red !important;
+  background: #0077c9 !important;
+  color: #fff !important;
+  border: none !important;
+  transition: all .4s;
+  padding-top: -15px !important;
+  font-weight: bold !important;
+  font-family: 'ECSquareSansProBold';
+  font-size: 21px;
+  width: 100% !important;
 }
