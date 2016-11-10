@@ -1,0 +1,243 @@
+#erasmus30__box {
+  margin-top: 32px;
+}
+#erasmus30__box p.tagline {
+  margin-top: -29px;
+  font-size: 19px;
+  font-weight: bold;
+}
+#erasmus30__box p.description {
+  margin-top: 15px;
+  font-size: 19px;
+}
+#erasmus30__box hr {
+  width: 25%;
+  border-top: 5px solid rgba(255,255,255,0.8) !important;
+  margin-bottom: 0 !important;
+  margin-top: 0px !important;
+}
+#erasmus30__box .frontheadline {
+  position: absolute;
+  margin-top: 4% !important;
+  color: white;
+  font-size: 4em;
+}
+#erasmus30__box a btn,
+#erasmus30__box a:hover btn {
+  background: #ff6f05;
+  color: #fff !important;
+  border: none;
+  font-size: 0.3em;
+  border-radius: 0;
+  padding: 10px 10px !important;
+  transition: all .4s;
+  text-decoration: none;
+}
+.e30-btn,
+.e30-btn a,
+.e30-btn a:hover {
+  background: #ff6f05;
+  color: #fff !important;
+  border: none;
+  font-size: 0.3em;
+  border-radius: 0;
+  padding: 10px 10px !important;
+  transition: all .4s;
+  text-decoration: none;
+}
+.erasmus30_videos {
+  margin-top: -60px !important;
+}
+p.e30-p {
+  margin-top: -32px;
+}
+.erasmus30_videos h2 {
+  margin-bottom: 15px;
+  margin-top: 60px;
+  font-family: 'ECSquareSansProBold',sans-serif;
+}
+.erasmus30_videos article {
+  left: 127px;
+}
+.erasmus30_videos .video-thumb--all {
+  margin-left: 74px;
+}
+#erasmus30__box a,
+#erasmus30__box a:hover {
+  text-decoration: none;
+}
+.erasmus30bg {
+  height: 394px !important;
+  background-image: url(../images/30years/erasmus30_landing_bg.jpg) !important;
+  background-size: cover;
+}
+.erasmus30__word {
+  background: #0076c7;
+  padding-bottom: 60px;
+  margin-bottom: 0 !important;
+}
+.erasmus30__cta #newsletter30 h3 {
+  color: #ff6f05 !important;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: 'ECSquareSansProBold',sans-serif;
+  margin-top: 60px;
+}
+.erasmus30__word h1,
+.erasmus30__word h3 {
+  margin-top: 56px;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  color: white !important;
+}
+.erasmus30__word hr {
+  width: 25%;
+  border-top: 5px solid rgba(255,255,255,0.6) !important;
+  margin-bottom: 0 !important;
+  margin-top: 15px !important;
+}
+.erasmus30__word .row {
+  margin-top: 40px;
+  color: white;
+}
+.erasmus30__word .row .right {
+  font-size: 1.1em;
+}
+.erasmus30__cta {
+  background: white;
+  padding-bottom: 60px;
+  padding-top: 15px;
+  margin-bottom: 0 !important;
+}
+.erasmus30__cta #newsletter30 h1 {
+  color: #ff6f05;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: 'ECSquareSansProBold',sans-serif;
+  margin-top: 60px;
+}
+.erasmus30__cta #competition30 h1 {
+  color: #0076c7;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: 'ECSquareSansProBold',sans-serif;
+  margin-top: 60px;
+}
+.erasmus30__cta #newsletter30 h2,
+.erasmus30__cta #competition30 h2 {
+  font-size: 1.5em;
+  font-family: 'ECSquareSansProRegular',sans-serif;
+  font-weight: bold;
+  margin-top: 0px;
+}
+.erasmus30__cta #newsletter30 ul.boxes {
+  list-style-image: url(../images/30years/checked_box.png);
+  padding-left: 45px;
+  padding-top: 14px;
+  line-height: 35px;
+  font-size: 1.2em;
+  color: rgba(255,255,255,0.6);
+}
+.erasmus30__cta #newsletter30 input#submitForm {
+  background: #ff6f05;
+  color: #fff !important;
+  border: none;
+  border-radius: 0;
+  font-size: 1.2em;
+  padding: 10px 20px !important;
+  transition: all .4s;
+  text-decoration: none;
+  font-weight: bold;
+}
+.erasmus30__cta #newsletter30 input#email {
+  font-size: 1.3em;
+  padding-left: 15px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 15px;
+  width: 342px;
+}
+.erasmus30__cta #newsletter30 .form30 {
+  margin-top: 30px;
+}
+#erasmus30__box .panel .panel-body > p {
+  font-family: 'ECSquareSansProBold',sans-serif;
+}
+#erasmus30__box .description {
+  font-family: 'ECSquareSansProRegular' !important;
+}
+.erasmus30__word .right p {
+  font-size: 1.3em;
+  line-height: 30px;
+  margin-bottom: 21px;
+}
+.erasmus30__cta .alert {
+  color: darkgrey;
+}
+@media screen and (max-width: 480px) {
+  .e30-btn,
+  .e30-btn a,
+  .e30-btn a:hover {
+    font-size: 0.35em;
+    font-weight: bold;
+    width: 100%;
+    text-transform: uppercase;
+  }
+  #erasmus30__box p.description {
+    margin-top: 15px;
+    margin-bottom: 0;
+    font-family: 'ECSquareSansProRegular';
+  }
+  #erasmus30__box .panel-body p:nth-child(1) {
+    font-size: 0.8em;
+    margin-top: 48px;
+  }
+  #erasmus30__box p.tagline {
+    margin-top: -23px;
+  }
+  .col-md-7.col-xs-12.left {
+    margin-top: -120px;
+  }
+  .col-md-5.col-xs-12.right {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 90%;
+    margin-left: 23px;
+    margin-top: 15px;
+  }
+  .erasmus30__cta #newsletter30 input#email {
+    font-size: 1.3em;
+    padding-left: 15px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 15px;
+    width: 294px;
+  }
+  .erasmus30__cta #newsletter30 input#submitForm {
+    background: #ff6f05;
+    color: #fff !important;
+    border: none;
+    border-radius: 0;
+    font-size: 1.2em;
+    padding: 10px 20px !important;
+    transition: all .4s;
+    text-decoration: none;
+    font-weight: bold;
+    width: 294px;
+    margin-top: -6px;
+  }
+  #tablet {
+    display: none;
+  }
+  .valor-stripe {
+    background: #eaf0f4;
+    margin-top: -50px;
+    padding-bottom: 0px;
+    margin-bottom: 0 !important;
+  }
+  .erasmus30_videos .video-thumb--all {
+    margin-left: -12px;
+    width: 300px;
+  }
+}

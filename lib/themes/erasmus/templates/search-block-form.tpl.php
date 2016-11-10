@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Search-block-form.tpl.php.

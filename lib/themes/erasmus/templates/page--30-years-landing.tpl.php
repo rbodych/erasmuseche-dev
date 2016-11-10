@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Page.tpl.php.
+ * Page--front.tpl.php.
  *
  * PHP version 5
  *
@@ -17,7 +17,7 @@
  * @license http://ec.europa.eu Europa
  * @link NA
  *
- * Erasmus theme implementation to display a page.
+ * Ec_resp's theme implementation to display a single Drupal page.
  *
  * The doctype, html, head and body tags are not in this template. Instead they
  * can be found in the html.tpl.php template normally located in the
@@ -126,20 +126,24 @@
     <span id="banner-image-right" class="hidden-sm hidden-xs">
         <?php print $regions['header_right']; ?>
     </span>
-    <div id="main-title"><?php print $site_name; ?></div>
-    <div id="sub-title" class="hidden-xs"><?php print $site_slogan; ?></div>
+    <div id="main-title">
+        <?php print $site_name; ?>
+    </div>
+    <div id="sub-title" class="hidden-xs">
+        <?php print $site_slogan; ?>
+    </div>
   </div>
 </div>
 <div class="region-featured-wrapper 
 <?php print ($has_responsive_sidebar ? 'sidebar-visible-sm' : ''); ?>">
     <?php if ($menu_visible || $has_responsive_sidebar) : ?>
-    <div class="mobile-user-bar navbar navbar-default visible-sm visible-xs" 
+    <div class="mobile-user-bar navbar navbar-default visible-sm visible-xs"
     data-spy="affix" data-offset-top="82">
       <div class="container">
         <div class="navbar-header" data-spy="affix" data-offset-top="165">
             <?php if ($menu_visible) : ?>
-            <button id="menu-button" type="button" class="navbar-toggle" 
-            data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <button id="menu-button" type="button" class="navbar-toggle"
+         data-toggle="collapse" data-target=".navbar-ex1-collapse">
               <div class="arrow-down"></div>
             </button>
             <?php endif; ?>
@@ -157,13 +161,33 @@
     </div>
     <?php endif; ?>
     <?php print $regions['featured']; ?>
-    <?php if (isset($node) && $node->type != 'video_gallery') : ?>
-    <div class="<?php if(isset($bgpage)) : print $bgpage;
-   endif; ?> pagemargin">
-      <div id="layout-body imgbg" class="container">
+  <div class="frontbg erasmus30bg">
+    <div id="layout-body imgbg" class="container">
+      <div class="row">
+        <div id="main" class="posabso">
+          <div class="col-md-12 frontheadline animated bounceInDown intro-box"
+          id="erasmus30__box">
+            <?php print render($page['headline']); ?>
+          </div>
+        </div>
       </div>
     </div>
-    <?php endif; ?>
+  </div>
+</div>
+<div id="layout-body2" class="erasmus30__word">
+  <?php print render($page['content_bottom']); ?>
+</div>
+<div id="layout-body2" class="erasmus30__cta">
+    <div class="container">
+      <div class="row">
+        <?php print render($page['sidebar_left']); ?>
+      </div>
+    </div>
+</div>
+<div id="layout-body2" class="valor-stripe erasmus30_videos">
+    <div class="container">
+      <?php print render($page['content_bottom1']); ?>
+    </div>
 </div>
 <?php if ($has_responsive_sidebar) : ?>
   <div id="responsive-sidebar">
@@ -172,70 +196,21 @@
     <div id="responsive-sidebar-right"></div>
   </div>
 <?php endif; ?>
-<div class="container">
-
-  <div class="row">
-    <?php if ($regions['sidebar_left']) : ?>
-      <div id="sidebar-left" 
-      class="col-lg-3 col-md-4 col-sm-0 col-xs-0 sidebar-left visible-lg visible-md">
-        <?php print $regions['sidebar_left']; ?>
-      </div>
-    <?php endif; ?>
-    <div id="content-wrapper" class="col-lg-12 
-    col-md-<?php print $cols['content_main']['md']; ?>
-    col-sm-<?php print $cols['content_main']['sm']; ?>
-    col-md-<?php print $cols['content_main']['xs']; ?>">
-      <a id="content"></a>
-        <?php print $regions['content_top']; ?>
-      <a id="main-content"></a>
-        <?php if ($action_links) : ?>
-        <ul class="action-links">
-            <?php print render($action_links); ?>
-        </ul>
-        <?php endif; ?>
-      <div class="row">
-        <div class="<?php if(isset($colheightortwelve)) : print $colheightortwelve;
-       endif; ?>" id="newlayout">
-            <?php if ($tabs) : ?>
-            <div class="tabs"><?php print render($tabs); ?></div>
-            <?php endif; ?>
-            <?php print $regions['help']; ?>
-            <?php if ($title && isset($node) && $node->type != 'video_gallery') : ?>
-            <h1><?php print $title; ?></h1>
-            <?php endif; ?>
-            <?php if ($messages) : ?>
-            <div id="messages"><?php print $messages; ?></div>
-            <?php endif; ?>
-            <?php print $regions['tools']; ?>
-            <?php print $regions['content']; ?>
-          
-          <?php if (isset($node) && $node->type == 'video_gallery') : ?>
-            <aside class="col-md-4">
-                <?php print render($page['list_latest_items']); ?>
-            </aside>
-          <?php endif; ?>
-        </div>
-        <?php if ($is_newlayoutr) : ?>
-          <div class="col-lg-4" id="newlayoutr">
-            <?php print render($page['therightcolumn']); ?>
-          </div>
-        <?php endif;?>
-      </div>
-        <?php print $feed_icons; ?>
-        <?php print $regions['content_bottom']; ?>
-    </div>
-    <div class="clearfix visible-sm visible-xs"></div>
-    <?php if ($cols['sidebar_right']['md'] == 12) : ?>
-      <div class="clearfix visible-md"></div>
-    <?php endif; ?>
-  </div>
-</div>
-<div id="layout-body1" class="container">
-    <?php print render($page['content_bottom1']); ?>
-</div>
 <div class="feedbackform">
   <div class="container">
     <?php print render($page['feedbackform']); ?>
   </div>
 </div>
+<a href="#top-page" class="btn-back-top">
+  <span class="glyphicon glyphicon-chevron-up"></span>
+</a>
 <?php print render($page['footer']); ?>
+  <?php
+    global $user;
+    if ($user->uid) {
+      print("<div class='container'><div class='row'>");
+      print $regions['content'];
+      print("</div></div>");
+
+    }
+  ?>

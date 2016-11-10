@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Block--feedbackform.tpl.php.

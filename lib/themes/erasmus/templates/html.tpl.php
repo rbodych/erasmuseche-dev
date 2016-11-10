@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Html.tpl.php.

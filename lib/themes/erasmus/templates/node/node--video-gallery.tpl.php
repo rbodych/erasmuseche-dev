@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Node--video-gallery.tpl.php.
