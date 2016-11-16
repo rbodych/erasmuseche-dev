@@ -41,15 +41,17 @@ function erasmus_core_uninstall() {
 }
 
 /**
- * Enable modules Simplify, Footnotes and Workbench.
+ * Enable modules ECAS and NewtEuropa Newsroom and submodules ECAS extra, ECAS import users
  */
 function erasmus_core_update_7001() {
 
-  // Enable Simplify, Footnotes and Workbench Access modules.
+  // Enable ECAS, NewtEuropa Newsroom, ECAS extra and ECAS import users
   $modules = array(
-    'simplify',
-    'footnotes',
-    'workbench_access',
+    'ecas',
+    'ecas_extra',
+    'ecas_import_users',
+    'nexteuropa_newsroom',
   );
   module_enable($modules);
 }
+
