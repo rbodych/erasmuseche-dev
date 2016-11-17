@@ -56,11 +56,11 @@ function erasmus_core_update_7001() {
 }
 
 /**
- * Enable modules ECAS + submodules and NE-Newsroom
+ * Enable modules ECAS + submodules and NE-Newsroom.
  */
 function erasmus_core_update_7002() {
 
-  // Enable ECAS, NE-Newsroom
+  // Enable ECAS, NE-Newsroom.
   $modules = array(
     'ecas',
     'ecas_extra',
