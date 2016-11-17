@@ -42,6 +42,20 @@ function erasmus_core_uninstall() {
 }
 
 /**
+ * Enable modules Simplify, Footnotes and Workbench.
+ */
+function erasmus_core_update_7001() {
+
+  // Enable Simplify, Footnotes and Workbench Access modules.
+  $modules = array(
+    'simplify',
+    'footnotes',
+    'workbench_access',
+  );
+  module_enable($modules);
+}
+
+/**
  * Enable modules ECAS + submodules and NE-Newsroom
  */
 function erasmus_core_update_7002() {
