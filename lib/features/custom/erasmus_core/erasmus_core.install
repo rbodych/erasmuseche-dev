@@ -47,7 +47,7 @@ function erasmus_core_uninstall()
 /**
  * Enable modules ECAS and NewtEuropa Newsroom and submodules ECAS extra, ECAS import users
  */
-function erasmus_core_update_7001()
+function erasmus_core_update_7002()
 {
 
     // Enable ECAS, NewtEuropa Newsroom, ECAS extra and ECAS import users
