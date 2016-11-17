@@ -60,12 +60,12 @@ function erasmus_core_update_7001() {
  */
 function erasmus_core_update_7002() {
 
-    // Enable ECAS, NE-Newsroom
-    $modules = array(
+  // Enable ECAS, NE-Newsroom
+  $modules = array(
     'ecas',
     'ecas_extra',
     'ecas_import_users',
     'nexteuropa_newsroom',
-    );
-    module_enable($modules);
+  );
+  module_enable($modules);
 }
