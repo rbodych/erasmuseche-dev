@@ -18,8 +18,7 @@ function erasmus_core_disable()
 /**
  * Implements hook_enable().
  */
-function erasmus_core_enable()
-{
+function erasmus_core_enable() {
     $t = get_t();
 
     // MULTISITE guideline #11.
@@ -29,8 +28,7 @@ function erasmus_core_enable()
 /**
  * Implements hook_install().
  */
-function erasmus_core_install()
-{
+function erasmus_core_install() {
     $t = get_t();
     drupal_set_message($t('erasmus core feature is now installed on your site.'));
 }
@@ -38,8 +36,7 @@ function erasmus_core_install()
 /**
  * Implements hook_uninstall().
  */
-function erasmus_core_uninstall()
-{
+function erasmus_core_uninstall() {
     $t = get_t();
     drupal_set_message($t('erasmus core feature is now uninstalled from your site.'));
 }
@@ -47,8 +44,7 @@ function erasmus_core_uninstall()
 /**
  * Enable modules ECAS and NewtEuropa Newsroom and submodules ECAS extra, ECAS import users
  */
-function erasmus_core_update_7002()
-{
+function erasmus_core_update_7002() {
 
     // Enable ECAS, NewtEuropa Newsroom, ECAS extra and ECAS import users
     $modules = array(
