@@ -34,7 +34,6 @@ projects[taxonomy_manager][version] = "1.0"
 
 projects[nodeaccess][subdir] = "contrib"
 projects[nodeaccess][version] = "1.4"
-projects[nodeaccess][patch][] = "https://www.drupal.org/files/issues/nodeaccess-permissions_lost-2565619-3.patch"
 
 projects[feeds_et][subdir] = "contrib"
 projects[feeds_et][version] = "1.x-dev"
