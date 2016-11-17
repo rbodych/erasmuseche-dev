@@ -1,8 +1,0 @@
-<?php
-
-/**
- * @file
- * Code for the erasmus national agencies events feature.
- */
-
-require_once 'erasmus_national_agencies_events.features.inc';
