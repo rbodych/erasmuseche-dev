@@ -14,7 +14,6 @@ dependencies[] = link
 dependencies[] = metatag
 dependencies[] = nexteuropa_geofield
 dependencies[] = node_reference
-dependencies[] = nodeaccess
 dependencies[] = om_maximenu
 dependencies[] = quicktabs_tabstyles
 dependencies[] = text
