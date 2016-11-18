@@ -186,17 +186,16 @@ function erasmus_preprocess_page(&$variables, $hook) {
   global $language;
   $variables['is_newlayoutr'] = FALSE;
   $variables['language'] = $language;
-  $variables['abouttitle'] = theme_get_setting('abouttitle');
-  $variables['aboutsubtitle'] = theme_get_setting('aboutsubtitle');
-  $variables['individualstitle'] = theme_get_setting('individualstitle');
-  $variables['individualssubtitle'] = theme_get_setting('individualssubtitle');
-  $variables['organisationstitle'] = theme_get_setting('organisationstitle');
-  $variables['resourcestitle'] = theme_get_setting('resourcestitle');
-  $variables['resourcessubtitle'] = theme_get_setting('resourcessubtitle');
-  $variables['documentlibrarytitle'] = theme_get_setting('documentlibrarytitle');
-  $variables['documentlibrarysubtitle'] = theme_get_setting('documentlibrarysubtitle');
-  $variables['contacttitle'] = theme_get_setting('contacttitle');
-  $variables['contactsubtitle'] = theme_get_setting('organisationssubtitle');
+  $variables['abouttitle'] = t('About');
+  $variables['aboutsubtitle'] = t("Erasmus+ is the EU's programme to support education, training, youth and sport in Europe. Its budget of €14.7 billion will provide opportunities for over 4 million Europeans to study, train gain experience, and volunteers abroad.");
+  $variables['individualstitle'] = t('Opportunities for individuals');
+  $variables['individualssubtitle'] = t('Erasmus+ has opportunities for people of all ages, helping them develop and share knowledge and experience at institutions and organisations in different countries');
+  $variables['organisationstitle'] = t('Opportunities for organisations');
+  $variables['organisationssubtitle'] = t('Erasmus+ has opportunities for a wide range of organisations including universities, education and training providers, think thanks, research organisations, and private businesses.');
+  $variables['resourcestitle'] = t('Resources');
+  $variables['resourcessubtitle'] = t("Key tools and documents for organisations and individuals that you\'ll need to get started with Erasmus+");
+  $variables['contacttitle'] = t('Contact');
+  $variables['contactsubtitle'] = t('For any questions not answered in the Programme Guide, you can contact National Agencies, National Offices or the European Commission.');
   $variables['submenu'] = t('Opportunities');
   $variables['submenuabout'] = t('About');
   $variables['submenuresources'] = t('Resources');
@@ -283,6 +282,7 @@ function erasmus_preprocess_page(&$variables, $hook) {
       'theme', 'all', TRUE
     );
   }
+
   /* Erasmus 30 years */
   if (isset($node) && $node->type == '30_years_landing') {
     $variables['theme_hook_suggestions'][] = 'page__' . $variables['node']->type;
@@ -291,13 +291,7 @@ function erasmus_preprocess_page(&$variables, $hook) {
       'theme', 'all', TRUE
     );
   }
-  else {
-    drupal_add_css(
-      path_to_theme() . '/css/erasmus.css',
-       array('group' => CSS_SYSTEM + 200, 'preprocess' => FALSE),
-      'theme', 'all', TRUE
-    );
-  }
+
 }
 
 /**

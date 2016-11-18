@@ -10,9 +10,6 @@ core = 7.x
 ; Contributed modules
 ; ===================
 
-projects[filefield_paths][subdir] = "contrib"
-projects[filefield_paths][version] = "1.0-rc3"
-
 projects[taxonomy_manager][subdir] = "contrib"
 projects[taxonomy_manager][version] = "1.0"
 
@@ -34,6 +31,13 @@ projects[filefield_paths][version] = "1.0"
 
 projects[taxonomy_manager][subdir] = "contrib"
 projects[taxonomy_manager][version] = "1.0"
+
+projects[nodeaccess][subdir] = "contrib"
+projects[nodeaccess][version] = "1.4"
+
+projects[feeds_et][subdir] = "contrib"
+projects[feeds_et][version] = "1.x-dev"
+projects[feeds_et][patch][] = "https://www.drupal.org/files/issues/feeds_et_link_support-2078069-3.patch"
 
 ; =========
 ; Libraries
