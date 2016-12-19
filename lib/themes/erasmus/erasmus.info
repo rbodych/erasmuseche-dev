@@ -1,0 +1,54 @@
+name = erasmus
+description = subtheme by DG EAC
+package = erasmus_theme
+core = "7.x"
+multisite_version = "2.2"
+base theme = ec_resp
+php = 5.2.9
+
+; SETTINGS
+settings[videohome_youtube_id] = "3fiCRpgOpvU"
+
+; STYLESHEETS
+stylesheets[all][] = css/font-awesome.css
+stylesheets[all][] = css/erasmus.css
+stylesheets[all][] = css/animate.css
+
+; SCRIPTS
+scripts[] = scripts/announcement.js
+scripts[] = scripts/contacttabs.js
+scripts[] = scripts/counter.js
+scripts[] = scripts/type.js
+scripts[] = scripts/jquery-ui.min.js
+scripts[] = scripts/custom.js
+
+
+; REGIONS
+regions[latest_item] = "Latest item"
+regions[list_latest_items] = "List of the latest items"
+regions[breadcrumbs] = "breadcrumbs"
+regions[header_page] = "Header Page"
+regions[header_top] = "Header Top"
+regions[header_right] = "Header Right"
+regions[featured] = "Featured"
+regions[tools] = "Tools"
+regions[help] = "Help"
+regions[sidebar_left] = "Sidebar Left"
+regions[sidebar_middle] ="Sidebar Middle"
+regions[sidebar_right] = "Sidebar Right"
+regions[content_top] = "Content Top"
+regions[content] = "Content"
+regions[content_bottom] = "Content Bottom"
+regions[updates_left] = "Updates left"
+regions[updates_right] = "Updates Right"
+regions[content_bottom1] = "Content Bottom1"
+regions[stats] = "Stats"
+regions[headerbox] = "Headerbox"
+regions[notifications] = "Notifications"
+regions[footer] = "Footer"
+regions[disclaimer] = "Disclaimer"
+regions[headline] = "Headline"
+regions[sidebar_right_below] = "Sidebar Right Below"
+regions[therightcolumn] = "The Right Column"
+regions[announcement] = "announcement"
+regions[feedbackform] = "Feedback form"
