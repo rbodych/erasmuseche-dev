@@ -29,7 +29,7 @@ function erasmus_30_year_anniversary_menu_context_default_contexts() {
         'menu-menu-erasmus-30' => array(
           'module' => 'menu',
           'delta' => 'menu-erasmus-30',
-          'region' => 'header_top',
+          'region' => 'featured',
           'weight' => '-10',
         ),
         'menu-menu-erasmus-30---footer' => array(
