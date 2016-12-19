@@ -1,0 +1,8 @@
+name = Erasmus 30year anniversary
+description = Anniversary 30 year
+core = 7.x
+package = erasmus
+multisite_version = 2.2
+php = 5.2.9
+dependencies[] = erasmus_30_year_anniversary_event
+dependencies[] = erasmus_30_year_anniversary_page

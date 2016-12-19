@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * Erasmus 30year core install.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function erasmus_30ya_core_install() {
+  theme_enable(array('erasmus_30year_anniversary'));
+}

@@ -1,0 +1,42 @@
+<?php
+/**
+ * @file
+ * Code for the erasmus_30ya_core feature.
+ */
+
+/**
+ * Implements hook_custom_theme().
+ *
+ * Switch to my theme when applicable.
+ */
+function erasmus_30ya_core_custom_theme() {
+  $node = menu_get_object('node');
+  if (isset($node->field_subsite_theme[LANGUAGE_NONE][0]['value'])) {
+    $subsite_theme = $node->field_subsite_theme[LANGUAGE_NONE][0]['value'];
+  }
+
+  // If you have more themes, update the code below.
+  if (isset($subsite_theme) && !empty($subsite_theme)) {
+    return 'erasmus_30year_anniversary';
+  }
+}
+
+/**
+ * Implements hook_context_load_alter().
+ *
+ * Unset context from other sites.
+ */
+function erasmus_30ya_core_context_load_alter(&$context) {
+  if ($context->name == 'site_wide') {
+    global $theme;
+    if ($theme == 'erasmus_30year_anniversary') {
+      $array_to_unset = [
+        'om_maximenu-om-maximenu-1',
+        'block-5',
+      ];
+      foreach ($array_to_unset as $unset) {
+        unset($context->reactions['block']['blocks'][$unset]);
+      }
+    }
+  }
+}
