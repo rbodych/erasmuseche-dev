@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Erasmus+ 30 year anniversary: Page feature.
- */
-
-include_once 'erasmus_30_year_anniversary_page.features.inc';
