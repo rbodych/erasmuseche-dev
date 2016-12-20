@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Code for the erasmus_programmeguide feature.
+ */
+
+include_once 'erasmus_programmeguide.features.inc';

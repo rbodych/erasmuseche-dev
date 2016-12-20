@@ -1,0 +1,70 @@
+<?php
+/**
+ * @file
+ * Erasmus core install.
+ */
+
+/**
+ * Implements hook_disable().
+ */
+function erasmus_core_disable() {
+  $t = get_t();
+
+  // MULTISITE guideline #11.
+  drupal_set_message($t('erasmus core feature is now disabled on your site.'));
+}
+
+/**
+ * Implements hook_enable().
+ */
+function erasmus_core_enable() {
+  $t = get_t();
+
+  // MULTISITE guideline #11.
+  drupal_set_message($t('erasmus core feature is now active from your site.'));
+}
+
+/**
+ * Implements hook_install().
+ */
+function erasmus_core_install() {
+  $t = get_t();
+  drupal_set_message($t('erasmus core feature is now installed on your site.'));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function erasmus_core_uninstall() {
+  $t = get_t();
+  drupal_set_message($t('erasmus core feature is now uninstalled from your site.'));
+}
+
+/**
+ * Enable modules Simplify, Footnotes and Workbench.
+ */
+function erasmus_core_update_7001() {
+
+  // Enable Simplify, Footnotes and Workbench Access modules.
+  $modules = array(
+    'simplify',
+    'footnotes',
+    'workbench_access',
+  );
+  module_enable($modules);
+}
+
+/**
+ * Enable modules ECAS + submodules and NE-Newsroom.
+ */
+function erasmus_core_update_7002() {
+
+  // Enable ECAS, NE-Newsroom.
+  $modules = array(
+    'ecas',
+    'ecas_extra',
+    'ecas_import_users',
+    'nexteuropa_newsroom',
+  );
+  module_enable($modules);
+}
