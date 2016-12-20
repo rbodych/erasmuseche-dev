@@ -1,3 +1,9 @@
+<?php
+/**
+ * @file
+ * Custom template file for header.
+ */
+?>
 <div class="event-header">
   <?php if (isset($countries)): ?>
     <div class="event-header--country">

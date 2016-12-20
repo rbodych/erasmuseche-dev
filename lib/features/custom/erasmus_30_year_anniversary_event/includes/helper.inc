@@ -34,7 +34,7 @@ function _erasmus_30_year_anniversary_event_retrieve_global_event_block_content(
   foreach ($result as $record) {
     $participants += $record->field_30ya_expected_participants_value;
   }
-  
+
   $query_event = db_select('node', 'n')
     ->condition('n.type', 'erasmus_30ya_event');
   $amount_of_events = $query_event->countQuery()->execute()->fetchField();
