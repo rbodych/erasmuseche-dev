@@ -41,7 +41,7 @@ function _erasmus_30_year_anniversary_event_retrieve_global_event_block_content(
 
   return theme('erasmus_30_year_anniversary_event_header',
     [
-      'countries' => NULL,
+      'countries' => '33',
       'events' => $amount_of_events,
       'participants' => $participants,
     ]
