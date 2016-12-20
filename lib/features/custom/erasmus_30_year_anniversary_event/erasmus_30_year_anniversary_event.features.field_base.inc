@@ -60,13 +60,13 @@ function erasmus_30_year_anniversary_event_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_30ya_expctd_nmbr_of_partici'.
-  $field_bases['field_30ya_expctd_nmbr_of_partici'] = array(
+  // Exported field_base: 'field_30ya_expected_participants'.
+  $field_bases['field_30ya_expected_participants'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_30ya_expctd_nmbr_of_partici',
+    'field_name' => 'field_30ya_expected_participants',
     'indexes' => array(),
     'locked' => 1,
     'module' => 'number',
@@ -159,6 +159,32 @@ function erasmus_30_year_anniversary_event_field_default_field_bases() {
     'type' => 'link_field',
   );
 
+  // Exported field_base: 'field_30ya_presence_commissioner'.
+  $field_bases['field_30ya_presence_commissioner'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_30ya_presence_commissioner',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 1,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_30ya_sector'.
   $field_bases['field_30ya_sector'] = array(
     'active' => 1,
@@ -210,32 +236,6 @@ function erasmus_30_year_anniversary_event_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
-  );
-
-  // Exported field_base: 'field_30ya_presence_of_commissnr'.
-  $field_bases['field_30ya_presence_of_commissnr'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_30ya_presence_of_commissnr',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 1,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => '',
-        1 => '',
-      ),
-      'allowed_values_function' => '',
-      'entity_translation_sync' => FALSE,
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
   );
 
   return $field_bases;

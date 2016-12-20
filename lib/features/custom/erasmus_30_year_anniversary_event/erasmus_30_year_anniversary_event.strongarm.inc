@@ -139,6 +139,9 @@ function erasmus_30_year_anniversary_event_strongarm() {
         'language' => array(
           'weight' => '4',
         ),
+        'workbench_access' => array(
+          'weight' => '5',
+        ),
       ),
       'display' => array(),
     ),

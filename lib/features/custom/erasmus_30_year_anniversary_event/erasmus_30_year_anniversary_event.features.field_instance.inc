@@ -92,7 +92,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
@@ -169,7 +169,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
         'size' => 120,
       ),
       'type' => 'text_textfield',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -209,13 +209,13 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
   // Exported field_instance:
-  // 'node-erasmus_30ya_event-field_30ya_expctd_nmbr_of_partici'.
-  $field_instances['node-erasmus_30ya_event-field_30ya_expctd_nmbr_of_partici'] = array(
+  // 'node-erasmus_30ya_event-field_30ya_expected_participants'.
+  $field_instances['node-erasmus_30ya_event-field_30ya_expected_participants'] = array(
     'bundle' => 'erasmus_30ya_event',
     'default_value' => NULL,
     'deleted' => 0,
@@ -241,7 +241,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_30ya_expctd_nmbr_of_partici',
+    'field_name' => 'field_30ya_expected_participants',
     'label' => 'Expected number of participants',
     'required' => 1,
     'settings' => array(
@@ -257,7 +257,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -335,7 +335,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -393,7 +393,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -452,7 +452,52 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 14,
+      'weight' => 15,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-erasmus_30ya_event-field_30ya_presence_commissioner'.
+  $field_instances['node-erasmus_30ya_event-field_30ya_presence_commissioner'] = array(
+    'bundle' => 'erasmus_30ya_event',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'If you check this box, you are stating that a commissioner will be present on the event.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 9,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_30ya_presence_commissioner',
+    'label' => 'Presence of commisioner',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 16,
     ),
   );
 
@@ -492,7 +537,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
         'apply_chosen' => 1,
       ),
       'type' => 'options_select',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -569,52 +614,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-erasmus_30ya_event-field_30ya_presence_of_commissnr'.
-  $field_instances['node-erasmus_30ya_event-field_30ya_presence_of_commissnr'] = array(
-    'bundle' => 'erasmus_30ya_event',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => 'If you check this box, you are stating that a commissioner will be present on the event.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 9,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_30ya_presence_of_commissnr',
-    'label' => 'Presence of commisioner',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 15,
+      'weight' => 8,
     ),
   );
 
@@ -657,7 +657,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 6,
     ),
   );
 
