@@ -1,0 +1,31 @@
+name = erasmus 30 year anniversary
+description = subtheme by DG EAC
+package = erasmus_theme
+core = "7.x"
+multisite_version = "2.2"
+base theme = ec_resp
+php = 5.2.9
+
+; REGIONS
+regions[header_top] = "Header Top"
+regions[header_right] = "Header Right"
+
+regions[featured] = "Featured"
+regions[tools] = "Tools"
+regions[help] = "Help"
+
+regions[sidebar_left] = "Sidebar Left"
+regions[sidebar_right] = "Sidebar Right"
+
+regions[content_top] = "Content Top"
+regions[content] = "Content"
+regions[content_right] = "Content Right"
+regions[content_bottom] = "Content Bottom"
+
+regions[footer] = "Footer"
+
+; STYLESHEETS
+stylesheets[all][] = assets/css/style.css
+
+; SCRIPTS
+;scripts[] = scripts/announcement.js

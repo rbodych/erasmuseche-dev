@@ -1,0 +1,32 @@
+.anniversary-header {
+  margin-top: $padding-small;
+  border-bottom: 1px solid $c-gray-3;
+  height: 75px;
+
+  .logo-anniversary {
+    width: 200px;
+    height: 170px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    
+    img {
+      max-width: 200px;
+      margin-top: -30px;
+    }
+  }
+  
+  nav {
+    float: right;
+    
+    ul {
+      list-style-type: none;
+      
+      li {
+        float: left;
+      }
+    }
+  }
+}

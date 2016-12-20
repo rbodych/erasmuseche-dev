@@ -1,0 +1,9 @@
+body {
+  background: none;
+}
+
+.container {
+  @include media($desktop) {
+    width: auto;
+  }
+}

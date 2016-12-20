@@ -1,0 +1,5 @@
+@mixin set-heading() {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: $font-family;
+}
