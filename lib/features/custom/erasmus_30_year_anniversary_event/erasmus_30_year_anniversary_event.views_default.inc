@@ -151,7 +151,7 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['operator_id'] = 'field_30ya_country_tid_i18n_op';
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['label'] = 'Country';
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['operator'] = 'field_30ya_country_tid_i18n_op';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['identifier'] = 'field_30ya_country_tid_i18n';
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['identifier'] = 'country';
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
