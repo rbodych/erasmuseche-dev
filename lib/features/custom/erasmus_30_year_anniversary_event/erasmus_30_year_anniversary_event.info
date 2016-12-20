@@ -99,4 +99,3 @@ features[variable][] = theme_erasmus_settings
 features[variable][] = webform_node_erasmus_30ya_event
 features[variable][] = workbench_access_node_type_erasmus_30ya_event
 features[variable][] = workbench_moderation_default_state_erasmus_30ya_event
-project path = sites/all/modules/features/custom/erasmus30ya/
