@@ -72,3 +72,12 @@ function erasmus_30_year_anniversary_event_block_view($delta = '') {
 
   return $block;
 }
+
+/**
+ * Implements hook_form_ID_alter().
+ */
+function erasmus_30_year_anniversary_event_form_views_exposed_form_alter(&$vars) {
+  if (isset($vars['country'])) {
+    $vars['country']['#default_value'] = '';
+  }
+}
