@@ -27,8 +27,16 @@ function erasmus_30year_anniversary_select($variables) {
   $element = $variables['element'];
   element_set_attributes($element, array('id', 'name', 'size'));
   _form_set_class($element, array('form-select'));
-
-  return '<select' . drupal_attributes($element['#attributes']) . '>' . erasmus_30year_anniversary_form_select_options($element) . '</select>';
+  
+  if ($element['#id'] == 'edit-country') {
+    if (count($element['#value']) > 1) {
+      $element['#value'] = '';
+    }
+    return '<select' . drupal_attributes($element['#attributes']) . '>' . erasmus_30year_anniversary_form_select_options($element) . '</select>';
+  }
+  else {
+    return '<select' . drupal_attributes($element['#attributes']) . '>' . form_select_options($element) . '</select>';
+  }
 }
 
 /**
@@ -38,7 +46,8 @@ function erasmus_30year_anniversary_form_select_options($element, $choices = NUL
   if (!isset($choices)) {
     $choices = $element['#options'];
   }
-  // array_key_exists() accommodates the rare event where $element['#value'] is NULL.
+  // array_key_exists() accommodates the rare event where.
+  // $element['#value'] is NULL.
   // isset() fails in this situation.
   $value_valid = isset($element['#value']) || array_key_exists('#value', $element);
   $value_is_array = $value_valid && is_array($element['#value']);
@@ -60,7 +69,7 @@ function erasmus_30year_anniversary_form_select_options($element, $choices = NUL
       else {
         $selected = '';
       }
-      $options .= '<option class="' . drupal_clean_css_identifier($choice) .
+      $options .= '<option class="' . strtolower(drupal_clean_css_identifier($choice)) .
         '" value="' . check_plain($key) . '"' . $selected . '>'
         . check_plain($choice) . '</option>';
     }
