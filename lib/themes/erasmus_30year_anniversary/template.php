@@ -27,7 +27,7 @@ function erasmus_30year_anniversary_select($variables) {
   $element = $variables['element'];
   element_set_attributes($element, array('id', 'name', 'size'));
   _form_set_class($element, array('form-select'));
-  
+
   if ($element['#id'] == 'edit-country') {
     if (count($element['#value']) > 1) {
       $element['#value'] = '';
@@ -69,7 +69,8 @@ function erasmus_30year_anniversary_form_select_options($element, $choices = NUL
       else {
         $selected = '';
       }
-      $options .= '<option class="' . strtolower(drupal_clean_css_identifier($choice)) .
+      $options .= '<option class="' .
+        drupal_strtolower(drupal_clean_css_identifier($choice)) .
         '" value="' . check_plain($key) . '"' . $selected . '>'
         . check_plain($choice) . '</option>';
     }
