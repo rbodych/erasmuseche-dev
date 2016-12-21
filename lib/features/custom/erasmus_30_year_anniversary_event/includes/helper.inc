@@ -36,7 +36,8 @@ function _erasmus_30_year_anniversary_event_retrieve_global_event_block_content(
   }
 
   $query_event = db_select('node', 'n')
-    ->condition('n.type', 'erasmus_30ya_event');
+    ->condition('n.type', 'erasmus_30ya_event')
+    ->condition('n.status', 1);
   $amount_of_events = $query_event->countQuery()->execute()->fetchField();
 
   return theme('erasmus_30_year_anniversary_event_header',
