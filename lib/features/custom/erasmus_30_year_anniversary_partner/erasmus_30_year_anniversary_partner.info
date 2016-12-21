@@ -49,3 +49,5 @@ features_exclude[dependencies][filefield_paths] = filefield_paths
 features_exclude[dependencies][image] = image
 features_exclude[dependencies][link] = link
 project path = sites/all/modules/features/custom
+php = 5.5.9
+multisite = 2.2
