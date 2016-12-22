@@ -10,13 +10,28 @@
  * Switch to my theme when applicable.
  */
 function erasmus_30ya_core_custom_theme() {
+  $is_allowed = FALSE;
+
   $node = menu_get_object('node');
-  if (isset($node->field_subsite_theme[LANGUAGE_NONE][0]['value'])) {
-    $subsite_theme = $node->field_subsite_theme[LANGUAGE_NONE][0]['value'];
+  $allowed_types = [
+    'erasmus_30_year_anniversary_page',
+  ];
+  if (is_object($node) && isset($node->type)
+      && in_array($node->type, $allowed_types)) {
+    $is_allowed = TRUE;
   }
 
+  $allowed_uris = [
+    'events',
+    'partners',
+    'share-my-story',
+  ];
+  $current_path = current_path();
+  if (in_array($current_path, $allowed_uris)) {
+    $is_allowed = TRUE;
+  }
   // If you have more themes, update the code below.
-  if (isset($subsite_theme) && !empty($subsite_theme)) {
+  if ($is_allowed) {
     return 'erasmus_30year_anniversary';
   }
 }
@@ -40,14 +55,12 @@ function erasmus_30ya_core_context_load_alter(&$context) {
         }
       }
       break;
-    
     case 'erasmus_30_years_anniversary_campaign_global':
       global $theme;
       if ($theme !== 'erasmus_30year_anniversary') {
         // Unset all the blocks for this context.
         unset($context->reactions['block']['blocks']);
       }
-      
       break;
   }
 }

@@ -10,7 +10,8 @@ include_once 'erasmus_30_year_anniversary_page.features.inc';
  * Implements hook_preprocess_page().
  */
 function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
-  if ($vars['node']->type == 'erasmus_30_year_anniversary_page') {
+  if (isset($vars['node'])
+      && $vars['node']->type == 'erasmus_30_year_anniversary_page') {
     $top_media = $vars['node']->field_30ya_contentrow_media;
     $top_txt = $vars['node']->field_30ya_contentrow_richtext;
 
@@ -32,6 +33,8 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
  * Implements hook_preprocess_node().
  */
 function erasmus_30_year_anniversary_page_preprocess_node(&$vars) {
-  unset($vars['content']['field_30ya_contentrow_media']);
-  unset($vars['content']['field_30ya_contentrow_richtext']);
+  if (isset($vars['content']['field_30ya_contentrow_media'])) {
+    unset($vars['content']['field_30ya_contentrow_media']);
+    unset($vars['content']['field_30ya_contentrow_richtext']);
+  }
 }
