@@ -78,7 +78,7 @@ function erasmus_30ya_core_preprocess_node(&$vars) {
   ];
   if (isset($vars['view']->name)
       && in_array($vars['view']->name, $allowed_views)) {
-        
+
       $vars['theme_hook_suggestions'][] = 'node__card';
   }
 }
