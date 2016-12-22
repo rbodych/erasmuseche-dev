@@ -67,6 +67,14 @@ function erasmus_30_year_anniversary_press_release_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'erasmus_30_year_anniversary_pres' => 'erasmus_30_year_anniversary_pres',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_erasmus30ya_pressreleases');
