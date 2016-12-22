@@ -4,7 +4,7 @@
  * Custom template file for header.
  */
 ?>
-<div class="event-header">
+<div class="event-header square-medium">
   <?php if (isset($countries)): ?>
     <div class="event-header--country">
       <?php print format_plural($countries, t('1 country'), t('@count countries')); ?>
