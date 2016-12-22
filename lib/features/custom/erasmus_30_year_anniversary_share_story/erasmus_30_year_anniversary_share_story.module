@@ -42,35 +42,31 @@ From XXX (date) come back to vote on your favourite entries!'),
   ];
   $form['intro_5'] = [
     '#markup' => '<div class="center">' .
-      t('Don’t forget to share your entry on social media too! #ErasmusPlus')
-      . '</div>',
+    t('Don’t forget to share your entry on social media too! #ErasmusPlus')
+    . '</div>',
   ];
   $form['upload'] = [
     '#name' => 'files[upload]',
     '#type' => 'file',
     '#title' => t('Choose an image'),
   ];
-  
   $form['title'] = [
-    '#type' => 'textfield', 
-    '#title' => t('Title'), 
-    '#maxlength' => 128, 
+    '#type' => 'textfield',
+    '#title' => t('Title'),
+    '#maxlength' => 128,
     '#required' => TRUE,
     '#attributes' => ['placeholder' => t('Title')],
   ];
-
   $form['description'] = [
     '#title' => t('Description'),
     '#type' => 'textarea',
     '#required' => TRUE,
     '#attributes' => ['placeholder' => t('Short description')],
   ];
-
   $form['submit'] = [
     '#type' => 'submit',
     '#value' => t('Share my story'),
   ];
-   
   return $form;
 }
 
