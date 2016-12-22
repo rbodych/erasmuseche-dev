@@ -1,0 +1,118 @@
+<?php
+/**
+ * @file
+ * Code for the erasmus_30_year_anniversary_share_story feature.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function erasmus_30_year_anniversary_share_story_menu() {
+  $items['share-my-story'] = array(
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['erasmus_30_year_anniversary_share_story_form'],
+    'title' => 'Tell us the + of your Erasmus+!',
+    'access arguments' => ['access content'],
+  );
+  return $items;
+}
+
+/**
+ * Form for share your story.
+ */
+function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
+  $form['intro_first'] = [
+    '#markup' => t('To celebrate the 30th anniversary of Erasmus+, we want to hear about the best bits of your Erasmus+ experiences! Perhaps Erasmus+ helped to kick start your career, or maybe you met someone inspirational while living abroad? If you have a story to tell, we want to hear it.'),
+  ];
+  $form['intro_second'] = [
+    '#type' => 'item',
+    '#title' => t('How to enter'),
+    '#markup' => t('Submit a photo or video with your 100 word story that tells us about the + of your Erasmus+. Be creative!
+From XXX (date) come back to vote on your favourite entries!'),
+  ];
+  $form['intro_3'] = [
+    '#type' => 'item',
+    '#title' => t('Prize'),
+    '#markup' => t('We have 3 x €100 travel vouchers to give away before XXX! But that’s not all - you will then get the chance to vote for your favourite entry. The public’s choice will win a €400 travel voucher!'),
+  ];
+  $form['intro_4'] = [
+    '#type' => 'item',
+    '#title' => t('Who can enter'),
+    '#markup' => t('Whether you studied, did a traineeship, went on a youth exchange, volunteered, got teacher/youth worker/sports coach training, or undertook any other activity with Erasmus+ funding in the past 30 years, this competition is for you!'),
+  ];
+  $form['intro_5'] = [
+    '#markup' => '<div class="center">' .
+      t('Don’t forget to share your entry on social media too! #ErasmusPlus')
+      . '</div>',
+  ];
+  $form['upload'] = [
+    '#name' => 'files[upload]',
+    '#type' => 'file',
+    '#title' => t('Choose an image'),
+  ];
+  
+  $form['title'] = [
+    '#type' => 'textfield', 
+    '#title' => t('Title'), 
+    '#maxlength' => 128, 
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Title')],
+  ];
+
+  $form['description'] = [
+    '#title' => t('Description'),
+    '#type' => 'textarea',
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Short description')],
+  ];
+
+  $form['submit'] = [
+    '#type' => 'submit',
+    '#value' => t('Share my story'),
+  ];
+   
+  return $form;
+}
+
+/**
+ * Form validation logic for the share form.
+ */
+function erasmus_30_year_anniversary_share_story_form_validate($form, &$form_state) {
+  $values = &$form_state['values'];
+
+  $file = file_save_upload('upload');
+  if ($file) {
+    $file->status = 1;
+    file_save($file);
+    $file = file_move($file, 'public://');
+    $values['params']['attachments'][] = array(
+      'filepath' => file_create_url($file->uri),
+    );
+  }
+}
+
+/**
+ * Form submission logic for the share form.
+ */
+function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state) {
+  $values['title'] = $form_state['values']['title'];
+  $values['body'] = $form_state['values']['description'];
+  $values['image'] = $form_state['values']['params'];
+
+  $module = 'erasmus_30_year_anniversary_share_story';
+  $key = time() . '_share_story_erasmus30year';
+  $to = 'michael.schuddings@one-agency.be';
+  $language = language_default();
+  $params = $values['params'];
+  $from = 'webteameac@ec.europa.eu';
+
+  $send = TRUE;
+
+  $result = drupal_mail($module, $key, $to, $language, $params, $from, $send);
+  if ($result['result'] == TRUE) {
+    drupal_set_message(t('Your story has been submitted.'));
+  }
+  else {
+    drupal_set_message(t('There was a problem sending please contact the website maintainer.'), 'error');
+  }
+}
