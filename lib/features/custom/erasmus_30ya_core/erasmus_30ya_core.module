@@ -15,6 +15,7 @@ function erasmus_30ya_core_custom_theme() {
   $node = menu_get_object('node');
   $allowed_types = [
     'erasmus_30_year_anniversary_page',
+    'erasmus_30_year_anniversary_pres',
   ];
   if (is_object($node) && isset($node->type)
       && in_array($node->type, $allowed_types)) {
@@ -25,6 +26,7 @@ function erasmus_30ya_core_custom_theme() {
     'events',
     'partners',
     'share-my-story',
+    'press-releases',
   ];
   $current_path = current_path();
   if (in_array($current_path, $allowed_uris)) {
