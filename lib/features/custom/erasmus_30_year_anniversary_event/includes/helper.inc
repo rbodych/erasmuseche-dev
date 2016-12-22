@@ -11,7 +11,14 @@ function _erasmus_30_year_anniversary_event_count_participants_per_country($resu
   $participants = 0;
   $events = count($results);
   foreach ($results as $result) {
-    $participants += $result->field_field_30ya_expected_participants[0]['raw']['value'];
+    $nid = $result->nid;
+    $field_value = db_select('field_data_field_30ya_expected_participants', 'f')
+      ->fields('f', array('field_30ya_expected_participants_value'))
+      ->condition('entity_id', $nid)
+      ->condition('deleted', 0)
+      ->execute()
+      ->fetchField();
+    $participants += $field_value;
   }
 
   return theme('erasmus_30_year_anniversary_event_header',
