@@ -55,6 +55,7 @@ function erasmus_30ya_core_context_load_alter(&$context) {
         }
       }
       break;
+
     case 'erasmus_30_years_anniversary_campaign_global':
       global $theme;
       if ($theme !== 'erasmus_30year_anniversary') {
@@ -62,5 +63,6 @@ function erasmus_30ya_core_context_load_alter(&$context) {
         unset($context->reactions['block']['blocks']);
       }
       break;
+
   }
 }
