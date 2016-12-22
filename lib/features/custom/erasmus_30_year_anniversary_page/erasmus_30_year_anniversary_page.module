@@ -1,0 +1,36 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Page feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_page.features.inc';
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
+  if ($vars['node']->type == 'erasmus_30_year_anniversary_page') {
+    $top_media = $vars['node']->field_30ya_contentrow_media;
+    $top_txt = $vars['node']->field_30ya_contentrow_richtext;
+
+    $vars['page']['sidebar_left'] = $top_txt[$vars['node']->language][0]['value'];
+    
+    $variables = array(
+      'path' => file_create_url($top_media[$vars['node']->language][0]['file']->uri), 
+      'alt' => $vars['node']->title,
+      'title' => $vars['node']->title,
+      );
+    $img = theme('image', $variables);
+    
+    $vars['page']['sidebar_right'] = $img;
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_page_preprocess_node(&$vars) {
+  unset($vars['content']['field_30ya_contentrow_media']);
+  unset($vars['content']['field_30ya_contentrow_richtext']);
+}
