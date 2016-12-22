@@ -40,3 +40,4 @@ features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][features] = features
 features_exclude[dependencies][strongarm] = strongarm
 multisite_version = 2.2
+php = 5.5.9
