@@ -78,6 +78,8 @@ function erasmus_30_year_anniversary_event_block_view($delta = '') {
  */
 function erasmus_30_year_anniversary_event_form_views_exposed_form_alter(&$vars) {
   if (isset($vars['country'])) {
-    $vars['country']['#default_value'] = '';
+    $default_option['default'] = t('Please select a country');
+    array_unshift($vars['country']['#options'], $default_option);
+    $vars['country']['#default_value'] = 'default';
   }
 }
