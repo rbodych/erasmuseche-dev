@@ -5,3 +5,22 @@
  */
 
 include_once 'erasmus_30_year_anniversary_hero.features.inc';
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
+  global $theme;
+  if ($node['type'] == 'erasmus_30_year_anniversary_hero'
+     && $theme == 'erasmus_30year_anniversary') {
+
+    $srt_uri = $node['field_30ya_hero_video_srt'][$node['language']][0]['uri'];
+    $srt_url = file_create_url($srt_uri);
+    var_dump($node['field_30ya_hero_video']);
+    $vid_url = $node['field_30ya_hero_video'][0]['file']->uri;
+    unset($node['content']['field_30ya_hero_video']);
+    $node['content']['srt'] = $srt_url;
+    $node['content']['srt_lang'] = $node['language'];
+    $node['content']['vid'] = file_create_url($vid_url);
+  }
+}

@@ -33,8 +33,8 @@ function erasmus_30_year_anniversary_hero_views_default_views() {
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['style_options']['wrapper_class'] = 'hero-list';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -83,10 +83,17 @@ function erasmus_30_year_anniversary_hero_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'erasmus_30_year_anniversary_hero' => 'erasmus_30_year_anniversary_hero',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_30year_anniversary_discover_erasmus_heroes');
-  $handler->display->display_options['path'] = 'discover-erasmus+';
+  $handler->display->display_options['path'] = 'discover-erasmusplus';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Discover Erasmus+';
   $handler->display->display_options['menu']['name'] = 'menu-erasmus-30';
