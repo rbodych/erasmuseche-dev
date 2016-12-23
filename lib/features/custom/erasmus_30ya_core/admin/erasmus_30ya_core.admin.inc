@@ -3,16 +3,16 @@
  * @file
  * Admin form.
  */
- 
+
 /**
  * Admin form.
  */
 function erasmus_30ya_core_admin() {
   $form = [];
   $form['story'] = [
-    '#type' => 'fieldset', 
-    '#title' => t('Story settings (Monthly theme)'), 
-    '#collapsible' => TRUE, 
+    '#type' => 'fieldset',
+    '#title' => t('Story settings (Monthly theme)'),
+    '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   ];
   $monthly_themes = _erasmus_30ya_core_admin_get_monthly_themes();
@@ -39,7 +39,7 @@ function _erasmus_30ya_core_admin_get_monthly_themes() {
   $tree = taxonomy_get_tree($vocabulary->vid);
   $terms = [];
   foreach ($tree as $term) {
-   $terms[$term->tid] = $term->name;
+    $terms[$term->tid] = $term->name;
   }
   return $terms;
 }

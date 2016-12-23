@@ -6,7 +6,6 @@
 
 include_once 'erasmus_30_year_anniversary_story.features.inc';
 
-
 /**
  * Implements hook_block_info().
  */
