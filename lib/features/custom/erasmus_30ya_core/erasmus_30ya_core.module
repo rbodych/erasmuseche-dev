@@ -100,7 +100,6 @@ function erasmus_30ya_core_menu() {
     'file' => 'admin/erasmus_30ya_core.admin.inc',
     'access arguments' => array('administer site configuration'),
     'type' => MENU_NORMAL_ITEM,
-   );
-
+  );
   return $items;
 }

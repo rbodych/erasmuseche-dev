@@ -1,0 +1,69 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Story feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_story.features.inc';
+
+
+/**
+ * Implements hook_block_info().
+ */
+function erasmus_30_year_anniversary_story_block_info() {
+  $blocks['e30ya_story_block'] = array(
+    'info' => t('Erasmus+ 30 year Monthly story'),
+    'region' => 'content',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+    'status' => TRUE,
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'stories/*',
+    'theme' => 'erasmus_30year_anniversary',
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function erasmus_30_year_anniversary_story_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'e30ya_story_block':
+      $block['content']
+        = _erasmus_30_year_anniversary_story_get_monthly_theme();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Retrieve the monthly stories block for month specified in url.
+ */
+function _erasmus_30_year_anniversary_story_get_monthly_theme() {
+  $url = request_uri();
+  $url = explode('/', request_uri());
+
+  if (count($url) < 2) {
+    return NULL;
+  }
+
+  $url = $url[2];
+  if (strpos($url, '_') === FALSE) {
+    return NULL;
+  }
+
+  $url = explode('_', $url);
+  $month_url = $url[0];
+
+  $var_name = 'e30ya_monthly_theme_' . drupal_strtolower($month_url);
+  $current_theme_month = variable_get($var_name, NULL);
+
+  if ($current_theme_month) {
+    return views_embed_view('erasmus_30_year_anniversary_stories',
+    'block_30year_anniversary_monthly_theme', $current_theme_month);
+  }
+}
