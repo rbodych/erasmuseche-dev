@@ -4,7 +4,8 @@
  * Default theme implementation to display a node.
  */
 ?>
-<div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>
+  style="background: url('<?php print render($content['banner_url']); ?>')">
 
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
@@ -14,7 +15,6 @@
 
   <div class="content"<?php print $content_attributes; ?>>
     <?php
-      print render($content['field_30ya_hero_banner']);
       print render($content['body']);
     ?>
   </div>
