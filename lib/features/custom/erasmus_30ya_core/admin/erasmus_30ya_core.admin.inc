@@ -16,12 +16,12 @@ function erasmus_30ya_core_admin() {
     '#collapsed' => FALSE,
   ];
   $monthly_themes = _erasmus_30ya_core_admin_get_monthly_themes();
-  for ($m=1; $m <= 12; $m++) {
-    $month = date('F', mktime(0, 0 , 0, $m, 1, date('Y')));
+  for ($m = 1; $m <= 12; $m++) {
+    $month = date('F', mktime(0, 0, 0, $m, 1, date('Y')));
     $var_name = 'e30ya_monthly_theme_' . drupal_strtolower($month);
     $form['story'][$var_name] = [
       '#type' => 'select',
-      '#title' => t('Monthly theme: ' . $month),
+      '#title' => t('Monthly theme: @month', ['@month' => $month]),
       '#options' => $monthly_themes,
       '#default_value' => variable_get($var_name, ''),
       '#required' => TRUE,
