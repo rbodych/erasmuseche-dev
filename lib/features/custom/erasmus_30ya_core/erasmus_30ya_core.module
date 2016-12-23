@@ -16,6 +16,9 @@ function erasmus_30ya_core_custom_theme() {
   $allowed_types = [
     'erasmus_30_year_anniversary_page',
     'erasmus_30_year_anniversary_pres',
+    'erasmus_30_year_anniversary_stor',
+    'erasmus_30ya_event',
+    'erasmus_30_year_anniversary_part',
   ];
   if (is_object($node) && isset($node->type)
       && in_array($node->type, $allowed_types)) {
@@ -75,10 +78,29 @@ function erasmus_30ya_core_context_load_alter(&$context) {
 function erasmus_30ya_core_preprocess_node(&$vars) {
   $allowed_views = [
     'erasmus_30_year_anniversary_events',
+    'erasmus_30_year_anniversary_stories',
   ];
   if (isset($vars['view']->name)
       && in_array($vars['view']->name, $allowed_views)) {
 
     $vars['theme_hook_suggestions'][] = 'node__card';
   }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function erasmus_30ya_core_menu() {
+  $items = array();
+
+  $items['admin/settings/erasmus_30ya_core'] = array(
+    'title' => 'Erasmus+ 30 year anniversary settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('erasmus_30ya_core_admin'),
+    'file' => 'admin/erasmus_30ya_core.admin.inc',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+   );
+
+  return $items;
 }
