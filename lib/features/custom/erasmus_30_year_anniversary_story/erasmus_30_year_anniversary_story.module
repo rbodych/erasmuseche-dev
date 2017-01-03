@@ -140,10 +140,34 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
   if (isset($vars['view']->name)
       && $vars['view']->name == 'erasmus_30_year_anniversary_stories') {
 
-    $image = image_style_url('erasmus_30_year_story_card__370x210_en',
+    $image = image_style_url('erasmus_30_year_story_card__370x210',
       $vars['field_image'][0]['uri']);
     $vars['image'] = $image;
     $vars['theme'] = $vars['field_e30ya_monthly_theme'][0]['taxonomy_term']->name;
     unset($vars['date']);
+  }
+  
+  if (isset($vars['elements']['#view_mode'])
+      && $vars['elements']['#view_mode'] == 'full'
+      && $vars['type'] == 'erasmus_30_year_anniversary_stor') {
+    unset($vars['content']['field_image']);
+    unset($vars['content']['field_e30ya_monthly_theme']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function erasmus_30_year_anniversary_story_preprocess_page(&$vars) {
+  if (isset($vars['node'])
+      && $vars['node']->type == 'erasmus_30_year_anniversary_stor') {
+
+    $body
+      = $vars['node']->field_e30ya_monthly_theme[LANGUAGE_NONE][0]['taxonomy_term']->name;
+    $image = image_style_url('erasmus_30_year_story_large__520x520',
+      $vars['node']->field_image[LANGUAGE_NONE][0]['uri']);
+    $alt = $vars['node']->field_image[LANGUAGE_NONE][0]['alt'];
+    $vars['page']['sidebar_left'] = $body;
+    $vars['page']['sidebar_right'] = '<img src="' . $image . '" alt="' . $alt . '"/>';
   }
 }

@@ -121,6 +121,6 @@ function erasmus_30_year_anniversary_share_story_mail($key, &$message, $params) 
     case 'share_story_erasmus30year':
       $message['subject'] = $params['title'];
       $message['body'][] = $params['body'];
-    break;
-    }
+      break;
+  }
 }
