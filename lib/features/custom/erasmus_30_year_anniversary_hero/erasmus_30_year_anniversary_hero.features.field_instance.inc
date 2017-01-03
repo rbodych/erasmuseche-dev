@@ -24,6 +24,13 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 0,
       ),
+      'erasmus_30_year_hero_homepage' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'text',
@@ -110,6 +117,16 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
         ),
         'type' => 'image',
         'weight' => 2,
+      ),
+      'erasmus_30_year_hero_homepage' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'erasmus_30_year_hero_small_hp',
+        ),
+        'type' => 'image',
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -208,6 +225,12 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
         'type' => 'media',
         'weight' => 3,
       ),
+      'erasmus_30_year_hero_homepage' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
+      ),
       'teaser' => array(
         'label' => 'hidden',
         'module' => 'mediafield',
@@ -267,6 +290,12 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
+      ),
+      'erasmus_30_year_hero_homepage' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
@@ -359,6 +388,12 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
         'settings' => array(),
         'type' => 'hidden',
         'weight' => 1,
+      ),
+      'erasmus_30_year_hero_homepage' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',

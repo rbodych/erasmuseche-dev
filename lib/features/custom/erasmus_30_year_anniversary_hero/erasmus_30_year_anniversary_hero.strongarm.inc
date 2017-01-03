@@ -151,6 +151,9 @@ function erasmus_30_year_anniversary_hero_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
+      'erasmus_30_year_hero_homepage' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

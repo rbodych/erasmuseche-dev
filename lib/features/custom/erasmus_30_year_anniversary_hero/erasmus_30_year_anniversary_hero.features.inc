@@ -8,6 +8,9 @@
  * Implements hook_ctools_plugin_api().
  */
 function erasmus_30_year_anniversary_hero_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "ds" && $api == "ds") {
+    return array("version" => "1");
+  }
   if ($module == "field_group" && $api == "field_group") {
     return array("version" => "1");
   }
@@ -21,6 +24,30 @@ function erasmus_30_year_anniversary_hero_ctools_plugin_api($module = NULL, $api
  */
 function erasmus_30_year_anniversary_hero_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
+}
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function erasmus_30_year_anniversary_hero_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: erasmus_30_year_hero_small_hp.
+  $styles['erasmus_30_year_hero_small_hp'] = array(
+    'label' => 'erasmus_30_year_hero_small_hp',
+    'effects' => array(
+      2 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 900,
+          'height' => 510,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
 }
 
 /**
