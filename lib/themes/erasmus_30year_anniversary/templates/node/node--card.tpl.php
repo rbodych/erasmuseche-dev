@@ -71,6 +71,24 @@
         </a>
       </li>
     <?php endif; ?>
+    <?php if (isset($fact_links)): ?>
+      <?php foreach ($fact_links as $flink): ?>
+        <li>
+          <a class="button button--primary button--medium" href="<?php print $flink['url']; ?>" alt="<?php print $flink['title']; ?>">
+            <?php print $flink['title']; ?>
+          </a>
+        </li>
+      <?php endforeach; ?>
+    <?php endif; ?>
+    <?php if (isset($info_links)): ?>
+      <?php foreach ($info_links as $ilink): ?>
+        <li>
+          <a class="button button--primary button--medium" href="<?php print $ilink['url']; ?>" alt="<?php print $ilink['title']; ?>">
+            <?php print $ilink['title']; ?>
+          </a>
+        </li>
+      <?php endforeach; ?>
+    <?php endif; ?>
   </ul>
 
 </article>
