@@ -5,3 +5,20 @@
  */
 
 include_once 'erasmus_30_year_anniversary_partner.features.inc';
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_partner_preprocess_node(&$vars) {
+  if (isset($vars['elements']['#view_mode'])
+      && $vars['elements']['#view_mode'] == 'teaser'
+      && $vars['type'] == 'erasmus_30_year_anniversary_part') {
+    unset($vars['date']);
+
+    $image = image_style_url('erasmus_30_year_story_card__370x210',
+      $vars['field_30ya_partner_logo'][0]['uri']);
+    $vars['image'] = $image;
+    $vars['link']['title'] = $vars['field_30ya_partner_link'][0]['title'];
+    $vars['link']['url'] = $vars['field_30ya_partner_link'][0]['url'];
+  }
+}

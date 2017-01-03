@@ -82,10 +82,10 @@ function erasmus_30ya_core_preprocess_node(&$vars) {
   $allowed_views = [
     'erasmus_30_year_anniversary_events',
     'erasmus_30_year_anniversary_stories',
+    'erasmus_30_year_anniversary_partners',
   ];
   if (isset($vars['view']->name)
       && in_array($vars['view']->name, $allowed_views)) {
-    $vars['intro'] = $vars['body'][0]['value'];
     $vars['theme_hook_suggestions'][] = 'node__card';
   }
 }
