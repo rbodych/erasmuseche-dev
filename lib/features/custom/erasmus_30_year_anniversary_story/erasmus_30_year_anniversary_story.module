@@ -153,7 +153,6 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
       && $vars['type'] == 'erasmus_30_year_anniversary_stor') {
     unset($vars['content']['field_image']);
     unset($vars['content']['field_e30ya_monthly_theme']);
-    
   }
 }
 
