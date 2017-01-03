@@ -12,7 +12,8 @@ include_once 'erasmus_30_year_anniversary_hero.features.inc';
 function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
   global $theme;
   if ($node['type'] == 'erasmus_30_year_anniversary_hero'
-     && $theme == 'erasmus_30year_anniversary') {
+     && $theme == 'erasmus_30year_anniversary'
+     && $node['elements']['#view_mode'] == 'teaser') {
 
     $srt_uri = $node['field_30ya_hero_video_srt'][$node['language']][0]['uri'];
     $srt_url = file_create_url($srt_uri);
@@ -23,5 +24,8 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
     $node['content']['vid'] = file_create_url($vid_url);
     $banner_uri = $node['field_30ya_hero_banner'][0]['uri'];
     $node['content']['banner_url'] = file_create_url($banner_uri);
+    $suggestions = $node['theme_hook_suggestions'];
+    array_unshift($suggestions, 'node__erasmus_30_year_anniversary_hero__teaser');
+    $node['theme_hook_suggestions'] = $suggestions;
   }
 }
