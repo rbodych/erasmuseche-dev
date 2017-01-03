@@ -146,7 +146,7 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
     $vars['theme'] = $vars['field_e30ya_monthly_theme'][0]['taxonomy_term']->name;
     unset($vars['date']);
   }
-  
+
   if (isset($vars['elements']['#view_mode'])
       && $vars['elements']['#view_mode'] == 'full'
       && $vars['type'] == 'erasmus_30_year_anniversary_stor') {
