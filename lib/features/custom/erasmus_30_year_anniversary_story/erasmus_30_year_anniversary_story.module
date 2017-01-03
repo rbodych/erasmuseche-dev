@@ -66,3 +66,69 @@ function _erasmus_30_year_anniversary_story_get_monthly_theme() {
     'block_30year_anniversary_monthly_theme', $current_theme_month);
   }
 }
+
+/**
+ * Retrieve the homepage HTML for the random stories.
+ */
+function erasmus_30_year_anniversary_story_get_html_random_stories() {
+  $result = db_select('node', 'n')
+    ->condition('type', 'erasmus_30_year_anniversary_stor')
+    ->fields('n', ['nid'])
+    ->range(0, 4)
+    ->orderRandom()
+    ->execute();
+  $images = [];
+  foreach ($result as $record) {
+    $node = $record->nid;
+    $node = node_load($node);
+    $images[] = $node->field_image[LANGUAGE_NONE][0];
+  }
+  $counter = 1;
+  $themed_images = [];
+  foreach ($images as $image) {
+    $url = $image['uri'];
+    switch ($counter) {
+      case '1':
+        $themed_images[$counter]['url']
+          = image_style_url('erasmus_30_year_story_small__280x280', $url);
+        $themed_images[$counter]['alt'] = $image['alt'];
+        break;
+
+      case '2':
+        $themed_images[$counter]['url']
+          = image_style_url('erasmus_30_year_story_medium__300x300', $url);
+        $themed_images[$counter]['alt'] = $image['alt'];
+        break;
+
+      case '3':
+        $themed_images[$counter]['url']
+          = image_style_url('erasmus_30_year_story_large__520x520', $url);
+        $themed_images[$counter]['alt'] = $image['alt'];
+        break;
+
+      case '4':
+        $themed_images[$counter]['url']
+          = image_style_url('erasmus_30_year_story_huge__720x574', $url);
+        $themed_images[$counter]['alt'] = $image['alt'];
+        break;
+    }
+    $counter++;
+  }
+  return theme('erasmus_30_year_anniversary_random_stories',
+    ['stories' => $themed_images]);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function erasmus_30_year_anniversary_story_theme() {
+  return array(
+    'erasmus_30_year_anniversary_random_stories' => array(
+      'variables' => array(
+        'stories' => NULL,
+      ),
+      'template' => 'erasmus-30-year-anniversary-random-stories',
+      'path' => drupal_get_path('module', 'erasmus_30_year_anniversary_story') . '/templates',
+    ),
+  );
+}
