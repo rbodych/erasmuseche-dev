@@ -1,3 +1,9 @@
+<?php
+/**
+ * @file
+ * Random stories TPL, used on the homepage.
+ */
+?>
 <div class="random-stories">
   <?php foreach ($stories as $story): ?>
     <div class="item">
