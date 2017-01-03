@@ -5,3 +5,27 @@
  */
 
 include_once 'erasmus_30_year_anniversary_country_fact_sheets_infographics.features.inc';
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_country_fact_sheets_infographics_preprocess_node(&$vars) {
+  if (isset($vars['elements']['#view_mode'])
+      && $vars['elements']['#view_mode'] == 'teaser'
+      && $vars['type'] == 'erasmus_30_year_anniversary_fact') {
+    unset($vars['date']);
+
+    foreach ($vars['field_30ya_fact_sheets'][$vars['language']] as $fact_sheet) {
+      $array = [];
+      $array['url'] = file_create_url($fact_sheet['uri']);
+      $array['title'] = $fact_sheet['origname'];
+      $vars['fact_links'][] = $array;
+    }
+    foreach ($vars['field_30ya_infographics'][$vars['language']] as $info_link) {
+      $array = [];
+      $array['url'] = file_create_url($info_link['uri']);
+      $array['title'] = $info_link['origname'];
+      $vars['info_links'][] = $array;
+    }
+  }
+}
