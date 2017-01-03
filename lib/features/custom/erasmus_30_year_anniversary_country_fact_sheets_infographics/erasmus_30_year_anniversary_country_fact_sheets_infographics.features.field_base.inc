@@ -22,7 +22,7 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_field_defa
         0 => 'fid',
       ),
     ),
-    'locked' => 0,
+    'locked' => 1,
     'module' => 'file',
     'settings' => array(
       'display_default' => 0,
@@ -48,7 +48,7 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_field_defa
         0 => 'fid',
       ),
     ),
-    'locked' => 0,
+    'locked' => 1,
     'module' => 'file',
     'settings' => array(
       'display_default' => 0,
