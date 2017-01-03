@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="right">
-       <?php 
+       <?php
         print views_embed_view('erasmus_30_year_anniversary_heroes', 'block_random_hero');
       ?>
     </div>
