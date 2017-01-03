@@ -33,6 +33,7 @@ function erasmus_30ya_core_custom_theme() {
     'share-my-story',
     'press-releases',
     'discover-erasmusplus',
+    'country-facts-sheets-infographics',
   ];
   $current_path = current_path();
   if (in_array($current_path, $allowed_uris)) {
