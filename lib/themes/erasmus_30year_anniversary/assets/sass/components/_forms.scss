@@ -1,0 +1,112 @@
+#edit-country-wrapper {
+  float: none;
+  padding: 0;
+  
+  label {
+    display: none;
+  }
+  
+  .views-widget {
+    display: none;
+  }
+  
+  .js-country-list__wrapper {
+    .js-country-list__content {
+      display: none;
+      
+      ul {
+        padding: 0;
+        list-style: none;
+        
+        li {
+          padding: 30px 0;
+          background: rgba(255,255,255,.7);
+          border-bottom: 1px solid rgba(255,255,255,.2);
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  
+    .js-country-list__selected {
+      background: url(../images/picto-arrow-down-light-gray.png) no-repeat 99%;
+      margin-top: 15px;
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+
+@include media($tablet-min-width) {
+  
+  #edit-country-wrapper {
+    .js-country-list__wrapper {
+      .js-country-list__content {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          position: absolute;
+          z-index: 9;
+          box-shadow: $shadow-big;
+          
+          li {
+            width: 50%;
+            border: 1px solid rgba(255,255,255,.2);
+          }
+        }
+      }
+      
+    }
+  }
+  
+}
+
+
+
+
+
+@include media($desktop-min-width) {
+  
+    #edit-country-wrapper {
+      .js-country-list__wrapper {
+        .js-country-list__content {
+          ul {
+            li {
+              width: 33.3333333333%;
+            }
+          }
+        }
+        
+        .js-country-list__selected {
+          background: url(../images/picto-arrow-down-light-gray.png) no-repeat 94%;
+          width: 60%;
+        }
+      }
+    }
+  
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  
+    #edit-country-wrapper {
+      .js-country-list__wrapper {
+        .js-country-list__content {
+          ul {
+            li {
+              width: 25%;
+            }
+          }
+        }
+      }
+    }
+  
+}

@@ -1,4 +1,15 @@
-$font-family: "Daxline-medium", Verdana, Geneva, sans-serif;
+@font-face {
+    font-family: Daxline;
+    src: url(../fonts/DaxlinePro-Medium.otf);
+}
+@font-face {
+    font-family: Daxline;
+    src: url(../fonts/DaxlinePro-Bold.otf);
+    font-weight: bold;
+}
+
+
+$font-family: Daxline, Verdana, Geneva, sans-serif;
 $font-family-alt: Verdana, Geneva, sans-serif;
 
 $font-size: 16px;

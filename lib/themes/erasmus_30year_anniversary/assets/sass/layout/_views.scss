@@ -1,0 +1,182 @@
+.view-filters {
+  padding: $padding 10px $padding-small;
+}
+
+
+
+
+
+.view-content {
+  padding: $padding-medium $padding $padding-big;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  
+  article {
+    background: #fff;
+    padding: $padding;
+    margin-bottom: $padding;
+    
+    h3 {
+      padding: $padding 0;
+    }
+    
+    & > p {
+      padding: $padding 0;
+      border-top: 1px solid #efefef;
+    }
+      
+    .p-location,
+    .dt-start,
+    .p-category {
+      @include set-heading();
+      text-transform: none;
+    }
+
+    .node--card__participants {
+      padding: $padding;
+      border-top: 1px solid #efefef;
+      border-bottom: 1px solid #efefef;
+      text-align: center;
+      
+      p {
+        font-size: $heading-2-size;
+        color: $c-secondary-2;
+        margin: 0;
+      }
+      
+      h4 {
+        font-size: 1em;
+        color: $c-gray-2;
+        text-transform: none;
+      }
+    }
+    
+    .node--card__links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      li {
+        display: inline-block;
+        float: left;
+        width: 100%;
+
+        &:first-of-type {
+          margin-bottom: 10px;
+        }
+        
+        a {
+          width: 100%;
+        }
+      }
+    }
+  }
+  
+  .view-header {
+    .event-header {
+      position: static;
+    }
+  }
+  
+  .view-empty p {
+    font-size:  $heading-2-size;
+    text-align: center;
+    color: $c-gray-3;
+    text-shadow: -2px 2px 2px rgba(0,0,0,.4);
+  }
+}
+
+
+
+
+@include media($mobile-min-width) {
+  .view-filters {
+    padding: $padding-big 20px $padding-medium;
+  }
+  
+  .view-content {
+    @include outer-container;
+    background: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    article {
+      box-shadow: $shadow-small;
+      
+      @include media($tablet-max-width) {
+        @include span-columns(6);
+        @include omega(2n);
+      }
+    }
+  
+  }
+
+}
+
+
+
+
+
+@include media($tablet-min-width) {
+  .node--card__links {
+    li {
+      width: calc(50% - 5px);
+      
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($desktop-min-width) {
+  .view-content {
+
+    article {
+      background: #fff;
+      
+      @include media($desktop-max-width) {
+        @include span-columns(4);
+        @include omega(3n);
+      }
+    }
+  
+  }
+
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  
+  .view-content {
+    padding: $padding-medium $padding $padding-big;
+    
+    article {
+      @include span-columns(3);
+      @include omega(4n);
+      background: #fff;
+    }
+  
+  }
+  
+}
+
+
+
+
+
+@include media($xldesktop-min-width) {
+  
+  .view-content {
+    padding: $padding-medium 0 $padding-big;
+  }
+  
+}

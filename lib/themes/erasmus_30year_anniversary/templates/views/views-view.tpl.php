@@ -22,70 +22,71 @@
  * - $pager: The pager next/prev links to display, if any
  * - $exposed: Exposed widget form/info to display
  * - $feed_icon: Feed icon to display, if any
- * - $more: A link to view more, if any
+ * - $more: A link to view more, if any.
  *
  * @ingroup views_templates
  */
 ?>
-<div class="<?php print $classes; ?>">
-  <?php print render($title_prefix); ?>
-  <?php if ($title): ?>
-    <?php print $title; ?>
-  <?php endif; ?>
-  <?php print render($title_suffix); ?>
+<?php print render($title_prefix); ?>
+<?php if ($title): ?>
+  <?php print $title; ?>
+<?php endif; ?>
+<?php print render($title_suffix); ?>
 
-  <?php if ($exposed): ?>
-    <div class="view-filters">
+<?php if ($exposed): ?>
+  <section class="view-filters gradient-stripe gradient-a">
+    <div class="gradient-stripe__content">
       <?php print $exposed; ?>
     </div>
-  <?php endif; ?>
-  
+    <div class="background-pattern"></div>
+  </section>
+<?php endif; ?>
+
+<section role="main" class="view-content container">
   <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
     </div>
   <?php endif; ?>
-
+  
   <?php if ($attachment_before): ?>
     <div class="attachment attachment-before">
       <?php print $attachment_before; ?>
     </div>
   <?php endif; ?>
-
+  
   <?php if ($rows): ?>
-    <div class="view-content">
-      <?php print $rows; ?>
-    </div>
+    <?php print $rows; ?>
   <?php elseif ($empty): ?>
     <div class="view-empty">
       <?php print $empty; ?>
     </div>
   <?php endif; ?>
-
+  
   <?php if ($pager): ?>
     <?php print $pager; ?>
   <?php endif; ?>
-
+  
   <?php if ($attachment_after): ?>
     <div class="attachment attachment-after">
       <?php print $attachment_after; ?>
     </div>
   <?php endif; ?>
-
+  
   <?php if ($more): ?>
     <?php print $more; ?>
   <?php endif; ?>
-
+  
   <?php if ($footer): ?>
     <div class="view-footer">
       <?php print $footer; ?>
     </div>
   <?php endif; ?>
-
+  
   <?php if ($feed_icon): ?>
     <div class="feed-icon">
       <?php print $feed_icon; ?>
     </div>
   <?php endif; ?>
+</section>
 
-</div><?php /* class view */ ?>

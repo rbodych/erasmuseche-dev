@@ -1,0 +1,212 @@
+.anniversary-header {
+  background: $c-primary-2;
+  @include set-heading;
+  
+  .js-mobile-nav-toggle {
+    color: $c-primary-4;
+    display: inline-block;
+    float: right;
+    text-decoration: none;
+    padding: 15px;
+    background: $c-primary-1;
+    font-size: .8em;
+    text-transform: lowercase;
+    position: relative;
+    z-index: 9999;
+    
+    span {
+      display: block;
+    }
+    
+    hr {
+      @include transition(.4s);
+      border-color: $c-primary-4;
+      margin: 0;
+      margin-top: 8px;
+      
+      &:first-of-type {
+      margin-top: 6px;
+      }
+    }
+    
+    &.active {
+      span {
+        margin-bottom: 12px;
+      }
+      hr {
+        margin: 0;
+        
+        &:first-of-type {
+          @include transform(rotate(45deg));  
+        }
+        &:last-of-type {
+          @include transform(rotate(-45deg));
+          margin-top: -1px;
+        }
+      }
+    }
+  }
+
+  .logo-anniversary {
+    width: 140px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      margin-top: -20px;
+    }
+  }
+  
+  nav {
+    display: none;
+    margin: 0;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 70px;
+    background: $c-primary-1;
+    
+    ul {
+      list-style-type: none;
+      margin: 0;
+      border-top: 2px solid $c-primary-3;
+      
+      li {
+        padding: 0;
+        list-style: none;
+
+        a {
+          @include border-top-radius(0 !important);
+          @include border-bottom-radius(0 !important);
+          @include transition(all .4s ease);
+          
+          text-decoration: none;
+          border: none;
+          text-transform: uppercase;
+          line-height: 75px;
+          color: $c-primary-4;
+          border-bottom: 1px dashed $c-primary-3;
+          text-align: center;
+          background: transparent;
+          
+          &.active-trail {
+            border-bottom: 10px solid $c-gray-1;
+            padding-bottom: 0;
+            color: $c-gray-1;
+            
+            &:hover {
+              color: $c-gray-1;
+              background: $c-gray-4;
+              border-bottom: 10px solid $c-gray-1;
+            }
+          }
+          
+          &:hover {
+            background: $c-primary-4;
+            color: $c-primary-2;
+          }
+        }
+        
+        &.dropdown {
+          li {
+            width: 100%;
+          }
+          &.open {
+            & > a {
+              background: $c-primary-3;
+              color: $c-primary-1;
+            }
+          }
+        }
+        
+        .dropdown-menu {
+          @include border-top-radius(0 !important);
+          @include border-bottom-radius(0 !important);
+          
+          box-shadow: $shadow-medium;
+          min-width: 100%;
+          width: 200px;
+          
+          li a {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($tablet-min-width) {
+  .anniversary-header {
+    border-bottom: 1px solid $c-gray-4;
+    background: none;
+    
+    .js-mobile-nav-toggle {
+      display: none;
+    }
+    
+    .logo-anniversary {
+      position: absolute;
+      display: block;
+      top: 10px;
+      right: inherit;
+      width: 180px;
+      left: 15px;
+      z-index: 999;
+      
+      img {
+        margin-top: -25px;
+      }
+    }
+    
+    nav {
+      display: block;
+      padding-top: 0;
+      position: static;
+      background: transparent;
+      min-height: inherit;
+      width: auto;
+      float: right;
+      
+      ul {
+        border: none;
+        
+        li {
+          float: left;
+          
+          a {
+            text-align: left;
+            color: $c-gray-1;
+            border: none;
+          }
+          
+        }
+        
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($desktop-min-width) {
+
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  
+}

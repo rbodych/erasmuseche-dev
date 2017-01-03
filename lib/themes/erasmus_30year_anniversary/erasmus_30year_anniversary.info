@@ -29,3 +29,5 @@ stylesheets[all][] = assets/css/style.css
 
 ; SCRIPTS
 ;scripts[] = scripts/announcement.js
+scripts[] = assets/js/anniv-country-list.js
+scripts[] = assets/js/anniv-global.js

@@ -102,9 +102,12 @@ global $base_url;
   <a id="top-page"></a>
 
   <div class="container">
-    <?php print $regions['header_top']; ?>
+    <div class="region region-header-top">
+      <div id="block-menu-menu-service-tools" class="block block-menu contextual-links-region ">
+        <?php print $regions['header_top']; ?>
+      </div>
+    </div>
   </div>
-
   <div id="layout-header">
     <div class="container">
       <?php if (!empty($svg_logo)): ?>
@@ -123,48 +126,26 @@ global $base_url;
       <div id="sub-title"><?php print $site_slogan; ?></div>
     </div>
   </div><!-- /#layout-header -->
-
-  <div class="region-featured-wrapper <?php print ($has_responsive_sidebar ? 'sidebar-visible-sm' : ''); ?>">
-    <?php if ($menu_visible || $has_responsive_sidebar): ?>
-      <div class="mobile-user-bar navbar navbar-default visible-sm visible-xs" data-spy="affix" data-offset-top="82">
-        <div class="container">
-
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header" data-spy="affix" data-offset-top="165">
-            <?php if ($menu_visible): ?>
-              <button id="menu-button" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <div class="arrow-down"></div>
-              </button>
-            <?php endif; ?>
-
-            <?php if ($has_responsive_sidebar): ?>
-              <div class="sidebar-button-wrapper">
-                <button class="sidebar-button">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </div>
-            <?php endif; ?>
-          </div>
-        </div><!-- /.container -->
-      </div><!-- /.navbar -->
+  
+  <section class="drupal-admin container"></section>
+    <?php print $regions['tools']; ?>
+    
+    <?php if ($messages): ?>
+      <div id="messages">
+        <?php print $messages; ?>
+      </div><!-- /#messages -->
     <?php endif; ?>
-
-  </div>
-  
-  <div class="anniversary-header">
-    <div class="container">
-      <div class="logo-anniversary">
-        <img alt="<?php print t('Erasmus+ 30 anniversary logo'); ?>" src="/sites/all/themes/erasmus_30year_anniversary/logo.png" />
+    
+    <?php if ($tabs): ?>
+      <div class="tabs">
+        <?php print render($tabs); ?>
       </div>
-      <?php print $main_menu_30year_anniversary; ?>
-    </div>
-  </div>
+    <?php endif; ?>
+    
+    <?php print $regions['help']; ?>
+  </section>
   
-  <div class="menu">
-    <?php print $regions['featured']; ?>
-  </div>
+  <?php print $regions['featured']; ?>
 
   <?php if ($has_responsive_sidebar): ?>
     <div id="responsive-sidebar">
@@ -174,102 +155,64 @@ global $base_url;
     </div><!-- /#responsive-sidebar-->
   <?php endif; ?>
 
-  <div id="layout-body" class="container">
-    <div class="row">
+  <header class="introduction container">
+    <div class="background-pattern"></div>
+    <div class="introduction__content">
       <?php print render($title_prefix); ?>
 
       <?php if ($title): ?>
-        <?php $title_image = (isset($node->field_thumbnail[LANGUAGE_NONE][0]['uri']) && $node->type == 'community' ? image_style_url('communities_thumbnail', $node->field_thumbnail[LANGUAGE_NONE][0]['uri']) : '');?>
-        <h1 class="col-lg-<?php print $cols['title']['lg']; ?> col-md-<?php print $cols['title']['md']; ?> col-sm-<?php print $cols['title']['sm']; ?> col-xs-<?php print $cols['title']['xs']; ?>" id="page-title">
-          <?php if ($title_image): ?>
-            <img src="<?php print $title_image; ?>" alt="<?php print $title; ?>" />
-          <?php endif; ?>
+        <h1>
           <?php print $title; ?>
         </h1>
+      <?php endif; ?>
+      
+      <?php if ($regions['sidebar_left']): ?>
+        <?php print $regions['sidebar_left']; ?>
       <?php endif; ?>
 
       <?php print render($title_suffix); ?>
-
-      <div class="col-lg-<?php print $cols['tools']['lg']; ?> col-md-<?php print $cols['tools']['md']; ?> col-sm-<?php print $cols['tools']['sm']; ?> col-xs-<?php print $cols['tools']['xs']; ?>">
-        <?php print $regions['tools']; ?>
-      </div>
     </div>
-
-    <?php if ($messages): ?>
-    <div id="messages">
-        <?php print $messages; ?>
-    </div><!-- /#messages -->
-    <?php endif; ?>
-
-    <div class="row">
-      <?php if ($regions['sidebar_left']): ?>
-      <div id="sidebar-left" class="col-lg-<?php print ($cols['sidebar_left']['lg']); ?> col-md-<?php print ($cols['sidebar_left']['md']); ?> col-sm-<?php print ($cols['sidebar_left']['sm']); ?> col-xs-<?php print ($cols['sidebar_left']['xs']); ?> sidebar-left visible-lg visible-md">
-        <?php print $regions['sidebar_left']; ?>
-      </div>
-      <?php endif; ?>
-
-      <div id="content-wrapper" class="col-lg-<?php print $cols['content_main']['lg']; ?> col-md-<?php print $cols['content_main']['md']; ?> col-sm-<?php print $cols['content_main']['sm']; ?> col-md-<?php print $cols['content_main']['xs']; ?>">
-
-        <a id="content"></a>
-
-        <?php if ($title): ?>
-        <h1 class="title" id="content-title">
-          <?php print $title; ?>
-        </h1>
-        <?php endif; ?>
-
-        <?php print $regions['content_top']; ?>
-
-        <a id="main-content"></a>
-
-        <?php if ($tabs): ?>
-        <div class="tabs">
-          <?php print render($tabs); ?>
-        </div>
-        <?php endif; ?>
-
-        <?php print $regions['help']; ?>
-
-        <?php if ($action_links): ?>
-        <ul class="action-links">
-          <?php print render($action_links); ?>
-        </ul>
-        <?php endif; ?>
-
-        <div class="row">
-          <div class="col-lg-<?php print $cols['content']['lg']; ?> col-md-<?php print $cols['content']['md']; ?> col-sm-<?php print $cols['content']['sm']; ?> col-xs-<?php print $cols['content']['xs']; ?>">
-          <?php print $regions['content']; ?>
-          </div>
-
-          <div class="col-lg-<?php print $cols['content_right']['lg']; ?> col-md-<?php print $cols['content_right']['md']; ?> col-sm-<?php print $cols['content_right']['sm']; ?> col-xs-<?php print $cols['content_right']['xs']; ?>">
-          <?php print $regions['content_right']; ?>
-          </div>
-        </div>
-
-        <?php print $feed_icons; ?>
-
-        <?php print $regions['content_bottom']; ?>
-      </div>
-
-      <div class="clearfix visible-sm visible-xs"></div>
-      <?php if ($cols['sidebar_right']['md'] == 12): ?>
-      <div class="clearfix visible-md"></div>
-      <?php endif; ?>
-
+    <div class="introduction__highlights">
       <?php if ($regions['sidebar_right']): ?>
-      <div id="sidebar-right" class="col-lg-<?php print ($cols['sidebar_right']['lg']); ?> col-md-<?php print ($cols['sidebar_right']['md']); ?> col-sm-<?php print ($cols['sidebar_right']['sm']); ?> col-xs-<?php print ($cols['sidebar_right']['xs']); ?> sidebar-right visible-lg visible-md">
         <?php print $regions['sidebar_right']; ?>
-      </div>
       <?php endif; ?>
     </div>
-  </div><!-- /#layout-body -->
+  </header>
+      
+  <a id="content"></a>
+
+  <?php print $regions['content_top']; ?>
+
+  <a id="main-content"></a>
+
+  <?php if ($action_links): ?>
+  <ul class="action-links">
+    <?php print render($action_links); ?>
+  </ul>
+  <?php endif; ?>
+
+  <?php print $regions['content']; ?>
+
+  <div class="col-lg-<?php print $cols['content_right']['lg']; ?> col-md-<?php print $cols['content_right']['md']; ?> col-sm-<?php print $cols['content_right']['sm']; ?> col-xs-<?php print $cols['content_right']['xs']; ?>">
+  <?php print $regions['content_right']; ?>
+  </div>
+
+  <?php print $feed_icons; ?>
+
+  <?php print $regions['content_bottom']; ?>
+
+  <div class="clearfix visible-sm visible-xs"></div>
+  <?php if ($cols['sidebar_right']['md'] == 12): ?>
+  <div class="clearfix visible-md"></div>
+  <?php endif; ?>
+
 
   <a href="#top-page" class="btn-back-top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
 
-  <div id="layout-footer">
+  <footer>
     <div class="container">
       <?php print $regions['footer']; ?>
     </div>
-  </div><!-- /#layout-footer -->
+  </footer><!-- /#layout-footer -->

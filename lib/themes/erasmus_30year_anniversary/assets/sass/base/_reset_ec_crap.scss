@@ -3,7 +3,15 @@ body {
 }
 
 .container {
-  @include media($desktop) {
-    width: auto;
-  }
+  width: auto;
+}
+
+#path {
+  max-width: 1800px;
+}
+
+#layout-body {
+  margin-top: 0;
+  max-width: 1800px;
+  margin: 0 auto;
 }
