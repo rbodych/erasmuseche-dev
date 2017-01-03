@@ -20,6 +20,7 @@ function erasmus_30ya_core_custom_theme() {
     'erasmus_30ya_event',
     'erasmus_30_year_anniversary_part',
     'erasmus_30_year_anniversary_hero',
+    'erasmus_30_year_anniversary_home',
   ];
   if (is_object($node) && isset($node->type)
       && in_array($node->type, $allowed_types)) {
@@ -84,7 +85,17 @@ function erasmus_30ya_core_preprocess_node(&$vars) {
   ];
   if (isset($vars['view']->name)
       && in_array($vars['view']->name, $allowed_views)) {
-
+    $vars['city'] = $vars['field_30ya_city'][0]['value'];
+    $vars['country'] = $vars['field_30ya_country'][0]['taxonomy_term']->name;
+    $vars['expected_participants']['number'] = $vars['field_30ya_expected_participants'][0]['value'];
+    $vars['expected_participants']['title'] = t('Expected participants');
+    $vars['link']['title'] = $vars['field_30ya_link'][0]['title'];
+    $vars['link']['url'] = $vars['field_30ya_link'][0]['url'];
+    $vars['organiser']['title'] = $vars['field_30ya_link_organiser'][0]['title'];
+    $vars['organiser']['url'] = $vars['field_30ya_link_organiser'][0]['url'];
+    $vars['intro'] = $vars['body'][0]['value'];
+    $vars['date'] = $vars['field_30ya_txt_date'][0]['value'];
+    $vars['sector'] = $vars['field_30ya_sector'][0]['value'];
     $vars['theme_hook_suggestions'][] = 'node__card';
   }
 }
