@@ -6,10 +6,15 @@
 ?>
 
 <article class="node--card h-event">
-
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
+    <?php if ($node->type == 'erasmus_30_year_anniversary_stor'): ?>
+      <a href="<?php print $node_url; ?>">
+    <?php endif; ?>
     <h3><?php print $title; ?></h3>
+    <?php if ($node->type == 'erasmus_30_year_anniversary_stor'): ?>
+      </a>
+    <?php endif; ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
@@ -36,8 +41,8 @@
   <?php if (isset($sector) || isset($theme)): ?>
     <p class="p-category">
       <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-      <?php print isset($sector) ? $sector: ''; ?>
-      <?php print isset($theme) ? $theme: ''; ?>
+      <?php print isset($sector) ? $sector : ''; ?>
+      <?php print isset($theme) ? $theme : ''; ?>
     </p>
   <?php endif; ?>
   <?php if (isset($intro)): ?>
