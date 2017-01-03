@@ -24,6 +24,30 @@ function erasmus_30_year_anniversary_story_views_api($module = NULL, $api = NULL
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function erasmus_30_year_anniversary_story_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: erasmus_30_year_story_card__370x210.
+  $styles['erasmus_30_year_story_card__370x210'] = array(
+    'label' => 'erasmus_30_year_story_card (370x210)',
+    'effects' => array(
+      7 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 370,
+          'height' => 210,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function erasmus_30_year_anniversary_story_node_info() {

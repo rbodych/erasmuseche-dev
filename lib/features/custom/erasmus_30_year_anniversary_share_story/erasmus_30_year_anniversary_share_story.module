@@ -96,10 +96,10 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
   $values['image'] = $form_state['values']['params'];
 
   $module = 'erasmus_30_year_anniversary_share_story';
-  $key = time() . '_share_story_erasmus30year';
+  $key = 'share_story_erasmus30year';
   $to = 'michael.schuddings@one-agency.be';
   $language = language_default();
-  $params = $values['params'];
+  $params = $values;
   $from = 'webteameac@ec.europa.eu';
 
   $send = TRUE;
@@ -111,4 +111,16 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
   else {
     drupal_set_message(t('There was a problem sending please contact the website maintainer.'), 'error');
   }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function erasmus_30_year_anniversary_share_story_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'share_story_erasmus30year':
+      $message['subject'] = $params['title'];
+      $message['body'][] = $params['body'];
+    break;
+    }
 }
