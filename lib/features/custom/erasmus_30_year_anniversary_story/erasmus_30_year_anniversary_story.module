@@ -16,7 +16,7 @@ function erasmus_30_year_anniversary_story_block_info() {
     'cache' => DRUPAL_CACHE_PER_PAGE,
     'status' => TRUE,
     'visibility' => BLOCK_VISIBILITY_LISTED,
-    'pages' => 'stories/*',
+    'pages' => 'stories/*\nstories',
     'theme' => 'erasmus_30year_anniversary',
   );
 
@@ -44,20 +44,24 @@ function erasmus_30_year_anniversary_story_block_view($delta = '') {
  */
 function _erasmus_30_year_anniversary_story_get_monthly_theme() {
   $url = request_uri();
+  if (strpos($url, 'stories') === FALSE) {
+    return NULL;
+  }
+  
+  $month_url = date('F');
+
   $url = explode('/', request_uri());
-
-  if (count($url) < 2) {
-    return NULL;
+  if (count($url) === 3) {
+    $url = $url[2];
+    
+    if (strpos($url, '_') === FALSE) {
+      break;
+    }
+  
+    $url = explode('_', $url);
+    $month_url = $url[0];
   }
-
-  $url = $url[2];
-  if (strpos($url, '_') === FALSE) {
-    return NULL;
-  }
-
-  $url = explode('_', $url);
-  $month_url = $url[0];
-
+  
   $var_name = 'e30ya_monthly_theme_' . drupal_strtolower($month_url);
   $current_theme_month = variable_get($var_name, NULL);
 
