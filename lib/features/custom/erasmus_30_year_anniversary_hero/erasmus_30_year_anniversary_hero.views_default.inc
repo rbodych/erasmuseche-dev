@@ -105,10 +105,9 @@ function erasmus_30_year_anniversary_hero_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
-  $handler->display->display_options['style_options']['wrapper_class'] = 'hero-list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';
@@ -120,6 +119,54 @@ function erasmus_30_year_anniversary_hero_views_default_views() {
   $handler->display->display_options['sorts']['random']['id'] = 'random';
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
+
+  /* Display: Block All Heroes */
+  $handler = $view->new_display('block', 'Block All Heroes', 'block_30_year_anniversary_heroes_all');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Global: View result counter */
+  $handler->display->display_options['fields']['counter']['id'] = 'counter';
+  $handler->display->display_options['fields']['counter']['table'] = 'views';
+  $handler->display->display_options['fields']['counter']['field'] = 'counter';
+  $handler->display->display_options['fields']['counter']['label'] = '';
+  $handler->display->display_options['fields']['counter']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['counter']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['counter']['counter_start'] = '1';
+  $handler->display->display_options['fields']['counter']['reverse'] = 0;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = '#goto-slide';
+  $handler->display->display_options['fields']['title']['alter']['rel'] = '[counter]';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Field: Content: Banner */
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['id'] = 'field_30ya_hero_banner';
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['table'] = 'field_data_field_30ya_hero_banner';
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['field'] = 'field_30ya_hero_banner';
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['label'] = '';
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['alter']['path'] = '#goto-slide';
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['alter']['rel'] = '[counter]';
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_30ya_hero_banner']['settings'] = array(
+    'image_style' => 'erasmus_30_year_story_medium__300x300',
+    'image_link' => '',
+  );
   $export['erasmus_30_year_anniversary_heroes'] = $view;
 
   return $export;
