@@ -26,8 +26,10 @@ regions[footer] = "Footer"
 
 ; STYLESHEETS
 stylesheets[all][] = assets/css/style.css
+stylesheets[all][] = assets/css/vendor/jqpagination.css
 
 ; SCRIPTS
 ;scripts[] = scripts/announcement.js
 scripts[] = assets/js/anniv-country-list.js
 scripts[] = assets/js/anniv-global.js
+scripts[] = assets/js/vendor/jquery.jqpagination.min.js
