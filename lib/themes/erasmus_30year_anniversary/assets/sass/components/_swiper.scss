@@ -1,0 +1,15 @@
+.swiper-container {
+  width: 100%;
+  height: 600px;
+  margin: 20px auto;
+}
+
+.swiper-slide {
+  text-align: center;
+  background: $c-gradient-intro-1;
+  width: 60%;
+  
+  /* Center slide text vertically */
+  @include align-items(center);
+  @include display(flex);
+}
