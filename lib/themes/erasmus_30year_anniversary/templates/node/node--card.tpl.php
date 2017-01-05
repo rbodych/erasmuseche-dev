@@ -5,7 +5,7 @@
  */
 ?>
 
-<article class="node--card h-event">
+<article class="node--card h-event <?php print isset($card_class) ? $card_class : ''; ?>">
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
     <?php if ($node->type == 'erasmus_30_year_anniversary_stor'): ?>
