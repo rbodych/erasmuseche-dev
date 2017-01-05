@@ -119,12 +119,8 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_views_defa
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['type'] = 'select';
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['vocabulary'] = 'ec_world_countries';
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_30year_anniversay_country_fact_sheets_infographics');
-  $handler->display->display_options['path'] = 'country-facts-sheets-infographics';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Country facts sheets & Infographics';
-  $handler->display->display_options['menu']['name'] = 'menu-erasmus-30';
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_erasmus30year_countryfactsheets_infograhpics');
   $export['erasmus_30_year_anniversary_country_facts_sheets_infographics'] = $view;
 
   return $export;

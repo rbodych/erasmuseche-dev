@@ -91,13 +91,6 @@ function erasmus_30_year_anniversary_hero_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_30year_anniversary_discover_erasmus_heroes');
-  $handler->display->display_options['path'] = 'discover-erasmusplus';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Discover Erasmus+';
-  $handler->display->display_options['menu']['name'] = 'menu-erasmus-30';
-
   /* Display: Random hero */
   $handler = $view->new_display('block', 'Random hero', 'block_random_hero');
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -167,6 +160,9 @@ function erasmus_30_year_anniversary_hero_views_default_views() {
     'image_style' => 'erasmus_30_year_story_medium__300x300',
     'image_link' => '',
   );
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_30year_erasmus_heroes_default');
   $export['erasmus_30_year_anniversary_heroes'] = $view;
 
   return $export;

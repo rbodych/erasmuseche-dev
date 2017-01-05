@@ -76,12 +76,8 @@ function erasmus_30_year_anniversary_press_release_views_default_views() {
     'und' => 'und',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_erasmus30ya_pressreleases');
-  $handler->display->display_options['path'] = 'press-releases';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Press releases';
-  $handler->display->display_options['menu']['name'] = 'menu-erasmus-30';
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_30year_press_releases');
   $export['erasmus_30_year_anniversary_press_releases'] = $view;
 
   return $export;

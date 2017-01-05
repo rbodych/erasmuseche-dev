@@ -160,15 +160,8 @@ function erasmus_30_year_anniversary_partner_views_default_views() {
     'und' => 'und',
   );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_30year_anniversary_partners');
-  $handler->display->display_options['path'] = 'partners';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Partners';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'menu-erasmus-30';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_30year_partners');
   $export['erasmus_30_year_anniversary_partners'] = $view;
 
   return $export;
