@@ -15,6 +15,12 @@ function erasmus_30ya_core_admin() {
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   ];
+  $form['mail'] = [
+    '#type' => 'fieldset',
+    '#title' => t('Mail settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  ];
   $monthly_themes = _erasmus_30ya_core_admin_get_monthly_themes();
   for ($m = 1; $m <= 12; $m++) {
     $month = date('F', mktime(0, 0, 0, $m, 1, date('Y')));
@@ -27,6 +33,18 @@ function erasmus_30ya_core_admin() {
       '#required' => TRUE,
     ];
   }
+  $form['mail']['share_story_mail_to'] = [
+    '#type' => 'textfield',
+    '#title' => t('Share story TO email address'),
+    '#default_value' => variable_get('share_story_mail_to', ''),
+    '#required' => TRUE,
+  ];
+  $form['mail']['share_story_mail_from'] = [
+    '#type' => 'textfield',
+    '#title' => t('Share story FROM email address'),
+    '#default_value' => variable_get('share_story_mail_from', ''),
+    '#required' => TRUE,
+  ];
   return system_settings_form($form);
 }
 

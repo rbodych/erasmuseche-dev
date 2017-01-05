@@ -46,9 +46,10 @@ From XXX (date) come back to vote on your favourite entries!'),
     . '</div>',
   ];
   $form['upload'] = [
-    '#name' => 'files[upload]',
-    '#type' => 'file',
-    '#title' => t('Choose an image'),
+   	'#type' => 'managed_file',
+		'#title' => t('Choose an image:'),
+		'#upload_location' => 'public://story_image/',
+		'#required' => TRUE,
   ];
   $form['title'] = [
     '#type' => 'textfield',
@@ -71,36 +72,23 @@ From XXX (date) come back to vote on your favourite entries!'),
 }
 
 /**
- * Form validation logic for the share form.
- */
-function erasmus_30_year_anniversary_share_story_form_validate($form, &$form_state) {
-  $values = &$form_state['values'];
-
-  $file = file_save_upload('upload');
-  if ($file) {
-    $file->status = 1;
-    file_save($file);
-    $file = file_move($file, 'public://');
-    $values['params']['attachments'][] = array(
-      'filepath' => file_create_url($file->uri),
-    );
-  }
-}
-
-/**
  * Form submission logic for the share form.
  */
 function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state) {
+  $file = file_load($form_state['values']['upload']);
+  $file->status = FILE_STATUS_PERMANENT;
+  file_save($file);
+  
   $values['title'] = $form_state['values']['title'];
-  $values['body'] = $form_state['values']['description'];
-  $values['image'] = $form_state['values']['params'];
+  $values['body'] =  $form_state['values']['description'];
+  $values['image'] = file_create_url($file->uri);
 
   $module = 'erasmus_30_year_anniversary_share_story';
   $key = 'share_story_erasmus30year';
-  $to = 'michael.schuddings@one-agency.be';
+  $to = variable_get('share_story_mail_to', 'michael.schuddings@one-agency.be');
   $language = language_default();
   $params = $values;
-  $from = 'webteameac@ec.europa.eu';
+  $from = variable_get('share_story_mail_from', 'webteameac@ec.europa.eu');
 
   $send = TRUE;
 
@@ -121,6 +109,7 @@ function erasmus_30_year_anniversary_share_story_mail($key, &$message, $params) 
     case 'share_story_erasmus30year':
       $message['subject'] = $params['title'];
       $message['body'][] = $params['body'];
+      $message['body'][] = $params['image'];
       break;
   }
 }
