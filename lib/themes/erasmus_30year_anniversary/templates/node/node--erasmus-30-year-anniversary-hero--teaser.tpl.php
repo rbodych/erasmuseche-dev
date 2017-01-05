@@ -4,7 +4,7 @@
  * Default theme implementation to display a node.
  */
 ?>
-<div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?> data-value="<?php print $node->nid; ?>">
   
   <div class="background" data-url="<?php print render($content['banner_url']); ?>"></div>
   
