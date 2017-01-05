@@ -48,16 +48,17 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
  * Implements hook_preprocess_page().
  */
 function erasmus_30_year_anniversary_hero_preprocess_page(&$variables) {
-  $allowed_uris = [
-    'discover-erasmusplus',
-  ];
-  $current_path = current_path();
-  if (in_array($current_path, $allowed_uris)) {
+  $allowed_uri = 'discover-erasmusplus';
+  $current_path = request_uri();
+
+  if (strpos($current_path, $allowed_uri) !== FALSE) {
     drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css', 'external');
     drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js', 'external');
     drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
       . '/js/erasmus_30_year_anniversary_hero.js');
-     drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
+    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
       . '/js/all_heroes_dropdown.js');
+
+    $variables['theme_hook_suggestions'][] = 'page__discover_erasmusplus'; 
   }
 }
