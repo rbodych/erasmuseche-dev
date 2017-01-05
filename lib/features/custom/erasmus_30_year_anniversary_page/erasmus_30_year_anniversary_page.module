@@ -17,15 +17,20 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
 
     $vars['page']['sidebar_left'] = $top_txt[$vars['node']->language][0]['value'];
 
-    $variables = array(
-      'path' =>
-      file_create_url($top_media[$vars['node']->language][0]['file']->uri),
-      'alt' => $vars['node']->title,
-      'title' => $vars['node']->title,
-    );
-    $img = theme('image', $variables);
+    if ($top_media[$vars['node']->language][0]['file']->type == 'video') {
+      $item = file_view_file($top_media[$vars['node']->language][0]['file']);
+    }
+    else {
+      $variables = array(
+        'path' =>
+        file_create_url($top_media[$vars['node']->language][0]['file']->uri),
+        'alt' => $vars['node']->title,
+        'title' => $vars['node']->title,
+      );
+      $item = theme('image', $variables);
+    }
 
-    $vars['page']['sidebar_right'] = $img;
+    $vars['page']['sidebar_right'] = $item;
   }
 }
 
