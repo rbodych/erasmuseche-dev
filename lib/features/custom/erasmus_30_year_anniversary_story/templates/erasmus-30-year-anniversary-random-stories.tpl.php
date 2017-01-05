@@ -4,11 +4,9 @@
  * Random stories TPL, used on the homepage.
  */
 ?>
-<div class="random-stories">
-  <?php foreach ($stories as $story): ?>
-    <div class="item">
-      <img src="<?php print $story['url']; ?>"
-        alt="<?php print $story['alt']; ?>" />
-    </div>
-  <?php endforeach; ?>
-</div>
+<?php foreach ($stories as $story): ?>
+  <div class="item-card-float">
+    <img src="<?php print $story['url']; ?>"
+      alt="<?php print $story['alt']; ?>" />
+  </div>
+<?php endforeach; ?>
