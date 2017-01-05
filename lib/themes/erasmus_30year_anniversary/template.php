@@ -77,3 +77,11 @@ function erasmus_30year_anniversary_form_select_options($element, $choices = NUL
   }
   return $options;
 }
+
+/**
+ * Implements theme_field_collection_view().
+ */
+function  erasmus_30year_anniversary_field_collection_view($variables) {
+  $element = $variables['element'];
+  return $element['#children'];
+}
