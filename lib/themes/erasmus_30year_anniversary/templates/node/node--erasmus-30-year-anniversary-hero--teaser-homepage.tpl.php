@@ -9,7 +9,7 @@
   <figure>
     <img src="<?php print render($content['banner_url']); ?>" title="<?php print $title; ?>" alt="<?php print $title; ?>" />
   </figure>
-  <div class="">
+  <div class="stripe-highlight--assets-text">
     <?php print render($title_prefix); ?>
     <?php if (!$page): ?>
       <h3><?php print $title; ?></h3>
@@ -20,7 +20,7 @@
       print render($content['body']);
     ?>
     <p>
-      <a class="button button--stroke-secondary button--small" href="<?php print $content['node_url']; ?>">
+      <a class="button button--stroke-secondary button--small" href="/discover-erasmusplus#slideid-=<?php print $node->nid; ?>">
         <?php print t('Read more'); ?>
       </a>
     </p>
