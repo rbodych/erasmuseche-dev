@@ -33,7 +33,7 @@
     </div>
     <div class="share-link twitter">
       <a class="twitter-share-button"
-        href="https://twitter.com/intent/tweet?text=<?php print $title; ?>&hashtags=ErasmusPlus&url=<?php 
+        href="https://twitter.com/intent/tweet?text=<?php print $title; ?>&hashtags=<?php print $hashtag; ?>&url=<?php 
           print $share_link; ?>">Tweet</a>
     </div>
   </div>
