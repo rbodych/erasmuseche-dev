@@ -69,3 +69,14 @@ function erasmus_30_year_anniversary_hero_preprocess_page(&$variables) {
     $variables['theme_hook_suggestions'][] = 'page__discover_erasmusplus'; 
   }
 }
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function erasmus_30_year_anniversary_hero_preprocess_html(&$variables) {
+  $allowed_uri = 'discover-erasmusplus';
+  $current_path = request_uri();
+  if (strpos($current_path, $allowed_uri) !== FALSE) {
+    $variables['classes_array'][] = 'discover-erasmus-plus';
+  }
+}
