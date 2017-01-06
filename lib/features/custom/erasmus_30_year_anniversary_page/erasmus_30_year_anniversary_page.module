@@ -11,7 +11,8 @@ include_once 'erasmus_30_year_anniversary_page.features.inc';
  */
 function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
   if (isset($vars['node'])
-      && $vars['node']->type == 'erasmus_30_year_anniversary_page') {
+      && $vars['node']->type == 'erasmus_30_year_anniversary_page'
+      && isset($top_media[$vars['node']->language][0]['file'])) {
     $top_media = $vars['node']->field_30ya_contentrow_media;
     $top_txt = $vars['node']->field_30ya_contentrow_richtext;
 
