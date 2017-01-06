@@ -81,7 +81,13 @@ function erasmus_30year_anniversary_form_select_options($element, $choices = NUL
 /**
  * Implements theme_field_collection_view().
  */
-function  erasmus_30year_anniversary_field_collection_view($variables) {
+function erasmus_30year_anniversary_field_collection_view($variables) {
   $element = $variables['element'];
+  $fc_item = $element['entity']['field_collection_item'];
+  $fc_item = array_shift($fc_item);
+  if (isset($fc_item) && isset($fc_item['field_30ya_contentrow_type'][0]['#markup'])) {
+    return theme('field_collection_item__' . str_replace('-', '_', $fc_item['field_30ya_contentrow_type'][0]['#markup']),
+      ['element' => $fc_item]);
+  } 
   return $element['#children'];
 }
