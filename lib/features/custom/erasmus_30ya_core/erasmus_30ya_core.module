@@ -108,3 +108,62 @@ function erasmus_30ya_core_menu() {
   );
   return $items;
 }
+
+
+/**
+ * Implements hook_block_info().
+ */
+function erasmus_30ya_core_block_info() {
+  $blocks['e30ya_global_social_sharing'] = array(
+    'info' => t('Erasmus+ 30 year global social sharing'),
+    'region' => 'footer',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+    'status' => TRUE,
+    'theme' => 'erasmus_30year_anniversary',
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function erasmus_30ya_core_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'e30ya_global_social_sharing':
+      $block['content']
+        = _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_content();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Returns the HTML for the social sharing block.
+ */
+function _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_content() {
+  return theme('erasmus_30_year_anniversary_global_sharing', [
+    'hashtags' =>  variable_get('e30ya_hashtag', 'ErasmusPlus'),
+    'title' => drupal_get_title(),
+    ]
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function erasmus_30ya_core_theme() {
+  return array(
+    'erasmus_30_year_anniversary_global_sharing' => array(
+      'variables' => array(
+        'hashtags' => NULL,
+        'title' => NULL,
+      ),
+      'template' => 'social-share',
+      'path' => drupal_get_path('module', 'erasmus_30ya_core') . '/templates',
+    ),
+  );
+}
