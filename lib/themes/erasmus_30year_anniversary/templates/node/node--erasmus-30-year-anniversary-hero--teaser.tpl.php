@@ -4,9 +4,18 @@
  * Default theme implementation to display a node.
  */
 ?>
-<div class="<?php print $classes; ?> clearfix"<?php print $attributes; ?> data-value="<?php print $node->nid; ?>">
-  
-  <div class="background" data-url="<?php print render($content['banner_url']); ?>"></div>
+  <div class="video-wrapper">
+    <video controls="controls">
+      <source src="<?php print $content['vid']; ?>" type="video/mp4">
+      <track label="<?php print $content['srt_lang']; ?>" kind="subtitles"
+        srclang="<?php print $content['srt_lang']; ?>"
+        src="<?php print $content['srt']; ?>">
+    </video>
+    <div class="video-controls">
+      <a href="#" class="play"><?php print t('Play'); ?></a>
+      <a href="#" class="pause"><?php print t('Pause'); ?></a>
+    </div>
+  </div>
   
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
@@ -18,17 +27,11 @@
     <?php
       print render($content['body']);
     ?>
+    <figure class="background-img-slide"><img src="<?php print render($content['banner_url']); ?>"></figure>
   </div>
   
-  <video controls="controls">
-    <source src="<?php print $content['vid']; ?>" type="video/mp4">
-    <track label="<?php print $content['srt_lang']; ?>" kind="subtitles"
-      srclang="<?php print $content['srt_lang']; ?>"
-      src="<?php print $content['srt']; ?>">
-  </video>
-  
   <div class="share">
-    <div class="share-link facebook">
+    <div class="share-link facebook hero">
       <a href="#"><?php print t('Share on Facebook'); ?></a>
     </div>
     <div class="share-link twitter">
@@ -38,4 +41,3 @@
     </div>
   </div>
 
-</div>
