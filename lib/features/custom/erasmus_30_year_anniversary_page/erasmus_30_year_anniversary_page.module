@@ -55,7 +55,10 @@ function erasmus_30_year_anniversary_page_theme() {
   foreach ($types as $type) {
      $array['field_collection_item__' . $type] = [
       'variables' => array(
-        'element' => NULL,
+        'text' => NULL,
+        'title_field' => NULL,
+        'media' => NULL,
+        'type' => NULL,
       ),
       'template' => 'field-collection-item--' . str_replace('_', '-', $type),
       'path' => drupal_get_path('theme', 'erasmus_30year_anniversary') . '/templates/field-collection',
