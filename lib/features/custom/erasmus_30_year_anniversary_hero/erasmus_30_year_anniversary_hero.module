@@ -32,7 +32,7 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
         $currentUri = request_uri();
         $currentUri = ltrim($currentUri, '/');
         $node['share_link'] = url(NULL, array('absolute' => TRUE))
-        . $currentUri . '%23slideid-' . $node->nid;
+        . $currentUri . '%23slideid-' . $node['nid'];
         break;
 
       case 'erasmus_30_year_hero_homepage':
