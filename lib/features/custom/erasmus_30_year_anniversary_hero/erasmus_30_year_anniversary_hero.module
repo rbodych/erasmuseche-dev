@@ -65,6 +65,8 @@ function erasmus_30_year_anniversary_hero_preprocess_page(&$variables) {
       . '/js/all_heroes_dropdown.js');
     drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
       . '/js/social_hero.js');
+    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
+      . '/js/video_controls.js');
 
     $variables['theme_hook_suggestions'][] = 'page__discover_erasmusplus'; 
   }
