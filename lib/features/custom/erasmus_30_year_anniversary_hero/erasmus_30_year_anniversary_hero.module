@@ -28,7 +28,11 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
         $suggestions = $node['theme_hook_suggestions'];
         array_unshift($suggestions, 'node__erasmus_30_year_anniversary_hero__teaser');
         $node['theme_hook_suggestions'] = $suggestions;
-
+        
+        $currentUri = request_uri();
+        $currentUri = ltrim($currentUri, '/');
+        $node['share_link'] = url(NULL, array('absolute' => TRUE))
+        . $currentUri . '%23slideid-' . $node->nid;
         break;
 
       case 'erasmus_30_year_hero_homepage':
@@ -58,6 +62,8 @@ function erasmus_30_year_anniversary_hero_preprocess_page(&$variables) {
       . '/js/erasmus_30_year_anniversary_hero.js');
     drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
       . '/js/all_heroes_dropdown.js');
+    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
+      . '/js/social_hero.js');
 
     $variables['theme_hook_suggestions'][] = 'page__discover_erasmusplus'; 
   }
