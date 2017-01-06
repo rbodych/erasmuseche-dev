@@ -26,5 +26,16 @@
       srclang="<?php print $content['srt_lang']; ?>"
       src="<?php print $content['srt']; ?>">
   </video>
+  
+  <div class="share">
+    <div class="share-link facebook">
+      <a href="#"><?php print t('Share on Facebook'); ?></a>
+    </div>
+    <div class="share-link twitter">
+      <a class="twitter-share-button"
+        href="https://twitter.com/intent/tweet?text=<?php print $title; ?>&hashtags=erasmus%2B&url=<?php 
+          print $share_link; ?>">Tweet</a>
+    </div>
+  </div>
 
 </div>
