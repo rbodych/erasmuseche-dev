@@ -68,3 +68,13 @@ function erasmus_core_update_7002() {
   );
   module_enable($modules);
 }
+
+/**
+ * Enable partner module for 30year anniversary.
+ */
+function erasmus_core_update_7003() {
+  $modules = [
+    'erasmus_30_year_anniversary_partner',
+  ];
+  module_enable($modules);
+}
