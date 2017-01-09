@@ -28,7 +28,9 @@ function erasmus_30_year_anniversary_hero_field_group_info() {
       2 => 'field_30ya_hero_banner',
       3 => 'field_30ya_hero_video',
       4 => 'field_30ya_hero_video_srt',
-      5 => 'language',
+      5 => 'field_country_na_events',
+      6 => 'field_30ya_position',
+      7 => 'language',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
