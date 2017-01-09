@@ -12,19 +12,23 @@ include_once 'erasmus_30_year_anniversary_page.features.inc';
 function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
   if (isset($vars['node'])
       && $vars['node']->type == 'erasmus_30_year_anniversary_page'
-      && isset($top_media[$vars['node']->language][0]['file'])) {
+      && isset($vars['node']->field_30ya_contentrow_media[$vars['node']->language][0])) {
     $top_media = $vars['node']->field_30ya_contentrow_media;
     $top_txt = $vars['node']->field_30ya_contentrow_richtext;
-
+    
     $vars['page']['sidebar_left'] = $top_txt[$vars['node']->language][0]['value'];
 
-    if ($top_media[$vars['node']->language][0]['file']->type == 'video') {
+    if (isset($top_media[$vars['node']->language][0]['file']) 
+        && $top_media[$vars['node']->language][0]['file']->type == 'video') {
       $item = file_view_file($top_media[$vars['node']->language][0]['file']);
     }
     else {
+      $file = $top_media[$vars['node']->language][0]['fid'];
+      $file = file_load($file);
+
       $variables = array(
         'path' =>
-        file_create_url($top_media[$vars['node']->language][0]['file']->uri),
+        file_create_url($file->uri),
         'alt' => $vars['node']->title,
         'title' => $vars['node']->title,
       );
