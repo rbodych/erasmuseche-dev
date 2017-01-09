@@ -8,4 +8,6 @@ dependencies[] = erasmus_30_year_anniversary_event
 dependencies[] = erasmus_30_year_anniversary_page
 dependencies[] = erasmus_30_year_anniversary_menu
 dependencies[] = erasmus_30_year_anniversary_share_story
+dependencies[] = erasmus_30_year_anniversary_partner
+dependencies[] = erasmus_30_year_anniversary_newsletter
 scripts[] = js/social_share.js
