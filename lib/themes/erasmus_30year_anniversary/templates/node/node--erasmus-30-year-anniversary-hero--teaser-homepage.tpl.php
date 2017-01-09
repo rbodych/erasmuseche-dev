@@ -17,10 +17,12 @@
     <?php print render($title_suffix); ?>
     
     <?php
+      print render($content['field_30ya_position']);
+      print render($content['field_country_na_events']);
       print render($content['body']);
     ?>
     <p>
-      <a class="button button--stroke-secondary button--small" href="/discover-erasmusplus#slideid-=<?php print $node->nid; ?>">
+      <a class="button button--primary button--small" href="/discover-erasmusplus#slideid=<?php print $node->nid; ?>">
         <?php print t('Read more'); ?>
       </a>
     </p>
