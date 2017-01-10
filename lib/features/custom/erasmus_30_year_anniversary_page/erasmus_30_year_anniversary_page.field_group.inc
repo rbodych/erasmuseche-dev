@@ -52,8 +52,8 @@ function erasmus_30_year_anniversary_page_field_group_info() {
     'children' => array(
       0 => 'title_field',
       1 => 'field_30ya_contentrow_media',
-      2 => 'language',
-      3 => 'field_30ya_contentrow_richtext',
+      2 => 'field_30ya_contentrow_richtext',
+      3 => 'language',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

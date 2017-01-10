@@ -178,6 +178,45 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_30ya_content_row-field_30ya_disable_auto_columns'.
+  $field_instances['field_collection_item-field_30ya_content_row-field_30ya_disable_auto_columns'] = array(
+    'bundle' => 'field_30ya_content_row',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'If checked the auto columns feature will be disabled and the text will be underneath each other as normal.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 4,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_30ya_disable_auto_columns',
+    'label' => 'Disable auto columns',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_30ya_content_row-title_field'.
   $field_instances['field_collection_item-field_30ya_content_row-title_field'] = array(
     'bundle' => 'field_30ya_content_row',
@@ -485,6 +524,8 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Content row');
+  t('Disable auto columns');
+  t('If checked the auto columns feature will be disabled and the text will be underneath each other as normal.');
   t('Media');
   t('Rich text');
   t('Title');
