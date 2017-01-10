@@ -98,112 +98,112 @@
 <?php
 global $base_url;
 ?>
+  
+<section class="drupal-admin container">
+  <?php print $regions['tools']; ?>
+  
+  <?php if ($messages): ?>
+    <div id="messages">
+      <?php print $messages; ?>
+    </div><!-- /#messages -->
+  <?php endif; ?>
+  
+  <?php if ($tabs): ?>
+    <div class="tabs">
+      <?php print render($tabs); ?>
+    </div>
+  <?php endif; ?>
+  
+  <?php print $regions['help']; ?>
+</section>
 
-  <a id="top-page"></a>
+<a id="top-page"></a>
+<figure class="background-img-full"></figure>
 
+<div class="container">
+  <div class="region region-header-top">
+    <div id="block-menu-menu-service-tools" class="block block-menu contextual-links-region ">
+      <?php print $regions['header_top']; ?>
+    </div>
+  </div>
+</div>
+<div id="layout-header">
   <div class="container">
-    <div class="region region-header-top">
-      <div id="block-menu-menu-service-tools" class="block block-menu contextual-links-region ">
-        <?php print $regions['header_top']; ?>
-      </div>
-    </div>
-  </div>
-  <div id="layout-header">
-    <div class="container">
-      <?php if (!empty($svg_logo)): ?>
-      <object id="banner-flag" data="<?php print $svg_logo; ?>" type="image/svg+xml">
-        <img alt="<?php print t('European Commission logo'); ?>" src="<?php print $logo; ?>" />
-      </object>
-      <?php elseif (!empty($logo)): ?>
-      <img alt="<?php print t('European Commission logo'); ?>" id="banner-flag" src="<?php print $logo; ?>" />
-      <?php endif; ?>
-
-      <span id="banner-image-right" class="hidden-sm hidden-xs">
-        <?php print $regions['header_right']; ?>
-      </span>
-
-      <div id="main-title"><?php print $site_name; ?></div>
-      <div id="sub-title"><?php print $site_slogan; ?></div>
-    </div>
-  </div><!-- /#layout-header -->
-  
-  <section class="drupal-admin container"></section>
-    <?php print $regions['tools']; ?>
-    
-    <?php if ($messages): ?>
-      <div id="messages">
-        <?php print $messages; ?>
-      </div><!-- /#messages -->
+    <?php if (!empty($svg_logo)): ?>
+    <object id="banner-flag" data="<?php print $svg_logo; ?>" type="image/svg+xml">
+      <img alt="<?php print t('European Commission logo'); ?>" src="<?php print $logo; ?>" />
+    </object>
+    <?php elseif (!empty($logo)): ?>
+    <img alt="<?php print t('European Commission logo'); ?>" id="banner-flag" src="<?php print $logo; ?>" />
     <?php endif; ?>
-    
-    <?php if ($tabs): ?>
-      <div class="tabs">
-        <?php print render($tabs); ?>
-      </div>
-    <?php endif; ?>
-    
-    <?php print $regions['help']; ?>
-  </section>
-  
-  <div class="anniversary-navbar">
-    <div class="container">
-      <?php print $regions['featured']; ?>
-    </div>
+
+    <span id="banner-image-right" class="hidden-sm hidden-xs">
+      <?php print $regions['header_right']; ?>
+    </span>
+
+    <div id="main-title"><?php print $site_name; ?></div>
+    <div id="sub-title"><?php print $site_slogan; ?></div>
   </div>
-  
-  <?php if ($has_responsive_sidebar): ?>
-    <div id="responsive-sidebar">
-      <div id="responsive-header-right"></div>
-      <div id="responsive-sidebar-left"></div>
-      <div id="responsive-sidebar-right"></div>
-    </div><!-- /#responsive-sidebar-->
+</div><!-- /#layout-header -->
+
+<div class="anniversary-navbar">
+  <?php print $regions['featured']; ?>
+</div>
+
+<?php if ($has_responsive_sidebar): ?>
+  <div id="responsive-sidebar">
+    <div id="responsive-header-right"></div>
+    <div id="responsive-sidebar-left"></div>
+    <div id="responsive-sidebar-right"></div>
+  </div><!-- /#responsive-sidebar-->
+<?php endif; ?>
+
+<header class="header-discover-erasmus container">
+  <?php print render($title_prefix); ?>
+    <?php if ($title): ?>
+      <h1>
+        <?php print $title; ?>
+      </h1>
   <?php endif; ?>
-
-  <div class="content-container-wrapper">
-    <header class="header-discover-erasmus" container">
-      <?php print render($title_prefix); ?>
-        <?php if ($title): ?>
-          <h1>
-            <?php print $title; ?>
-          </h1>
-      <?php endif; ?>
-    </header>
-      
-    <a id="content"></a>
-  
-    <?php print $regions['content_top']; ?>
-  
-    <a id="main-content"></a>
-  
-    <?php if ($action_links): ?>
-    <ul class="action-links">
-      <?php print render($action_links); ?>
-    </ul>
+    <?php if ($regions['sidebar_left']): ?>
+      <?php print $regions['sidebar_left']; ?>
     <?php endif; ?>
+</header>
   
-    <?php print $regions['content']; ?>
-  
-    <div class="col-lg-<?php print $cols['content_right']['lg']; ?> col-md-<?php print $cols['content_right']['md']; ?> col-sm-<?php print $cols['content_right']['sm']; ?> col-xs-<?php print $cols['content_right']['xs']; ?>">
-    <?php print $regions['content_right']; ?>
-    </div>
-  
-    <?php print $feed_icons; ?>
-  
-    <?php print $regions['content_bottom']; ?>
+<a id="content"></a>
+
+<?php print $regions['content_top']; ?>
+
+<a id="main-content"></a>
+
+<?php if ($action_links): ?>
+<ul class="action-links">
+  <?php print render($action_links); ?>
+</ul>
+<?php endif; ?>
+
+<?php print $regions['content']; ?>
+
+<div class="col-lg-<?php print $cols['content_right']['lg']; ?> col-md-<?php print $cols['content_right']['md']; ?> col-sm-<?php print $cols['content_right']['sm']; ?> col-xs-<?php print $cols['content_right']['xs']; ?>">
+<?php print $regions['content_right']; ?>
+</div>
+
+<?php print $feed_icons; ?>
+
+<?php print $regions['content_bottom']; ?>
+
+<div class="clearfix visible-sm visible-xs"></div>
+<?php if ($cols['sidebar_right']['md'] == 12): ?>
+<div class="clearfix visible-md"></div>
+<?php endif; ?>
+
+
+<a href="#top-page" class="btn-back-top">
+  <span class="glyphicon glyphicon-chevron-up"></span>
+</a>
+
+<footer>
+  <div class="container">
+    <?php print $regions['footer']; ?>
   </div>
-
-  <div class="clearfix visible-sm visible-xs"></div>
-  <?php if ($cols['sidebar_right']['md'] == 12): ?>
-  <div class="clearfix visible-md"></div>
-  <?php endif; ?>
-
-
-  <a href="#top-page" class="btn-back-top">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a>
-
-  <footer>
-    <div class="container">
-      <?php print $regions['footer']; ?>
-    </div>
-  </footer><!-- /#layout-footer -->
+</footer><!-- /#layout-footer -->
