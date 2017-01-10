@@ -51,13 +51,14 @@ function erasmus_30_year_anniversary_page_preprocess_node(&$vars) {
 
 /**
  * Implements hook_theme().
- * TODO Gives a lot of notices...
+ *
+ * TODO Gives a lot of notices.
  */
 function erasmus_30_year_anniversary_page_theme() {
   $array = [];
   $types = _erasmus_30_year_anniversary_page_get_types_field_collections();
   foreach ($types as $type) {
-     $array['field_collection_item__' . $type] = [
+    $array['field_collection_item__' . $type] = [
       'variables' => array(
         'text' => NULL,
         'title_field' => NULL,
@@ -87,7 +88,7 @@ function _erasmus_30_year_anniversary_page_get_types_field_collections() {
     $allowed_values = $data['settings']['allowed_values'];
     foreach ($allowed_values as $key => $val) {
       $types[] = str_replace('-', '_', $key);
-    } 
+    }
   }
   return $types;
 }

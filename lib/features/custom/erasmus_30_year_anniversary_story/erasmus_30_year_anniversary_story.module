@@ -47,7 +47,7 @@ function _erasmus_30_year_anniversary_story_get_monthly_theme() {
   if (strpos($url, 'stories') === FALSE) {
     return NULL;
   }
-  
+
   $current_theme_month = variable_get('30ya_current_theme', NULL);
 
   if ($current_theme_month) {
