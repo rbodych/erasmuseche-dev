@@ -63,6 +63,7 @@ function erasmus_30_year_anniversary_page_theme() {
         'title_field' => NULL,
         'media' => NULL,
         'type' => NULL,
+        'disable_auto_columns' => NULL,
       ),
       'template' => 'field-collection-item--' . str_replace('_', '-', $type),
       'path' => drupal_get_path('theme', 'erasmus_30year_anniversary') . '/templates/field-collection',
