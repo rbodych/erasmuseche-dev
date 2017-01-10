@@ -104,9 +104,9 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     $vars['date'] = $vars['field_30ya_txt_date'][0]['value'];
     $vars['sector'] = $vars['field_30ya_sector'][0]['value'];
     $vars['intro'] = $vars['body'][0]['value'];
-    
+
     $countryClass
-    = drupal_strtolower($vars['field_30ya_country'][0]['taxonomy_term']->name);
+      = drupal_strtolower($vars['field_30ya_country'][0]['taxonomy_term']->name);
     $vars['card_class'] = drupal_clean_css_identifier($countryClass);
   }
 }

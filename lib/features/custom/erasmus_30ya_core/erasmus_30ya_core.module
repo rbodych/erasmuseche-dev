@@ -109,7 +109,6 @@ function erasmus_30ya_core_menu() {
   return $items;
 }
 
-
 /**
  * Implements hook_block_info().
  */
@@ -146,9 +145,9 @@ function erasmus_30ya_core_block_view($delta = '') {
  */
 function _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_content() {
   return theme('erasmus_30_year_anniversary_global_sharing', [
-    'hashtags' =>  variable_get('e30ya_hashtag', 'ErasmusPlus'),
+    'hashtags' => variable_get('e30ya_hashtag', 'ErasmusPlus'),
     'title' => drupal_get_title(),
-    ]
+  ]
   );
 }
 

@@ -4,7 +4,6 @@ core = 7.x
 package = Erasmus+ 30 year anniversary
 dependencies[] = context
 dependencies[] = features
-dependencies[] = menu
 features[context][] = erasmus_30_years_anniversary_campaign_global
 features[ctools][] = context:context:3
 features[features_api][] = api:2

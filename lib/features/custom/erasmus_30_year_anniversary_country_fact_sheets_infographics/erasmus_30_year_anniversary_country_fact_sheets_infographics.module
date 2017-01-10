@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Code for the Erasmus+ 30 year anniversary: Country fact sheets & infographics feature.
+ * Code for Erasmus+ 30 year anniversary: Country fact sheets & infographics.
  */
 
 include_once 'erasmus_30_year_anniversary_country_fact_sheets_infographics.features.inc';
@@ -27,7 +27,7 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_preprocess
       $array['title'] = $info_link['origname'];
       $vars['info_links'][] = $array;
     }
-    
+
     $vars['link']['url'] = '/stories';
     $vars['link']['title'] = t('See the monthly stories');
   }
