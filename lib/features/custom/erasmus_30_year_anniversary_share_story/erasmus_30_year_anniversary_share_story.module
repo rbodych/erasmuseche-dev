@@ -5,40 +5,59 @@
  */
 
 /**
- * Implements hook_menu().
+ * Implements hook_block_info().
  */
-function erasmus_30_year_anniversary_share_story_menu() {
-  $items['share-my-story'] = array(
-    'page callback' => 'drupal_get_form',
-    'page arguments' => ['erasmus_30_year_anniversary_share_story_form'],
-    'title' => 'Tell us the + of your Erasmus+!',
-    'access arguments' => ['access content'],
+function erasmus_30_year_anniversary_share_story_block_info() {
+  $blocks['e30ya_share_story'] = array(
+    'info' => t('Erasmus+ 30 year share your story'),
+    'region' => 'content',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'status' => TRUE,
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'share-your-story',
+    'theme' => 'erasmus_30year_anniversary',
   );
-  return $items;
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function erasmus_30_year_anniversary_share_story_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'e30ya_share_story':
+      $block['content']
+        = drupal_get_form('erasmus_30_year_anniversary_share_story_form');
+      break;
+  }
+
+  return $block;
 }
 
 /**
  * Form for share your story.
  */
 function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
-  $form['intro_first'] = [
-    '#markup' => t('To celebrate the 30th anniversary of Erasmus+, we want to hear about the best bits of your Erasmus+ experiences! Perhaps Erasmus+ helped to kick start your career, or maybe you met someone inspirational while living abroad? If you have a story to tell, we want to hear it.'),
+  $form = [
+    '#prefix' => '<section class="container share-story-form">',
+    '#suffix' => '</section>',
   ];
   $form['intro_second'] = [
     '#type' => 'item',
     '#title' => t('How to enter'),
-    '#markup' => t('Submit a photo or video with your 100 word story that tells us about the + of your Erasmus+. Be creative!
-From XXX (date) come back to vote on your favourite entries!'),
+    '#markup' => t('Submit a photo or video with your 100 word story that tells us about the + of your Erasmus+ before 15th April. Be creative! Then come back to vote on your favourite entries!'),
   ];
   $form['intro_3'] = [
     '#type' => 'item',
     '#title' => t('Prize'),
-    '#markup' => t('We have 3 x €100 travel vouchers to give away before XXX! But that’s not all - you will then get the chance to vote for your favourite entry. The public’s choice will win a €400 travel voucher!'),
+    '#markup' => t("During the submission period, we'll be giving away 3 x €100 travel vouchers for inspiring entries. But that’s not all - the public’s choice will win a €400 travel voucher!"),
   ];
   $form['intro_4'] = [
     '#type' => 'item',
     '#title' => t('Who can enter'),
-    '#markup' => t('Whether you studied, did a traineeship, went on a youth exchange, volunteered, got teacher/youth worker/sports coach training, or undertook any other activity with Erasmus+ funding in the past 30 years, this competition is for you!'),
+    '#markup' => t("Whether you studied, did a traineeship, went on a youth exchange, volunteered, got teacher/youth worker/sports coach training, or undertook any other activity with Erasmus+ funding in the past 30 years, this competition is for you!"),
   ];
   $form['intro_5'] = [
     '#markup' => '<div class="center">' .
