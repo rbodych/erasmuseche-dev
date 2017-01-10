@@ -272,6 +272,188 @@ function erasmus_30_year_anniversary_homepage_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_bg_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_bg_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_cs_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_cs_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_da_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_da_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_de_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_de_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_el_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_el_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_en_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_en_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_es_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_es_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_et_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_et_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_fi_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_fi_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_fr_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_fr_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_ga_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_ga_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_hr_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_hr_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_hu_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_hu_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_it_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_it_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_lt_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_lt_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_lv_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_lv_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_mt_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_mt_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_nl_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_nl_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_pattern';
+  $strongarm->value = '[node:source:title]';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_pl_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_pl_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_pt_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_pt_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_ro_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_ro_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_sk_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_sk_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_sl_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_sl_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_sv_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_sv_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_home_und_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_home_und_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'print_html_display_comment_erasmus_30_year_anniversary_home';
   $strongarm->value = 0;
   $export['print_html_display_comment_erasmus_30_year_anniversary_home'] = $strongarm;
