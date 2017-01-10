@@ -4,6 +4,7 @@
  * Default theme implementation to display a node.
  */
 ?>
+<div class="node-erasmus-30-year-anniversary-hero" data-value="<?php print $node->nid; ?>">
   <div class="video-wrapper">
     <?php print render($title_prefix); ?>
     <?php if (!$page): ?>
@@ -43,4 +44,4 @@
           print $share_link; ?>">Tweet</a>
     </div>
   </div>
-
+</div>
