@@ -2,6 +2,7 @@ $c-gray-1: #171617;
 $c-gray-2: #959799;
 $c-gray-3: #CFD1D3;
 $c-gray-4: #F5F6F7;
+$c-gray-5: #E5E5E5;
 
 $c-primary-1: #223952;
 $c-primary-2: #446495;
@@ -34,7 +35,9 @@ $cancel-container-padding: 0 -20px;
 
 $shadow-small: 10px 10px 10px -14px rgba(0, 0, 0, 0.25);
 $shadow-medium: -3px 10px 20px rgba(0, 0, 0, 0.2);
-$shadow-big: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+$shadow-large: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+$shadow-big: -30px 20px 50px -20px rgba(0, 0, 0, 0.3);
+$shadow-heading: -2px 2px 1px rgba(0, 0, 0, 0.6);
 
 $square-size-small: 280px;
 $square-size-medium: 300px;

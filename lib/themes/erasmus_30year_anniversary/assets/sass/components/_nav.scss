@@ -1,4 +1,4 @@
-.anniversary-header {
+.anniversary-navbar {
   background: $c-primary-2;
   @include set-heading;
   
@@ -93,6 +93,30 @@
           text-align: center;
           background: transparent;
           
+          &.cta-newsletter {
+            @include linear-gradient(-45deg, $c-gradient-A2, $c-gradient-A1 $c-gradient-start-A);
+            border: none;
+            padding-right: 2.4em;
+            height: 95px;
+            color: #fff;
+            
+            span {
+              position: absolute;
+              height: 15px;
+              width: 15px;
+              right: 15px;
+              bottom: 0;
+              top: 0;
+              margin: auto;
+            }
+            
+            &:hover,
+            &:focus {
+              background: $c-gradient-A1;
+              color: #fff;
+            }
+          }
+          
           &.active-trail {
             border-bottom: 10px solid $c-gray-1;
             padding-bottom: 0;
@@ -129,7 +153,7 @@
           
           box-shadow: $shadow-medium;
           min-width: 100%;
-          width: 200px;
+          padding: 0;
           
           li a {
             width: 100%;
@@ -145,9 +169,15 @@
 
 
 @include media($tablet-min-width) {
-  .anniversary-header {
+  .anniversary-navbar {
     border-bottom: 1px solid $c-gray-4;
     background: none;
+    max-width: 1800px;
+    margin: 0 auto;
+    
+    & > .container:not(.newsletter-form) {
+      z-index: 9999;
+    }
     
     .js-mobile-nav-toggle {
       display: none;
@@ -170,17 +200,18 @@
     nav {
       display: block;
       padding-top: 0;
-      position: static;
-      background: transparent;
+      position: relative;
+      background: #fff;
       min-height: inherit;
       width: auto;
       float: right;
       
-      ul {
+      & > ul {
         border: none;
         
-        li {
+        & > li {
           float: left;
+          height: 94px;
           
           a {
             text-align: left;

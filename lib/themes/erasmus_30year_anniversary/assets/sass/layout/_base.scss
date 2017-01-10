@@ -1,5 +1,16 @@
 body {
   font-size: $font-size;
+  line-height: 1.6;
   font-family: $font-family-alt;
-  background: $c-gray-4;
+  background: #fff;
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  body {
+    background: $c-gray-4;
+  }
 }

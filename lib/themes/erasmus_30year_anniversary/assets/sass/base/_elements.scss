@@ -3,11 +3,16 @@ h2,
 h3,
 h4 {
   @include set-heading();
-  margin: 0 0 em(10) 0;
+  margin: em(10) 0 em(6) 0;
+  
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 h1 {
   font-size: $heading-1-size;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -26,6 +31,11 @@ a {
   text-decoration: underline;
 }
 
-img, video {
+img {
+  max-width: 100%;
+}
+
+video {
+  width: 100%;
   max-width: 100%;
 }

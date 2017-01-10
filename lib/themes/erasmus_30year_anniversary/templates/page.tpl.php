@@ -100,7 +100,25 @@ global $base_url;
 ?>
 
   <a id="top-page"></a>
-
+  
+  <section class="drupal-admin container">
+    <?php print $regions['tools']; ?>
+    
+    <?php if ($messages): ?>
+      <div id="messages">
+        <?php print $messages; ?>
+      </div><!-- /#messages -->
+    <?php endif; ?>
+    
+    <?php if ($tabs): ?>
+      <div class="tabs">
+        <?php print render($tabs); ?>
+      </div>
+    <?php endif; ?>
+    
+    <?php print $regions['help']; ?>
+  </section>
+  
   <div class="container">
     <div class="region region-header-top">
       <div id="block-menu-menu-service-tools" class="block block-menu contextual-links-region ">
@@ -108,6 +126,7 @@ global $base_url;
       </div>
     </div>
   </div>
+  
   <div id="layout-header">
     <div class="container">
       <?php if (!empty($svg_logo)): ?>
@@ -127,26 +146,10 @@ global $base_url;
     </div>
   </div><!-- /#layout-header -->
   
-  <section class="drupal-admin container"></section>
-    <?php print $regions['tools']; ?>
-    
-    <?php if ($messages): ?>
-      <div id="messages">
-        <?php print $messages; ?>
-      </div><!-- /#messages -->
-    <?php endif; ?>
-    
-    <?php if ($tabs): ?>
-      <div class="tabs">
-        <?php print render($tabs); ?>
-      </div>
-    <?php endif; ?>
-    
-    <?php print $regions['help']; ?>
-  </section>
+  <div class="anniversary-navbar">
+    <?php print $regions['featured']; ?>
+  </div>
   
-  <?php print $regions['featured']; ?>
-
   <?php if ($has_responsive_sidebar): ?>
     <div id="responsive-sidebar">
       <div id="responsive-header-right"></div>
