@@ -9,7 +9,6 @@
     <?php print $title_field; ?>
   </h2>
   <div class="content">
-    <?php print $media; ?>
     <?php print $text; ?>
   </div>
 </section>
