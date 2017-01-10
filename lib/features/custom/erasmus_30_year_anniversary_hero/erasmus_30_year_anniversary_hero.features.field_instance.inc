@@ -133,7 +133,7 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'erasmus_30_year_hero_bg',
         ),
         'type' => 'image',
         'weight' => 0,

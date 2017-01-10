@@ -35,6 +35,21 @@ function erasmus_30_year_anniversary_hero_views_api($module = NULL, $api = NULL)
 function erasmus_30_year_anniversary_hero_image_default_styles() {
   $styles = array();
 
+  // Exported image style: erasmus_30_year_hero_bg.
+  $styles['erasmus_30_year_hero_bg'] = array(
+    'label' => 'erasmus_30_year_hero_bg',
+    'effects' => array(
+      8 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 2000,
+          'height' => 1125,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   // Exported image style: erasmus_30_year_hero_small_hp.
   $styles['erasmus_30_year_hero_small_hp'] = array(
     'label' => 'erasmus_30_year_hero_small_hp',
