@@ -165,9 +165,9 @@ global $base_url;
         <?php print $title; ?>
       </h1>
   <?php endif; ?>
-    <?php if ($regions['sidebar_left']): ?>
-      <?php print $regions['sidebar_left']; ?>
-    <?php endif; ?>
+  <?php if ($regions['sidebar_left']): ?>
+    <?php print $regions['sidebar_left']; ?>
+  <?php endif; ?>
 </header>
   
 <a id="content"></a>
