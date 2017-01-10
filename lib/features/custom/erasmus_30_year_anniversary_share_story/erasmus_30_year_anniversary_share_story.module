@@ -85,9 +85,14 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
   ];
   $form['email'] = [
     '#title' => t('Email address'),
-    '#type' => 'textarea',
+    '#type' => 'textfield',
     '#required' => TRUE,
     '#attributes' => ['placeholder' => t('Email address')],
+  ];
+  $form['termsconditions'] = [
+    '#title' => t('Terms & Conditions'),
+    '#type' => 'checkbox',
+    '#required' => TRUE,
   ];
   $form['submit'] = [
     '#type' => 'submit',
