@@ -48,20 +48,7 @@ function _erasmus_30_year_anniversary_story_get_monthly_theme() {
     return NULL;
   }
   
-  $month_url = date('F');
-
-  $url = explode('/', request_uri());
-  if (count($url) === 3) {
-    $url = $url[2];
-    
-    if (strpos($url, '_') !== FALSE) {
-      $url = explode('_', $url);
-      $month_url = $url[0];
-    }
-  }
-  
-  $var_name = 'e30ya_monthly_theme_' . drupal_strtolower($month_url);
-  $current_theme_month = variable_get($var_name, NULL);
+  $current_theme_month = variable_get('30ya_current_theme', NULL);
 
   if ($current_theme_month) {
     return views_embed_view('erasmus_30_year_anniversary_stories',
