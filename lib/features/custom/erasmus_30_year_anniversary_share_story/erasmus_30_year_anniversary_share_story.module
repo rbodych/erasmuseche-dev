@@ -83,6 +83,12 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#required' => TRUE,
     '#attributes' => ['placeholder' => t('Short description')],
   ];
+  $form['email'] = [
+    '#title' => t('Email address'),
+    '#type' => 'textarea',
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Email address')],
+  ];
   $form['submit'] = [
     '#type' => 'submit',
     '#value' => t('Share my story'),
@@ -100,6 +106,7 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
 
   $values['title'] = $form_state['values']['title'];
   $values['body'] = $form_state['values']['description'];
+  $values['email'] = $form_state['values']['email'];
   $values['image'] = file_create_url($file->uri);
 
   $module = 'erasmus_30_year_anniversary_share_story';
@@ -127,8 +134,9 @@ function erasmus_30_year_anniversary_share_story_mail($key, &$message, $params) 
   switch ($key) {
     case 'share_story_erasmus30year':
       $message['subject'] = $params['title'];
-      $message['body'][] = $params['body'];
-      $message['body'][] = $params['image'];
+      $message['body'][] = 'Body: ' . $params['body'];
+      $message['body'][] = 'Image url:' . $params['image'];
+      $message['body'][] = 'From email: ' . $params['email'];
       break;
   }
 }
