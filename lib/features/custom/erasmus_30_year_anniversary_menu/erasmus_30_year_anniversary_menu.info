@@ -10,4 +10,5 @@ features[ctools][] = context:context:3
 features[features_api][] = api:2
 features[menu_custom][] = menu-erasmus-30
 features[menu_custom][] = menu-erasmus-30---footer
-project path = sites/all/modules/features/custom/erasmus30ya/
+multisite_version = 2.2
+php = 5.5.9
