@@ -86,12 +86,21 @@ function erasmus_30year_anniversary_field_collection_view($variables) {
   $fc_item = $element['entity']['field_collection_item'];
   $fc_item = array_shift($fc_item);
   if (isset($fc_item) && isset($fc_item['field_30ya_contentrow_type'][0]['#markup'])) {
+    $disable_auto_columns
+      =  $fc_item['field_30ya_disable_auto_columns']['#items'][0]['value'];
+    if ($disable_auto_columns) {
+      $disable_auto_columns = '';
+    }
+    else {
+      $disable_auto_columns = 'enable-auto-columns';
+    }
     $element['#children'] = theme('field_collection_item__' . str_replace('-', '_', $fc_item['field_30ya_contentrow_type'][0]['#markup']),
       [
         'text' => render($fc_item['field_30ya_contentrow_richtext']),
         'title_field' => render($fc_item['title_field']),
         'media' => render($fc_item['field_30ya_contentrow_media']),
         'type' => $fc_item['field_30ya_contentrow_type'][0]['#markup'],
+        'disable_auto_columns' => $disable_auto_columns,
       ]
     );
   } 
