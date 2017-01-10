@@ -72,7 +72,7 @@ function erasmus_30year_anniversary_form_select_options($element, $choices = NUL
       $options .= '<option class="' .
         drupal_strtolower(drupal_clean_css_identifier($choice)) .
         '" value="' . check_plain($key) . '"' . $selected . '>'
-        . check_plain($choice) . '</option>';
+        . check_plain(t($choice)) . '</option>';
     }
   }
   return $options;
@@ -86,7 +86,7 @@ function erasmus_30year_anniversary_field_collection_view($variables) {
   $fc_item = $element['entity']['field_collection_item'];
   $fc_item = array_shift($fc_item);
   if (isset($fc_item) && isset($fc_item['field_30ya_contentrow_type'][0]['#markup'])) {
-    return theme('field_collection_item__' . str_replace('-', '_', $fc_item['field_30ya_contentrow_type'][0]['#markup']),
+    $element['#children'] = theme('field_collection_item__' . str_replace('-', '_', $fc_item['field_30ya_contentrow_type'][0]['#markup']),
       [
         'text' => render($fc_item['field_30ya_contentrow_richtext']),
         'title_field' => render($fc_item['title_field']),
