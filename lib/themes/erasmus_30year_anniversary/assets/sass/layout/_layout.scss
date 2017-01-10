@@ -26,11 +26,13 @@ header {
     .background-pattern {
       display: none;
     }
-    
-    .introduction__content {
-    }
-    
+
     .introduction__highlights {
+      video,
+      img {
+        box-shadow: $shadow-big;
+      }
+      
       .event-header {
         font-size: 2em;
         padding: 0;
@@ -38,6 +40,93 @@ header {
     }
   }
 }
+
+
+
+
+
+// Stripes for basic pages layout
+.content-stripe {
+  padding: 0;
+  &:nth-of-type(2n+1) {
+    background: $c-gray-5;
+  }
+  
+  &.gray-bg {
+    background: $c-gray-1;
+    color: $c-gray-4;
+    padding: $padding-large $padding;
+    padding-bottom: $padding-medium;
+    
+    h2,
+    h3,
+    h4 {
+      color: #fff;
+    }
+  }
+  
+  &.blue-bg {
+    background: $c-primary-2;
+    padding: $padding-large $padding;
+    padding-bottom: $padding-medium;
+    color: $c-primary-4;
+    
+    h2,
+    h3,
+    h4 {
+      color: #fff;
+    }
+  }
+  
+  &.image-left-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 160px;
+    
+    .left {
+      width: 60%;
+      padding-left: $padding;
+      margin-top: -120px;
+      
+      img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        box-shadow: $shadow-big;
+      }
+    }
+    .right {
+      padding: $padding;
+      padding-bottom: $padding-medium;
+    }
+  }
+  
+  &.video-row {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .left {
+      padding: $padding-large $padding;
+      padding-bottom: 0;
+    }
+    
+    .right {
+      position: relative;
+      padding: 0 $padding;
+      padding-bottom: $padding-medium;
+
+      & > div {
+        margin-top: $padding;
+        
+        video {
+          box-shadow: $shadow-big;
+        }
+      }
+    }
+  }
+}
+
 
 
 
@@ -124,8 +213,8 @@ footer {
 .stripe-highlight--right {
   @include outer-container;
   background: $c-gray-1;
-  color: $c-gray-4;
-  
+  display: flex;
+
   h2 {
     color: #fff;
   }
@@ -135,6 +224,7 @@ footer {
   }  
 
   .stripe-highlight--content {
+    color: $c-gray-4;
     width: 40%;
     padding: $padding-large;
     background: url(../images/pattern-building-dark.png) no-repeat left bottom;
@@ -145,7 +235,50 @@ footer {
   .stripe-highlight--assets {
     width: 60%;
     float: left;
-    padding: $padding-large;
+    position: relative;
+    min-height: 520px;
+    
+    & > pre {
+      display: none;
+    }
+    
+    & > div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+    }
+    
+    article {
+      width: 100%;
+      
+      figure {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: inline-flex;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .stripe-highlight--assets-text {
+        position: relative;
+        z-index: 1;
+        padding: $padding;
+        margin: 0 0 $padding $padding;
+        bottom: 0;
+        min-width: 40%;
+        max-width: 50%;
+        background: rgba(255, 255, 255, .8);
+      }
+    }
   }
 }
 
@@ -176,13 +309,30 @@ footer {
 
 
 
-@include media($tablet-min-width) {
+@include media($desktop-min-width) {
+  .node-type-erasmus-30-year-anniversary-home header.introduction {
+
+    .background-pattern {
+      display: none;
+    }
+  }
+
   header {
+    
     &.introduction {
       @include background-image(url("../images/pattern-light-gray.png"), linear-gradient(to right, $c-gradient-intro-1 $c-gradient-intro-start,$c-gradient-intro-2  $c-gradient-intro-start));
       background-position: left bottom, right top;
       background-repeat: no-repeat, no-repeat;
       position: relative;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
+      &:before,
+      &:after {
+        display: none;
+      }
   
       .background-pattern {
         display: block;
@@ -198,14 +348,67 @@ footer {
       
       .introduction__content {
         width: 50%;
-        padding: $padding-big;
+        padding: $padding-large;
+        padding-top: $padding-big;
         display: inline-block;
       }
       
       .introduction__highlights {
-        width: 40%;
+        width: 45%;
         float: right;
         display: inline-block;
+        position: relative;
+        z-index: 9;
+        
+        video,
+        img {
+          position: absolute;
+          right: $padding;
+          top: 15em;
+        }
+        
+        .item-card-float {
+          position: absolute;
+          box-shadow: $shadow-big;
+          
+          img {
+            object-fit: cover;
+            position: static;
+            box-shadow: 0 0 0;
+          }
+          
+          &:first-of-type {
+            z-index: 2;
+            left: 30%;
+            top: 36%;
+          }
+          
+          &:nth-of-type(2) {
+            left: -40%;
+            top: 68%;
+            z-index: 3;
+          }
+          
+          &:nth-of-type(3) {
+            left: -20%;
+            top: 15%;
+            z-index: 1;
+          }
+          
+          &:nth-of-type(4) {
+            height: 100%;
+            right: 0;
+            top: 0;
+            box-shadow: 0 0 0;
+            
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+          
+        }
         
         .event-header {
           font-size: 2em;
@@ -238,14 +441,86 @@ footer {
     }    
   }
 
-}
 
 
 
 
+  // Stripes for basic pages layout
+  .content-stripe {
+    
+    &.gray-bg,
+    &.blue-bg {
+      padding: $padding-large;
+    }
 
-@include media($desktop-min-width) {
-
+    &.enable-auto-columns {
+     .content {
+        @include column-count(2);
+        @include column-gap($padding-medium);
+      } 
+    } 
+    
+    &.image-left-row {
+      flex-direction: row;
+      margin-top: 0;
+      
+      .left {
+        width: 40%;
+        flex-basis: 40%;
+        padding: 0;
+        margin: 0;
+        
+        img {
+          max-height: inherit;
+          box-shadow: 0 0 0;
+        }
+      }
+      .right {
+        width: 60%;
+        flex-basis: 60%;
+        padding: $padding-large;
+      }
+    }
+    
+    &.video-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
+      &:before,
+      &:after {
+        display: none;
+      }
+      
+      .left {
+        width: 50%;
+        flex-basis: 50%;
+        padding: $padding-large;
+      }
+      
+      .right {
+        width: 50%;
+        flex-basis: 50%;
+        padding: 0;
+        @include background-image(url(../images/pattern-stripe-white.png), transparent 20%, linear-gradient(to right, $c-gradient-A1  20%, $c-gradient-A2));
+        background-blend-mode: overlay;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        & > div {
+          width: 100%;
+          margin-top: 0;
+          
+          video {
+            box-shadow: $shadow-big;
+            position: absolute;
+            top: $padding-big;
+            right: $padding;
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -253,5 +528,71 @@ footer {
 
 
 @include media($largedesktop-min-width) {
+
+  header {
   
+    &.introduction {
+      
+      .introduction__content {
+        padding: $padding-big;
+      }
+      
+      .introduction__highlights {
+        width: 40%;
+        
+        video,
+        img {
+          left: -20%;
+          top: $padding-big;
+        }
+
+      }
+    }
+  }
+  
+  
+  
+  
+  
+  // Stripes for basic pages layout
+  .content-stripe {
+    
+    &.gray-bg,
+    &.blue-bg {
+      padding: $padding-large;
+    }
+
+    &.enable-auto-columns {
+     .content {
+        @include column-count(4);
+      } 
+    } 
+    
+    &.image-left-row {
+
+      .right {
+        padding: $padding-big;
+      }
+    }
+    
+    &.video-row {
+
+      .left {
+        padding: $padding-big;
+      }
+      
+      .right {
+        width: 40%;
+        flex-basis: 40%;
+        
+        & > div {
+
+          video {
+            left: -20%;
+            top: $padding-big;
+          }
+        }
+      }
+    }
+  }
 }
