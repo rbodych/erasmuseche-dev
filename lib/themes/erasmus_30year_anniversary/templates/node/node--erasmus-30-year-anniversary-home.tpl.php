@@ -11,7 +11,9 @@
       print render($content['field_30ya_share_story_text']);
     ?>
   <p>
-    <a class="button button--stroke-secondary button--large" href="/share-my-story"><?php print t('Share my story'); ?></a>
+    <a class="button button--stroke-secondary button--large" href="/share-my-story">
+      <?php print t('Tell us your story'); ?>
+    </a>
   </p>
   </div>
 </section>
