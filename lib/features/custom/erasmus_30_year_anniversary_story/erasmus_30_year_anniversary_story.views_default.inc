@@ -86,6 +86,11 @@ function erasmus_30_year_anniversary_story_views_default_views() {
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_30year_anniversary_monthly_theme');
   $handler->display->display_options['block_description'] = 'Erasmus+ 30 Year anniversary: Current montlhy theme block';
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_30year_all_stories');
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['block_description'] = '30 year : All stories';
   $export['erasmus_30_year_anniversary_stories'] = $view;
 
   return $export;

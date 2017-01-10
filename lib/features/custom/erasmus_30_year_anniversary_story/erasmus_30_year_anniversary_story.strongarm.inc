@@ -122,6 +122,27 @@ function erasmus_30_year_anniversary_story_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_erasmus_30_year_anniversary_stor';
+  $strongarm->value = 1;
+  $export['i18n_node_extended_erasmus_30_year_anniversary_stor'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_erasmus_30_year_anniversary_stor';
+  $strongarm->value = array();
+  $export['i18n_node_options_erasmus_30_year_anniversary_stor'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_sync_node_type_erasmus_30_year_anniversary_stor';
+  $strongarm->value = array();
+  $export['i18n_sync_node_type_erasmus_30_year_anniversary_stor'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_erasmus_30_year_anniversary_stor';
   $strongarm->value = '0';
   $export['language_content_type_erasmus_30_year_anniversary_stor'] = $strongarm;
@@ -162,6 +183,20 @@ function erasmus_30_year_anniversary_story_strongarm() {
   $strongarm->name = 'node_submitted_erasmus_30_year_anniversary_stor';
   $strongarm->value = 0;
   $export['node_submitted_erasmus_30_year_anniversary_stor'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_stor_pattern';
+  $strongarm->value = '';
+  $export['pathauto_node_erasmus_30_year_anniversary_stor_pattern'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pathauto_taxonomy_term_erasmus_30_year_anniversary_monthly_themes_pattern';
+  $strongarm->value = '';
+  $export['pathauto_taxonomy_term_erasmus_30_year_anniversary_monthly_themes_pattern'] = $strongarm;
 
   return $export;
 }
