@@ -166,3 +166,19 @@ function erasmus_30ya_core_theme() {
     ),
   );
 }
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function erasmus_30ya_core_preprocess_block(&$vars) {
+  global $theme;
+  if ($theme == 'erasmus_30year_anniversary'
+      && $vars['block_html_id'] == 'block-menu-menu-erasmus-30') {
+    global $language;
+    $path = path_to_theme();
+    $logo_path = $path . '/logo_' . $language->language . '.png';
+    if (file_exists($logo_path)) {
+      $vars['logo'] = '/' . $logo_path;
+    }
+  }
+}
