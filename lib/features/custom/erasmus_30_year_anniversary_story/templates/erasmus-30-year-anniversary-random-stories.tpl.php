@@ -5,7 +5,7 @@
  */
 ?>
 <?php foreach ($stories as $story): ?>
-  <div class="item-card-float">
+  <div class="item-card-float flip-card not-visible">
     <img src="<?php print $story['url']; ?>"
       alt="<?php print $story['alt']; ?>" />
   </div>
