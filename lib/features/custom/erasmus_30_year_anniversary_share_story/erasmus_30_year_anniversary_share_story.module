@@ -64,6 +64,18 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     t('Don’t forget to share your entry on social media too! #ErasmusPlus')
     . '</div>',
   ];
+  $form['name'] = [
+    '#title' => t('Name'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Your firstname and lastname')],
+  ];
+  $form['email'] = [
+    '#title' => t('Email address'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Email address')],
+  ];
   $form['upload'] = [
     '#type' => 'managed_file',
     '#title' => t('Choose an image:'),
@@ -82,12 +94,6 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#type' => 'textarea',
     '#required' => TRUE,
     '#attributes' => ['placeholder' => t('Short description')],
-  ];
-  $form['email'] = [
-    '#title' => t('Email address'),
-    '#type' => 'textfield',
-    '#required' => TRUE,
-    '#attributes' => ['placeholder' => t('Email address')],
   ];
   $form['termsconditions'] = [
     '#title' => t('Terms & Conditions'),
@@ -112,6 +118,7 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
   $values['title'] = $form_state['values']['title'];
   $values['body'] = $form_state['values']['description'];
   $values['email'] = $form_state['values']['email'];
+  $values['name'] = $form_state['values']['name'];
   $values['image'] = file_create_url($file->uri);
 
   $module = 'erasmus_30_year_anniversary_share_story';
@@ -142,6 +149,7 @@ function erasmus_30_year_anniversary_share_story_mail($key, &$message, $params) 
       $message['body'][] = 'Body: ' . $params['body'];
       $message['body'][] = 'Image url:' . $params['image'];
       $message['body'][] = 'From email: ' . $params['email'];
+      $message['body'][] = 'From name: ' . $params['name'];
       break;
   }
 }
