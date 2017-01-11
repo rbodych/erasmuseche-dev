@@ -97,6 +97,11 @@ function erasmus_30_year_anniversary_event_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 0,
   );
+  /* Sort criterion: Content: Promoted to front page */
+  $handler->display->display_options['sorts']['promote']['id'] = 'promote';
+  $handler->display->display_options['sorts']['promote']['table'] = 'node';
+  $handler->display->display_options['sorts']['promote']['field'] = 'promote';
+  $handler->display->display_options['sorts']['promote']['order'] = 'DESC';
   /* Sort criterion: Content: Country (field_30ya_country) (translated) */
   $handler->display->display_options['sorts']['field_30ya_country_tid_i18n']['id'] = 'field_30ya_country_tid_i18n';
   $handler->display->display_options['sorts']['field_30ya_country_tid_i18n']['table'] = 'field_data_field_30ya_country';
@@ -127,6 +132,7 @@ function erasmus_30_year_anniversary_event_views_default_views() {
     159 => '159',
     160 => '160',
     161 => '161',
+    149 => '149',
     162 => '162',
     163 => '163',
     164 => '164',
@@ -215,6 +221,15 @@ function erasmus_30_year_anniversary_event_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_30year_events');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $export['erasmus_30_year_anniversary_events'] = $view;
 
   return $export;
