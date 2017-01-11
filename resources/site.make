@@ -39,6 +39,9 @@ projects[feeds_et][subdir] = "contrib"
 projects[feeds_et][version] = "1.x-dev"
 projects[feeds_et][patch][] = "https://www.drupal.org/files/issues/feeds_et_link_support-2078069-3.patch"
 
+projects[focal_point][subdir] = "contrib"
+projects[focal_point][version] = "1.0"
+
 ; =========
 ; Libraries
 ; =========
