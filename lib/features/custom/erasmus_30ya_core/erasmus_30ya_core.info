@@ -16,4 +16,5 @@ dependencies[] = erasmus_30_year_anniversary_page
 dependencies[] = erasmus_30_year_anniversary_newsletter
 dependencies[] = erasmus_30_year_anniversary_country_fact_sheets_infographics
 dependencies[] = erasmus_30_year_anniversary_presss_release
+dependencies[] = focal_point
 scripts[] = js/social_share.js
