@@ -11,7 +11,7 @@ include_once 'includes/helper.inc';
  * Implements hook_views_pre_render().
  */
 function erasmus_30_year_anniversary_event_views_pre_render(&$view) {
-  if ($view->name == 'erasmus_30_year_anniversary_events' && $view->current_display == 'page_30year_events') {
+  if ($view->name == 'erasmus_30_year_anniversary_events' && $view->current_display == 'block_30year_events') {
 
     $filter = isset($view->exposed_raw_input['country']) ?
       $view->exposed_raw_input['country'] : NULL;
@@ -51,7 +51,7 @@ function erasmus_30_year_anniversary_event_theme() {
 function erasmus_30_year_anniversary_event_block_info() {
   $blocks['e30ya_event_global_header'] = array(
     'info' => t('Erasmus+ 30 year global event header'),
-    'region' => 'sidebar_right',
+    'region' => 'content_top',
     'cache' => DRUPAL_CACHE_GLOBAL,
     'status' => TRUE,
     'visibility' => BLOCK_VISIBILITY_LISTED,
