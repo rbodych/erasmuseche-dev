@@ -202,6 +202,12 @@ global $base_url;
   <span class="glyphicon glyphicon-chevron-up"></span>
 </a>
 
+<div class="feedbackform">
+  <div class="container">
+    <?php print render($page['feedbackform']); ?>
+  </div>
+</div>
+
 <footer>
   <div class="container">
     <?php print $regions['footer']; ?>
