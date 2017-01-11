@@ -35,7 +35,7 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
       $item = theme('image', $variables);
     }
 
-    $vars['page']['sidebar_right'] = $item;
+    $vars['page']['sidebar_right'] = $item . render($vars['page']['sidebar_right']);
   }
 }
 
