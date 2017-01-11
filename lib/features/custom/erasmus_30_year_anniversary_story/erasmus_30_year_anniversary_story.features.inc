@@ -33,13 +33,17 @@ function erasmus_30_year_anniversary_story_image_default_styles() {
   $styles['erasmus_30_year_story_card__370x210'] = array(
     'label' => 'erasmus_30_year_story_card (370x210)',
     'effects' => array(
-      7 => array(
-        'name' => 'image_scale_and_crop',
+      9 => array(
+        'name' => 'focal_point_scale_and_crop',
         'data' => array(
           'width' => 370,
           'height' => 210,
+          'focal_point_advanced' => array(
+            'shift_x' => '',
+            'shift_y' => '',
+          ),
         ),
-        'weight' => 1,
+        'weight' => 2,
       ),
     ),
   );
