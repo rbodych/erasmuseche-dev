@@ -11,7 +11,7 @@
 </a>
 <div class="container">
   <div class="logo-anniversary">
-    <img alt="<?php print t('Erasmus+ 30 anniversary logo'); ?>" src="/sites/all/themes/erasmus_30year_anniversary/logo.png" />
+    <img alt="<?php print t('Erasmus+ 30 anniversary logo'); ?>" src="<?php print $logo; ?>" />
   </div>
   <nav role="navigation">
     <?php print $content ?>
