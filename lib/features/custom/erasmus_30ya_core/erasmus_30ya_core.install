@@ -10,4 +10,12 @@
 function erasmus_30ya_core_install() {
   theme_enable(array('erasmus_30year_anniversary'));
   module_enable(['focal_point']);
+
+  db_insert('captcha_points')
+    ->fields(array(
+      'form_id' => 'erasmus_30_year_anniversary_share_story_form',
+      'module' => NULL,
+      'captcha_type' => 'default',
+    ))
+    ->execute();
 }
