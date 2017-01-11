@@ -60,12 +60,15 @@ function _erasmus_30_year_anniversary_story_get_monthly_theme() {
  * Retrieve the homepage HTML for the random stories.
  */
 function erasmus_30_year_anniversary_story_get_html_random_stories() {
-  $result = db_select('node', 'n')
-    ->condition('type', 'erasmus_30_year_anniversary_stor')
-    ->fields('n', ['nid'])
+  $current_theme_month = variable_get('30ya_current_theme', NULL);
+  $result = db_select('node', 'n');
+  $result->join('field_data_field_e30ya_monthly_theme', 'b', 'n.nid = b.entity_id');
+  $result->fields('n', ['nid'])
+    ->condition('n.type', 'erasmus_30_year_anniversary_stor')
+    ->condition('b.field_e30ya_monthly_theme_tid', $current_theme_month)
     ->range(0, 3)
-    ->orderRandom()
-    ->execute();
+    ->orderRandom();
+  $result = $result->execute();
   $images = [];
   foreach ($result as $record) {
     $node = $record->nid;
