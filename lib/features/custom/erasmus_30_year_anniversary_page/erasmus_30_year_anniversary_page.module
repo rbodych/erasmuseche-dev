@@ -21,6 +21,7 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
     if (isset($top_media[$vars['node']->language][0]['file'])
         && $top_media[$vars['node']->language][0]['file']->type == 'video') {
       $item = file_view_file($top_media[$vars['node']->language][0]['file']);
+      $item = render($item);
     }
     else {
       $file = $top_media[$vars['node']->language][0]['fid'];
@@ -34,7 +35,6 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
       );
       $item = theme('image', $variables);
     }
-
     $vars['page']['sidebar_right'] = $item . render($vars['page']['sidebar_right']);
   }
 }
