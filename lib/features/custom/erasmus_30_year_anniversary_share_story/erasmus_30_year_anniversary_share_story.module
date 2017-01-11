@@ -45,6 +45,7 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#suffix' => '</section>',
   ];
   $form['intro_second'] = [
+    '#prefix' => '<div class="intro-wrapper">',
     '#type' => 'item',
     '#title' => t('How to enter'),
     '#markup' => t('Submit a photo or video with your 100 word story that tells us about the + of your Erasmus+ before 15th April. Be creative! Then come back to vote on your favourite entries!'),
@@ -63,8 +64,10 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#markup' => '<div class="center">' .
     t('Don’t forget to share your entry on social media too! #ErasmusPlus')
     . '</div>',
+    '#suffix' => '</div>',
   ];
   $form['name'] = [
+    '#prefix' => '<div class="form-fields-wrapper">',
     '#title' => t('Name'),
     '#type' => 'textfield',
     '#required' => TRUE,
@@ -109,6 +112,7 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
   $form['submit'] = [
     '#type' => 'submit',
     '#value' => t('Share my story'),
+    '#suffix' => '</section>',
   ];
   return $form;
 }
