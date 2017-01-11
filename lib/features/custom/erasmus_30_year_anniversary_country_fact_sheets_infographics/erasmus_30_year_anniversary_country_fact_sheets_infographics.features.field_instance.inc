@@ -36,8 +36,8 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_field_defa
     'label' => 'Fact sheets',
     'required' => 1,
     'settings' => array(
-      'description_field' => 0,
-      'entity_translation_sync' => FALSE,
+      'description_field' => 1,
+      'entity_translation_sync' => 0,
       'file_directory' => '',
       'file_extensions' => 'pdf',
       'filefield_paths' => array(
@@ -94,93 +94,6 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_field_defa
       ),
       'type' => 'media_generic',
       'weight' => 5,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'node-erasmus_30_year_anniversary_fact-field_30ya_infographics'.
-  $field_instances['node-erasmus_30_year_anniversary_fact-field_30ya_infographics'] = array(
-    'bundle' => 'erasmus_30_year_anniversary_fact',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'file',
-        'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 4,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_30ya_infographics',
-    'label' => 'Infographics',
-    'required' => 1,
-    'settings' => array(
-      'description_field' => 0,
-      'entity_translation_sync' => FALSE,
-      'file_directory' => '',
-      'file_extensions' => 'png jpg jpeg gif',
-      'filefield_paths' => array(
-        'active_updating' => 0,
-        'file_name' => array(
-          'options' => array(
-            'pathauto' => 0,
-            'slashes' => 0,
-            'transliterate' => 0,
-          ),
-          'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
-        ),
-        'file_path' => array(
-          'options' => array(
-            'pathauto' => 0,
-            'slashes' => 0,
-            'transliterate' => 1,
-          ),
-          'value' => '30year_country_infographics',
-        ),
-        'redirect' => FALSE,
-        'retroactive_update' => 0,
-      ),
-      'filefield_paths_enabled' => 1,
-      'max_filesize' => '',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'media',
-      'settings' => array(
-        'allowed_schemes' => array(
-          'avportal' => 0,
-          'dailymotion' => 0,
-          'ffp' => 0,
-          'node' => 0,
-          'private' => 0,
-          'public' => 'public',
-          'vimeo' => 0,
-          'youtube' => 0,
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'document' => 0,
-          'image' => 'image',
-          'video' => 0,
-        ),
-        'browser_plugins' => array(
-          'media_default--media_browser_1' => 'media_default--media_browser_1',
-          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
-          'media_internet' => 'media_internet',
-          'upload' => 'upload',
-        ),
-      ),
-      'type' => 'media_generic',
-      'weight' => 6,
     ),
   );
 
@@ -273,7 +186,6 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_field_defa
   // Included for use with string extractors like potx.
   t('Country');
   t('Fact sheets');
-  t('Infographics');
   t('Title');
 
   return $field_instances;

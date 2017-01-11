@@ -180,5 +180,8 @@ function erasmus_30ya_core_preprocess_block(&$vars) {
     if (file_exists($logo_path)) {
       $vars['logo'] = '/' . $logo_path;
     }
+    else {
+      $vars['logo'] = '/' . $path . '/logo.png';
+    }
   }
 }

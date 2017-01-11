@@ -18,14 +18,8 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_preprocess
     foreach ($vars['field_30ya_fact_sheets'][$vars['language']] as $fact_sheet) {
       $array = [];
       $array['url'] = file_create_url($fact_sheet['uri']);
-      $array['title'] = $fact_sheet['origname'];
+      $array['title'] = $fact_sheet['description'];
       $vars['fact_links'][] = $array;
-    }
-    foreach ($vars['field_30ya_infographics'][$vars['language']] as $info_link) {
-      $array = [];
-      $array['url'] = file_create_url($info_link['uri']);
-      $array['title'] = $info_link['origname'];
-      $vars['info_links'][] = $array;
     }
   }
 }
