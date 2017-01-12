@@ -19,7 +19,7 @@ function erasmus_30_year_anniversary_newsletter_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'newsletter' => 'newsletter',
+        'anniversary/newsletter' => 'anniversary/newsletter',
       ),
     ),
   );

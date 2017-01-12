@@ -27,7 +27,7 @@ function erasmus_30_year_anniversary_hero_context_default_contexts() {
     ),
     'path' => array(
       'values' => array(
-        'discover-erasmusplus' => 'discover-erasmusplus',
+        'anniversary/discover-erasmusplus' => 'anniversary/discover-erasmusplus',
       ),
     ),
   );

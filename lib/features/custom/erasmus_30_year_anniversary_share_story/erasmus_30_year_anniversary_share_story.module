@@ -143,7 +143,7 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#type' => 'checkbox',
     '#required' => TRUE,
     '#description' => l(t('Click here to view the Terms & conditions'),
-      '/terms-conditions-share-story',
+      '/anniversary/terms-conditions-share-story',
       [
         'attributes' => ['target' => '_blank'],
       ]),
@@ -184,7 +184,7 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
   $result = drupal_mail($module, $key, $to, $language, $params, $from, $send);
   if ($result['result'] == TRUE) {
     drupal_set_message(t('Your story has been submitted.'));
-    drupal_goto('/share-your-story-confirmation');
+    drupal_goto('/anniversary/share-your-story-confirmation');
   }
   else {
     drupal_set_message(t('There was a problem sending please contact the website maintainer.'), 'error');
