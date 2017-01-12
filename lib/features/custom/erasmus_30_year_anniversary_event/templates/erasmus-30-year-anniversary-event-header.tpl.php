@@ -13,7 +13,7 @@
   <?php endif; ?>
   <?php if (isset($events)): ?>
     <div class="event-header--events">
-      <?php print format_plural($events, t('1 event'), t('@count') . '<span>'  .t('events') . '</span>'); ?>
+      <?php print format_plural($events, t('1 event'), t('@count') . '<span>' . t('events') . '</span>'); ?>
     </div>
   <?php endif; ?>
   <p><?php print t('with'); ?></p>

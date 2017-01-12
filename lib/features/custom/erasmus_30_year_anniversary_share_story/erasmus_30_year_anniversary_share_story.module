@@ -40,12 +40,12 @@ function erasmus_30_year_anniversary_share_story_block_view($delta = '') {
       $block['content']
         = drupal_get_form('erasmus_30_year_anniversary_share_story_form');
       break;
-      
+
     case 'e30ya_share_story_socialconf':
        $block['content']
-        = _erasmus_30_year_anniversary_share_story_social_share_content();
+         = _erasmus_30_year_anniversary_share_story_social_share_content();
       break;
-      
+
   }
 
   return $block;
@@ -135,7 +135,8 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
       'file_validate_extensions' => ['png jpg jpeg gif'],
       'file_validate_size' => ['10' * 1024 * 1024],
     ],
-    '#description' => t('Only files with the following extensions are allowed: png jpg jpeg gif. The maximum file size is 10 MB.')
+    '#description'
+    => t('Only files with the following extensions are allowed: png jpg jpeg gif. The maximum file size is 10 MB.'),
   ];
   $form['termsconditions'] = [
     '#title' => t('Terms & Conditions'),
@@ -144,7 +145,7 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#description' => l(t('Click here to view the Terms & conditions'),
       '/terms-conditions-share-story',
       [
-        'attributes' => ['target'=> '_blank']
+        'attributes' => ['target' => '_blank'],
       ]),
   ];
   $form['submit'] = [
