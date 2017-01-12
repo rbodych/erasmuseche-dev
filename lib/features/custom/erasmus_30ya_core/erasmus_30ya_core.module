@@ -28,12 +28,7 @@ function erasmus_30ya_core_custom_theme() {
   }
 
   $allowed_uris = [
-    'events',
-    'partners',
-    'share-my-story',
-    'press-releases',
-    'discover-erasmusplus',
-    'country-facts-sheets-infographics',
+    'anniversary/',
   ];
   $current_path = current_path();
   if (in_array($current_path, $allowed_uris)) {
