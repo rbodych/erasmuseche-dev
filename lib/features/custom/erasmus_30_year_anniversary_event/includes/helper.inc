@@ -24,8 +24,8 @@ function _erasmus_30_year_anniversary_event_count_participants_per_country($resu
   return theme('erasmus_30_year_anniversary_event_header',
     [
       'countries' => NULL,
-      'events' => $events,
-      'participants' => $participants,
+      'events' => number_format($events, 0, ',', ' '),
+      'participants' => number_format($participants, 0, ',', ' '),
     ]
   );
 }
@@ -50,8 +50,8 @@ function _erasmus_30_year_anniversary_event_retrieve_global_event_block_content(
   return theme('erasmus_30_year_anniversary_event_header',
     [
       'countries' => '33',
-      'events' => $amount_of_events,
-      'participants' => $participants,
+      'events' => number_format($amount_of_events, 0, ',', ' '),
+      'participants' =>  number_format($participants, 0, ',', ' '),
     ]
   );
 }

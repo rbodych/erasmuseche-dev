@@ -5,6 +5,7 @@
  */
 ?>
 <div class="event-header--highlights">
+  <p><?php print t('Search results:'); ?></p>
   <?php if (isset($countries)): ?>
     <div class="event-header--country">
       <?php print format_plural($countries, t('1 country'), t('@count') . '<span>' . t('countries') . '</span>'); ?>
@@ -15,6 +16,7 @@
       <?php print format_plural($events, t('1 event'), t('@count') . '<span>'  .t('events') . '</span>'); ?>
     </div>
   <?php endif; ?>
+  <p><?php print t('with'); ?></p>
   <?php if (isset($participants)): ?>
     <div class="event-header--participants">
       <?php print $participants . '<span>' . t('participants') . '</span>'; ?>
