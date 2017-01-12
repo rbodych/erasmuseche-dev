@@ -138,13 +138,11 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
     if (isset($vars['body'][0])) {
       $vars['intro'] = $vars['body'][0]['value'];
     }
-  }
-
-  if (isset($vars['elements']['#view_mode'])
-      && $vars['elements']['#view_mode'] == 'full'
-      && $vars['type'] == 'erasmus_30_year_anniversary_stor') {
-    unset($vars['content']['field_image']);
-    unset($vars['content']['field_e30ya_monthly_theme']);
+    $vars['share'] = TRUE;
+    $vars['title_share'] = $vars['title'];
+    $vars['hashtags'] = variable_get('e30ya_hashtag', 'ErasmusPlus');
+    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_story')
+      . '/js/social_share_story.js');
   }
 }
 
