@@ -4,6 +4,7 @@ core = 7.x
 package = Erasmus+ 30 year anniversary
 dependencies[] = cce_basic_config
 dependencies[] = field_group
+dependencies[] = nexteuropa_multilingual
 dependencies[] = node
 dependencies[] = text
 dependencies[] = views
