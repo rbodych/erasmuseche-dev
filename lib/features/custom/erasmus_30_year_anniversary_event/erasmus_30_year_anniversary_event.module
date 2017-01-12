@@ -53,7 +53,7 @@ function erasmus_30_year_anniversary_event_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
     'status' => TRUE,
     'visibility' => BLOCK_VISIBILITY_LISTED,
-    'pages' => 'events',
+    'pages' => 'anniversary/events',
     'theme' => 'erasmus_30year_anniversary',
   );
 

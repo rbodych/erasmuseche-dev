@@ -14,7 +14,7 @@ function erasmus_30_year_anniversary_share_story_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
     'status' => TRUE,
     'visibility' => BLOCK_VISIBILITY_LISTED,
-    'pages' => 'share-your-story',
+    'pages' => 'anniversary/share-your-story',
     'theme' => 'erasmus_30year_anniversary',
   );
   $blocks['e30ya_share_story_socialconf'] = array(
@@ -23,7 +23,7 @@ function erasmus_30_year_anniversary_share_story_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
     'status' => TRUE,
     'visibility' => BLOCK_VISIBILITY_LISTED,
-    'pages' => 'share-your-story-confirmation',
+    'pages' => 'anniversary/share-your-story-confirmation',
     'theme' => 'erasmus_30year_anniversary',
   );
   return $blocks;
