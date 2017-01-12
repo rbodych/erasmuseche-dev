@@ -18,12 +18,10 @@ function erasmus_30_year_anniversary_event_views_pre_render(&$view) {
 
     if (isset($filter) && $filter !== 'All') {
       $html = _erasmus_30_year_anniversary_event_count_participants_per_country($view->result);
-      $header_options = [
-        'content' => $html,
-        'format' => 'full_html',
-        'empty' => 0,
-      ];
-      $view->add_item('default', 'header', 'views', 'area', $header_options);
+      $view->header['area']->options['content'] = $html;
+    }
+    else {
+      $view->header['area']->options['content'] = '';
     }
   }
 }
