@@ -8,13 +8,7 @@
 <article class="node--card h-event <?php print isset($card_class) ? $card_class : ''; ?>">
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
-    <?php if ($node->type == 'erasmus_30_year_anniversary_stor'): ?>
-      <a href="<?php print $node_url; ?>">
-    <?php endif; ?>
     <h3><?php print $title; ?></h3>
-    <?php if ($node->type == 'erasmus_30_year_anniversary_stor'): ?>
-      </a>
-    <?php endif; ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
@@ -24,7 +18,7 @@
     hide($content['links']);
   ?>
   <?php if (isset($image)): ?>
-    <img src="<?php print $image; ?>" alt="<?php print $title; ?>" />
+    <img src="<?php print $image; ?>" alt="<?php print $title; ?>" class="card-image"/>
   <?php endif; ?>
   <?php if (isset($date)): ?>
     <p class="dt-start">
@@ -81,5 +75,17 @@
       <?php endforeach; ?>
     <?php endif; ?>
   </ul>
-
+  <?php if ($share): ?>
+    <div class="share-links">
+      <div class="share-link facebook card">
+        <a href="#"><?php print t('Share on Facebook'); ?></a>
+      </div>
+      <div class="share-link twitter">
+        <a class="twitter-share-button"
+          href="https://twitter.com/intent/tweet?text=<?php print $title_share; ?>&hashtags=<?php print $hashtags; ?>">
+          Tweet
+        </a>
+      </div>
+    </div>
+  <?php endif; ?>
 </article>
