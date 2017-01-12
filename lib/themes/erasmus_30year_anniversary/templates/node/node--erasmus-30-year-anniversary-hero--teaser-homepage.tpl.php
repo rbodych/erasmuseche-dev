@@ -22,7 +22,7 @@
       print render($content['body']);
     ?>
     <p>
-      <a class="button button--primary button--small" href="/discover-erasmusplus#slideid=<?php print $node->nid; ?>">
+      <a class="button button--primary button--small" href="/anniversary/discover-erasmusplus#slideid=<?php print $node->nid; ?>">
         <?php print t('Read more'); ?>
       </a>
     </p>

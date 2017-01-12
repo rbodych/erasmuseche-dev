@@ -19,7 +19,7 @@
       print render($content['field_30ya_discover_erasmus']);
     ?>
     <p>
-      <a class="button button--primary button--medium" href="/discover-erasmusplus"><?php print t('Discover more'); ?></a>
+      <a class="button button--primary button--medium" href="/anniversary/discover-erasmusplus"><?php print t('Discover more'); ?></a>
     </p>
   </div>
   <div class="stripe-highlight--assets">
