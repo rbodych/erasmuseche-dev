@@ -129,42 +129,7 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['id'] = 'field_30ya_country_tid_i18n';
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['table'] = 'field_data_field_30ya_country';
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['field'] = 'field_30ya_country_tid_i18n';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['value'] = array(
-    152 => '152',
-    154 => '154',
-    156 => '156',
-    157 => '157',
-    158 => '158',
-    159 => '159',
-    160 => '160',
-    161 => '161',
-    149 => '149',
-    162 => '162',
-    163 => '163',
-    164 => '164',
-    165 => '165',
-    166 => '166',
-    167 => '167',
-    168 => '168',
-    169 => '169',
-    170 => '170',
-    171 => '171',
-    172 => '172',
-    173 => '173',
-    174 => '174',
-    177 => '177',
-    178 => '178',
-    179 => '179',
-    180 => '180',
-    181 => '181',
-    185 => '185',
-    186 => '186',
-    187 => '187',
-    188 => '188',
-    190 => '190',
-    143 => '143',
-    192 => '192',
-  );
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['value'] = _erasmus_30ya_core_return_countries_map_tids();
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['operator_id'] = 'field_30ya_country_tid_i18n_op';
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['label'] = 'Country';
@@ -217,14 +182,6 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['filters']['state']['field'] = 'state';
   $handler->display->display_options['filters']['state']['value'] = array(
     'published' => 'published',
-  );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
-    'und' => 'und',
   );
 
   /* Display: Block */

@@ -14,7 +14,7 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_strongarm(
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_erasmus_30_year_anniversary_fact';
-  $strongarm->value = 'edit-print';
+  $strongarm->value = 'edit-workflow';
   $export['additional_settings__active_tab_erasmus_30_year_anniversary_fact'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -141,6 +141,20 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_strongarm(
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_extended_erasmus_30_year_anniversary_fact';
+  $strongarm->value = 1;
+  $export['i18n_node_extended_erasmus_30_year_anniversary_fact'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_node_options_erasmus_30_year_anniversary_fact';
+  $strongarm->value = array();
+  $export['i18n_node_options_erasmus_30_year_anniversary_fact'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'i18n_sync_node_type_erasmus_30_year_anniversary_fact';
   $strongarm->value = array();
   $export['i18n_sync_node_type_erasmus_30_year_anniversary_fact'] = $strongarm;
@@ -149,7 +163,7 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_strongarm(
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_erasmus_30_year_anniversary_fact';
-  $strongarm->value = '4';
+  $strongarm->value = '0';
   $export['language_content_type_erasmus_30_year_anniversary_fact'] = $strongarm;
 
   $strongarm = new stdClass();

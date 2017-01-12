@@ -27,6 +27,7 @@ function erasmus_30_year_anniversary_story_field_group_info() {
       1 => 'title_field',
       2 => 'field_image',
       3 => 'field_e30ya_monthly_theme',
+      4 => 'language',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
