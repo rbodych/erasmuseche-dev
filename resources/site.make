@@ -45,7 +45,10 @@ projects[focal_point][version] = "1.0"
 ; =========
 ; Libraries
 ; =========
-
+libraries[history.js][download][type] = "get"
+libraries[history.js][download][url] = "https://github.com/browserstate/history.js/archive/master.zip"
+libraries[history.js][directory_name] = "history.js"
+libraries[history.js][type] = "library"
 
 ; ======
 ; Themes
