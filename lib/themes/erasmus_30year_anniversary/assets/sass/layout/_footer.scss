@@ -1,0 +1,121 @@
+// Main footer
+footer {
+  border: none;
+  text-align: left;
+  color: $c-primary-4;
+  padding: $padding 0;
+  background: $c-primary-1;
+  @include linear-gradient(60deg, $c-gradient-B1, $c-gradient-B2 70%, $c-gradient-B2);
+  
+  .container {
+    background: transparent;
+    @include display(flex);
+    @include flex-direction(column);
+    
+    h2 {
+      display: none;
+    }
+    
+    .menu {
+      margin: 0;
+      @include display(flex);
+      @include flex-direction(column);
+      
+      li {
+        list-style: none;
+        padding: 0;
+        
+        a {
+          color: $c-primary-4;
+          text-transform: uppercase;
+          text-decoration: none;
+          background: none;
+          border-radius: 0;
+          border: none;
+          padding: $padding 0;
+          
+          &:hover {
+            background: rgba(255,255,255,.15);
+          }
+        }
+        
+        &:last-of-type a {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+@include media($tablet-min-width) {
+  footer {
+
+    .container {
+      .menu {
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        
+        li {
+          @include flex-basis(33.333%);
+          
+          a {
+            padding: $padding;
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+
+
+
+
+@include media($desktop-min-width) {
+  footer {
+    border: none;
+    text-align: left;
+    color: $c-primary-4;
+    padding: $padding 0;
+    background: $c-primary-1;
+    @include linear-gradient(60deg, $c-gradient-B1, $c-gradient-B2 70%, $c-gradient-B2);
+    
+    .container {
+      @include display(flex);
+      @include flex-direction(row);
+      
+      .menu {
+        @include flex-direction(row);
+        
+        li {
+          @include flex-basis(auto);
+          
+          a {
+            color: $c-primary-4;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: none;
+            border-radius: 0;
+            border: none;
+            border-right: 1px solid rgba(255,255,255,.15);
+            padding: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  
+}

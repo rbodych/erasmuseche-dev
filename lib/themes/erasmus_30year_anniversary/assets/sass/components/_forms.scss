@@ -1,4 +1,4 @@
-.views-widget-filter-field_30ya_country_tid_i18n {
+div[class*=views-widget-filter-field_] {
   float: none !important;
   padding: 0 !important;
   width: 100% !important;
@@ -46,57 +46,125 @@
 
 
 
-form {
-
-  .form-field,
-  .form-item {
-    margin: 0 0 2.5em;
-    padding: 0;
-    border: 0;
-
-   input {
-      width: 100%;
-      height: 45px;
-      padding: 0 1em;
-      background: $c-primary-4;
-      border: none;
-      font-size: 100%;
-      color: $c-primary-1;
-    }
-    
-    label {
-      color: $c-gray-2;
-      transform-origin: left center;
-      -webkit-transform-origin: left center;
-      transition: all 0.3s;
-      line-height: 45px;
-      font-family: $font-family !important; 
-    }
-    
-  }
+.share-story-form {
+  background: $c-primary-2;
+  color: $c-primary-4;
+  padding: 0;
   
-  .checkbox-wrapper {
-    border-top: 1px solid ;
-    padding-top: 15px;
-    width: 100%;
-    flex-basis: 100%;
-    margin: 0 !important;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
+  form {
+    & > div {
+      .intro-wrapper {
+        padding: $padding-medium $padding;
+        
+        label {
+          font-size: $heading-2-size;
+          color: #fff;
+        }
+      }
+      
+      .form-fields-wrapper {
+        background: $c-primary-1;
+        padding: $padding-medium $padding;
+      }
+    }
     
-    .checkbox {
-      margin-top: 0;
-      padding-right: 10px;
-      margin-bottom: $padding;
-      width: calc(100% / 3);
+    .form-field,
+    .form-item {
+      margin: 0 0 2.5em;
+      padding: 0;
+      border: 0;
+  
+     input,
+      textarea {
+        width: 100%;
+        padding: $padding-medium $padding-small;
+        background: #fff;
+        border: none;
+        font-size: 100%;
+        color: $c-primary-1;
+        border-radius: 0;
+      }
+      
+      textarea {
+        padding: $padding-small;
+      }
+      
+      &.checkbox {
+        @include display(flex);
+        @include align-items(center);
+        margin-bottom: $padding;
+        
+        input[type=checkbox] {
+          width: $padding;
+          margin: 0;
+        }
+      }
+      
+      .form-managed-file {
+        @include display(flex);
+        border: 1px solid $c-primary-2;
+        padding: $padding-small;
+        @include align-items(center);
+        
+        input {
+          background: none;
+          padding: 0;
+          background: 0;
+          
+          &[type=file] {
+            color: $c-primary-4;
+          }
+          
+          &[type=submit] {
+            border: 2px solid #fff;
+            color: #fff !important;
+            padding: $padding-small;
+            width: auto;
+          }
+        }
+      }
+      
+      .description {
+        background: $c-primary-2;
+        color: #fff;
+        padding: $padding-small;
+      }
       
       label {
-        color: $c-primary-1;
+        color: #fff;
+        transform-origin: left center;
+        -webkit-transform-origin: left center;
+        transition: all 0.3s;
+        line-height: 45px;
+        font-family: $font-family !important; 
+        margin: 0;
       }
       
-      input[type="checkbox"] {
-        left: 0;
+    }
+    
+    .checkbox-wrapper {
+      border-top: 1px solid ;
+      padding-top: 15px;
+      width: 100%;
+      flex-basis: 100%;
+      margin: 0 !important;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+      
+      .checkbox {
+        margin-top: 0;
+        padding-right: 10px;
+        margin-bottom: $padding;
+        width: calc(100% / 3);
+        
+        label {
+          color: $c-primary-1;
+        }
+        
+        input[type="checkbox"] {
+          left: 0;
+        }
       }
     }
   }
@@ -106,9 +174,6 @@ form {
 
 
 
-#erasmus-30-year-anniversary-share-story-form {
-  width: 50%;
-}
 .anniversary-navbar .newsletter-form {
   visibility: hidden;
   opacity: 0;
@@ -133,7 +198,7 @@ form {
   .newsletter-form--wrapper {
     background: $c-primary-3;
     color: $c-primary-1;
-    right: $padding;
+    right: 0;
     top: 0;
     padding: 40px $padding;
     width: 750px;
@@ -144,15 +209,15 @@ form {
     }
     
     form {
-      display: flex;
-      flex-wrap: wrap;
+      @include display(flex);
+      @include flex-wrap(wrap);
   
       .form-field {
         margin: 0 0 2.5em;
         padding: 0;
         border: 0;
         width: 49%;
-        flex-basis: 49%;
+        @include flex-basis(49%);
         position: relative;
         
         &:nth-of-type(2n+1) {
@@ -197,10 +262,10 @@ form {
       .checkbox-wrapper {
         padding-top: 15px;
         width: 100%;
-        flex-basis: 100%;
+        @include flex-basis(100%);
         margin: 0 !important;
-        display: flex;
-        flex-wrap: wrap;
+        @include display(flex);
+        @include flex-wrap(wrap);
         margin-bottom: 15px;
         
         .checkbox {
@@ -220,6 +285,8 @@ form {
       }
       
       .form-footer {
+        width: 100%;
+        
         .bg-info {
           text-transform: none;
           padding: $padding;
@@ -246,7 +313,7 @@ form {
 
 @include media($tablet-min-width) {
   
-  .views-widget-filter-field_30ya_country_tid_i18n {
+  .country-filter-form {
     .js-country-list__wrapper {
       .js-country-list__content {
         ul {
@@ -274,19 +341,142 @@ form {
 
 @include media($desktop-min-width) {
   
-    .views-widget-filter-field_30ya_country_tid_i18n {
-      .js-country-list__wrapper {
-        .js-country-list__content {
-          ul {
-            li {
-              width: 33.3333333333%;
+  .share-story-form {
+  
+    form {
+      & > div {
+        @include display(flex);
+        
+        .intro-wrapper {
+          width: 50%;
+          @include order(1);
+          padding: $padding-large $padding-medium;
+        }
+        
+        .form-fields-wrapper {
+          width: 50%;
+          padding: $padding-large $padding-medium;
+          @include order(0);
+        }
+      }
+      
+      .form-field,
+      .form-item {
+        margin: 0 0 2.5em;
+        padding: 0;
+        border: 0;
+    
+       input,
+        textarea {
+          width: 100%;
+          padding: $padding-medium $padding-small;
+          background: #fff;
+          border: none;
+          font-size: 100%;
+          color: $c-primary-1;
+          border-radius: 0;
+        }
+        
+        textarea {
+          padding: $padding-small;
+        }
+        
+        &.checkbox {
+          @include display(flex);
+          @include align-items(center);
+          margin-bottom: $padding;
+          
+          input[type=checkbox] {
+            width: $padding;
+            margin: 0;
+          }
+        }
+        
+        .form-managed-file {
+          @include display(flex);
+          border: 1px solid $c-primary-2;
+          padding: $padding-small;
+          @include align-items(center);
+          
+          input {
+            background: none;
+            padding: 0;
+            background: 0;
+            
+            &[type=file] {
+              color: $c-primary-4;
+            }
+            
+            &[type=submit] {
+              border: 2px solid #fff;
+              color: #fff !important;
+              padding: $padding-small;
+              width: auto;
             }
           }
         }
         
-        .js-country-list__selected {
-          background: url(../images/picto-arrow-down-light-gray.png) no-repeat 94%;
-          width: 60%;
+        .description {
+          background: $c-primary-2;
+          color: #fff;
+          padding: $padding-small;
+        }
+        
+        label {
+          color: #fff;
+          transform-origin: left center;
+          -webkit-transform-origin: left center;
+          transition: all 0.3s;
+          line-height: 45px;
+          font-family: $font-family !important; 
+          margin: 0;
+        }
+        
+      }
+      
+      .checkbox-wrapper {
+        border-top: 1px solid ;
+        padding-top: 15px;
+        width: 100%;
+        flex-basis: 100%;
+        margin: 0 !important;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+        
+        .checkbox {
+          margin-top: 0;
+          padding-right: 10px;
+          margin-bottom: $padding;
+          width: calc(100% / 3);
+          
+          label {
+            color: $c-primary-1;
+          }
+          
+          input[type="checkbox"] {
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+  
+    .country-filter-form {
+      div[class*=views-widget-filter-field_] {
+        .js-country-list__wrapper {
+          .js-country-list__content {
+            ul {
+              li {
+                width: 33.3333333333%;
+              }
+            }
+          }
+          
+          .js-country-list__selected {
+            background: url(../images/picto-arrow-down-light-gray.png) no-repeat 94%;
+            width: 60%;
+          }
         }
       }
     }
@@ -299,7 +489,25 @@ form {
 
 @include media($largedesktop-min-width) {
   
-    .views-widget-filter-field_30ya_country_tid_i18n {
+  .share-story-form {
+    form {
+      & > div {
+          
+        .intro-wrapper {
+          width: 40%;
+          padding: $padding-large $padding-medium;
+        }
+        
+        .form-fields-wrapper {
+          width: 40%;
+          padding: $padding-large;
+        }
+      }
+    }
+  }
+  
+  .country-filter-form {
+    div[class*=views-widget-filter-field_] {
       .js-country-list__wrapper {
         .js-country-list__content {
           ul {
@@ -310,5 +518,6 @@ form {
         }
       }
     }
+  }
   
 }

@@ -2,19 +2,15 @@
   background: $c-gray-1;
   
   .anniversary-navbar {
-    background: rgba(0, 0, 0, .6);
+    background: rgba(255,255,255, .85);
     position: relative;
-    border-bottom: 1px solid rgba(0, 0, 0, .8);
+    border-bottom: 1px solid rgba(255,255,255, .6);
     
     .container {
       background: transparent;
       
       nav {
         background: transparent;
-        
-        a {
-          color: #fff;
-        }
       }
     }
   }

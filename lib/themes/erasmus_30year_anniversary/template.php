@@ -72,7 +72,7 @@ function erasmus_30year_anniversary_form_select_options($element, $choices = NUL
       $options .= '<option class="' .
         drupal_strtolower(drupal_clean_css_identifier($choice)) .
         '" value="' . check_plain($key) . '"' . $selected . '>'
-        . check_plain(t($choice)) . '</option>';
+        . check_plain($choice) . '</option>';
     }
   }
   return $options;
@@ -87,7 +87,7 @@ function erasmus_30year_anniversary_field_collection_view($variables) {
   $fc_item = array_shift($fc_item);
   if (isset($fc_item) && isset($fc_item['field_30ya_contentrow_type'][0]['#markup'])) {
     $disable_auto_columns
-      =  $fc_item['field_30ya_disable_auto_columns']['#items'][0]['value'];
+      = $fc_item['field_30ya_disable_auto_columns']['#items'][0]['value'];
     if ($disable_auto_columns) {
       $disable_auto_columns = '';
     }
@@ -103,6 +103,6 @@ function erasmus_30year_anniversary_field_collection_view($variables) {
         'disable_auto_columns' => $disable_auto_columns,
       ]
     );
-  } 
+  }
   return $element['#children'];
 }

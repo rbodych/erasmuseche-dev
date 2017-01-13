@@ -40,7 +40,7 @@
     </div>
     <div class="share-link twitter">
       <a class="twitter-share-button" target="_blank"
-        href="https://twitter.com/intent/tweet?text=<?php print $title; ?>&hashtags=<?php print $hashtag; ?>&url=<?php 
+        href="https://twitter.com/intent/tweet?text=<?php print $title; ?>&hashtags=<?php print $hashtag; ?>&url=<?php
           print $share_link; ?>">Tweet</a>
     </div>
   </div>

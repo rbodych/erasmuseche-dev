@@ -43,13 +43,13 @@
     </section>
   <?php endif; ?>
   
+  <?php if ($header): ?>
+    <div class="container view-header--wapper">
+      <?php print $header; ?>
+    </div>
+  <?php endif; ?>
+  
   <section role="main" class="view-content container">
-    <?php if ($header): ?>
-      <div class="view-header">
-        <?php print $header; ?>
-      </div>
-    <?php endif; ?>
-    
     <?php if ($attachment_before): ?>
       <div class="attachment attachment-before">
         <?php print $attachment_before; ?>

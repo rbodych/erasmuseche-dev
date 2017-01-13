@@ -28,15 +28,88 @@ header {
     }
 
     .introduction__highlights {
+      @include display(flex);
+      @include flex-wrap(wrap);
+      bottom: -60px;
+      position: relative;
+      z-index: 9;
+      
       video,
       img {
         box-shadow: $shadow-big;
       }
       
-      .event-header {
-        font-size: 2em;
-        padding: 0;
+      .item-card-float {
+        
+        &:first-of-type {
+          @include flex-basis(50%);
+        }
+        
+        &:nth-of-type(2) {
+          @include flex-basis(50%);
+        }
+        
+        &:nth-of-type(3) {
+          @include flex-basis(100%);
+        }
       }
+      
+      .event-header--highlights {
+        font-size: $heading-2-size;
+        position: absolute;
+        background: $c-secondary-2;
+        left: -77%;
+        width: 100%;
+        padding: 0;
+        box-shadow: $shadow-big;
+        top: 88%;
+        background: rgba(255,255,255,.95);
+        border: 1px solid #eee;
+        @include justify-content(space-around);
+        
+        & > p {
+          display: none;
+        }
+        
+        & > div {
+          background: none;
+          @include flex-basis(33.333%);
+          padding: $padding ;
+          text-align: center;
+          @include display(flex);
+          @include flex-direction(column);
+
+        }
+      }
+    }
+  }
+}
+
+// Tile with highlight numbers
+.event-header--highlights {
+  font-size: $heading-3-size;
+  padding: 0;
+
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  
+  & > p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  & > div {
+    padding: $padding;
+    text-align: center;
+    background: $c-gray-5;
+    margin: 0 $padding;
+    @include display(flex);
+    @include flex-direction(column);
+    
+    span {
+      width: 100%;
+      font-size: .6em;
     }
   }
 }
@@ -62,6 +135,7 @@ header {
     h3,
     h4 {
       color: #fff;
+      margin-bottom: 30px;
     }
   }
   
@@ -75,6 +149,7 @@ header {
     h3,
     h4 {
       color: #fff;
+      margin-bottom: 30px;
     }
   }
   
@@ -90,8 +165,7 @@ header {
       margin-top: -120px;
       
       img {
-        width: 100%;
-        max-height: 200px;
+        width: auto;
         object-fit: cover;
         box-shadow: $shadow-big;
       }
@@ -132,46 +206,10 @@ header {
 
 
 
-// Main footer
-footer {
-  border: none;
-  text-align: left;
-  color: $c-primary-4;
-  
-  .container {
-    background: $c-primary-1;
-    @include linear-gradient(60deg, $c-gradient-B1, $c-gradient-B2 70%, $c-gradient-B2);
-    
-    h2 {
-      display: none;
-    }
-    
-    ul {
-      margin: 0;
-      
-      li {
-        list-style: none;
-        
-        a {
-          color: $c-primary-4;
-          text-transform: uppercase;
-          text-decoration: none;
-          background: none;
-          border-radius: 0;
-          border: none;
-        }
-      }
-    }
-  }
-}
-
-
-
-
 .gradient-stripe {
   text-align: center;
   position: relative;
-  padding: $padding-big 0;
+  padding: $padding-large $padding;
   
   .background-pattern {
     @include filter(grayscale(50%));
@@ -211,9 +249,7 @@ footer {
 
 
 .stripe-highlight--right {
-  @include outer-container;
   background: $c-gray-1;
-  display: flex;
 
   h2 {
     color: #fff;
@@ -225,19 +261,12 @@ footer {
 
   .stripe-highlight--content {
     color: $c-gray-4;
-    width: 40%;
-    padding: $padding-large;
     background: url(../images/pattern-building-dark.png) no-repeat left bottom;
-    border-right: 1px solid $c-gray-2;
-    float: left;
+    padding: $padding-large $padding;
   }
   
   .stripe-highlight--assets {
-    width: 60%;
-    float: left;
-    position: relative;
-    min-height: 520px;
-    
+
     & > pre {
       display: none;
     }
@@ -245,8 +274,6 @@ footer {
     & > div {
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: flex-end;
     }
     
     article {
@@ -254,13 +281,7 @@ footer {
       
       figure {
         margin: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        display: inline-flex;
-        
+
         img {
           width: 100%;
           height: 100%;
@@ -272,10 +293,7 @@ footer {
         position: relative;
         z-index: 1;
         padding: $padding;
-        margin: 0 0 $padding $padding;
         bottom: 0;
-        min-width: 40%;
-        max-width: 50%;
         background: rgba(255, 255, 255, .8);
       }
     }
@@ -316,6 +334,66 @@ footer {
       display: none;
     }
   }
+  
+  
+  
+  .gradient-stripe {
+    text-align: center;
+    position: relative;
+    padding: $padding-large $padding;
+  }
+  
+  
+  
+  
+  .stripe-highlight--right {
+    @include outer-container;
+    display: flex;
+
+    .stripe-highlight--content {
+      width: 40%;
+      padding: $padding-medium;
+      border-right: 1px solid rgba(255,255,255,.1);
+      float: left;
+    }
+    
+    .stripe-highlight--assets {
+      width: 60%;
+      float: left;
+      position: relative;
+      min-height: 520px;
+
+      & > div {
+        display: flex;
+        align-items: flex-end;
+      }
+      
+      article {
+        width: 100%;
+        
+        figure {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          display: inline-flex;
+          
+          img {
+            object-fit: cover;
+          }
+        }
+        
+        .stripe-highlight--assets-text {
+          margin: 0 0 $padding $padding;
+          min-width: 40%;
+          max-width: 70%;
+        }
+      }
+    }
+  }
+
+
 
   header {
     
@@ -340,7 +418,7 @@ footer {
         right: 0;
         top: 0;
         width: 40%;
-        background: url(../images/pattern-top-right.png) no-repeat 100% bottom;
+        background: url(../images/pattern-top-right.png) no-repeat center;
         mix-blend-mode: overlay;
         background-size: 100%;
         height: 100%;
@@ -351,14 +429,15 @@ footer {
         padding: $padding-large;
         padding-top: $padding-big;
         display: inline-block;
+        opacity: 0;
+        @include animation(fade .8s ease-in-out .5s forwards);
       }
       
       .introduction__highlights {
         width: 45%;
         float: right;
         display: inline-block;
-        position: relative;
-        z-index: 9;
+        bottom: initial;
         
         video,
         img {
@@ -371,6 +450,11 @@ footer {
           position: absolute;
           box-shadow: $shadow-big;
           
+          &.flip-card {
+            transform: translateX(1500px);
+            opacity: 0;
+          }
+          
           img {
             object-fit: cover;
             position: static;
@@ -381,18 +465,21 @@ footer {
             z-index: 2;
             left: 30%;
             top: 36%;
+            @include animation(translate-content .9s ease-in-out .5s forwards);
           }
           
           &:nth-of-type(2) {
             left: -40%;
             top: 68%;
             z-index: 3;
+            @include animation(translate-content .7s ease-in-out .5s forwards);
           }
           
           &:nth-of-type(3) {
             left: -20%;
             top: 15%;
             z-index: 1;
+            @include animation(translate-content .8s ease-in-out .5s forwards);
           }
           
           &:nth-of-type(4) {
@@ -454,7 +541,7 @@ footer {
     }
 
     &.enable-auto-columns {
-     .content {
+     & > .content {
         @include column-count(2);
         @include column-gap($padding-medium);
       } 
@@ -466,13 +553,16 @@ footer {
       
       .left {
         width: 40%;
-        flex-basis: 40%;
+        @include flex-basis(40%);
         padding: 0;
         margin: 0;
+        padding-left: $padding-large;
+        @include align-self(center);
         
         img {
-          max-height: inherit;
+          width: auto;
           box-shadow: 0 0 0;
+          box-shadow: $shadow-big;
         }
       }
       .right {
@@ -528,6 +618,27 @@ footer {
 
 
 @include media($largedesktop-min-width) {
+  
+  .gradient-stripe {
+    text-align: center;
+    position: relative;
+    padding: $padding-big $padding;
+  }
+  
+  
+  
+  
+  
+  .stripe-highlight--right {
+
+    .stripe-highlight--content {
+      padding: $padding-large;
+    }
+  }  
+    
+    
+    
+    
 
   header {
   
@@ -563,8 +674,8 @@ footer {
     }
 
     &.enable-auto-columns {
-     .content {
-        @include column-count(4);
+     & > .content {
+        @include column-count(3);
       } 
     } 
     

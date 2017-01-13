@@ -22,6 +22,10 @@ body {
   margin-top: 0;
 }
 
+.dropdown-backdrop {
+  display: none;  
+}
+
 .field-collection-container {
   margin: 0;
   border: none;
@@ -48,5 +52,9 @@ body {
 }
 
 .element-invisible {
+  display: none;
+}
+
+.not-logged-in .drupal-admin {
   display: none;
 }

@@ -11,8 +11,9 @@
   background: none;
   display: flex;
   @include flex-direction(column);
+  @include justify-content(center);
 
-  & > div {
+  & > div:not(.all-heroes) {
     background: #fff;
     padding: $padding;
     margin-bottom: $padding;
@@ -74,15 +75,21 @@
         }
       }
     }
-    
-    .view-header {
-      .event-header {
-        position: static;
-      }
-    }
   }
 }
-
+    
+.view-header--wapper {
+  @include flex-basis(100%);
+  text-align: center;
+  background: none;
+  box-shadow: 0 0 0;
+  padding-top: $padding-medium;
+  background: none;
+  
+  .event-header--highlights {
+    position: static;
+  }
+}
 
 
 
@@ -114,7 +121,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     
-    & > div {
+    & > div:not(.all-heroes) {
       box-shadow: $shadow-small;
       
       @include media($tablet-max-width) {
@@ -150,9 +157,8 @@
 @include media($desktop-min-width) {
   .view-content {
 
-    & > div {
-      background: #fff;
-      
+    & > div:not(.all-heroes) {
+
       @include media($desktop-max-width) {
         @include span-columns(4);
         @include omega(3n);
@@ -172,7 +178,7 @@
   .view-content {
     padding: $padding-medium $padding $padding-big;
     
-    & > div {
+    & > div:not(.all-heroes) {
       @include span-columns(3);
       @include omega(4n);
       background: #fff;

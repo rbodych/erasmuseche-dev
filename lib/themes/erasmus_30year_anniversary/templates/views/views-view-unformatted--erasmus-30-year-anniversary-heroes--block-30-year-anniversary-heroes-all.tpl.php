@@ -1,3 +1,11 @@
+<?php
+
+/**
+ * @file
+ * View TPL for all videos/heroes popup.
+ */
+?>
+
 <button type="button" class="button button--stroke-secondary button--medium" data-toggle="modal" data-target="#allHeroes">
   <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> <?php print t('View all videos'); ?>
 </button>

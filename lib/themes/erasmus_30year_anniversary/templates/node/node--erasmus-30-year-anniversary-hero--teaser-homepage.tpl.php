@@ -2,6 +2,7 @@
 /**
  * @file
  * Default theme implementation to display a node.
+ *
  * Teaser homepage.
  */
 ?>
