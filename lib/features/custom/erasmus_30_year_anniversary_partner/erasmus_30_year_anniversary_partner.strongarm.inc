@@ -362,6 +362,6 @@ function erasmus_30_year_anniversary_partner_strongarm() {
   $strongarm->name = 'pathauto_node_erasmus_30_year_anniversary_part_und_pattern';
   $strongarm->value = '';
   $export['pathauto_node_erasmus_30_year_anniversary_part_und_pattern'] = $strongarm;
-
+  
   return $export;
 }

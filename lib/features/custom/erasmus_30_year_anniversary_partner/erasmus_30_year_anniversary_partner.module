@@ -22,3 +22,4 @@ function erasmus_30_year_anniversary_partner_preprocess_node(&$vars) {
     $vars['link']['url'] = $vars['field_30ya_partner_link'][0]['url'];
   }
 }
+
