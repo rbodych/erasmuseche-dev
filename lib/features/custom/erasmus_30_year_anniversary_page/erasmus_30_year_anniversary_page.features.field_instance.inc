@@ -161,7 +161,7 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_30ya_contentrow_type',
     'label' => 'Type',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
