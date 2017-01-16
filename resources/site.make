@@ -42,6 +42,12 @@ projects[feeds_et][patch][] = "https://www.drupal.org/files/issues/feeds_et_link
 projects[focal_point][subdir] = "contrib"
 projects[focal_point][version] = "1.0"
 
+projects[field_collection][subdir] = "contrib"
+projects[field_collection][version] = "1.0-beta12"
+
+projects[entity_translation][subdir] = "contrib"
+projects[entity_translation][version] = "1.0-beta5"
+
 ; =========
 ; Libraries
 ; =========
