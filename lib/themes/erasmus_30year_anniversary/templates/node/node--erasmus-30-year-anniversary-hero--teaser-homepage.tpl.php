@@ -23,7 +23,7 @@
       print render($content['body']);
     ?>
     <p>
-      <?php print $moreLink; ?>
+      <?php print $content['moreLink']; ?>
     </p>
   </div>
 </article>

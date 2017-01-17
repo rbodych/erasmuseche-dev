@@ -41,10 +41,10 @@
   <div class="share">
     <p> <?php print t('share'); ?></p>
     <div class="share-link facebook hero">
-      <?php print $share_fb; ?>
+      <?php print $content['share_fb']; ?>
     </div>
     <div class="share-link twitter">
-      <?php print $share_tw; ?>
+      <?php print $content['share_tw']; ?>
     </div>
   </div>
 </div>
