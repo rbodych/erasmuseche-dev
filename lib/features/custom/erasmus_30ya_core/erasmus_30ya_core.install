@@ -9,7 +9,6 @@
  */
 function erasmus_30ya_core_install() {
   theme_enable(array('erasmus_30year_anniversary'));
-  module_enable(['focal_point', 'views_ajax_history']);
 
   db_insert('captcha_points')
     ->fields(array(
