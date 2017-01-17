@@ -127,11 +127,11 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
   if (isset($vars['view']->name)
       && $vars['view']->name == 'erasmus_30_year_anniversary_stories') {
 
-
     $vars['image']
-      = theme('image_style', ['path' => $vars['field_image'][0]['uri'],
-      'style_name' => ['erasmus_30_year_story_card__370x210'],
-      'attributes' => ['class' => 'card-image'], 'alt' => $vars['title']]);	
+      = theme('image_style', [
+        'path' => $vars['field_image'][0]['uri'],
+        'style_name' => ['erasmus_30_year_story_card__370x210'],
+        'attributes' => ['class' => 'card-image'], 'alt' => $vars['title']]);	
 
     $vars['theme'] = $vars['field_e30ya_monthly_theme'][0]['taxonomy_term']->name;
     unset($vars['date']);

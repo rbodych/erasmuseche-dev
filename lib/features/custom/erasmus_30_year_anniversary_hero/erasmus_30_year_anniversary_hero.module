@@ -47,13 +47,14 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
       case 'erasmus_30_year_hero_homepage':
         $banner_uri = $node['field_30ya_hero_banner'][0]['uri'];
         $node['content']['banner_url']
-          = theme('image_style', ['path' => $banner_uri,
-          'style_name' => ['erasmus_30_year_hero_small_hp'],
-          'attributes' => ['alt' => $vars['title']]]);	  
+          = theme('image_style', [
+            'path' => $banner_uri,
+            'style_name' => ['erasmus_30_year_hero_small_hp'],
+            'attributes' => ['alt' => $vars['title']]]);
 
         $node['content']['node_url'] = $node['node_url'];
 
-        $node['content']['moreLink'] =l(t('Read more'),
+        $node['content']['moreLink'] = l(t('Read more'),
           '/anniversary/discover-erasmusplus#slideid=' . $vars['nid'],
           ['attributes' => ['class' => 'button button--primary button--small']]
         );
