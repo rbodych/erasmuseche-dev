@@ -35,16 +35,16 @@ function erasmus_30ya_core_admin() {
     '#default_value' => variable_get('30ya_current_theme', ''),
     '#required' => TRUE,
   ];
-  $form['mail']['share_story_mail_to'] = [
+  $form['mail']['30ya_share_story_mail_to'] = [
     '#type' => 'textfield',
     '#title' => t('Share story TO email address'),
-    '#default_value' => variable_get('share_story_mail_to', ''),
+    '#default_value' => variable_get('30ya_share_story_mail_to', ''),
     '#required' => TRUE,
   ];
-  $form['mail']['share_story_mail_from'] = [
+  $form['mail']['30ya_share_story_mail_from'] = [
     '#type' => 'textfield',
     '#title' => t('Share story FROM email address'),
-    '#default_value' => variable_get('share_story_mail_from', ''),
+    '#default_value' => variable_get('30ya_share_story_mail_from', ''),
     '#required' => TRUE,
   ];
   $form['social']['e30ya_hashtag'] = [

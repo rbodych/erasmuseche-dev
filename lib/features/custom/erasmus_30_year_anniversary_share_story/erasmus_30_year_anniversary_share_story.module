@@ -174,10 +174,10 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
 
   $module = 'erasmus_30_year_anniversary_share_story';
   $key = 'share_story_erasmus30year';
-  $to = variable_get('share_story_mail_to', 'michael.schuddings@one-agency.be');
+  $to = variable_get('30ya_share_story_mail_to', 'michael.schuddings@one-agency.be');
   $language = language_default();
   $params = $values;
-  $from = variable_get('share_story_mail_from', 'webteameac@ec.europa.eu');
+  $from = variable_get('30ya_share_story_mail_from', 'webteameac@ec.europa.eu');
 
   $send = TRUE;
 
