@@ -14,7 +14,7 @@ function erasmus_30_year_anniversary_homepage_preprocess_page(&$vars) {
       && $vars['node']->type == 'erasmus_30_year_anniversary_home') {
 
     $body = $vars['node']->body[$vars['node']->language][0]['value'];
-    $right = erasmus_30_year_anniversary_story_get_html_random_stories();
+    $right = _erasmus_30_year_anniversary_story_get_html_random_stories();
 
     $vars['page']['sidebar_left'] = $body;
     $vars['page']['sidebar_right'] = $right;

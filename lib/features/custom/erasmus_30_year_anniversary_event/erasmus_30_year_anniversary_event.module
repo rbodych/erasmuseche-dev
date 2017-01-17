@@ -118,11 +118,25 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     $vars['expected_participants']['number'] = $vars['field_30ya_expected_participants'][0]['value'];
     $vars['expected_participants']['title'] = t('Expected participants');
     if (isset($vars['field_30ya_link'][0])) {
-      $vars['link']['title'] = $vars['field_30ya_link'][0]['title'];
-      $vars['link']['url'] = $vars['field_30ya_link'][0]['url'];
+      $vars['link'] = l($vars['field_30ya_link'][0]['title'],
+        $vars['field_30ya_link'][0]['url'],
+        [
+          'attributes' => [
+            'title' => $vars['field_30ya_link'][0]['title'],
+            'class' => 'button button--primary button--medium',
+          ],
+        ]
+      );
     }
-    $vars['organiser']['title'] = $vars['field_30ya_link_organiser'][0]['title'];
-    $vars['organiser']['url'] = $vars['field_30ya_link_organiser'][0]['url'];
+    $vars['organiser'] = l($vars['field_30ya_link_organiser'][0]['title'],
+      $vars['field_30ya_link_organiser'][0]['url'],
+      [
+        'attributes' => [
+          'title' => $vars['field_30ya_link_organiser'][0]['title'],
+          'class' => 'button button--stroke-primary button--medium',
+        ],
+      ]
+    );
     $vars['date'] = $vars['field_30ya_txt_date'][0]['value'];
     $vars['sector'] = $vars['field_30ya_sector'][0]['value'];
     $vars['intro'] = $vars['body'][0]['value'];

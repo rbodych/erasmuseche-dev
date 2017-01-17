@@ -18,7 +18,15 @@ function erasmus_30_year_anniversary_partner_preprocess_node(&$vars) {
     $image = image_style_url('erasmus_30_year_story_card__370x210',
       $vars['field_30ya_partner_logo'][0]['uri']);
     $vars['image'] = $image;
-    $vars['link']['title'] = $vars['field_30ya_partner_link'][0]['title'];
-    $vars['link']['url'] = $vars['field_30ya_partner_link'][0]['url'];
+
+    $vars['link'] = l($vars['field_30ya_partner_link'][0]['title'],
+      $vars['field_30ya_partner_link'][0]['url'],
+      [
+        'attributes' => [
+          'title' => $vars['field_30ya_partner_link'][0]['title'],
+          'class' => 'button button--primary button--medium',
+        ],
+      ]
+    );
   }
 }

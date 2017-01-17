@@ -100,4 +100,3 @@ function erasmus_core_update_7004() {
   ];
   module_enable($modules);
 }
-
