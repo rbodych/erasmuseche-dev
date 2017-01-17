@@ -8,7 +8,7 @@
 ?>
 <article>
   <figure>
-    <img src="<?php print render($content['banner_url']); ?>" title="<?php print $title; ?>" alt="<?php print $title; ?>" />
+    <?php print render($content['banner_url']); ?>
   </figure>
   <div class="stripe-highlight--assets-text">
     <?php print render($title_prefix); ?>
@@ -23,9 +23,7 @@
       print render($content['body']);
     ?>
     <p>
-      <a class="button button--primary button--small" href="/anniversary/discover-erasmusplus#slideid=<?php print $node->nid; ?>">
-        <?php print t('Read more'); ?>
-      </a>
+      <?php print $moreLink; ?>
     </p>
   </div>
 </article>

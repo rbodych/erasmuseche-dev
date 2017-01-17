@@ -33,18 +33,18 @@
     <?php
       print render($content['body']);
     ?>
-    <figure class="background-img-slide"><img src="<?php print render($content['banner_url']); ?>"></figure>
+    <figure class="background-img-slide">
+      <?php print render($content['banner_url']); ?>
+    </figure>
   </div>
   
   <div class="share">
     <p> <?php print t('share'); ?></p>
     <div class="share-link facebook hero">
-      <a href="#"><?php print t('Share on Facebook'); ?></a>
+      <?php print $share_fb; ?>
     </div>
     <div class="share-link twitter">
-      <a class="twitter-share-button" target="_blank"
-        href="https://twitter.com/intent/tweet?text=<?php print $title; ?>&hashtags=<?php print $hashtag; ?>&url=<?php
-          print $share_link; ?>">Tweet</a>
+      <?php print $share_tw; ?>
     </div>
   </div>
 </div>

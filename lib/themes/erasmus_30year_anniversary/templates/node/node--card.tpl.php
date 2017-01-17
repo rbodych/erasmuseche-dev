@@ -18,7 +18,7 @@
     hide($content['links']);
   ?>
   <?php if (isset($image)): ?>
-    <img src="<?php print $image; ?>" alt="<?php print $title; ?>" class="card-image"/>
+    <?php print $image; ?>
   <?php endif; ?>
   <?php if (isset($date)): ?>
     <p class="dt-start">
