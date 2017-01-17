@@ -132,3 +132,31 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     $vars['card_class'] = drupal_clean_css_identifier($countryClass);
   }
 }
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function erasmus_30_year_anniversary_event_views_pre_view(&$view, &$display_id, &$args) {
+  $allowed_display_ids = [
+    'block_30year_events',
+    'block_30year_partners',
+    'block_erasmus30year_countryfactsheets_infograhpics',
+    'block_30year_all_stories',
+    'block_30year_anniversary_monthly_theme',
+  ];
+  if (in_array($display_id, $allowed_display_ids)) {
+    $filters = $view->display_handler->get_option('filters');
+    $country_fields = [
+      'field_country_na_events_tid_i18n',
+      'field_30ya_country_tid_i18n',
+    ];
+    foreach ($country_fields as $cf) {
+      if (!empty($filters[$cf])) {
+        $filters[$cf]['expose']['reduce'] = TRUE;
+        $filters[$cf]['value']
+          = _erasmus_30ya_core_return_countries_map_tids();
+        $view->display_handler->override_option('filters', $filters);
+      }
+    }
+  }
+}

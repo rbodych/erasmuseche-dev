@@ -125,21 +125,6 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'erasmus_30ya_event' => 'erasmus_30ya_event',
   );
-  /* Filter criterion: Content: Country (field_30ya_country) (translated) */
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['id'] = 'field_30ya_country_tid_i18n';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['table'] = 'field_data_field_30ya_country';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['field'] = 'field_30ya_country_tid_i18n';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['value'] = _erasmus_30ya_core_return_countries_map_tids();
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['operator_id'] = 'field_30ya_country_tid_i18n_op';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['label'] = 'Country';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['operator'] = 'field_30ya_country_tid_i18n_op';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['identifier'] = 'country';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['remember_roles'] = erasmus_30ya_core_return_role_ids();
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['reduce'] = TRUE;
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['type'] = 'select';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['vocabulary'] = 'ec_world_countries';
-  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['error_message'] = FALSE;
   /* Filter criterion: Workbench Moderation: State */
   $handler->display->display_options['filters']['state']['id'] = 'state';
   $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
@@ -147,6 +132,63 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['filters']['state']['value'] = array(
     'published' => 'published',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
+  );
+  /* Filter criterion: Content: Country (field_30ya_country) (translated) */
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['id'] = 'field_30ya_country_tid_i18n';
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['table'] = 'field_data_field_30ya_country';
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['field'] = 'field_30ya_country_tid_i18n';
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['operator_id'] = 'field_30ya_country_tid_i18n_op';
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['label'] = 'Country';
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['operator'] = 'field_30ya_country_tid_i18n_op';
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['identifier'] = 'country';
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['remember_roles'] = array(
+    2 => 0,
+    1 => 0,
+    3 => 0,
+    32 => 0,
+    4 => 0,
+    5 => 0,
+    34 => 0,
+    35 => 0,
+    29 => 0,
+    6 => 0,
+    7 => 0,
+    8 => 0,
+    9 => 0,
+    10 => 0,
+    11 => 0,
+    12 => 0,
+    13 => 0,
+    14 => 0,
+    15 => 0,
+    16 => 0,
+    17 => 0,
+    18 => 0,
+    19 => 0,
+    20 => 0,
+    21 => 0,
+    22 => 0,
+    23 => 0,
+    24 => 0,
+    25 => 0,
+    26 => 0,
+    27 => 0,
+    28 => 0,
+    30 => 0,
+    31 => 0,
+    36 => 0,
+  );
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['reduce'] = TRUE;
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['type'] = 'select';
+  $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['vocabulary'] = 'ec_world_countries';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_30year_events');

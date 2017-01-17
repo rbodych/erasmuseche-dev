@@ -29,8 +29,14 @@ function erasmus_30_year_anniversary_menu_context_default_contexts() {
         'menu-menu-erasmus-30' => array(
           'module' => 'menu',
           'delta' => 'menu-erasmus-30',
-          'region' => 'header_top',
-          'weight' => '-10',
+          'region' => 'featured',
+          'weight' => '-8',
+        ),
+        'block-26' => array(
+          'module' => 'block',
+          'delta' => '26',
+          'region' => 'featured',
+          'weight' => '-7',
         ),
         'menu-menu-erasmus-30---footer' => array(
           'module' => 'menu',
@@ -39,6 +45,9 @@ function erasmus_30_year_anniversary_menu_context_default_contexts() {
           'weight' => '-10',
         ),
       ),
+    ),
+    'breadcrumb' => array(
+      0 => 'menu-erasmus-30:node/893',
     ),
   );
   $context->condition_mode = 0;

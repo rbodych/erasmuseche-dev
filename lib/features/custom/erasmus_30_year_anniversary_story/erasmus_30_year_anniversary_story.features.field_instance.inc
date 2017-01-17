@@ -56,6 +56,47 @@ function erasmus_30_year_anniversary_story_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-erasmus_30_year_anniversary_stor-field_country_na_events'.
+  $field_instances['node-erasmus_30_year_anniversary_stor-field_country_na_events'] = array(
+    'bundle' => 'erasmus_30_year_anniversary_stor',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'i18n_taxonomy',
+        'settings' => array(),
+        'type' => 'i18n_taxonomy_term_reference_link',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_country_na_events',
+    'label' => 'Country',
+    'required' => 1,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => 1,
+      ),
+      'type' => 'options_select',
+      'weight' => 8,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-erasmus_30_year_anniversary_stor-field_e30ya_monthly_theme'.
   $field_instances['node-erasmus_30_year_anniversary_stor-field_e30ya_monthly_theme'] = array(
     'bundle' => 'erasmus_30_year_anniversary_stor',
@@ -213,13 +254,9 @@ function erasmus_30_year_anniversary_story_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'inline',
-        'module' => 'title',
-        'settings' => array(
-          'title_class' => '',
-          'title_link' => '',
-          'title_style' => 'h2',
-        ),
-        'type' => 'title_linked',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_plain',
         'weight' => 0,
       ),
     ),
@@ -249,6 +286,7 @@ function erasmus_30_year_anniversary_story_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Body');
+  t('Country');
   t('Image');
   t('Monthly theme');
   t('Title');

@@ -10,6 +10,7 @@ dependencies[] = filefield_paths
 dependencies[] = i18n_taxonomy
 dependencies[] = mediafield
 dependencies[] = metatag
+dependencies[] = nexteuropa_multilingual
 dependencies[] = node
 dependencies[] = options
 dependencies[] = text
