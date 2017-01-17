@@ -75,7 +75,7 @@
       <?php endforeach; ?>
     <?php endif; ?>
   </ul>
-  <?php if ($share): ?>
+  <?php if (isset($share) && $share): ?>
     <div class="share-links">
       <div class="share-link facebook card">
         <a href="#"><?php print t('Share on Facebook'); ?></a>
