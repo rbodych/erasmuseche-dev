@@ -26,7 +26,6 @@ regions[footer] = "Footer"
 
 ; STYLESHEETS
 stylesheets[all][] = assets/css/style.css
-stylesheets[all][] = assets/css/vendor/jqpagination.css
 
 ; SCRIPTS
 ;scripts[] = scripts/announcement.js
