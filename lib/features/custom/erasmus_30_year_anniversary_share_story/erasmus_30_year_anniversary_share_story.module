@@ -216,8 +216,9 @@ function erasmus_30_year_anniversary_share_story_theme() {
   return array(
     'erasmus_30_year_anniversary_share_story_social_share' => array(
       'variables' => [
+        'fb' => NULL,
+        'tw' => NULL,
         'title' => NULL,
-        'hashtags' => NULL,
       ],
       'template' => 'share-story-social-share',
       'path' => drupal_get_path('module', 'erasmus_30_year_anniversary_share_story') . '/templates',
@@ -231,10 +232,18 @@ function erasmus_30_year_anniversary_share_story_theme() {
 function _erasmus_30_year_anniversary_share_story_social_share_content() {
   drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_share_story')
     . '/js/social_share_your_story.js');
-
+  $title = t("I've just told my Erasmus+ story. Tell yours and you could win a travel voucher!");
+  $hashTags = variable_get('e30ya_hashtag', 'ErasmusPlus');
+  $tw = l(t('Tweet'),
+    'https://twitter.com/intent/tweet?text=' .
+    $title . '&hashtags=' . $hashTags,
+    ['attributes' => ['class' => 'twitter-share-button', 'target' => '_blank']]
+  );
+  $fb = l(t('Share on Facebook', '', ['fragment' => '#']));
   return theme('erasmus_30_year_anniversary_share_story_social_share',
   [
-    'title' => t("I've just told my Erasmus+ story. Tell yours and you could win a travel voucher!"),
-    'hashtags' => variable_get('e30ya_hashtag', 'ErasmusPlus'),
+    'fb' => $fb,
+    'tw' => $tw,
+    'title' => $title,
   ]);
 }

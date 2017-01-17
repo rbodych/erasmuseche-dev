@@ -127,8 +127,11 @@ function erasmus_30ya_core_block_view($delta = '') {
 
   switch ($delta) {
     case 'e30ya_global_social_sharing':
-      $block['content']
+      $block['content']['#markup']
         = _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_content();
+      $block['content']['#attached'] = [
+        'js' => [ drupal_get_path('module', 'erasmus_30ya_core') . '/js/social_share_your_story.js'],
+      ];
       break;
   }
 
@@ -139,9 +142,18 @@ function erasmus_30ya_core_block_view($delta = '') {
  * Returns the HTML for the social sharing block.
  */
 function _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_content() {
+  $title = drupal_get_title();
+  $hashTags = variable_get('e30ya_hashtag', 'ErasmusPlus');
+  $tw = l(t('Tweet'),
+    'https://twitter.com/intent/tweet?text=' .
+    $title . '&hashtags=' . $hashTags,
+    ['attributes' => ['class' => 'twitter-share-button', 'target' => '_blank']]
+  );
+  $fb = l(t('Share on Facebook'), '', ['fragment' => '#']);
   return theme('erasmus_30_year_anniversary_global_sharing', [
-    'hashtags' => variable_get('e30ya_hashtag', 'ErasmusPlus'),
-    'title' => drupal_get_title(),
+    'fb' => $fb,
+    'tw' => $tw,
+    'title' => $title,
   ]
   );
 }
@@ -153,7 +165,8 @@ function erasmus_30ya_core_theme() {
   return array(
     'erasmus_30_year_anniversary_global_sharing' => array(
       'variables' => array(
-        'hashtags' => NULL,
+        'fb' => NULL,
+        'tw' => NULL,
         'title' => NULL,
       ),
       'template' => 'social-share',

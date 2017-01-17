@@ -32,16 +32,32 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
 
         $currentUri = request_uri();
         $currentUri = ltrim($currentUri, '/');
-        $node['share_link'] = url(NULL, array('absolute' => TRUE))
+        $share_link = url(NULL, array('absolute' => TRUE))
         . $currentUri . '%23slideid-' . $node['nid'];
-        $node['hashtag'] = variable_get('e30ya_hashtag', 'ErasmusPlus');
+
+        $vars['share_fb'] = l(t('Share on Facebook', '', ['fragment' => '#']));
+        $hashTags = variable_get('e30ya_hashtag', 'ErasmusPlus');
+        $vars['share_tw'] = l(t('Tweet'),
+          'https://twitter.com/intent/tweet?text=' . $vars['title'] . '&hashtags=' . $hashTags . '&url=' . $share_link,
+          ['attributes' => ['class' => 'twitter-share-button', 'target' => '_blank']]
+        );
+
         break;
 
       case 'erasmus_30_year_hero_homepage':
         $banner_uri = $node['field_30ya_hero_banner'][0]['uri'];
         $node['content']['banner_url']
-          = image_style_url('erasmus_30_year_hero_small_hp', $banner_uri);
+          = theme('image_style', ['path' => $banner_uri,
+          'style_name' => ['erasmus_30_year_hero_small_hp'],
+          'attributes' => ['alt' => $vars['title']]]);	  
+
         $node['content']['node_url'] = $node['node_url'];
+
+        $node['content']['moreLink'] =l(t('Read more'),
+          '/anniversary/discover-erasmusplus#slideid=' . $vars['nid'],
+          ['attributes' => ['class' => 'button button--primary button--small']]
+        );
+
         $suggestions = $node['theme_hook_suggestions'];
         array_unshift($suggestions,
           'node__erasmus_30_year_anniversary_hero__teaser_homepage');
