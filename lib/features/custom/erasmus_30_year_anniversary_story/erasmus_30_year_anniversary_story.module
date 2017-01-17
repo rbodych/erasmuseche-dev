@@ -136,7 +136,8 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
         'attributes' => [
           'class' => 'card-image'
         ],
-        'alt' => $vars['title']]
+        'alt' => $vars['title']
+        ]
       );
 
     $vars['theme'] = $vars['field_e30ya_monthly_theme'][0]['taxonomy_term']->name;

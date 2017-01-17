@@ -24,7 +24,8 @@ function erasmus_30_year_anniversary_partner_preprocess_node(&$vars) {
         'attributes' => [
           'class' => 'card-image'
         ],
-        'alt' => $vars['title']]
+        'alt' => $vars['title']
+        ]
       );
 
     $vars['link'] = l($vars['field_30ya_partner_link'][0]['title'],

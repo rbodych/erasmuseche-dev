@@ -50,7 +50,8 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
           = theme('image_style', [
             'path' => $banner_uri,
             'style_name' => ['erasmus_30_year_hero_small_hp'],
-            'attributes' => ['alt' => $vars['title']]]
+            'attributes' => ['alt' => $vars['title']]
+            ]
           );
 
         $node['content']['node_url'] = $node['node_url'];
