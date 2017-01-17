@@ -19,12 +19,12 @@ function erasmus_30_year_anniversary_partner_preprocess_node(&$vars) {
       = theme('image_style', [
         'path' => $vars['field_30ya_partner_logo'][0]['uri'],
         'style_name' => [
-          'erasmus_30_year_story_card__370x210'
+          'erasmus_30_year_story_card__370x210',
         ],
         'attributes' => [
-          'class' => 'card-image'
+          'class' => 'card-image',
         ],
-        'alt' => $vars['title']
+        'alt' => $vars['title'],
         ]
       );
 
