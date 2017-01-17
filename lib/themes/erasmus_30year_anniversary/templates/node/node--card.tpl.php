@@ -53,24 +53,19 @@
   <?php endif; ?>
   <ul class="node--card__links">
     <?php if (isset($link)): ?>
-      <li><a class="button button--primary button--medium" href="<?php print $link['url']; ?>" alt="<?php print $link['title']; ?>">
-        <?php print $link['title']; ?>
-        </a>
+      <li>
+        <?php print $link; ?>
       </li>
     <?php endif; ?>
     <?php if (isset($organiser)): ?>
-      <li><a class="button button--stroke-primary button--medium" href="<?php print $organiser['url']; ?>"
-        alt="<?php print $organiser['title']; ?>">
-        <?php print $organiser['title']; ?>
-        </a>
+      <li>
+        <?php print $organiser; ?>
       </li>
     <?php endif; ?>
     <?php if (isset($fact_links)): ?>
       <?php foreach ($fact_links as $flink): ?>
         <li>
-          <a class="button button--primary button--medium" href="<?php print $flink['url']; ?>" alt="<?php print $flink['title']; ?>">
-            <?php print $flink['title']; ?>
-          </a>
+          <?php print $flink; ?>
         </li>
       <?php endforeach; ?>
     <?php endif; ?>
@@ -78,13 +73,10 @@
   <?php if (isset($share) && $share): ?>
     <div class="share-links">
       <div class="share-link facebook card">
-        <a href="#"><?php print t('Share on Facebook'); ?></a>
+        <?php print $share_fb; ?>
       </div>
       <div class="share-link twitter">
-        <a class="twitter-share-button"
-          href="https://twitter.com/intent/tweet?text=<?php print $title_share; ?>&hashtags=<?php print $hashtags; ?>">
-          Tweet
-        </a>
+        <?php print $share_tw; ?>
       </div>
     </div>
   <?php endif; ?>

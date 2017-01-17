@@ -8,7 +8,12 @@
   <div class="video-wrapper">
     <?php print render($title_prefix); ?>
     <?php if (!$page): ?>
-      <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
+      <div class="video-wrapper--introduction">
+        <h2<?php print $title_attributes; ?>><?php print $title; ?></h2>
+        <p><?php print render($content['field_30ya_position']); ?></p>
+        <?php print render($content['field_country_na_events']); ?>
+      </div>
+
     <?php endif; ?>
     <?php print render($title_suffix); ?>
     
@@ -26,15 +31,13 @@
   
   <div class="content"<?php print $content_attributes; ?>>
     <?php
-      print render($content['field_30ya_position']);
-      print render($content['field_country_na_events']);
       print render($content['body']);
     ?>
     <figure class="background-img-slide"><img src="<?php print render($content['banner_url']); ?>"></figure>
   </div>
   
   <div class="share">
-    <p> <?php print t('Share on'); ?></p>
+    <p> <?php print t('share'); ?></p>
     <div class="share-link facebook hero">
       <a href="#"><?php print t('Share on Facebook'); ?></a>
     </div>

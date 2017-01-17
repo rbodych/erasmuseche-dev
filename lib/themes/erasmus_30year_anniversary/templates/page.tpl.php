@@ -95,10 +95,6 @@
  */
 ?>
 
-<?php
-global $base_url;
-?>
-
   <a id="top-page"></a>
   
   <section class="drupal-admin container">

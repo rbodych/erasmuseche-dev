@@ -94,10 +94,6 @@
  * @see ec_resp_process_page()
  */
 ?>
-
-<?php
-global $base_url;
-?>
   
 <section class="drupal-admin container">
   <?php print $regions['tools']; ?>
