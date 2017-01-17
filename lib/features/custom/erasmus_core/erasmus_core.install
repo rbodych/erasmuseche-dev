@@ -84,8 +84,6 @@ function erasmus_core_update_7003() {
  */
 function erasmus_core_update_7004() {
   $modules = [
-    'focal_point',
-    'views_ajax_history',
     'erasmus_30ya_core',
     'erasmus_30_year_anniversary_partner',
     'erasmus_30_year_anniversary_event',
