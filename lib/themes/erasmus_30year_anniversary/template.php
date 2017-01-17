@@ -32,7 +32,7 @@ function erasmus_30year_anniversary_select($variables) {
     if (count($element['#value']) > 1) {
       $element['#value'] = '';
     }
-    return '<select' . drupal_attributes($element['#attributes']) . '>' . erasmus_30year_anniversary_form_select_options($element) . '</select>';
+    return '<select' . drupal_attributes($element['#attributes']) . '>' . _erasmus_30year_anniversary_form_select_options($element) . '</select>';
   }
   else {
     return '<select' . drupal_attributes($element['#attributes']) . '>' . form_select_options($element) . '</select>';
@@ -40,9 +40,9 @@ function erasmus_30year_anniversary_select($variables) {
 }
 
 /**
- * Implements form_select_options().
+ * Implement custom select_options functionality for country select.
  */
-function erasmus_30year_anniversary_form_select_options($element, $choices = NULL) {
+function _erasmus_30year_anniversary_form_select_options($element, $choices = NULL) {
   if (!isset($choices)) {
     $choices = $element['#options'];
   }
