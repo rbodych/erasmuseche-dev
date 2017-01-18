@@ -109,7 +109,7 @@ function _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb_ur
   );
   $thumb_img = theme('image', $variables);
   $media = l($thumb_img, $big_uri, [
-    'html'=>TRUE,
+    'html' => TRUE,
     'attributes' => ['class' => 'colorbox-load'],
   ]
   );
