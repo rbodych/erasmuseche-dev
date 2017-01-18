@@ -27,7 +27,7 @@ function erasmus_30ya_core_admin() {
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   ];
-    $form['general'] = [
+  $form['general'] = [
     '#type' => 'fieldset',
     '#title' => t('General settings'),
     '#collapsible' => TRUE,
