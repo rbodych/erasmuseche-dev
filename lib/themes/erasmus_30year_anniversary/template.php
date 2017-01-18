@@ -94,11 +94,20 @@ function erasmus_30year_anniversary_field_collection_view($variables) {
     else {
       $disable_auto_columns = 'enable-auto-columns';
     }
+    if (!empty($fc_item['field_30ya_media_thumb'])) {
+      $big_uri = $fc_item['field_30ya_contentrow_media'][0]['file']['#item']['uri'];
+      $big_uri = file_create_url($big_uri);
+      $media = _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $fc_item['field_30ya_media_thumb'][0]['file']['#item']['uri']);
+      $media = _erasmus_30_year_anniversary_page_add_full_screen_link($media);
+    }
+    else {
+      $media = render($fc_item['field_30ya_contentrow_media']);
+    }
     $element['#children'] = theme('field_collection_item__' . str_replace('-', '_', $fc_item['field_30ya_contentrow_type'][0]['#markup']),
       [
         'text' => render($fc_item['field_30ya_contentrow_richtext']),
         'title_field' => render($fc_item['title_field']),
-        'media' => render($fc_item['field_30ya_contentrow_media']),
+        'media' => $media,
         'type' => $fc_item['field_30ya_contentrow_type'][0]['#markup'],
         'disable_auto_columns' => $disable_auto_columns,
       ]
