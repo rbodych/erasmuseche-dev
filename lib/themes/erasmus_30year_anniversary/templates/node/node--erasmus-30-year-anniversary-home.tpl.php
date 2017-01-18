@@ -6,11 +6,13 @@
 ?>
 <section class="gradient-stripe gradient-a" <?php print $content_attributes; ?>>
   <div class="background-pattern"></div>
-  <div class="gradient-stripe__content">
-    <?php
-      print render($content['field_30ya_share_story_text']);
-    ?>
-  </div>
+  <?php if ($content['hideShareStory'] == 0): ?>
+    <div class="gradient-stripe__content">
+      <?php
+        print render($content['field_30ya_share_story_text']);
+      ?>
+    </div>
+  <?php endif; ?>
 </section>
 
 <section class="stripe-highlight--right" <?php print $content_attributes; ?>>

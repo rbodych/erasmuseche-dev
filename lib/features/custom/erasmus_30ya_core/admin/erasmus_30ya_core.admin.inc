@@ -27,6 +27,12 @@ function erasmus_30ya_core_admin() {
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   ];
+    $form['general'] = [
+    '#type' => 'fieldset',
+    '#title' => t('General settings'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  ];
   $monthly_themes = _erasmus_30ya_core_admin_get_monthly_themes();
   $form['story']['30ya_current_theme'] = [
     '#type' => 'select',
@@ -52,6 +58,11 @@ function erasmus_30ya_core_admin() {
     '#title' => t('Hashtag'),
     '#default_value' => variable_get('e30ya_hashtag', 'ErasmusPlus'),
     '#required' => TRUE,
+  ];
+  $form['general']['e30ya_hide_share_story'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Hide share story'),
+    '#default_value' => variable_get('e30ya_hide_share_story', FALSE),
   ];
   return system_settings_form($form);
 }
