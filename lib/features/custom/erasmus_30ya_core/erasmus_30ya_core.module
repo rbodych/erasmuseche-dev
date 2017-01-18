@@ -144,9 +144,14 @@ function erasmus_30ya_core_block_view($delta = '') {
 function _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_content() {
   $title = drupal_get_title();
   $hashTags = variable_get('e30ya_hashtag', 'ErasmusPlus');
+  $share_url = url(current_path(), [
+    'absolute' => TRUE, 
+    'query' => drupal_get_query_parameters()
+    ]
+  );
   $tw = l(t('Tweet'),
     'https://twitter.com/intent/tweet?text=' .
-    $title . '&hashtags=' . $hashTags,
+    $title . '&hashtags=' . $hashTags . '&url=' . $share_url,
     ['attributes' => ['class' => 'twitter-share-button', 'target' => '_blank']]
   );
   $fb = l(t('Share on Facebook'), '', ['fragment' => '#']);

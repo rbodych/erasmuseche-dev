@@ -151,8 +151,13 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
     $vars['share'] = TRUE;
     $vars['share_fb'] = l(t('Share on Facebook'), '', ['fragment' => '#']);
     $hashTags = variable_get('e30ya_hashtag', 'ErasmusPlus');
+    $share_url = url(current_path(), [
+      'absolute' => TRUE, 
+      'query' => drupal_get_query_parameters()
+      ]
+    );
     $vars['share_tw'] = l(t('Tweet'),
-      'https://twitter.com/intent/tweet?text=' . $vars['title'] . '&hashtags=' . $hashTags,
+      'https://twitter.com/intent/tweet?text=' . $vars['title'] . '&hashtags=' . $hashTags . '&url=' . $share_url,
       ['attributes' => ['class' => 'twitter-share-button', 'target' => '_blank']]
     );
     drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_story')
