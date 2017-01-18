@@ -16,6 +16,8 @@ div[class*=views-widget-filter-field_] {
       display: none;
       
       ul {
+        @include display(flex);
+        @include flex-wrap(wrap);
         padding: 0;
         list-style: none;
         
@@ -25,6 +27,7 @@ div[class*=views-widget-filter-field_] {
           border-bottom: 1px solid rgba(0,0,0,.2);
           color: $c-gray-5;
           @include transition(all .4s);
+          @include flex-basis(50%);
 
           &:hover {
             cursor: pointer;
@@ -312,27 +315,22 @@ div[class*=views-widget-filter-field_] {
 
 
 @include media($tablet-min-width) {
-  
-  .country-filter-form {
+  div[class*=views-widget-filter-field_] {
     .js-country-list__wrapper {
       .js-country-list__content {
         ul {
-          display: flex;
-          flex-wrap: wrap;
           position: absolute;
           z-index: 9;
           box-shadow: $shadow-big;
           
           li {
-            width: 50%;
+            @include flex-basis(33.333%);
             border: 1px solid rgba(0,0,0,.2);
           }
         }
       }
-      
     }
   }
-  
 }
 
 
@@ -462,21 +460,19 @@ div[class*=views-widget-filter-field_] {
     }
   }
   
-    .country-filter-form {
-      div[class*=views-widget-filter-field_] {
-        .js-country-list__wrapper {
-          .js-country-list__content {
-            ul {
-              li {
-                width: 33.3333333333%;
-              }
+
+    div[class*=views-widget-filter-field_] {
+      .js-country-list__wrapper {
+        .js-country-list__content {
+          ul {
+            li {
+              @include flex-basis(25%);
             }
           }
-          
-          .js-country-list__selected {
-            background: url(../images/picto-arrow-down-light-gray.png) no-repeat 94%;
-            width: 60%;
-          }
+        }
+        
+        .js-country-list__selected {
+          width: 100%;
         }
       }
     }
@@ -515,6 +511,10 @@ div[class*=views-widget-filter-field_] {
               width: 25%;
             }
           }
+          
+        .js-country-list__selected {
+          width: 60%;
+        }
         }
       }
     }
