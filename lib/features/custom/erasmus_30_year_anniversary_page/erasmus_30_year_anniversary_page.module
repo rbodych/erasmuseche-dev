@@ -16,7 +16,7 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
     $top_media = $vars['node']->field_30ya_contentrow_media;
     $top_txt = $vars['node']->field_30ya_contentrow_richtext;
 
-    $vars['page']['sidebar_left'] = $top_txt[$vars['node']->language][0]['value'];
+    $vars['page']['sidebar_left'] = $top_txt[$vars['language']->language][0]['value'];
 
     if (isset($top_media[$vars['language']->language][0]['file'])
         && $top_media[$vars['language']->language][0]['file']->type == 'video') {
