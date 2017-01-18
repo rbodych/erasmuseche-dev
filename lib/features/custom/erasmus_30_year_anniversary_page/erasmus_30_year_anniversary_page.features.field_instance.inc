@@ -190,7 +190,7 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
     'description' => 'If checked the auto columns feature will be disabled and the text will be underneath each other as normal.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
@@ -213,6 +213,64 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
       ),
       'type' => 'options_onoff',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_30ya_content_row-field_30ya_media_thumb'.
+  $field_instances['field_collection_item-field_30ya_content_row-field_30ya_media_thumb'] = array(
+    'bundle' => 'field_30ya_content_row',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'mediafield',
+        'settings' => array(
+          'file_view_mode' => 'default',
+        ),
+        'type' => 'media',
+        'weight' => 5,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_30ya_media_thumb',
+    'label' => 'Media thumb',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'file_extensions' => 'jpg jpeg gif png',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'avportal' => 0,
+          'dailymotion' => 0,
+          'ffp' => 0,
+          'node' => 0,
+          'private' => 0,
+          'public' => 'public',
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 'media_internet',
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 5,
     ),
   );
 
@@ -478,6 +536,67 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-erasmus_30_year_anniversary_page-field_30ya_media_thumb'.
+  $field_instances['node-erasmus_30_year_anniversary_page-field_30ya_media_thumb'] = array(
+    'bundle' => 'erasmus_30_year_anniversary_page',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_30ya_media_thumb',
+    'label' => 'Media thumb',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'file_extensions' => 'jpg jpeg gif png',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'avportal' => 0,
+          'dailymotion' => 0,
+          'ffp' => 0,
+          'node' => 0,
+          'private' => 0,
+          'public' => 'public',
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 'media_internet',
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-erasmus_30_year_anniversary_page-title_field'.
   $field_instances['node-erasmus_30_year_anniversary_page-title_field'] = array(
     'bundle' => 'erasmus_30_year_anniversary_page',
@@ -527,6 +646,7 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   t('Disable auto columns');
   t('If checked the auto columns feature will be disabled and the text will be underneath each other as normal.');
   t('Media');
+  t('Media thumb');
   t('Rich text');
   t('Title');
   t('Type');

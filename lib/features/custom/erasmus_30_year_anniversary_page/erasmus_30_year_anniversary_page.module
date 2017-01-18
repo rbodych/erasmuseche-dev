@@ -26,13 +26,21 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
     else {
       $file = $top_media[$vars['language']->language][0]['fid'];
       $file = file_load($file);
-      $variables = array(
-        'path' =>
-        file_create_url($file->uri),
-        'alt' => $vars['node']->title,
-        'title' => $vars['node']->title,
-      );
-      $item = theme('image', $variables);
+      if (!empty($vars['node']->field_30ya_media_thumb)) {
+        $thumb = $vars['node']->field_30ya_media_thumb[$vars['node']->language][0]['file']->uri;
+        $big_uri = file_create_url($file->uri);
+        $media = _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb);
+        $item = _erasmus_30_year_anniversary_page_add_full_screen_link($media);
+      }
+      else {
+        $variables = array(
+          'path' =>
+          file_create_url($file->uri),
+          'alt' => $vars['node']->title,
+          'title' => $vars['node']->title,
+        );
+        $item = theme('image', $variables);
+      }
     }
     $vars['page']['sidebar_right'] = $item . render($vars['page']['sidebar_right']);
   }
@@ -88,4 +96,32 @@ function _erasmus_30_year_anniversary_page_get_types_field_collections() {
     }
   }
   return $types;
+}
+
+/**
+ * Renders a image in popup and media_thumb as thumbnail image.
+ */
+function _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb_uri) {
+  $thumb_uri = file_create_url($thumb_uri);
+  $variables = array(
+    'path' => $thumb_uri,
+    'attributes' => array('class' => 'image-thumb'),
+  );
+  $thumb_img = theme('image', $variables);
+  $media = l($thumb_img, $big_uri, [
+    'html'=>TRUE,
+    'attributes' => ['class' => 'colorbox-load'],
+  ]
+  );
+  return $media;
+}
+
+/**
+ * Add a full screen link to html content.
+ */
+function _erasmus_30_year_anniversary_page_add_full_screen_link($content) {
+  return $content .= l(t('View full screen'), '#', [
+    'attributes' => ['class' => 'activate-colorbox'],
+  ]
+  );
 }

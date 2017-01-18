@@ -17,4 +17,6 @@ function erasmus_30ya_core_install() {
       'captcha_type' => 'default',
     ))
     ->execute();
+
+  variable_set('colorbox_load', TRUE);
 }
