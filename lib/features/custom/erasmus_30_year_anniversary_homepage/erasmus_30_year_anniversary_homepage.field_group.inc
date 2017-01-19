@@ -23,9 +23,9 @@ function erasmus_30_year_anniversary_homepage_field_group_info() {
     'label' => 'Content top',
     'weight' => '0',
     'children' => array(
-      0 => 'body',
-      1 => 'title_field',
-      2 => 'language',
+      0 => 'title_field',
+      1 => 'language',
+      2 => 'field_30ya_introduction',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
