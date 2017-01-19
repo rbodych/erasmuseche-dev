@@ -212,7 +212,7 @@
 
 <div class="feedbackform">
   <div class="container">
-    <?php print render($page['feedbackform']); ?>
+    <?php print render($regions['feedbackform']); ?>
   </div>
 </div>
 
