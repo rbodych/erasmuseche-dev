@@ -38,6 +38,7 @@ function erasmus_preprocess_html(&$variables) {
  */
 function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   global $base_url;
+  $path_to_theme = drupal_get_path('theme', 'erasmus');
   $empty = '';
   $variables['base_url'] = $base_url;
   global $language;
@@ -157,18 +158,17 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   );
   $variables['nav_ico'] = theme(
     'image', array(
-      'path' => $base_url . '/sites/all/themes/erasmus' . '/images/mobile-nav-ico.svg',
+      'path' => $base_url . '/' . $path_to_theme . '/images/mobile-nav-ico.svg',
     )
   );
   $variables['flat_ec_logo'] = theme(
     'image', array(
-      'path' => $base_url . '/sites/all/themes/erasmus'
-      . '/images/mobile-flat-ec-logo.svg',
+      'path' => $base_url . '/' . $path_to_theme . '/images/mobile-flat-ec-logo.svg',
     )
   );
   $variables['logo_ce_en'] = theme(
     'image', array(
-      'path' => $base_url . '/sites/all/themes/erasmus' . '/images/logo_ce-en.svg',
+      'path' => $base_url . '/' . $path_to_theme . '/images/logo_ce-en.svg',
     )
   );
 }
