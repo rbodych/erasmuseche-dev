@@ -1,0 +1,292 @@
+.swiper-container {
+  width: 100%;
+  margin: 20px auto;
+  padding-bottom: $padding-big;
+    
+  .swiper-pagination,
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+  
+}
+
+  
+.view-display-id-block_30_year_anniversary_heroes_all {
+  width: 100%;
+  text-align: center;
+  padding-left: $padding;
+  
+  section {
+    padding-bottom: $padding;
+    
+    .button {
+      margin: 0 auto;
+      background: rgba(0,0,0,.8);
+    }
+  }
+}
+
+.swiper-numeric-pagination {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  a {
+    text-indent: -999999px;
+    display: inline-block;
+    width: 30px;
+    height: 18px;
+    background: url(../images/picto-arrow-down-light-gray.png) no-repeat bottom;
+
+    &[data-action=next],
+    &[data-action=last] {
+      @include transform(rotate(-90deg));
+    }
+    
+    &[data-action=first],
+    &[data-action=previous] {
+      @include transform(rotate(90deg));
+    }
+    
+    &[data-action=first],
+    &[data-action=last] {
+      border-top: 2px solid $c-gray-4;
+    }
+    
+  }
+  input[type=text] {
+    background: none;
+    border: none;
+    color: $c-gray-3;
+    width: 100px;
+    font-size: 1em;
+    text-align: center;
+    font-family: $font-family;
+  }
+}
+
+.swiper-slide {
+  width: 85%;
+  z-index: -1;
+  
+  .node-erasmus-30-year-anniversary-hero {
+    position: relative;
+    z-index: -1;
+  
+    /* Center slide text vertically */
+    @include display(flex);
+    @include align-items(center);
+    @include align-content(flex-start);
+    @include flex-basis(60%);
+    @include flex-wrap(wrap);
+  
+    .video-wrapper {
+      position: relative;
+      
+      .video-wrapper--introduction {
+        z-index: 1050;
+        width: 80%;
+        position: absolute;
+        top: 0;
+        left: $padding-small;
+        bottom: 0;
+        margin: auto;
+        height: $heading-1-size;
+        visibility: hidden;
+        opacity: 0;
+
+        h2,
+        p,
+        ul {
+          color: #fff;
+          text-shadow: $shadow-heading-small;
+          margin: 0;
+        }
+        
+        h2 {
+          font-size: $heading-1-size;
+        }
+        
+        p {
+          font-size: $heading-3-size;
+        }
+        ul {
+          list-style: none;
+          padding: 0;
+          
+          li {
+            font-size: $heading-3-size;
+            color: #fff;
+          }
+        }
+      }
+      video {
+        box-shadow: $shadow-big;
+      }
+      
+      .video-controls {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1040;
+        width: 100%;
+        height: 100%;
+        @include radial-gradient(circle at center, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 50%);
+        @include display(flex);
+        @include flex-direction(column);
+        @include justify-content(center);
+        @include align-items(center);
+        
+        a {
+          color: #fff;
+          font-size: $heading-1-size;
+          line-height: $heading-1-size;
+          height: $heading-1-size;
+          width: $heading-1-size;
+          border-radius: 50%;
+          background: rgba(0, 0, 0, .6);
+          box-shadow: $shadow-big;
+          position: absolute;
+          text-align: center;
+          
+          &.pause {
+            visibility: hidden;
+          }
+          
+          span {
+            padding: 0;
+            top: 0;
+            line-height: inherit;
+          }
+        }
+      }
+    }
+  
+    .content {
+      visibility: hidden;
+      opacity: 0;
+      background: $c-gradient-intro-1;
+      padding: $padding-medium;
+      width: 66.6666%;
+      position: relative;
+      z-index: -1;
+      @include flex-basis(66.6666%);
+      
+      .video-wrapper--introduction {
+        visibility: hidden;
+        opacity: 0;
+        padding-bottom: $padding-small;
+        margin-bottom: $padding;
+        border-bottom: 1px solid rgba(0,0,0,.15);
+        
+        p {
+          margin: 0;
+        }
+        
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          
+        }
+      }
+      
+      .background-img-slide {
+        display: none;
+      }
+    }
+    
+    .share {
+      visibility: hidden;
+      opacity: 0;
+      position: relative;
+      z-index: -1;
+      background: rgba(0,0,0, .8);
+      padding: 0 $padding;
+      width: calc(33.3333% - (#{$padding-medium} + #{$padding}) * 2);
+      @include flex-basis(calc(33.3333 - #{$padding-medium} * 2));
+      @include align-self(flex-start);
+      @include display(flex);
+      @include justify-content(space-around);
+      overflow: hidden;
+      
+      p {
+        color: $c-gray-5;
+        @include align-self(center);
+        margin-bottom: 0;
+      }
+        
+      .share-link {
+        
+        a {
+          padding: $padding-medium;
+          display: block;
+          text-indent: -99999px;
+          @include transition (all .4s);
+        }
+        
+        &.facebook a {
+          background: url(../images/logo-fb-42x42-white.png) no-repeat center;
+          width: 30px;
+          height: 30px;
+          opacity: .8;
+          
+          &:hover{
+            opacity: 1;
+            background-color: #3b5998;
+          }
+        }
+        
+        &.twitter a {
+          background: url(../images/logo-twitter-42x42-white.png) no-repeat center;
+          width: 30px;
+          height: 30px;
+          opacity: .8;
+          
+          &:hover {
+            opacity: 1;
+            background-color: #1a8bf0;
+          }
+          
+        }
+      }
+    }
+  }
+  
+  &.swiper-slide-duplicate-active,
+  &.swiper-slide-active {
+    .content {
+      visibility: visible !important;
+      @include animation(fade .5s linear .3s forwards);
+    }
+    .share {
+      visibility: visible !important;
+      @include animation(fade .5s linear .3s forwards);
+    }
+    .video-wrapper--introduction {
+      visibility: visible !important;
+      @include animation(fade .5s linear .3s forwards);
+    }
+  }
+}
+
+
+
+
+
+@include media($desktop-min-width) {
+  .swiper-slide {
+    width: 50%;
+  
+    .node-erasmus-30-year-anniversary-hero {
+      .video-wrapper {
+        .video-wrapper--introduction {
+          width: 40%;
+          text-align: right;
+          left: -260px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Page feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_page.features.inc';
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
+  if (isset($vars['node'])
+      && $vars['node']->type == 'erasmus_30_year_anniversary_page'
+      && isset($vars['node']->field_30ya_contentrow_media[$vars['node']->language][0])) {
+    $top_media = $vars['node']->field_30ya_contentrow_media;
+    $top_txt = $vars['node']->field_30ya_contentrow_richtext;
+
+    $vars['page']['sidebar_left'] = $top_txt[$vars['language']->language][0]['value'];
+
+    if (isset($top_media[$vars['language']->language][0]['file'])
+        && $top_media[$vars['language']->language][0]['file']->type == 'video') {
+      $item = file_view_file($top_media[$vars['language']->language][0]['file']);
+      $item = render($item);
+    }
+    else {
+      $file = $top_media[$vars['language']->language][0]['fid'];
+      $file = file_load($file);
+      if (!empty($vars['node']->field_30ya_media_thumb)) {
+        $thumb = $vars['node']->field_30ya_media_thumb[$vars['node']->language][0]['file']->uri;
+        $big_uri = file_create_url($file->uri);
+        $media = _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb);
+        $item = _erasmus_30_year_anniversary_page_add_full_screen_link($media);
+      }
+      else {
+        $variables = array(
+          'path' =>
+          file_create_url($file->uri),
+          'alt' => $vars['node']->title,
+          'title' => $vars['node']->title,
+        );
+        $item = theme('image', $variables);
+      }
+    }
+    $vars['page']['sidebar_right'] = $item . render($vars['page']['sidebar_right']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_page_preprocess_node(&$vars) {
+  if (isset($vars['content']['field_30ya_contentrow_media'])) {
+    unset($vars['content']['field_30ya_contentrow_media']);
+    unset($vars['content']['field_30ya_contentrow_richtext']);
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function erasmus_30_year_anniversary_page_theme() {
+  $array = [];
+  $types = _erasmus_30_year_anniversary_page_get_types_field_collections();
+  foreach ($types as $type) {
+    $array['field_collection_item__' . $type] = [
+      'variables' => array(
+        'text' => NULL,
+        'title_field' => NULL,
+        'media' => NULL,
+        'type' => NULL,
+        'disable_auto_columns' => NULL,
+      ),
+      'template' => 'field-collection-item--' . str_replace('_', '-', $type),
+      'path' => drupal_get_path('theme', 'erasmus_30year_anniversary') . '/templates/field-collection',
+    ];
+  }
+  return $array;
+}
+
+/**
+ * Get all of the field collection types.
+ */
+function _erasmus_30_year_anniversary_page_get_types_field_collections() {
+  $types = [];
+  $result = db_select('field_config', 'fc')
+    ->fields('fc', ['data'])
+    ->condition('field_name', 'field_30ya_contentrow_type')
+    ->execute();
+  foreach ($result as $res) {
+    $data = $res->data;
+    $data = unserialize($data);
+    $allowed_values = $data['settings']['allowed_values'];
+    foreach ($allowed_values as $key => $val) {
+      $types[] = str_replace('-', '_', $key);
+    }
+  }
+  return $types;
+}
+
+/**
+ * Renders a image in popup and media_thumb as thumbnail image.
+ */
+function _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb_uri) {
+  $thumb_uri = file_create_url($thumb_uri);
+  $variables = array(
+    'path' => $thumb_uri,
+    'attributes' => array('class' => 'image-thumb'),
+  );
+  $thumb_img = theme('image', $variables);
+  $media = l($thumb_img, $big_uri, [
+    'html' => TRUE,
+    'attributes' => ['class' => 'colorbox-load'],
+  ]
+  );
+  return $media;
+}
+
+/**
+ * Add a full screen link to html content.
+ */
+function _erasmus_30_year_anniversary_page_add_full_screen_link($content) {
+  return $content .= l(t('View full screen'), '#', [
+    'attributes' => ['class' => 'activate-colorbox'],
+  ]
+  );
+}

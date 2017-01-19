@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Press release feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_press_release.features.inc';

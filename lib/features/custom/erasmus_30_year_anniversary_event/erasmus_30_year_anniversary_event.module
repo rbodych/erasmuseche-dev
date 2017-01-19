@@ -1,0 +1,176 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Event feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_event.features.inc';
+include_once 'includes/helper.inc';
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function erasmus_30_year_anniversary_event_views_pre_render(&$view) {
+  if ($view->name == 'erasmus_30_year_anniversary_events' && $view->current_display == 'block_30year_events') {
+
+    $filter = isset($view->exposed_raw_input['country']) ?
+      $view->exposed_raw_input['country'] : NULL;
+
+    if (isset($filter) && $filter !== 'All') {
+      $html = _erasmus_30_year_anniversary_event_count_participants_per_country($view->result);
+      $view->header['area']->options['content'] = $html;
+    }
+    else {
+      $view->header['area']->options['content'] = '';
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function erasmus_30_year_anniversary_event_theme() {
+  return array(
+    'erasmus_30_year_anniversary_event_header' => array(
+      'variables' => array(
+        'countries' => NULL,
+        'events' => NULL,
+        'participants' => NULL,
+      ),
+      'template' => 'erasmus-30-year-anniversary-event-header',
+      'path' => drupal_get_path('module', 'erasmus_30_year_anniversary_event') . '/templates',
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function erasmus_30_year_anniversary_event_block_info() {
+  $blocks['e30ya_event_global_header'] = array(
+    'info' => t('Erasmus+ 30 year global event header'),
+    'region' => 'sidebar_right',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'status' => TRUE,
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'anniversary/events',
+    'theme' => 'erasmus_30year_anniversary',
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function erasmus_30_year_anniversary_event_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'e30ya_event_global_header':
+      $block['content']
+        = _erasmus_30_year_anniversary_event_retrieve_global_event_block_content();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_form_ID_alter().
+ */
+function erasmus_30_year_anniversary_event_form_views_exposed_form_alter(&$vars) {
+  if (isset($vars['country'])) {
+    $vars['country']['#options']['All'] = t('All countries');
+    $vars['country']['#title'] = t('Filter on country');
+    if (isset($vars['#info']['filter-field_country_na_events_tid_i18n'])) {
+      $vars['#info']['filter-field_country_na_events_tid_i18n']['label'] = '';
+    }
+    if (isset($vars['#info']['filter-field_30ya_country_tid_i18n'])) {
+      $vars['#info']['filter-field_30ya_country_tid_i18n']['label'] = '';
+    }
+    $vars['#attributes']['class'][] = 'country-filter-form';
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function erasmus_30_year_anniversary_event_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_alter') {
+    $module = 'erasmus_30_year_anniversary_event';
+    if (isset($implementations[$module])) {
+      $group = array($module => $implementations[$module]);
+      unset($implementations[$module]);
+      $implementations = $group + $implementations;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
+  if (isset($vars['view']->name)
+      && $vars['view']->name == 'erasmus_30_year_anniversary_events') {
+    $vars['city'] = $vars['field_30ya_city'][0]['value'];
+    $vars['country'] = $vars['field_30ya_country'][0]['taxonomy_term']->name;
+    $vars['expected_participants']['number'] = $vars['field_30ya_expected_participants'][0]['value'];
+    $vars['expected_participants']['title'] = t('Expected participants');
+    if (isset($vars['field_30ya_link'][0])) {
+      $vars['link'] = l($vars['field_30ya_link'][0]['title'],
+        $vars['field_30ya_link'][0]['url'],
+        [
+          'attributes' => [
+            'title' => $vars['field_30ya_link'][0]['title'],
+            'class' => 'button button--primary button--medium',
+          ],
+        ]
+      );
+    }
+    $vars['organiser'] = l($vars['field_30ya_link_organiser'][0]['title'],
+      $vars['field_30ya_link_organiser'][0]['url'],
+      [
+        'attributes' => [
+          'title' => $vars['field_30ya_link_organiser'][0]['title'],
+          'class' => 'button button--stroke-primary button--medium',
+        ],
+      ]
+    );
+    $vars['date'] = $vars['field_30ya_txt_date'][0]['value'];
+    $vars['sector'] = $vars['field_30ya_sector'][0]['value'];
+    $vars['intro'] = $vars['body'][0]['value'];
+
+    $countryClass
+      = drupal_strtolower($vars['field_30ya_country'][0]['taxonomy_term']->name);
+    $vars['card_class'] = drupal_clean_css_identifier($countryClass);
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function erasmus_30_year_anniversary_event_views_pre_view(&$view, &$display_id, &$args) {
+  $allowed_display_ids = [
+    'block_30year_events',
+    'block_30year_partners',
+    'block_erasmus30year_countryfactsheets_infograhpics',
+    'block_30year_all_stories',
+    'block_30year_anniversary_monthly_theme',
+  ];
+  if (in_array($display_id, $allowed_display_ids)) {
+    $filters = $view->display_handler->get_option('filters');
+    $country_fields = [
+      'field_country_na_events_tid_i18n',
+      'field_30ya_country_tid_i18n',
+    ];
+    foreach ($country_fields as $cf) {
+      if (!empty($filters[$cf])) {
+        $filters[$cf]['expose']['reduce'] = TRUE;
+        $filters[$cf]['value']
+          = _erasmus_30ya_core_return_countries_map_tids();
+        $view->display_handler->override_option('filters', $filters);
+      }
+    }
+  }
+}

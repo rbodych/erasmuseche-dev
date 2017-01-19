@@ -1,0 +1,21 @@
+#layout-header {
+  display: none;
+}
+
+#language-selector {
+  display: none;
+}
+
+
+
+
+
+@include media($tablet-min-width) {
+  #layout-header {
+    display: block;
+  }
+  
+  #language-selector {
+    display: block;
+  }
+}
