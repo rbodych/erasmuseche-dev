@@ -25,7 +25,13 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
         $node['content']['vid'] = file_create_url($vid_url);
         $banner_uri = $node['field_30ya_hero_banner'][0]['uri'];
         $node['content']['banner_url']
-          = image_style_url('erasmus_30_year_hero_bg', $banner_uri);
+          = theme('image_style', [
+            'path' => $banner_uri,
+            'style_name' => 'erasmus_30_year_hero_bg',
+            'attributes' => ['alt' => $node['title']],
+          ]
+          );
+
         $suggestions = $node['theme_hook_suggestions'];
         array_unshift($suggestions, 'node__erasmus_30_year_anniversary_hero__teaser');
         $node['theme_hook_suggestions'] = $suggestions;
