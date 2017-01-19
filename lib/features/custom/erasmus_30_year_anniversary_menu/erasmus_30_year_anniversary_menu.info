@@ -1,0 +1,13 @@
+name = Erasmus+ 30 year anniversary: Menu
+description = Menus for the anniversary.
+core = 7.x
+package = Erasmus+ 30 year anniversary
+dependencies[] = context
+dependencies[] = features
+features[context][] = erasmus_30_years_anniversary_campaign_global
+features[ctools][] = context:context:3
+features[features_api][] = api:2
+features[menu_custom][] = menu-erasmus-30
+features[menu_custom][] = menu-erasmus-30---footer
+multisite_version = 2.2
+php = 5.5.9

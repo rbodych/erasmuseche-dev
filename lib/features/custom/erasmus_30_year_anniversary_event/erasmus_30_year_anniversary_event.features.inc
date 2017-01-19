@@ -20,6 +20,13 @@ function erasmus_30_year_anniversary_event_ctools_plugin_api($module = NULL, $ap
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function erasmus_30_year_anniversary_event_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function erasmus_30_year_anniversary_event_node_info() {

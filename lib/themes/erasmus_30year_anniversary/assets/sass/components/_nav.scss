@@ -1,0 +1,322 @@
+.anniversary-navbar {
+  background: $c-primary-2;
+  @include set-heading;
+  
+  .js-mobile-nav-toggle {
+    color: $c-primary-4;
+    display: inline-block;
+    float: right;
+    text-decoration: none;
+    padding: 15px;
+    background: $c-primary-1;
+    font-size: .8em;
+    text-transform: lowercase;
+    position: relative;
+    z-index: 9999;
+    
+    span {
+      display: block;
+    }
+    
+    hr {
+      @include transition(.4s);
+      border-color: $c-primary-4;
+      margin: 0;
+      margin-top: 8px;
+      
+      &:first-of-type {
+      margin-top: 6px;
+      }
+    }
+    
+    &.active {
+      span {
+        margin-bottom: 12px;
+      }
+      hr {
+        margin: 0;
+        
+        &:first-of-type {
+          @include transform(rotate(45deg));  
+        }
+        &:last-of-type {
+          @include transform(rotate(-45deg));
+          margin-top: -1px;
+        }
+      }
+    }
+  }
+
+  .logo-anniversary {
+    width: 140px;
+    overflow: hidden;
+    position: relative;
+    left: 0;
+
+    img {
+      width: 100%;
+      margin-top: -20px;
+    }
+  }
+  
+  nav {
+    display: none;
+    margin: 0;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 70px;
+    background: $c-primary-1;
+    font-size: 1.4em;
+    
+    ul {
+      list-style-type: none;
+      margin: 0;
+
+      li {
+        padding: 0;
+        list-style: none;
+        display: inline-block;
+        width: 100%;
+
+        a {
+          @include border-top-radius(0 !important);
+          @include border-bottom-radius(0 !important);
+          @include transition(all .4s ease);
+          
+          text-decoration: none;
+          border: none;
+          text-transform: uppercase;
+          line-height: 75px;
+          color: $c-primary-4;
+          border-bottom: 1px dashed $c-primary-3;
+          text-align: center;
+          background: transparent;
+          
+          &.cta-newsletter {
+            @include linear-gradient(-45deg, $c-gradient-A2, $c-gradient-A1 $c-gradient-start-A);
+            border: none;
+            height: 95px;
+            color: #fff;
+
+            span {
+              position: absolute;
+              height: 15px;
+              width: 15px;
+              right: 15px;
+              bottom: 0;
+              top: 0;
+              margin: auto;
+            }
+            
+            &:hover,
+            &:focus {
+              background: $c-gradient-A1;
+              color: #fff;
+            }
+          }
+          
+          &.active-trail {
+            padding-bottom: 0;
+            background: rgba(0,0,0,.5);
+            color: rgba(255,255,255,.85);
+            border-color: rgba(0,0,0,.3);
+          }
+
+        }
+        
+        &.dropdown {
+          ul {
+            position: static;
+            font-size: .8em;
+
+            li {
+              width: 100%;
+
+              a {
+                
+                &.active-trail {
+                  border-bottom: none;
+                  background: rgba(0,0,0,.5);
+
+                  &:hover {
+                    color: $c-gray-4;
+                    background: $c-gray-2;
+                    border-bottom: none;
+                  }
+                }
+                
+              }  
+            }
+          }
+          
+          &.open {
+            & > a {
+              background: rgba(0,0,0,.3);
+              color: #fff;
+              border: none;
+            }
+            a {
+              border: none;
+            }
+          }
+        }
+        
+        .dropdown-menu {
+          @include border-top-radius(0 !important);
+          @include border-bottom-radius(0 !important);
+          
+          position: absolute;
+          box-shadow: $shadow-medium;
+          min-width: 100%;
+          padding: 0;
+          background: $c-primary-2;
+          
+          li a {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($tablet-min-width) {
+
+}
+
+
+
+
+
+@include media($desktop-min-width) {
+  .anniversary-navbar {
+    border-bottom: 1px solid $c-gray-4;
+    background: none;
+    max-width: 1800px;
+    margin: 0 auto;
+    
+    & > .container:not(.newsletter-form) {
+      z-index: 9999;
+      padding: 0;
+    }
+    
+    .js-mobile-nav-toggle {
+      display: none;
+    }
+    
+    .logo-anniversary {
+      position: absolute;
+      display: block;
+      right: inherit;
+      width: 180px;
+      left: $padding;
+      z-index: 999;
+      
+      img {
+        margin-top: -25px;
+      }
+    }
+    
+    nav {
+      display: block;
+      padding-top: 0;
+      position: relative;
+      background: #fff;
+      min-height: inherit;
+      width: auto;
+      float: right;
+      font-size: 1em;
+      
+      & > ul {
+        border: none;
+        
+        & > li {
+          float: left;
+          height: 94px;
+          width: auto;
+          
+          a {
+            text-align: left;
+            color: $c-gray-1;
+            border: none;
+            
+            &.cta-newsletter {
+              padding-right: 2.4em;
+            }
+            
+            &:focus,
+            &:hover,
+            &:active {
+              background: $c-primary-4;
+              color: $c-primary-2;
+            }
+            
+            &.active-trail {
+              border-bottom: 10px solid $c-gray-1;
+              padding-bottom: 0;
+              color: $c-gray-1;
+              background: none;
+              
+              &:hover {
+                color: $c-gray-1;
+                background: $c-gray-4;
+                border-bottom: 10px solid $c-gray-1;
+              }
+            }
+          }
+          
+          &.dropdown {
+            ul {
+              font-size: 1em;
+              position: absolute;
+              background: #fff;
+              
+              li {
+                a {
+                  &.active-trail {
+                  color: $c-gray-1;
+                  background: $c-gray-3;
+                  
+                    &:hover {
+                      color: $c-gray-1;
+                    }
+                  }
+                }
+              }
+            }
+            
+            &.open {
+              & > a {
+                background: $c-gray-3;
+                color: $c-gray-1;
+                border-bottom: 10px solid $c-gray-1;
+                
+                &:hover {
+                  color: $c-gray-1;
+                }
+              }
+            }
+          }
+        }
+        
+      }
+    }
+  }
+
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  
+}

@@ -1,0 +1,35 @@
+<?php
+/**
+ * @file
+ * erasmus_30_year_anniversary_page.features.inc
+ */
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function erasmus_30_year_anniversary_page_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "field_group" && $api == "field_group") {
+    return array("version" => "1");
+  }
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => "1");
+  }
+}
+
+/**
+ * Implements hook_node_info().
+ */
+function erasmus_30_year_anniversary_page_node_info() {
+  $items = array(
+    'erasmus_30_year_anniversary_page' => array(
+      'name' => t('Erasmus+ 30 year anniversary: Page'),
+      'base' => 'node_content',
+      'description' => t('A page for the 30 year anniversary. Used for about us, tookit pages, ...'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+  );
+  drupal_alter('node_info', $items);
+  return $items;
+}

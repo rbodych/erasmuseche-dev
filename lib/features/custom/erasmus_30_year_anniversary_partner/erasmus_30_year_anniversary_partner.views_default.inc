@@ -69,50 +69,25 @@ function erasmus_30_year_anniversary_partner_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'erasmus_30_year_anniversary_part' => 'erasmus_30_year_anniversary_part',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
+  );
   /* Filter criterion: Content: Country (field_country_na_events) (translated) */
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['id'] = 'field_country_na_events_tid_i18n';
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['table'] = 'field_data_field_country_na_events';
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['field'] = 'field_country_na_events_tid_i18n';
-  $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['value'] = array(
-    152 => '152',
-    154 => '154',
-    156 => '156',
-    157 => '157',
-    158 => '158',
-    159 => '159',
-    160 => '160',
-    161 => '161',
-    162 => '162',
-    163 => '163',
-    164 => '164',
-    165 => '165',
-    166 => '166',
-    167 => '167',
-    168 => '168',
-    169 => '169',
-    170 => '170',
-    171 => '171',
-    172 => '172',
-    173 => '173',
-    174 => '174',
-    177 => '177',
-    179 => '179',
-    180 => '180',
-    181 => '181',
-    185 => '185',
-    186 => '186',
-    187 => '187',
-    190 => '190',
-    143 => '143',
-    192 => '192',
-  );
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['exposed'] = TRUE;
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['expose']['operator_id'] = 'field_country_na_events_tid_i18n_op';
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['expose']['label'] = 'Country';
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['expose']['operator'] = 'field_country_na_events_tid_i18n_op';
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['expose']['identifier'] = 'country';
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['expose']['remember_roles'] = array(
-    2 => '2',
+    2 => 0,
     1 => 0,
     3 => 0,
     32 => 0,
@@ -151,24 +126,18 @@ function erasmus_30_year_anniversary_partner_views_default_views() {
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['type'] = 'select';
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['vocabulary'] = 'ec_world_countries';
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
-    'und' => 'und',
-  );
 
-  /* Display: Page */
-  $handler = $view->new_display('page', 'Page', 'page_30year_anniversary_partners');
-  $handler->display->display_options['path'] = 'partners';
-  $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Partners';
-  $handler->display->display_options['menu']['weight'] = '0';
-  $handler->display->display_options['menu']['name'] = 'menu-erasmus-30';
-  $handler->display->display_options['menu']['context'] = 0;
-  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_30year_partners');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['links'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $export['erasmus_30_year_anniversary_partners'] = $view;
 
   return $export;

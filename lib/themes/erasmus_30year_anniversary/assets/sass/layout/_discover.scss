@@ -1,0 +1,95 @@
+.discover-erasmus-plus {
+  background: $c-gray-1;
+  
+  .anniversary-navbar {
+      background: transparent;
+    }
+  
+  header {
+    text-align: center;
+    padding: $padding;
+    background: transparent;
+
+    h1 {
+      color: #fff;
+      text-shadow: $shadow-heading;
+    }
+    
+    & > p {
+      width: 100%;
+      margin: 0 auto;
+      font-size: $heading-4-size;
+      padding: $padding;
+      background: rgba(255,255,255,.6);
+      font-family: $font-family;
+      box-shadow: $shadow-big;
+    }
+  }
+  
+  .container[role=main] {
+    max-width: none;
+  }
+}
+
+.background-img-full {
+  display: none;
+}
+
+
+
+
+
+
+@include media($desktop-min-width) {
+  .discover-erasmus-plus {
+    background: $c-gray-1;
+    
+    .anniversary-navbar {
+      background: rgba(255,255,255, .85);
+      border-bottom: 1px solid rgba(255,255,255, .6);
+      
+      .container {
+        background: transparent;
+          
+        nav {
+          background: transparent;
+        }
+      }
+    }
+  
+    header {
+      background: transparent;
+      padding: $padding-big;
+      padding-bottom: $padding-medium;
+      
+      & > p {
+        max-width: 40%;
+      }
+    }
+  }
+  
+  .background-img-full {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include animation(fade .8s linear forwards);
+    }
+  }
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+
+}
