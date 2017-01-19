@@ -265,9 +265,8 @@ function _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url) {
         'text' => $title,
         'hashtags' => $hashTags,
         'url' => $share_url,
-      ]
+      ],
     ]
   );
-  
   return $tw;
 }
