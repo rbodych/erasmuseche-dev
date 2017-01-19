@@ -36,11 +36,8 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
         . $currentUri . '%23slideid-' . $node['nid'];
 
         $node['content']['share_fb'] = l(t('Share on Facebook'), '', ['fragment' => '#']);
-        $hashTags = variable_get('e30ya_hashtag', 'ErasmusPlus');
-        $node['content']['share_tw'] = l(t('Tweet'),
-          'https://twitter.com/intent/tweet?text=' . $node['title'] . '&hashtags=' . $hashTags . '&url=' . $share_link,
-          ['attributes' => ['class' => 'twitter-share-button', 'target' => '_blank']]
-        );
+        $tw = _erasmus_30ya_core_construct_tweet_intent_url($node['title'], $share_link);
+        $node['content']['share_tw'] = $tw;
 
         break;
 

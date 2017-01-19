@@ -143,17 +143,12 @@ function erasmus_30ya_core_block_view($delta = '') {
  */
 function _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_content() {
   $title = drupal_get_title();
-  $hashTags = variable_get('e30ya_hashtag', 'ErasmusPlus');
   $share_url = url(current_path(), [
     'absolute' => TRUE,
     'query' => drupal_get_query_parameters(),
   ]
   );
-  $tw = l(t('Tweet'),
-    'https://twitter.com/intent/tweet?text=' .
-    $title . '&hashtags=' . $hashTags . '&url=' . $share_url,
-    ['attributes' => ['class' => 'twitter-share-button', 'target' => '_blank']]
-  );
+  $tw = _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url);
   $fb = l(t('Share on Facebook'), '', ['fragment' => '#']);
   return theme('erasmus_30_year_anniversary_global_sharing', [
     'fb' => $fb,
@@ -252,4 +247,27 @@ function _erasmus_30ya_core_return_countries_map_tids_name() {
     $map_tid_name[$tid] = $term->name;
   }
   return $map_tid_name;
+}
+
+/**
+ * Helper function to construct a twitter tweet intent url.
+ */
+function _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url) {
+  $hashTags = variable_get('e30ya_hashtag', 'ErasmusPlus');
+  $tw = l(t('Tweet'),
+    '//twitter.com/intent/tweet',
+    [
+      'attributes' => [
+        'class' => 'twitter-share-button',
+        'target' => '_blank',
+      ],
+      'query' => [
+        'text' => $title,
+        'hashtags' => $hashTags,
+        'url' => $share_url,
+      ]
+    ]
+  );
+  
+  return $tw;
 }
