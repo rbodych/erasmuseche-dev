@@ -23,7 +23,6 @@ regions[content_right] = "Content Right"
 regions[content_bottom] = "Content Bottom"
 
 regions[footer] = "Footer"
-regions[feedbackform] = "Feedbackform"
 
 ; STYLESHEETS
 stylesheets[all][] = assets/css/style.css
