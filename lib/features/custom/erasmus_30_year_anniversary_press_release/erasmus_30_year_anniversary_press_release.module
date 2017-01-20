@@ -19,7 +19,7 @@ function erasmus_30_year_anniversary_press_release_preprocess_node(&$vars) {
       $vars['node_url'],
       [
         'attributes' => [
-          'title' => t('Read more') . ' ' . $vars['title_field']['und'][0]['value'],
+          'title' => t('Read more'),
           'class' => 'button button--primary button--medium',
         ],
       ]
