@@ -145,6 +145,10 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
       = drupal_strtolower($vars['field_30ya_country'][0]['taxonomy_term']->name);
     $vars['card_class'] = drupal_clean_css_identifier($countryClass);
   }
+  if (isset($vars['type']) && $vars['view_mode'] == 'full'
+      && $vars['type'] == 'erasmus_30ya_event') {
+    drupal_goto('/anniversary/events');
+  }
 }
 
 /**

@@ -72,6 +72,11 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
           'node__erasmus_30_year_anniversary_hero__teaser_homepage');
         $node['theme_hook_suggestions'] = $suggestions;
         break;
+
+      case 'full':
+        drupal_goto('/anniversary/discover-erasmusplus');
+
+        break;
     }
   }
 }

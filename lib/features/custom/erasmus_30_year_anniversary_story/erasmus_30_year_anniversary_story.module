@@ -157,6 +157,10 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
     drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_story')
       . '/js/social_share_story.js');
   }
+  if (isset($vars['type']) && $vars['view_mode'] == 'full'
+      && $vars['type'] == 'erasmus_30_year_anniversary_stor') {
+    drupal_goto('/anniversary/stories');
+  }
 }
 
 /**

@@ -36,4 +36,8 @@ function erasmus_30_year_anniversary_partner_preprocess_node(&$vars) {
       ]
     );
   }
+  if (isset($vars['type']) && $vars['view_mode'] == 'full'
+      && $vars['type'] == 'erasmus_30_year_anniversary_part') {
+    drupal_goto('/anniversary/partners');
+  }
 }
