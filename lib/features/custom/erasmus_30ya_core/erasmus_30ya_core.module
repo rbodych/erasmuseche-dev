@@ -80,6 +80,7 @@ function erasmus_30ya_core_preprocess_node(&$vars) {
     'erasmus_30_year_anniversary_stories',
     'erasmus_30_year_anniversary_partners',
     'erasmus_30_year_anniversary_country_facts_sheets_infographics',
+    'erasmus_30_year_anniversary_press_releases',
   ];
   if (isset($vars['view']->name)
       && in_array($vars['view']->name, $allowed_views)) {
