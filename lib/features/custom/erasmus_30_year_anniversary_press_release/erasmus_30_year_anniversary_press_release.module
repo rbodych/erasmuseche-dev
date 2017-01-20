@@ -15,5 +15,14 @@ function erasmus_30_year_anniversary_press_release_preprocess_node(&$vars) {
       && $vars['type'] == 'erasmus_30_year_anniversary_pres') {
 
     $vars['intro'] = $vars['body'][0]['summary'];
+    $vars['link'] = l(t('Read more'),
+      $vars['node_url'],
+      [
+        'attributes' => [
+          'title' => t('Read more') . ' ' . $vars['title_field']['und'][0]['value'],
+          'class' => 'button button--primary button--medium',
+        ],
+      ]
+    );
   }
 }
