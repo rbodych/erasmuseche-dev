@@ -19,9 +19,11 @@
     
     <video>
       <source src="<?php print $content['vid']; ?>" type="video/mp4">
-      <track label="<?php print $content['srt_lang']; ?>" kind="subtitles"
-        srclang="<?php print $content['srt_lang']; ?>"
-        src="<?php print $content['srt']; ?>">
+      <?php if (isset($content['srt']) && !empty($content['srt'])): ?>
+        <track label="<?php print $content['srt_lang']; ?>" kind="subtitles"
+          srclang="<?php print $content['srt_lang']; ?>"
+          src="<?php print $content['srt']; ?>">
+      <?php endif; ?>
     </video>
     <div class="video-controls">
       <a href="#" class="play"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
