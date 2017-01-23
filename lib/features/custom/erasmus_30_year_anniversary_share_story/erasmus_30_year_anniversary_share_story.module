@@ -239,7 +239,7 @@ function _erasmus_30_year_anniversary_share_story_social_share_content() {
   ]
   );
   $tw = _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url);
-  $fb = l(t('Share on Facebook', '', ['fragment' => '#']));
+  $fb = l(t('Share on Facebook'), '#', ['fragment' => '#']);
   return theme('erasmus_30_year_anniversary_share_story_social_share',
   [
     'fb' => $fb,
