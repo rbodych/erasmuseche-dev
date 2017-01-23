@@ -164,18 +164,18 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
 }
 
 /**
- * Implements hook_preprocess_page().
+ * Implements hook_preprocess_html().
  */
-function erasmus_30_year_anniversary_story_preprocess_page(&$vars) {
-  if (isset($vars['node'])
-      && $vars['node']->type == 'erasmus_30_year_anniversary_stor') {
-
-    $body
-      = $vars['node']->field_e30ya_monthly_theme[LANGUAGE_NONE][0]['taxonomy_term']->name;
-    $image = image_style_url('erasmus_30_year_story_large__520x520',
-      $vars['node']->field_image[LANGUAGE_NONE][0]['uri']);
-    $alt = $vars['node']->field_image[LANGUAGE_NONE][0]['alt'];
-    $vars['page']['sidebar_left'] = $body;
-    $vars['page']['sidebar_right'] = '<img src="' . $image . '" alt="' . $alt . '"/>';
+function erasmus_30_year_anniversary_story_preprocess_html(&$vars) {
+  $allowed_uris = [
+    'anniversary/stories',
+    'anniversary/all-stories',
+  ];
+  $current_path = request_uri();
+  foreach ($allowed_uris as $uri) {
+    if (strpos($current_path, $uri) !== FALSE) {
+      dpm('okay');
+      $vars['classes_array'][] = 'contains-stories-page';
+    }
   }
 }
