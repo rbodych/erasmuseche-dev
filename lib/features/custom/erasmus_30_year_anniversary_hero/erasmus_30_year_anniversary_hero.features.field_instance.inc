@@ -27,8 +27,10 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
       'erasmus_30_year_hero_homepage' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'type' => 'text_summary_or_trimmed',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -311,9 +313,10 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_30ya_hero_video_srt',
     'label' => 'SRT',
+    'required' => 0,
     'settings' => array(
       'description_field' => 0,
-      'entity_translation_sync' => FALSE,
+      'entity_translation_sync' => 0,
       'file_directory' => '',
       'file_extensions' => 'srt',
       'filefield_paths' => array(
