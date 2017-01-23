@@ -138,7 +138,6 @@ function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
       ]
       );
 
-    $vars['theme'] = $vars['field_e30ya_monthly_theme'][0]['taxonomy_term']->name;
     unset($vars['date']);
     if (isset($vars['body'][$vars['language']])) {
       $vars['intro'] = $vars['body'][$vars['language']][0]['value'];

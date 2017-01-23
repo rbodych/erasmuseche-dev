@@ -83,7 +83,7 @@ div[class*=views-widget-filter-field_] {
     
     .form-field,
     .form-item {
-      margin: 0 0 2.5em;
+      margin: 0 0 20px;
       padding: 0;
       border: 0;
   
@@ -92,7 +92,7 @@ div[class*=views-widget-filter-field_] {
       select,
       .chosen-single span {
         width: 100%;
-        padding: $padding-medium $padding-small;
+        padding: 15px $padding-small;
         background: #fff;
         border: none;
         font-size: 100%;
@@ -193,6 +193,30 @@ div[class*=views-widget-filter-field_] {
       
     }
     
+    .form-item-termsconditions .description {
+      background: none;
+      a {
+        color: #fff;
+      }
+    }
+    
+    fieldset.captcha {
+      border: none;
+      background: $c-primary-2;
+      margin-bottom: $padding;
+
+      legend {
+        border: none;
+        background: $c-primary-2;
+        width: auto;
+        padding: 0 $padding-small;
+      }
+      
+      .form-item {
+        margin: 0;
+      }
+    }
+      
     .checkbox-wrapper {
       border-top: 1px solid ;
       padding-top: 15px;
@@ -602,13 +626,7 @@ body {
             }
           }
         }
-        
-        .description {
-          background: $c-primary-2;
-          color: #fff;
-          padding: $padding-small;
-        }
-        
+
         label {
           color: #fff;
           transform-origin: left center;
@@ -620,13 +638,6 @@ body {
         }
 
       }
-      
-      .form-item-termsconditions .description {
-          background: none;
-          a {
-            color: #fff;
-          }
-        }
       
       .checkbox-wrapper {
         border-top: 1px solid ;
