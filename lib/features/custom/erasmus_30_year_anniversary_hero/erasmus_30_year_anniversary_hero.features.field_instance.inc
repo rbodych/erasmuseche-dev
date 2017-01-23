@@ -171,7 +171,7 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
         'retroactive_update' => 0,
       ),
       'filefield_paths_enabled' => 1,
-      'max_filesize' => '2 MB',
+      'max_filesize' => '5 MB',
       'max_resolution' => '',
       'min_resolution' => '200x200',
       'title_field' => 0,
