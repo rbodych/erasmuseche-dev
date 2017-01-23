@@ -245,7 +245,156 @@
   
   }
   
+  .contains-stories-page {
+    .view-content {
+      & > div:not(.all-heroes) {
+        padding: 0;
+        margin: 0;
+        @include flex-basis(100%);
+        min-height: 400px;
+        position: relative;
+        box-shadow: 0 0 0;
+        
+        article {
+          @include display(flex);
+          @include flex-wrap(wrap);
+          
+          & > .p-summary,
+          & > p,
+          .p-location,
+          .dt-start,
+          .share-links {
+            @include order(1);
+            @include align-self(baseline);
+            position: relative;
+            left: 50%;
+            width: 50%;
+            border: none;
+          }
+          
+          h3 {
+            position: absolute;
+            left: 0;
+            z-index: 10;
+            font-size: 3.2em;
+            color: #fff;
+            text-shadow: 2px 2px 2px #000;
+            padding: 20px;
+            padding-top: 90px;
+            margin: 0;
+            @include linear-gradient(to bottom, rgba(0,0,0,0.6), transparent 60%, $fallback: transparent);
+            width: 50%;
+            height: 100%;
+            text-align: right;
+          }
+          
+          .p-category {
+            background: $c-secondary-2;
+            padding: 15px;
+            color: #fff;
+            position: absolute;
+            width: auto;
+            top: 0;
+            left: auto;
+            right: 50%;
+            z-index: 10;
+          }
+          
+          .card-image {
+            @include order(0);
+            object-fit: cover;
+            position: absolute;
+            height: 100%;
+            width: 50%;
+            margin: 0;
+          }
+          
+          & > .p-summary {
+            padding: 60px;
+          }
+            
+          .p-location,
+          .dt-start,
+          .p-category {
+          }
+      
+          .share-links {
+            width: 50%;
+            left: 50%;
+            padding: 60px;
+            padding-top: 0;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1040;
+            @include justify-content(center);
+            
+            .facebook a {
+              background: url(../images/logo-fb-42x42-white.png) #3b5998 no-repeat center;
+              @include transition(all .4s);
+              box-shadow: $shadow-medium;
+            }
+            .twitter a {
+              background: url(../images/logo-twitter-42x42-white.png) #1a8bf0 no-repeat center;
+              @include transition(all .4s);
+              box-shadow: $shadow-medium;
+            }
+          }
+        }
+        
+      }
+    }
+  }
+  
 }
+
+
+
+
+
+@include media($largedesktop-max-width) {
+  .contains-stories-page {
+    .view-content {
+      & > div:not(.all-heroes) {
+
+        &:nth-of-type(2n) {
+          article {
+
+            .card-image {
+              left: 50%;
+            }
+            
+            & > .p-summary,
+            & > p,
+            .p-location,
+            .dt-start,
+            .share-links {
+              left: 0;
+            }
+            
+            h3 {
+              text-align: left;
+            }
+            
+            .p-category {
+              right: auto;
+            }
+            
+            h3,
+            .p-category,
+            .share-links {
+              left: 50%;
+            }
+            
+            
+          }
+        }
+        
+      }
+    }
+  }
+}
+
 
 
 
@@ -257,4 +406,81 @@
     padding: $padding-medium 0 $padding-big;
   }
   
+  
+  
+  
+  
+  .contains-stories-page {
+    .view-content {
+      & > div:not(.all-heroes) {
+        @include flex-basis(50%);
+
+        &:nth-of-type(4n-1),
+        &:nth-of-type(4n) {
+          article {
+
+            .card-image {
+              left: 50%;
+            }
+            
+            & > .p-summary,
+            & > p,
+            .p-location,
+            .dt-start,
+            .share-links {
+              left: 0;
+            }
+            
+            h3 {
+              text-align: left;
+            }
+            
+            .p-category {
+              right: auto;
+            }
+            
+            h3,
+            .p-category,
+            .share-links {
+              left: 50%;
+            }
+            
+            
+          }
+        }
+        
+        &.views-row-even + .views-row-last {
+          article {
+            .card-image {
+              left: 0;
+            }
+            
+            & > .p-summary,
+            & > p,
+            .p-location,
+            .dt-start,
+            .share-links {
+              left: 50%;
+            }
+            
+            h3 {
+              text-align: right;
+            }
+            
+            .p-category {
+              right: 50%;
+              left: auto;
+            }
+            
+            h3,
+            .share-links {
+              left: 0;
+            }
+            
+          }
+        }
+      }
+    }
+  }
+
 }

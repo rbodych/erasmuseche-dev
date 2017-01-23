@@ -189,7 +189,20 @@
 
 
 @include media($tablet-min-width) {
-
+  .anniversary-navbar {
+    .logo-anniversary {
+      position: absolute;
+      display: block;
+      right: inherit;
+      width: 140px;
+      left: $padding;
+      z-index: 999;
+      
+      img {
+        margin-top: -20px;
+      }
+    }
+  }
 }
 
 
@@ -213,13 +226,8 @@
     }
     
     .logo-anniversary {
-      position: absolute;
-      display: block;
-      right: inherit;
       width: 180px;
-      left: $padding;
-      z-index: 999;
-      
+
       img {
         margin-top: -25px;
       }
