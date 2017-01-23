@@ -311,7 +311,6 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_30ya_hero_video_srt',
     'label' => 'SRT',
-    'required' => 1,
     'settings' => array(
       'description_field' => 0,
       'entity_translation_sync' => FALSE,

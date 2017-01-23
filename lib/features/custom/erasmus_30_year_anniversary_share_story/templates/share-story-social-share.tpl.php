@@ -6,6 +6,9 @@
 ?>
 <div class="share share-story">
   <div class="share-link facebook share-story">
+    <p class="no-link">
+      <?php print t('Share on') ?>
+    </p>
     <?php print $fb; ?>
     <div class="hidden">
       <?php print $title; ?>
