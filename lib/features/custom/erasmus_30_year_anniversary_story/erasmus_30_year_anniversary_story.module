@@ -174,7 +174,6 @@ function erasmus_30_year_anniversary_story_preprocess_html(&$vars) {
   $current_path = request_uri();
   foreach ($allowed_uris as $uri) {
     if (strpos($current_path, $uri) !== FALSE) {
-      dpm('okay');
       $vars['classes_array'][] = 'contains-stories-page';
     }
   }
