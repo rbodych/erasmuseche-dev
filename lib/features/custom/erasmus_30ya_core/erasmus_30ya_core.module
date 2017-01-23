@@ -46,9 +46,9 @@ function erasmus_30ya_core_custom_theme() {
  * Unset context from other sites.
  */
 function erasmus_30ya_core_context_load_alter(&$context) {
+  global $theme;
   switch ($context->name) {
     case 'site_wide';
-      global $theme;
       if ($theme == 'erasmus_30year_anniversary') {
         $array_to_unset = [
           'om_maximenu-om-maximenu-1',
@@ -61,7 +61,6 @@ function erasmus_30ya_core_context_load_alter(&$context) {
       break;
 
     case 'erasmus_30_years_anniversary_campaign_global':
-      global $theme;
       if ($theme !== 'erasmus_30year_anniversary') {
         // Unset all the blocks for this context.
         unset($context->reactions['block']['blocks']);
@@ -181,10 +180,11 @@ function erasmus_30ya_core_theme() {
  */
 function erasmus_30ya_core_preprocess_block(&$vars) {
   global $theme;
+  global $language;
+  global $base_url;
+
   if ($theme == 'erasmus_30year_anniversary'
       && $vars['block_html_id'] == 'block-menu-menu-erasmus-30') {
-    global $language;
-    global $base_url;
 
     $path = path_to_theme();
     $logo_path = $path . '/logo_' . $language->language . '.png';
