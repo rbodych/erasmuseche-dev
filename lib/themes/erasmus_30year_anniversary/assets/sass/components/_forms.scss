@@ -49,6 +49,16 @@ div[class*=views-widget-filter-field_] {
 
 
 
+.feedbackform {
+  .container {
+    background: none;
+  }
+}
+
+
+
+
+
 .share-story-form {
   background: $c-primary-2;
   color: $c-primary-4;
@@ -77,8 +87,10 @@ div[class*=views-widget-filter-field_] {
       padding: 0;
       border: 0;
   
-     input,
-      textarea {
+      input,
+      textarea,
+      select,
+      .chosen-single span {
         width: 100%;
         padding: $padding-medium $padding-small;
         background: #fff;
@@ -87,6 +99,42 @@ div[class*=views-widget-filter-field_] {
         color: $c-primary-1;
         border-radius: 0;
       }
+      
+      select {
+        height: auto;
+      }
+      
+      .chosen-container {
+        height: auto;
+        border-radius: 0;
+        border: none;
+      
+        .chosen-single {
+          background: none;
+          border: none;
+          height: auto;
+          border-radius: 0;
+          padding: 0;
+          
+          div {
+            height: 18px;
+            margin: auto;
+            bottom: 0;
+          }
+        }
+      
+      .chosen-drop {
+        width: 100%;
+        border-radius: 0;
+        border: none;
+        width: 100%;
+        box-shadow: $shadow-large;
+        
+        .highlighted {
+          background: $c-primary-2;
+        }
+      }
+    }
       
       textarea {
         padding: $padding-small;
@@ -176,56 +224,103 @@ div[class*=views-widget-filter-field_] {
 
 
 
-
-.anniversary-navbar .newsletter-form {
+footer .container > form {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  padding: $padding;
+  background: $c-primary-1;
   visibility: hidden;
   opacity: 0;
+  box-shadow: $shadow-big;
+  width: 100%;
+  max-width: 650px;
   
-  .newsletter-form--wrapper {
-    position: absolute;
+  .form-item {
+    display: block !important;
+    margin: $padding 0;
+    
+    input,
+    textarea,
+    select,
+    .chosen-single span {
+      padding: $padding $padding-small;
+      background: #fff;
+      border: none;
+      font-size: 100%;
+      color: $c-primary-1;
+      border-radius: 0;
+      height: auto;
+      color: $c-primary-2 !important;
+      width: 100%;
+    }
+    .form-type-radio {
+      display: inline-block !important;
+      margin-right: $padding;
+    }
+    
+    input[type="radio"] {
+      width: auto;
+    }
+  }
+  
+  .grippie {
+    display: none;
+  }
+  
+  h4 {
+    text-align: left !important;
+    font-size: 1em;
+    font-weight: normal;
+  }
+  
+  
+  
+  &.form-active {
+    @include animation(fade .4s ease-in-out forwards);
+    visibility: visible;
+    opacity: 1;
+    z-index: 99;
+  }
+  
+  *:not(.form-required) {
+    color: $c-primary-4 !important;
   }
 }
 
-.newsletter-form {
-  @include transform(translateY(-95px));
-  @include transition(all 0.4s);
-  text-transform: none;
-  z-index: 999;
 
-  &.open {
-    @include transform(translateY(0));
-    visibility: visible;
-    opacity: 1;
+
+
+
+.newsletter-form {
+  text-transform: none;
+  margin-top: 40px;
+  
+  .intro.only-popup {
+    text-transform: none;
+    padding: $padding;
+    font-family: $font-family-alt;
+    background-color: rgba(255,255,255,.6);
+    display: none;
   }
-    
+
   .newsletter-form--wrapper {
     background: $c-primary-3;
     color: $c-primary-1;
-    right: 0;
-    top: 0;
-    padding: 40px $padding;
-    width: 750px;
-    box-shadow: $shadow-big;
+    margin: $padding-medium 0;
 
     br {
       display: none;
     }
     
     form {
-      @include display(flex);
-      @include flex-wrap(wrap);
-  
+      margin-top: $padding-medium;
+      
       .form-field {
-        margin: 0 0 2.5em;
         padding: 0;
+        margin: 0 0 2.5em;
         border: 0;
-        width: 49%;
-        @include flex-basis(49%);
         position: relative;
-        
-        &:nth-of-type(2n+1) {
-          margin-right: 2%;
-        }
         
         & > .form-input {
           position: absolute;
@@ -235,24 +330,23 @@ div[class*=views-widget-filter-field_] {
           background: $c-primary-4;
           border: none;
           font-size: 100%;
-          color: $c-primary-1;
         }
         
         & > .form-input + .form-label {
           position: relative;
           padding: 0 1em;
           cursor: text;
-          color: $c-gray-2;
           transform-origin: left center;
           -webkit-transform-origin: left center;
           transition: all 0.3s;
           line-height: 45px;
           font-family: $font-family !important; 
+          color: $c-gray-2;
         }
         
         & > .form-input:focus + .form-label,
         & > .form-input.input-active + .form-label {
-          color: $c-gray-1;
+          color: #fff;
           @include transform(translateY(-36px) translateX(-1em) scale(0.8));
         }
       }
@@ -270,6 +364,7 @@ div[class*=views-widget-filter-field_] {
         @include display(flex);
         @include flex-wrap(wrap);
         margin-bottom: 15px;
+        color: #fff;
         
         .checkbox {
           margin-top: 0;
@@ -278,7 +373,7 @@ div[class*=views-widget-filter-field_] {
           width: calc(100% / 3);
           
           label {
-            color: $c-primary-1;
+            color: #fff;
           }
           
           input[type="checkbox"] {
@@ -305,6 +400,88 @@ div[class*=views-widget-filter-field_] {
           text-align: center;
           margin: 0;
           margin-top: $padding;
+        }
+      }
+    }
+  }
+}
+
+body {
+  & > .newsletter-form {
+    background: $c-primary-2;
+    padding-top: $padding-medium;
+    
+    .newsletter-form--wrapper {
+      background: transparent;
+    }
+  }
+}
+
+.anniversary-navbar .newsletter-form {
+  visibility: hidden;
+  opacity: 0;
+  margin-top: 0;
+  z-index: 999;
+  @include transform(translateY(-95px));
+  @include transition(all 0.4s);
+  
+  &.open {
+    @include transform(translateY(0));
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .intro.only-popup {
+     display: block; 
+  }
+  
+  .newsletter-form--wrapper {
+    box-shadow: $shadow-big;
+    width: 750px;
+    right: 0;
+    top: 0;
+    position: absolute;
+    padding: 40px $padding;
+    margin: 0;
+    
+    form {
+      @include display(flex);
+      @include flex-wrap(wrap);
+      
+      .form-field {
+        @include flex-basis(49%);
+        position: relative;
+        
+        &:nth-of-type(2n+1) {
+          margin-right: 2%;
+        }
+        
+        & > .form-input {
+          position: absolute;
+          background: $c-primary-4;
+          color: $c-primary-1;
+        }
+
+        & > .form-input:focus + .form-label,
+        & > .form-input.input-active + .form-label {
+          color: $c-gray-1;
+        }
+      }
+      
+      .checkbox-wrapper {
+        color: $c-primary-1;
+        padding-top: 15px;
+        width: 100%;
+        @include flex-basis(100%);
+        margin: 0 !important;
+        @include display(flex);
+        @include flex-wrap(wrap);
+        margin-bottom: 15px;
+        
+        .checkbox {
+          label {
+            color: $c-primary-1;
+          }
         }
       }
     }
@@ -338,6 +515,18 @@ div[class*=views-widget-filter-field_] {
 
 
 @include media($desktop-min-width) {
+  body {
+    & > .newsletter-form {
+      margin-top: 0;
+      @include outer-container;
+      
+      form {
+        @include span-columns(6);
+        @include shift(3);
+        margin-bottom: $padding-large;
+      }
+    }
+  }
   
   .share-story-form {
   
@@ -429,8 +618,15 @@ div[class*=views-widget-filter-field_] {
           font-family: $font-family !important; 
           margin: 0;
         }
-        
+
       }
+      
+      .form-item-termsconditions .description {
+          background: none;
+          a {
+            color: #fff;
+          }
+        }
       
       .checkbox-wrapper {
         border-top: 1px solid ;
@@ -484,6 +680,16 @@ div[class*=views-widget-filter-field_] {
 
 
 @include media($largedesktop-min-width) {
+  
+  body {
+    & > .newsletter-form {
+
+      form {
+        @include span-columns(4);
+        @include shift(4);
+      }
+    }
+  }
   
   .share-story-form {
     form {

@@ -34,8 +34,9 @@ header {
       position: relative;
       z-index: 9;
       
-      video,
-      img {
+      & > video,
+      & > img,
+      & > .colorbox-wrapper {
         box-shadow: $shadow-big;
         object-fit: cover;
         width: 100%;
@@ -119,6 +120,89 @@ header {
 
 
 
+#cboxWrapper {
+ background: none;
+ border-radius: 0 0 0;
+}
+
+
+
+
+
+.colorbox-wrapper {
+  position: relative;
+  @include transition(all .2s);
+  
+  &:hover {
+    background: rgba(0,0,0,.5);
+    @include transition-delay(.2s);
+    
+    .activate-colorbox {
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.7);
+      @include transition-delay(.2s);
+      
+      &:before {
+        font-size: 4em;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include transition-delay(.2s);
+        @include transform(translate(-50%, -50%));
+        @include filter(drop-shadow(2px 2px 2px #000));
+      }
+    }
+    
+  }
+
+  .activate-colorbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0,0,0,.5);
+    padding: 10px;
+    padding-left: $padding;
+    color: #fff;
+    text-decoration: none;
+    width: 170px;
+    height: 50px;
+    text-align: right;
+    @include transition(all .2s);
+    
+    &:hover {
+      color: #fff;
+    }
+    
+    &:active {
+      background: rgba(0,0,0,.8);
+      @include transition-delay(0s);
+    }
+    
+    &:before {
+      content: "\e015";
+      position: relative;
+      margin-right: 6px;
+      position: absolute;
+      left: $padding-small;
+      top: 15px;
+      display: inline-block;
+      font-family: 'Glyphicons Halflings';
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      @include transition(all .2s);
+    }
+  }
+}
+
+      
+      
+      
+      
+      
 // Stripes for basic pages layout
 .content-stripe {
   padding: 0;
@@ -127,7 +211,7 @@ header {
   }
   
   &.gray-bg {
-    background: $c-gray-1;
+    background: $c-primary-5;
     color: $c-gray-4;
     padding: $padding-large $padding;
     padding-bottom: $padding-medium;
@@ -171,15 +255,17 @@ header {
     margin-top: 160px;
     
     .left {
-      width: 60%;
+      width: calc(100% - #{$padding}*2);
       padding-left: $padding;
       margin-top: -120px;
-      
+      position: relative;
+
       img {
-        width: auto;
+        width: 100%;
+        height: initial;
+        max-height: none;
         object-fit: cover;
         box-shadow: $shadow-big;
-        max-height: 250px;
       }
     }
     .right {
@@ -211,6 +297,14 @@ header {
       }
     }
   }
+  
+  &.enable-auto-columns {
+    & > .content {
+        img {
+          margin: 0 0 1.4em;
+        }
+      } 
+    } 
 }
 
 
@@ -261,7 +355,7 @@ header {
 
 
 .stripe-highlight--right {
-  background: $c-gray-1;
+  background: $c-primary-5;
 
   h2 {
     color: #fff;
@@ -340,15 +434,6 @@ header {
 
 
 @include media($desktop-min-width) {
-  .node-type-erasmus-30-year-anniversary-home header.introduction {
-
-    .background-pattern {
-      display: none;
-    }
-  }
-  
-  
-  
   .gradient-stripe {
     text-align: center;
     position: relative;
@@ -441,6 +526,7 @@ header {
         width: 50%;
         padding: $padding-large;
         padding-top: $padding-big;
+        padding-right: $padding;
         display: inline-block;
         opacity: 0;
         @include animation(fade .8s ease-in-out .5s forwards);
@@ -452,8 +538,9 @@ header {
         display: inline-block;
         bottom: initial;
         
-        video,
-        img {
+        & > video,
+        & > img,
+        & > .colorbox-wrapper {
           position: absolute;
           right: $padding;
           top: 10em;
@@ -557,6 +644,10 @@ header {
      & > .content {
         @include column-count(2);
         @include column-gap($padding-medium);
+        
+        img {
+          margin: 0 0 1.4em;
+        }
       } 
     } 
     
@@ -573,7 +664,7 @@ header {
         @include align-self(center);
         
         img {
-          width: auto;
+          width: 100%;
           max-height: initial;
           box-shadow: 0 0 0;
           box-shadow: $shadow-big;
@@ -665,8 +756,9 @@ header {
       .introduction__highlights {
         width: 40%;
         
-        video,
-        img {
+        & > video,
+        & > img,
+        & > .colorbox-wrapper {
           left: -20%;
           top: $padding-big;
         }
@@ -687,6 +779,18 @@ header {
       @include shift(3);
     }    
   }
+  
+  
+  
+  
+  
+  &.enable-auto-columns {
+    & > .content {
+      img {
+        float: left;
+      }
+    } 
+  } 
   
   
   

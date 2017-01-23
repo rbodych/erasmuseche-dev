@@ -8,7 +8,7 @@
 
 .view-content {
   padding: $padding-medium $padding $padding-big;
-  background: none;
+  background: $c-gray-4;
   display: flex;
   @include flex-direction(column);
   @include justify-content(center);
@@ -17,6 +17,7 @@
     background: #fff;
     padding: $padding;
     margin-bottom: $padding;
+    box-shadow: $shadow-small;
     
     article {
       
@@ -24,6 +25,13 @@
         padding: $padding 0;
       }
       
+      .card-image {
+        margin: 0 auto;
+        margin-bottom: $padding;
+        display: block;
+      }
+      
+      & > .p-summary,
       & > p {
         padding: $padding 0;
         border-top: 1px solid #efefef;
@@ -74,6 +82,59 @@
           }
         }
       }
+      
+      .share-links {
+        @include display(flex);
+        @include flex-wrap(wrap);
+        @include align-items(center);
+        
+        .facebook {
+          @include display(flex);
+          @include align-items(center);
+          box-shadow: 0 0 0;
+          padding: 0;
+          margin: 0;
+          margin-right: $padding;
+    
+          a {
+            background: url(../images/logo-fb-42x42-white.png) $c-gray-3 no-repeat center;
+            width: 30px;
+            height: 30px;
+            opacity: .8;
+            text-indent: -999999px;
+            padding: 30px;
+            border: none;
+
+            &:hover {
+              opacity: 1;
+              padding: 30px;
+              background-color: #3b5998;
+              border: none;
+            }
+          }
+        }
+        
+        .twitter {
+          @include display(flex);
+          @include align-items(center);
+          
+          a {
+            background: url(../images/logo-twitter-42x42-white.png) $c-gray-3 no-repeat center;
+            width: 30px;
+            height: 30px;
+            opacity: .8;
+            text-indent: -999999px;
+            padding: 30px;
+
+            &:hover {
+              opacity: 1;
+              padding: 30px;
+              border: none;
+              background-color: #1a8bf0;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -117,12 +178,10 @@
   
   .view-content {
     @include outer-container;
-    background: none;
     flex-direction: row;
     flex-wrap: wrap;
     
     & > div:not(.all-heroes) {
-      box-shadow: $shadow-small;
       
       @include media($tablet-max-width) {
         @include span-columns(6);
