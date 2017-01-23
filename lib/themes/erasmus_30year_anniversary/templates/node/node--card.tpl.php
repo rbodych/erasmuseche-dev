@@ -40,9 +40,9 @@
     </p>
   <?php endif; ?>
   <?php if (isset($intro)): ?>
-    <p class="p-summary">
+    <div class="p-summary">
       <?php print $intro; ?>
-    </p>
+    </div>
   <?php endif; ?>
 
   <?php if (isset($expected_participants)): ?>

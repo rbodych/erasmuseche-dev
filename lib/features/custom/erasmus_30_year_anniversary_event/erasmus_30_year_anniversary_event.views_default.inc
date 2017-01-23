@@ -125,13 +125,6 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'erasmus_30ya_event' => 'erasmus_30ya_event',
   );
-  /* Filter criterion: Workbench Moderation: State */
-  $handler->display->display_options['filters']['state']['id'] = 'state';
-  $handler->display->display_options['filters']['state']['table'] = 'workbench_moderation_node_history';
-  $handler->display->display_options['filters']['state']['field'] = 'state';
-  $handler->display->display_options['filters']['state']['value'] = array(
-    'published' => 'published',
-  );
   /* Filter criterion: Content: Language */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
@@ -189,6 +182,11 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['type'] = 'select';
   $handler->display->display_options['filters']['field_30ya_country_tid_i18n']['vocabulary'] = 'ec_world_countries';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_30year_events');

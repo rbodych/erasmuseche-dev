@@ -65,6 +65,10 @@ input[type=submit].btn.btn-default {
   &--primary {
     @include linear-gradient(-45deg, $c-gradient-A2, $c-gradient-A1 $c-gradient-start-A);
     border: 2px solid $c-gradient-A2;
+    
+    &:hover {
+      @include linear-gradient(-45deg, $c-gradient-A2, $c-gradient-A1 100%);
+    }
   }
 
   &--secondary {

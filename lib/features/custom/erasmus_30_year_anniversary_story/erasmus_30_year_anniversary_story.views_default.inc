@@ -133,6 +133,14 @@ function erasmus_30_year_anniversary_story_views_default_views() {
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['type'] = 'select';
   $handler->display->display_options['filters']['field_country_na_events_tid_i18n']['vocabulary'] = 'ec_world_countries';
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
+  );
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_30year_anniversary_monthly_theme');

@@ -20,7 +20,7 @@
       margin: 0 auto;
       font-size: $heading-4-size;
       padding: $padding;
-      background: rgba(255,255,255,.6);
+      background: rgba(255,255,255,.8);
       font-family: $font-family;
       box-shadow: $shadow-big;
     }
@@ -28,6 +28,7 @@
   
   .container[role=main] {
     max-width: none;
+    background-color: transparent;
   }
 }
 
@@ -76,6 +77,7 @@
     width: 100vw;
     height: 100vh;
     margin: 0;
+    z-index: -1;
     
     img {
       width: 100%;

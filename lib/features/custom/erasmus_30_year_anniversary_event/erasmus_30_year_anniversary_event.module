@@ -17,7 +17,7 @@ function erasmus_30_year_anniversary_event_views_pre_render(&$view) {
       $view->exposed_raw_input['country'] : NULL;
 
     if (isset($filter) && $filter !== 'All') {
-      $html = _erasmus_30_year_anniversary_event_count_participants_per_country($view->result);
+      $html = _erasmus_30_year_anniversary_event_count_participants_per_country($view);
       $view->header['area']->options['content'] = $html;
     }
     else {
@@ -144,6 +144,10 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     $countryClass
       = drupal_strtolower($vars['field_30ya_country'][0]['taxonomy_term']->name);
     $vars['card_class'] = drupal_clean_css_identifier($countryClass);
+  }
+  if (isset($vars['type']) && $vars['view_mode'] == 'full'
+      && $vars['type'] == 'erasmus_30ya_event') {
+    drupal_goto('/anniversary/events');
   }
 }
 

@@ -5,6 +5,9 @@
  */
 ?>
 <div class="share">
+  <p class="no-link">
+    <?php print t('Share on') ?>
+  </p>
   <div class="share-link facebook normal">
      <?php print $fb; ?>
   </div>

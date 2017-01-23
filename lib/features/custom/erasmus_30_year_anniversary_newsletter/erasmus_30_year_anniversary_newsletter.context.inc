@@ -26,9 +26,9 @@ function erasmus_30_year_anniversary_newsletter_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-26' => array(
+        'block-27' => array(
           'module' => 'block',
-          'delta' => '26',
+          'delta' => '27',
           'region' => 'content_bottom',
           'weight' => '-10',
         ),
