@@ -34,6 +34,11 @@ function erasmus_30ya_core_custom_theme() {
   if (in_array($current_path, $allowed_uris)) {
     $is_allowed = TRUE;
   }
+  // If ajax.
+  if (!$is_allowed && isset($_REQUEST['view_name']) &&
+      strpos($_REQUEST['view_name'], 'erasmus_30_year') !== FALSE) {
+    $is_allowed = TRUE;
+  }
   // If you have more themes, update the code below.
   if ($is_allowed) {
     return 'erasmus_30year_anniversary';
