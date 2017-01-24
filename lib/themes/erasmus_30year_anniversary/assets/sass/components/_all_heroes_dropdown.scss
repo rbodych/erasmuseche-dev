@@ -34,8 +34,8 @@
 
     .all-heroes-item {
       box-shadow: $shadow-big;
-      width: 20%;
-      @include flex-basis(20%);
+      width: 100%;
+      @include flex-basis(100%);
       margin: 2em;
       padding: 0;
       position: relative;
@@ -73,11 +73,63 @@
   }
 }
 
+
+
+
+
 @include media($tablet-min-width) {
   .all-heroes-content.modal-dialog {
     width: inherit;
   }
+  
+  
+  
+  
+  
+  .all-heroes {
+    .all-heroes-content {
+      .all-heroes-item {
+        width: 50%;
+        @include flex-basis(50%);
+      }
+    }
+  }
 }
+
+
+
+
+
+@include media($desktop-min-width) {
+  .all-heroes {
+    .all-heroes-content {
+      .all-heroes-item {
+        width: 33.3333%;
+        @include flex-basis(33.3333%);
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  .all-heroes {
+    .all-heroes-content {
+      .all-heroes-item {
+        width: 20%;
+        @include flex-basis(20%);
+      }
+    }
+  }
+}
+
+
+
+
+
 
 .modal-backdrop.in {
   z-index: 9999;

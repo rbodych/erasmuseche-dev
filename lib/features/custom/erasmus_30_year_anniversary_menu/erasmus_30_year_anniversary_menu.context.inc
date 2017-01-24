@@ -32,9 +32,9 @@ function erasmus_30_year_anniversary_menu_context_default_contexts() {
           'region' => 'featured',
           'weight' => '-8',
         ),
-        'block-26' => array(
+        'block-27' => array(
           'module' => 'block',
-          'delta' => '26',
+          'delta' => '27',
           'region' => 'featured',
           'weight' => '-7',
         ),
@@ -45,9 +45,6 @@ function erasmus_30_year_anniversary_menu_context_default_contexts() {
           'weight' => '-10',
         ),
       ),
-    ),
-    'breadcrumb' => array(
-      0 => 'menu-erasmus-30:node/893',
     ),
   );
   $context->condition_mode = 0;
