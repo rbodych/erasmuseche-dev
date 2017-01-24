@@ -276,7 +276,28 @@
 
 
 @include media($desktop-min-width) {
+  .swiper-numeric-pagination {
+    width: 70%;
+  }
   
+  .swiper-slide {
+    width: 70%;
+    
+    .node-erasmus-30-year-anniversary-hero {
+      .video-wrapper {
+        .video-wrapper--introduction {
+          width: 60%;
+          text-align: right;
+          left: -180px;
+          position: absolute;
+          top: 15%;
+          height: $heading-1-size;
+          background: transparent;
+          font-size: 1em;
+        }
+      }
+    }
+  }
 }
 
 
@@ -315,12 +336,10 @@
       
       .video-wrapper {
         .video-wrapper--introduction {
-          width: 40%;
-          text-align: right;
-          left: -260px;
-          position: absolute;
           top: 0;
           bottom: 0;
+          width: 40%;
+          left: -260px;
           height: $heading-1-size;
           background: transparent;
           font-size: 1em;
