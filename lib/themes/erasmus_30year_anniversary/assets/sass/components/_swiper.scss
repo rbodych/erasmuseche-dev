@@ -1,6 +1,6 @@
 .swiper-container {
   width: 100%;
-  margin: 20px auto;
+  margin: 0 auto;
   padding-bottom: $padding-big;
     
   .swiper-pagination,
@@ -31,6 +31,10 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: #000;
+  padding: 20px;
+  width: 85%;
+  margin: 0 auto;
   
   a {
     text-indent: -999999px;
@@ -58,11 +62,10 @@
   input[type=text] {
     background: none;
     border: none;
-    color: $c-gray-3;
+    color: #fff;
     width: 100px;
     font-size: 1em;
     text-align: center;
-    font-family: $font-family;
   }
 }
 
@@ -86,15 +89,13 @@
       
       .video-wrapper--introduction {
         z-index: 1050;
-        width: 80%;
-        position: absolute;
-        top: 0;
-        left: $padding-small;
-        bottom: 0;
+        padding: $padding;
+        width: calc(100% - #{$padding}*2);
         margin: auto;
-        height: $heading-1-size;
         visibility: hidden;
         opacity: 0;
+        background: rgba(0,0,0,.6);
+        font-size: .6em;
 
         h2,
         p,
@@ -121,6 +122,7 @@
           }
         }
       }
+      
       video {
         box-shadow: $shadow-big;
       }
@@ -168,10 +170,10 @@
       opacity: 0;
       background: $c-gradient-intro-1;
       padding: $padding-medium;
-      width: 66.6666%;
+      width: 100%;
       position: relative;
       z-index: -1;
-      @include flex-basis(66.6666%);
+      @include flex-basis(100%);
       
       .video-wrapper--introduction {
         visibility: hidden;
@@ -204,8 +206,6 @@
       z-index: -1;
       background: rgba(0,0,0, .8);
       padding: 0 $padding;
-      width: calc(33.3333% - (#{$padding-medium} + #{$padding}) * 2);
-      @include flex-basis(calc(33.3333 - #{$padding-medium} * 2));
       @include align-self(flex-start);
       @include display(flex);
       @include justify-content(space-around);
@@ -276,15 +276,54 @@
 
 
 @include media($desktop-min-width) {
+  
+}
+
+
+
+
+
+@include media($largedesktop-max-width) {
+  
+}
+
+
+
+
+
+@include media($xldesktop-min-width) {
+  .swiper-numeric-pagination {
+    width: 20%;
+  }
+  
+  
+  
+  
   .swiper-slide {
     width: 50%;
   
     .node-erasmus-30-year-anniversary-hero {
+      .share {
+        width: calc(33.3333% - (#{$padding-medium} + #{$padding}) * 2);
+        @include flex-basis(calc(33.3333% - (#{$padding-medium} + #{$padding}) * 2));
+      }
+      
+      .content {
+        width: 66.6666%;
+        @include flex-basis(66.6666%);
+      }
+      
       .video-wrapper {
         .video-wrapper--introduction {
           width: 40%;
           text-align: right;
           left: -260px;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          height: $heading-1-size;
+          background: transparent;
+          font-size: 1em;
         }
       }
     }

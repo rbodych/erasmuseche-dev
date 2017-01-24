@@ -213,6 +213,7 @@ header {
 // Stripes for basic pages layout
 .content-stripe {
   padding: 0;
+  
   &:nth-of-type(2n+1) {
     background: $c-gray-5;
   }
@@ -223,11 +224,21 @@ header {
     padding: $padding-large $padding;
     padding-bottom: $padding-medium;
     
+    .bg-info {
+      background: $c-primary-1;
+      padding: $padding-small;
+    }
+    
     h2,
     h3,
     h4 {
       color: #fff;
       margin-bottom: 30px;
+      margin-top: 45px;
+    }
+    
+    h2:first-of-type {
+      margin-top: 0;
     }
     
     img {
@@ -242,12 +253,22 @@ header {
     padding-bottom: $padding-medium;
     color: $c-primary-4;
     
+    .bg-info {
+      background: $c-primary-1;
+      padding: $padding-small;
+    }
+    
     h2,
     h3,
     h4 {
       color: #fff;
       margin-bottom: 30px;
+      margin-top: 45px;
     }
+    
+    h2:first-of-type {
+      margin-top: 0;
+    }   
     
     img {
       width: 100%;

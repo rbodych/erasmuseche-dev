@@ -1,5 +1,5 @@
 .discover-erasmus-plus {
-  background: $c-gray-1;
+  background: #fff;
   
   .anniversary-navbar {
       background: transparent;
@@ -7,22 +7,15 @@
   
   header {
     text-align: center;
+    width: 85%;
+    margin: 0 auto;
     padding: $padding;
-    background: transparent;
+    background: rgba(255,255,255,.9);
+    font-family: $font-family;
+    box-shadow: $shadow-big;
 
-    h1 {
-      color: #fff;
-      text-shadow: $shadow-heading;
-    }
-    
     & > p {
-      width: 100%;
-      margin: 0 auto;
-      font-size: $heading-4-size;
-      padding: $padding;
-      background: rgba(255,255,255,.8);
       font-family: $font-family;
-      box-shadow: $shadow-big;
     }
   }
   
@@ -33,7 +26,21 @@
 }
 
 .background-img-full {
-  display: none;
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  z-index: -1;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include animation(fade .8s linear forwards);
+  }
 }
 
 
@@ -43,8 +50,7 @@
 
 @include media($desktop-min-width) {
   .discover-erasmus-plus {
-    background: $c-gray-1;
-    
+
     .anniversary-navbar {
       background: rgba(255,255,255, .85);
       border-bottom: 1px solid rgba(255,255,255, .6);
@@ -59,31 +65,12 @@
     }
   
     header {
-      background: transparent;
-      padding: $padding-big;
-      padding-bottom: $padding-medium;
+      padding: $padding-medium;
+      max-width: 50%;
+      margin-top: $padding-big;
       
       & > p {
-        max-width: 40%;
       }
-    }
-  }
-  
-  .background-img-full {
-    display: block;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    z-index: -1;
-    
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      @include animation(fade .8s linear forwards);
     }
   }
 }
