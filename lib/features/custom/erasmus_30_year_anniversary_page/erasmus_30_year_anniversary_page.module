@@ -27,7 +27,7 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
       $file = $top_media[$vars['language']->language][0]['fid'];
       $file = file_load($file);
       if (!empty($vars['node']->field_30ya_media_thumb)) {
-        $thumb = $vars['node']->field_30ya_media_thumb[$vars['node']->language][0]['file']->uri;
+        $thumb = $vars['node']->field_30ya_media_thumb[$vars['language']->language][0]['file']->uri;
         $big_uri = file_create_url($file->uri);
         $media = _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb);
         $item = _erasmus_30_year_anniversary_page_add_full_screen_link($media);
