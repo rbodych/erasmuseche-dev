@@ -45,5 +45,14 @@ function erasmus_30_year_anniversary_page_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'show format selection for field_collection_item'.
+  $permissions['show format selection for field_collection_item'] = array(
+    'name' => 'show format selection for field_collection_item',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'better_formats',
+  );
+
   return $permissions;
 }
