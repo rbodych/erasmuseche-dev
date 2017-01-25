@@ -44,6 +44,18 @@ function erasmus_30_year_anniversary_menu_context_default_contexts() {
           'region' => 'footer',
           'weight' => '-10',
         ),
+        'erasmus_30ya_core-e30ya_global_social_sharing' => array(
+          'module' => 'erasmus_30ya_core',
+          'delta' => 'e30ya_global_social_sharing',
+          'region' => 'footer',
+          'weight' => '6',
+        ),
+        'erasmus_30ya_core-e30ya_global_social_links' => array(
+          'module' => 'erasmus_30ya_core',
+          'delta' => 'e30ya_global_social_links',
+          'region' => 'footer',
+          'weight' => '-8',
+        ),
       ),
     ),
   );
