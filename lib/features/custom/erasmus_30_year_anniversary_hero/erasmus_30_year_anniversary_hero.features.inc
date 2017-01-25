@@ -43,7 +43,7 @@ function erasmus_30_year_anniversary_hero_image_default_styles() {
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 2000,
-          'height' => 1125,
+          'height' => 1406,
         ),
         'weight' => 1,
       ),
