@@ -290,6 +290,7 @@ header {
 
       img {
         width: 100%;
+        max-width: 500px;
         height: initial;
         max-height: none;
         object-fit: cover;
@@ -436,7 +437,11 @@ header {
         z-index: 1;
         padding: $padding;
         bottom: 0;
-        background: rgba(255, 255, 255, .8);
+        background: rgba(255, 255, 255, .9);
+      }
+      
+      p:last-of-type {
+        text-align: right;
       }
     }
   }

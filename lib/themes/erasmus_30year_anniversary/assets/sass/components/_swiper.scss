@@ -1,8 +1,8 @@
 .swiper-container {
   width: 100%;
   margin: 0 auto;
-  padding-bottom: $padding-big;
-    
+  margin-bottom: 60px;
+
   .swiper-pagination,
   .swiper-button-prev,
   .swiper-button-next {
@@ -11,12 +11,13 @@
   
 }
 
+
   
 .view-display-id-block_30_year_anniversary_heroes_all {
   width: 100%;
   text-align: center;
   padding-left: $padding;
-  
+
   section {
     padding-bottom: $padding;
     
@@ -31,10 +32,12 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: #000;
+  background: rgba(0,0,0,.8);
   padding: 20px;
   width: 85%;
   margin: 0 auto;
+  max-width: 400px;
+  margin-top: $padding;
   
   a {
     text-indent: -999999px;
@@ -134,7 +137,6 @@
         z-index: 1040;
         width: 100%;
         height: 100%;
-        @include radial-gradient(circle at center, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 50%);
         @include display(flex);
         @include flex-direction(column);
         @include justify-content(center);
@@ -286,11 +288,12 @@
     .node-erasmus-30-year-anniversary-hero {
       .video-wrapper {
         .video-wrapper--introduction {
-          width: 60%;
+          width: 500px;
           text-align: right;
-          left: -180px;
+          left: -220px;
           position: absolute;
-          top: 15%;
+          top: 0;
+          bottom: 0;
           height: $heading-1-size;
           background: transparent;
           font-size: 1em;
@@ -304,8 +307,18 @@
 
 
 
-@include media($largedesktop-max-width) {
-  
+@include media($largedesktop-min-width) {
+  .swiper-slide {
+    width: 70%;
+    
+    .node-erasmus-30-year-anniversary-hero {
+      .video-wrapper {
+        .video-wrapper--introduction {
+        }
+      }
+    }
+  }
+
 }
 
 
@@ -336,8 +349,6 @@
       
       .video-wrapper {
         .video-wrapper--introduction {
-          top: 0;
-          bottom: 0;
           width: 40%;
           left: -260px;
           height: $heading-1-size;
