@@ -326,3 +326,10 @@ function _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url) {
   );
   return $tw;
 }
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function erasmus_30ya_core_preprocess_page(&$vars) {
+  drupal_add_library('system', 'ui.autocomplete');
+}
