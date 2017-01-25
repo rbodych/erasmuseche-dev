@@ -6,14 +6,14 @@ footer {
   padding: $padding 0;
   background: $c-primary-1;
   @include linear-gradient(60deg, $c-gradient-B1, $c-gradient-B2 70%, $c-gradient-B2);
-  max-width: 1800px;
   margin: 0 auto;
   
   .container {
     background: transparent;
     @include display(flex);
     @include flex-direction(column);
-    
+    max-width: 1800px;
+
     h2 {
       display: none;
     }
@@ -29,7 +29,7 @@ footer {
         
         .no-link {
           text-transform: none;
-          padding-right: $padding-small;
+          padding: $padding 0 0;
           border: none;
           color: $c-gradient-intro-1;
           
@@ -42,7 +42,7 @@ footer {
           a {
             background: url(../images/picto-speech-light-blue.png) no-repeat 8px;
             @include transition(all .4s);
-            background-size: 13%;
+            background-size: 40px;
             
             &.button-active {
               background: url(../images/picto-cross-light-blue.png) $c-primary-1 no-repeat 8px;
@@ -80,12 +80,16 @@ footer {
             background-color: #1a8bf0;
           }
         }
-        &.facebook a,
-        &.twitter a {
-          padding: 40px;
-          border: none;
-          margin: 0 auto;
-        }  
+        &.facebook,
+        &.twitter {
+          flex-basis: 80px;
+          
+          a {
+            padding: 40px;
+            border: none;
+            margin: 0 auto;
+          }  
+        }
       }
     }
     
@@ -144,31 +148,47 @@ footer {
       @include justify-content(flex-end);
       @include align-items(center);
       border-top: 1px solid $c-gradient-intro-1;
+      max-width: 310px;
+      padding: 0 $padding;
+      margin: $padding auto 0;
       
       .share-link {
         @include display(flex);
         @include align-items(center);
       }
     }
+    
+    .find-us-on {
+      margin: 0 auto;
+      padding: 27px;
+      
+      .title,
+      .links {
+        float: left;
+      }
+      
+      ul {
+        list-style-type: none;
+        padding-left: 10px;
+        
+        li {
+          float: left;
+          margin-left: 10px;
+          
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
   }
 }
 
-
-
-
-
-
-@include media($tablet-min-width) {
+@include media($largedesktop-min-width) {
   footer {
-
     .container {
       .menu {
-        @include flex-direction(row);
-        @include flex-wrap(wrap);
-        
         li {
-          @include flex-basis(33.333%);
-          
           a {
             padding: $padding;
             text-align: left;
@@ -181,22 +201,10 @@ footer {
       }
     }
   }
-  
 }
 
-
-
-
-
-@include media($desktop-min-width) {
+@include media($largedesktop-min-width) {
   footer {
-    border: none;
-    text-align: left;
-    color: $c-primary-4;
-    padding: $padding 0;
-    background: $c-primary-1;
-    @include linear-gradient(60deg, $c-gradient-B1, $c-gradient-B2 70%, $c-gradient-B2);
-    
     .container {
       @include display(flex);
       @include flex-direction(row);
@@ -221,14 +229,24 @@ footer {
           text-align: right;
         }
       }
+      
+      .find-us-on {
+        padding: 50px;
+        
+        ul {
+          padding-left: 0;
+        }
+      }
     }
   }
 }
 
-
-
-
-
-@include media($largedesktop-min-width) {
-  
+@include media($xldesktop-min-width) {
+  footer .container {
+    .find-us-on {
+      ul {
+        padding-left: 10px;
+      } 
+    }
+  }
 }
