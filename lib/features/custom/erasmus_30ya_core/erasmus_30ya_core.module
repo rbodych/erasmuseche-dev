@@ -118,7 +118,9 @@ function erasmus_30ya_core_menu() {
  * Redirect share-my-story to -your-story.
  */
 function _erasmus_30ya_core_redirect_share_my_story() {
-  drupal_goto('anniversary/share-your-story');
+  $node_id = 759;
+  $alias = drupal_get_path_alias('node/' . $node_id);
+  drupal_goto($alias, [], 301);
 }
 
 /**
