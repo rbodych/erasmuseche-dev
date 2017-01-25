@@ -106,7 +106,19 @@ function erasmus_30ya_core_menu() {
     'access arguments' => array('administer site configuration'),
     'type' => MENU_NORMAL_ITEM,
   );
+  $items['anniversary/share-my-story'] = array(
+    'title' => 'Erasmus+ 30 year anniversary settings',
+    'page callback' => '_erasmus_30ya_core_redirect_share_my_story',
+    'access arguments' => array('view published content'),
+  );
   return $items;
+}
+
+/**
+ * Redirect share-my-story to -your-story.
+ */
+function _erasmus_30ya_core_redirect_share_my_story() {
+  drupal_goto('anniversary/share-your-story');
 }
 
 /**
