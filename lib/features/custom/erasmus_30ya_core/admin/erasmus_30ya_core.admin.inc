@@ -59,6 +59,20 @@ function erasmus_30ya_core_admin() {
     '#default_value' => variable_get('e30ya_hashtag', 'ErasmusPlus'),
     '#required' => TRUE,
   ];
+  $form['social']['e30ya_twitter_url'] = [
+    '#type' => 'textfield',
+    '#title' => t('Twitter url'),
+    '#default_value' => variable_get('e30ya_twitter_url',
+    'https://twitter.com/EUErasmusPlus'),
+    '#required' => TRUE,
+  ];
+  $form['social']['e30ya_facebook_url'] = [
+    '#type' => 'textfield',
+    '#title' => t('Facebook url'),
+    '#default_value' => variable_get('e30ya_facebook_url',
+    'https://www.facebook.com/EUErasmusPlusProgramme/'),
+    '#required' => TRUE,
+  ];
   $form['general']['e30ya_hide_share_story'] = [
     '#type' => 'checkbox',
     '#title' => t('Hide share story'),

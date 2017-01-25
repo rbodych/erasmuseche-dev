@@ -133,8 +133,16 @@ function erasmus_30ya_core_block_info() {
     'cache' => DRUPAL_CACHE_PER_PAGE,
     'status' => TRUE,
     'theme' => 'erasmus_30year_anniversary',
+    'weight' => -50,
   );
-
+  $blocks['e30ya_global_social_links'] = array(
+    'info' => t('Erasmus+ 30 year global social links'),
+    'region' => 'footer',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+    'status' => TRUE,
+    'theme' => 'erasmus_30year_anniversary',
+    'weight' => -49,
+  );
   return $blocks;
 }
 
@@ -151,6 +159,11 @@ function erasmus_30ya_core_block_view($delta = '') {
       $block['content']['#attached'] = [
         'js' => [drupal_get_path('module', 'erasmus_30ya_core') . '/js/social_share.js'],
       ];
+      break;
+
+    case 'e30ya_global_social_links':
+      $block['content']['#markup']
+        = _erasmus_30_year_anniversary_event_retrieve_global_social_links_content();
       break;
   }
 
@@ -178,6 +191,20 @@ function _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_conte
 }
 
 /**
+ * Returns html for the social links block.
+ */
+function _erasmus_30_year_anniversary_event_retrieve_global_social_links_content() {
+  $fb = variable_get('e30ya_facebook_url', 'http://www.facebook.com');
+  $twitter = variable_get('e30ya_facebook_url', 'http://www.twitter.com');
+  $links[] = l(t('Facebook'), $fb);
+  $links[] = l(t('Twitter'), $twitter);
+  return theme('erasmus_30_year_anniversary_global_links', [
+    'links' => $links,
+  ]
+  );
+}
+
+/**
  * Implements hook_theme().
  */
 function erasmus_30ya_core_theme() {
@@ -189,6 +216,13 @@ function erasmus_30ya_core_theme() {
         'title' => NULL,
       ),
       'template' => 'social-share',
+      'path' => drupal_get_path('module', 'erasmus_30ya_core') . '/templates',
+    ),
+    'erasmus_30_year_anniversary_global_links' => array(
+      'variables' => array(
+        'links' => NULL,
+      ),
+      'template' => 'social-links',
       'path' => drupal_get_path('module', 'erasmus_30ya_core') . '/templates',
     ),
   );
