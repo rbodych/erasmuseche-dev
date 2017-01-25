@@ -290,13 +290,20 @@
         .video-wrapper--introduction {
           width: 500px;
           text-align: right;
-          left: -220px;
+          left: -260px;
           position: absolute;
           top: 0;
           bottom: 0;
           height: $heading-1-size;
           background: transparent;
           font-size: 1em;
+          
+          h2,
+          p,
+          ul li {
+            color: $c-primary-5;
+            text-shadow: 0 0 0;
+          }
         }
       }
     }

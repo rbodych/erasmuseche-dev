@@ -30,13 +30,14 @@ header {
     .introduction__highlights {
       @include display(flex);
       @include flex-wrap(wrap);
-      bottom: -20px;
+      bottom: -10px;
       position: relative;
       z-index: 9;
       
       & > video,
       & > img,
       & > .colorbox-wrapper {
+        @include align-self(baseline);
         box-shadow: $shadow-big;
         object-fit: cover;
         width: 100%;
@@ -65,29 +66,31 @@ header {
       }
       
       .event-header--highlights {
-        font-size: $heading-2-size;
-        position: absolute;
-        background: $c-secondary-2;
-        left: -77%;
+        background: $c-primary-2;
+        color: #fff;
         width: 100%;
         padding: 0;
         box-shadow: $shadow-big;
-        top: 88%;
-        background: rgba(255,255,255,.95);
-        border: 1px solid #eee;
         @include justify-content(space-around);
-        
+        @include flex-wrap(wrap);
+
         & > p {
           display: none;
         }
         
         & > div {
           background: none;
-          @include flex-basis(33.333%);
-          padding: $padding ;
-          text-align: center;
-          @include display(flex);
-          @include flex-direction(column);
+          @include flex-basis(50%);
+          margin: 0;
+          
+          &:first-of-type {
+            border-right: 1px dashed rgba(255,255,255, .2);
+          }
+          
+          &.event-header--participants {
+            @include flex-basis(100%);
+            border-top: 1px dashed rgba(255,255,255, .2);
+          }
         }
       }
     }
@@ -480,6 +483,8 @@ header {
     &.introduction {
       
       .introduction__highlights {
+        bottom: -60px;
+        
         .item-card-float {
           box-shadow: $shadow-big;
 
@@ -628,6 +633,20 @@ header {
             }
           }
         }
+        
+        .event-header--highlights {
+          position: absolute;
+          right: 10%;
+          top: 70%;
+          
+          & > div {
+            display: inline-block;
+            
+            span {
+              margin-left: 5px;
+            }
+          }
+        }        
       }
     }
   }
@@ -918,6 +937,13 @@ header {
           }
           
         }
+        
+        .event-header--highlights {
+          position: absolute;
+          left: -10%;
+          top: 70%;
+          max-width: 500px;
+        } 
 
       }
     }
