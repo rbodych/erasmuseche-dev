@@ -553,11 +553,11 @@ body {
   }
   
   .share-story-form {
-    width: 100%;
     
     form {
       & > div {
         @include display(flex);
+        width: 100%;
         
         .intro-wrapper {
           width: 50%;

@@ -31,13 +31,14 @@ p {
   margin: 0 0 1.4em;
 }
 
-a {
+a,
+a:visited {
   text-decoration: underline;
   color: $c-secondary-2;
   @include transition(.2s all);
   
   &:hover {
-    color: $c-secondary-3;
+    color: $c-secondary-1;
   }
 }
 
