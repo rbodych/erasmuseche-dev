@@ -42,7 +42,7 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
         $currentUri = request_uri();
         $currentUri = ltrim($currentUri, '/');
         $share_link = url(NULL, array('absolute' => TRUE))
-        . $currentUri . '%23slideid-' . $node['nid'];
+        . $currentUri . '#slideid=' . $node['nid'];
 
         $node['content']['share_fb'] = l(t('Share on Facebook'), '', ['fragment' => '#']);
         $tw = _erasmus_30ya_core_construct_tweet_intent_url($node['title'], $share_link);
