@@ -14,7 +14,7 @@ function erasmus_30_year_anniversary_page_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_erasmus_30_year_anniversary_page';
-  $strongarm->value = 'edit-print';
+  $strongarm->value = 'edit-workflow';
   $export['additional_settings__active_tab_erasmus_30_year_anniversary_page'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -105,7 +105,7 @@ function erasmus_30_year_anniversary_page_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'entity_translation_hide_translation_links_erasmus_30_year_anniversary_page';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['entity_translation_hide_translation_links_erasmus_30_year_anniversary_page'] = $strongarm;
 
   $strongarm = new stdClass();

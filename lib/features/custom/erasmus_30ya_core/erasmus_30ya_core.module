@@ -34,6 +34,11 @@ function erasmus_30ya_core_custom_theme() {
   if (in_array($current_path, $allowed_uris)) {
     $is_allowed = TRUE;
   }
+  // If ajax.
+  if (!$is_allowed && isset($_REQUEST['view_name']) &&
+      strpos($_REQUEST['view_name'], 'erasmus_30_year') !== FALSE) {
+    $is_allowed = TRUE;
+  }
   // If you have more themes, update the code below.
   if ($is_allowed) {
     return 'erasmus_30year_anniversary';
@@ -101,7 +106,21 @@ function erasmus_30ya_core_menu() {
     'access arguments' => array('administer site configuration'),
     'type' => MENU_NORMAL_ITEM,
   );
+  $items['anniversary/share-my-story'] = array(
+    'title' => 'Erasmus+ 30 year anniversary settings',
+    'page callback' => '_erasmus_30ya_core_redirect_share_my_story',
+    'access arguments' => array('view published content'),
+  );
   return $items;
+}
+
+/**
+ * Redirect share-my-story to -your-story.
+ */
+function _erasmus_30ya_core_redirect_share_my_story() {
+  $node_id = 759;
+  $alias = drupal_get_path_alias('node/' . $node_id);
+  drupal_goto($alias, [], 301);
 }
 
 /**

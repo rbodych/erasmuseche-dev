@@ -3,12 +3,17 @@
   
   .anniversary-navbar {
       background: transparent;
+
+      & > .container {
+        background: transparent;
+      }
     }
   
   header {
     text-align: center;
     width: 85%;
     margin: 0 auto;
+    margin-top: $padding-large;
     padding: $padding;
     background: rgba(255,255,255,.9);
     font-family: $font-family;
@@ -42,7 +47,6 @@
     @include animation(fade .8s linear forwards);
   }
 }
-
 
 
 

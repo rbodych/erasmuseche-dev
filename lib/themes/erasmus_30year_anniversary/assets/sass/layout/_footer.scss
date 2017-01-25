@@ -31,7 +31,7 @@ footer {
           text-transform: none;
           padding-right: $padding-small;
           border: none;
-          color: $c-primary-3;
+          color: $c-gradient-intro-1;
           
           &:hover {
             background: none;
@@ -41,8 +41,8 @@ footer {
         &.js-feedback {
           a {
             background: url(../images/picto-speech-light-blue.png) no-repeat 8px;
-            padding-left: 5em;
             @include transition(all .4s);
+            background-size: 13%;
             
             &.button-active {
               background: url(../images/picto-cross-light-blue.png) $c-primary-1 no-repeat 8px;
@@ -59,6 +59,7 @@ footer {
           border: none;
           padding: $padding 0;
           border: none;
+          text-align: center;
           
           &:hover {
             background-color: rgba(255,255,255,.15);
@@ -70,27 +71,28 @@ footer {
         }
         
         &.facebook a {
-          padding: 40px;
-          border: none;
-          
           &:hover {
             background-color: #3b5998;
           }
         }
         &.twitter a {
-          padding: 40px;
-          border: none;
-          
           &:hover {
             background-color: #1a8bf0;
           }
         }
+        &.facebook a,
+        &.twitter a {
+          padding: 40px;
+          border: none;
+          margin: 0 auto;
+        }  
       }
     }
     
     .no-link {
-      color: $c-primary-3;
+      color: $c-gradient-intro-1;
       margin: 0;
+      width: 100%;
     }
     
     .facebook {
@@ -141,6 +143,7 @@ footer {
       @include display(flex);
       @include justify-content(flex-end);
       @include align-items(center);
+      border-top: 1px solid $c-gradient-intro-1;
       
       .share-link {
         @include display(flex);
@@ -168,6 +171,11 @@ footer {
           
           a {
             padding: $padding;
+            text-align: left;
+          }
+          
+          &.js-feedback {
+            padding-left: 5em;
           }
         }
       }
@@ -203,6 +211,14 @@ footer {
             border-right: 1px solid rgba(255,255,255,.15);
             padding: 50px;
           }
+        }
+      }
+      
+      .share {
+        border-top: 0;
+        
+        .no-link {
+          text-align: right;
         }
       }
     }

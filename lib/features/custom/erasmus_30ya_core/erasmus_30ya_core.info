@@ -20,3 +20,4 @@ dependencies[] = focal_point
 dependencies[] = views_ajax_history
 scripts[] = js/social_share.js
 scripts[] = js/30yearanniversaryPiwik.js
+scripts[] = js/30yearNewsletter.js
