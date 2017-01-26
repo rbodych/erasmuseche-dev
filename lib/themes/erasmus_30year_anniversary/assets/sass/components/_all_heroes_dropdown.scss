@@ -73,6 +73,20 @@
   }
 }
 
+.object-fit-not-supported {
+  .all-heroes-content {
+    .all-heroes-item {
+      a {
+        &:nth-of-type(2) {
+          img {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
 
 
 

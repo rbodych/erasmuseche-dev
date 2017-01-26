@@ -18,6 +18,7 @@ div[class*=views-widget-filter-field_] {
       ul {
         @include display(flex);
         @include flex-wrap(wrap);
+        width: 100%;
         padding: 0;
         list-style: none;
         
@@ -63,6 +64,12 @@ div[class*=views-widget-filter-field_] {
   background: $c-primary-2;
   color: $c-primary-4;
   padding: 0;
+  
+  ul {
+    li {
+      color: $c-primary-4;
+    }
+  }
   
   form {
     & > div {
@@ -526,6 +533,7 @@ body {
           
           li {
             @include flex-basis(33.333%);
+            -ms-flex-preferred-size: calc(33.333% - 2px);
             border: 1px solid rgba(0,0,0,.2);
           }
         }
@@ -675,6 +683,7 @@ body {
           ul {
             li {
               @include flex-basis(25%);
+              -ms-flex-preferred-size: calc(25% - 2px);
             }
           }
         }
