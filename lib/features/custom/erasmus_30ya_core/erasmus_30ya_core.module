@@ -195,7 +195,7 @@ function _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_conte
  */
 function _erasmus_30_year_anniversary_event_retrieve_global_social_links_content() {
   $fb = variable_get('e30ya_facebook_url', 'http://www.facebook.com');
-  $twitter = variable_get('e30ya_facebook_url', 'http://www.twitter.com');
+  $twitter = variable_get('e30ya_twitter_url', 'http://www.twitter.com');
   $links[] = l(t('Facebook'), $fb);
   $links[] = l(t('Twitter'), $twitter);
   return theme('erasmus_30_year_anniversary_global_links', [

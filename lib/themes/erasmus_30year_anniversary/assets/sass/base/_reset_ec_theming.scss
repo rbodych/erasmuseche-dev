@@ -94,3 +94,14 @@ body {
 .e30-notification-cta {
   display: none;
 }
+
+
+
+
+.not-logged-in #block-system-user-menu {
+  display: block;
+  
+  a[href*="user/login"]{
+    display: none;
+  }
+}

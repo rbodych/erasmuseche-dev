@@ -41,6 +41,10 @@ header {
         box-shadow: $shadow-big;
         object-fit: cover;
         width: 100%;
+        
+        &.image-thumb {
+          max-width: inherit;
+        }
       }
       
       .item-card-float {
@@ -96,6 +100,30 @@ header {
     }
   }
 }
+
+.object-fit-not-supported {
+  header {
+
+    &.introduction {
+
+      .introduction__highlights {
+
+        & > img {
+          height: auto;
+
+        }
+        
+        .item-card-float {
+          
+          img {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
 
 // Tile with highlight numbers
 .event-header--highlights {
@@ -217,6 +245,13 @@ header {
 .content-stripe {
   padding: 0;
   
+  .infographics-wrapper {
+    img {
+      width: 100% !important;
+      max-width: 720px;
+    }
+  }
+  
   &:nth-of-type(2n+1) {
     background: $c-gray-5;
   }
@@ -244,6 +279,12 @@ header {
       margin-top: 0;
     }
     
+    ul {
+      li {
+        color: $c-gray-4;
+      }
+    }
+    
     img {
       width: 100%;
       height: auto;
@@ -255,6 +296,12 @@ header {
     padding: $padding-large $padding;
     padding-bottom: $padding-medium;
     color: $c-primary-4;
+    
+    ul {
+      li {
+        color: $c-primary-4;
+      }
+    }
     
     .bg-info {
       background: $c-primary-1;
@@ -298,6 +345,10 @@ header {
         max-height: none;
         object-fit: cover;
         box-shadow: $shadow-big;
+        
+        &.image-thumb {
+          max-width: inherit;
+        }
       }
     }
     .right {
@@ -424,6 +475,15 @@ header {
     
     article {
       width: 100%;
+      
+      ul.links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #ccc;
+      }
       
       figure {
         margin: 0;
@@ -650,6 +710,20 @@ header {
       }
     }
   }
+  
+  .object-fit-not-supported {
+    header {
+      &.introduction {
+        .introduction__highlights {
+          &:nth-of-type(4) {
+            img {
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 
@@ -708,6 +782,22 @@ header {
           margin: 0 0 $padding $padding;
           min-width: 40%;
           max-width: 70%;
+        }
+      }
+    }
+  }
+  .object-fit-not-supported {
+    .stripe-highlight--right {
+      .stripe-highlight--assets {
+        article {
+          figure {
+            width: auto;
+            img {
+              max-width: 100%;
+              height: auto;
+              width: auto \9;
+            }
+          }
         }
       }
     }

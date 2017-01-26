@@ -48,6 +48,15 @@
   }
 }
 
+.object-fit-not-supported {
+  .background-img-full {
+    img {
+      height: auto;
+    }
+  }
+}
+
+
 
 
 

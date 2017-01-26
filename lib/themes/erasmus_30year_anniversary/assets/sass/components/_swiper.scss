@@ -22,7 +22,6 @@
     padding-bottom: $padding;
     
     .button {
-      margin: 0 auto;
       background: rgba(0,0,0,.8);
     }
   }
@@ -153,6 +152,11 @@
           box-shadow: $shadow-big;
           position: absolute;
           text-align: center;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
           
           &.pause {
             visibility: hidden;

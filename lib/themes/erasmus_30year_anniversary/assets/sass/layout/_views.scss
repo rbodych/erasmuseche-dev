@@ -139,6 +139,18 @@
     }
   }
 }
+
+.object-fit-not-supported {
+  .view-content {
+    & > div:not(.all-heroes) {
+      article {
+        .card-image {
+          height: auto;
+        }
+      }
+    }
+  }
+}
     
 .view-header--wapper {
   @include flex-basis(100%);
