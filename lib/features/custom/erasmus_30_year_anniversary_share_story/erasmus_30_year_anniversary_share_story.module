@@ -164,11 +164,12 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
   $file->status = FILE_STATUS_PERMANENT;
   file_save($file);
 
-  $values['country'] = $form_state['values']['country'];
+  $countries = _erasmus_30ya_core_return_countries_map_tids_name();
+  $values['country'] = $countries[$form_state['values']['country']];
   $values['body'] = $form_state['values']['description'];
   $values['email'] = $form_state['values']['email'];
   $values['name'] = $form_state['values']['name'];
-  $values['erasmus_destination'] = $form_state['values']['erasmus_destination'];
+  $values['erasmus_destination'] = $countries[$form_state['values']['erasmus_destination']];
   $values['erasmus_year'] = $form_state['values']['erasmus_year'];
   $values['image'] = file_create_url($file->uri);
 

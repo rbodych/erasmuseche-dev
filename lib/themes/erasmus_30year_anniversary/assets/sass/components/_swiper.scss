@@ -292,15 +292,19 @@
     .node-erasmus-30-year-anniversary-hero {
       .video-wrapper {
         .video-wrapper--introduction {
-          width: 500px;
+          max-width: 45%;
           text-align: right;
-          left: -260px;
+          right: 60%;
           position: absolute;
-          top: 0;
+          top: -100px;
           bottom: 0;
           height: $heading-1-size;
           background: transparent;
           font-size: 1em;
+          
+          h2 {
+            font-size: $heading-2-size;
+          }
           
           h2,
           p,
@@ -325,6 +329,15 @@
     .node-erasmus-30-year-anniversary-hero {
       .video-wrapper {
         .video-wrapper--introduction {
+          max-width: 48%;
+          right: 60%;
+          top: -100px;
+          bottom: 0;
+          background: transparent;
+
+          h2 {
+            font-size: $heading-1-size;
+          }
         }
       }
     }
@@ -362,9 +375,12 @@
         .video-wrapper--introduction {
           width: 40%;
           left: -260px;
-          height: $heading-1-size;
           background: transparent;
           font-size: 1em;
+          
+          h2 {
+            font-size: $heading-1-size;
+          }
         }
       }
     }

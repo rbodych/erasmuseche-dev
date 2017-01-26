@@ -10,10 +10,9 @@
     }
   
   header {
-    text-align: center;
     width: 85%;
     margin: 0 auto;
-    margin-top: $padding-large;
+    margin-top: 2em;
     padding: $padding;
     background: rgba(255,255,255,.9);
     font-family: $font-family;
@@ -56,10 +55,15 @@
   }
 }
 
-
-
-
-
+@include media($tablet-min-width) {
+  .discover-erasmus-plus {
+    header {
+      margin: 5em 0 0 40px;
+      margin-top: 5em;
+      max-width: calc(50% - 40px);
+    }
+  }
+}
 
 @include media($desktop-min-width) {
   .discover-erasmus-plus {
@@ -79,19 +83,29 @@
   
     header {
       padding: $padding-medium;
-      max-width: 50%;
-      margin-top: $padding-big;
-      
-      & > p {
-      }
+      max-width: 400px;
+      margin-top: $padding-large;
+      background: rgba(255,255,255, .6);
     }
   }
 }
 
-
-
-
-
 @include media($largedesktop-min-width) {
+  .discover-erasmus-plus {
+    header {
+      padding: $padding-medium;
+      margin-left: $padding-large;
+      background: rgba(255,255,255, .7);
+    }
+  }
+}
 
+@include media($xldesktop-min-width) {
+  .discover-erasmus-plus {
+    header {
+      padding: $padding-medium;
+      margin-left: $padding-big;
+      background: rgba(255,255,255, .3);
+    }
+  }
 }

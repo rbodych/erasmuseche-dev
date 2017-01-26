@@ -26,7 +26,11 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'time';
+  $handler->display->display_options['cache']['results_lifespan'] = '3600';
+  $handler->display->display_options['cache']['results_lifespan_custom'] = '0';
+  $handler->display->display_options['cache']['output_lifespan'] = '3600';
+  $handler->display->display_options['cache']['output_lifespan_custom'] = '0';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -108,16 +112,10 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['sorts']['promote']['table'] = 'node';
   $handler->display->display_options['sorts']['promote']['field'] = 'promote';
   $handler->display->display_options['sorts']['promote']['order'] = 'DESC';
-  /* Sort criterion: Content: Country (field_30ya_country) (translated) */
-  $handler->display->display_options['sorts']['field_30ya_country_tid_i18n']['id'] = 'field_30ya_country_tid_i18n';
-  $handler->display->display_options['sorts']['field_30ya_country_tid_i18n']['table'] = 'field_data_field_30ya_country';
-  $handler->display->display_options['sorts']['field_30ya_country_tid_i18n']['field'] = 'field_30ya_country_tid_i18n';
-  $handler->display->display_options['sorts']['field_30ya_country_tid_i18n']['order'] = 'DESC';
   /* Sort criterion: Content: Date (field_30ya_txt_date) */
   $handler->display->display_options['sorts']['field_30ya_txt_date_value']['id'] = 'field_30ya_txt_date_value';
   $handler->display->display_options['sorts']['field_30ya_txt_date_value']['table'] = 'field_data_field_30ya_txt_date';
   $handler->display->display_options['sorts']['field_30ya_txt_date_value']['field'] = 'field_30ya_txt_date_value';
-  $handler->display->display_options['sorts']['field_30ya_txt_date_value']['order'] = 'DESC';
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
