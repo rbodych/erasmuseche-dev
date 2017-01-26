@@ -82,7 +82,7 @@ function erasmus_30_year_anniversary_event_block_view($delta = '') {
 function erasmus_30_year_anniversary_event_form_views_exposed_form_alter(&$vars) {
   if (isset($vars['country'])) {
     $vars['country']['#options']['All'] = t('All countries');
-    $vars['country']['#title'] = t('Filter on country');
+    $vars['country']['#title'] = t('Select country');
     if (isset($vars['#info']['filter-field_country_na_events_tid_i18n'])) {
       $vars['#info']['filter-field_country_na_events_tid_i18n']['label'] = '';
     }
@@ -138,7 +138,9 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
       ]
     );
     $vars['date'] = $vars['field_30ya_txt_date'][0]['value'];
-    $vars['sector'] = $vars['field_30ya_sector'][0]['value'];
+    $field = field_info_field('field_30ya_sector');
+    $label = $field['settings']['allowed_values'][$vars['field_30ya_sector'][0]['value']];
+    $vars['sector'] = $label;
     $vars['intro'] = $vars['body'][0]['value'];
 
     $countryClass
