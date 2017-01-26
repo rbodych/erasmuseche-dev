@@ -187,7 +187,7 @@ function erasmus_preprocess_page(&$variables, $hook) {
   $variables['is_newlayoutr'] = FALSE;
   $variables['language'] = $language;
   $variables['abouttitle'] = t('About');
-  $variables['aboutsubtitle'] = t("Erasmus+ is the EU's programme to support education, training, youth and sport in Europe. Its budget of €14.7 billion will provide opportunities for over 4 million Europeans to study, train gain experience, and volunteers abroad.");
+  $variables['aboutsubtitle'] = t("Erasmus+ is the EU's programme to support education, training, youth and sport in Europe. Its budget of €14.7 billion will provide opportunities for over 4 million Europeans to study, train, gain experience, and volunteer abroad.");
   $variables['individualstitle'] = t('Opportunities for individuals');
   $variables['individualssubtitle'] = t('Erasmus+ has opportunities for people of all ages, helping them develop and share knowledge and experience at institutions and organisations in different countries');
   $variables['organisationstitle'] = t('Opportunities for organisations');
