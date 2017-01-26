@@ -7,6 +7,7 @@ footer {
   background: $c-primary-1;
   @include linear-gradient(60deg, $c-gradient-B1, $c-gradient-B2 70%, $c-gradient-B2);
   margin: 0 auto;
+  max-width: 1800px;
   
   .container {
     background: transparent;
