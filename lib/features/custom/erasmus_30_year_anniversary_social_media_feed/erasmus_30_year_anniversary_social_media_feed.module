@@ -87,7 +87,7 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
       'type' => 'fb',
       'date' => _erasmus_30_year_anniversary_social_media_feed_normalize_date($item['created_time']),
       'image' => isset($item['full_picture']) ? $item['full_picture'] : NULL,
-      'url' => isset($item['permalink_url']) ? $item['permalink_url'] : NULL,
+      'url' => $item['permalink_url'],
     ];
   }
   return $items;
@@ -172,8 +172,7 @@ function erasmus_30_year_anniversary_social_media_feed_theme() {
  * Helper function to normalize date.
  */
 function _erasmus_30_year_anniversary_social_media_feed_normalize_date($date) {
-  $date = strtotime($date);
-  return date('d-m-Y', $date);
+  return strtotime($date);
 }
 
 /**
@@ -188,7 +187,6 @@ function _erasmus_30_year_anniversary_social_media_feed_manipulate_items($items)
  * Date compare function.
  */
 function _erasmus_30_year_anniversary_social_media_feed_date_compare($a, $b) {
-    $t1 = strtotime($a['date']);
-    $t2 = strtotime($b['date']);
-    return $t2 - $t1;
+  if ($a['date'] == $b['date']) return 0;
+  return ($a['date'] > $b['date']) ? -1 : 1;
 }    
