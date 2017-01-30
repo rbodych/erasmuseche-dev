@@ -76,7 +76,7 @@ function erasmus_30ya_core_admin() {
   $twitterConfig = [
     'consumer_secret' => 'Twitter Consumer secret',
     'consumer_key' => 'Twitter conumser key',
-    'access_token'=> 'Twitter access token',
+    'access_token' => 'Twitter access token',
     'access_token_secret' => 'Twitter access token secret',
     'twitter_get_api_url' => 'Twitter API url',
   ];
