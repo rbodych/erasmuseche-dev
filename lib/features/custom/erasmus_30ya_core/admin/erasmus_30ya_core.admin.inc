@@ -73,6 +73,32 @@ function erasmus_30ya_core_admin() {
     'https://www.facebook.com/EUErasmusPlusProgramme/'),
     '#required' => TRUE,
   ];
+  $twitterConfig = [
+    'consumer_secret' => 'Twitter Consumer secret',
+    'consumer_key' => 'Twitter conumser key',
+    'access_token'=> 'Twitter access token',
+    'access_token_secret' => 'Twitter access token secret',
+    'twitter_get_api_url' => 'Twitter API url',
+  ];
+  foreach ($twitterConfig as $tw_conf => $tw_conf_name) {
+    $form['social']['e30ya_tw_' . $tw_conf] = [
+      '#type' => 'textfield',
+      '#title' => $tw_conf_name,
+      '#default_value' => variable_get('e30ya_tw_' . $tw_conf, FALSE),
+    ];
+  }
+  $fbConfig = [
+    'page_id' => 'Facebook page id',
+    'app_id' => 'Facebook app id',
+    'app_secret' => 'Facebook app secret',
+  ];
+  foreach ($fbConfig as $fb_conf => $fb_conf_name) {
+    $form['social']['e30ya_fb_' . $fb_conf] = [
+      '#type' => 'textfield',
+      '#title' => $fb_conf_name,
+      '#default_value' => variable_get('e30ya_fb_' . $fb_conf, '630809920303095'),
+    ];
+  }
   $form['general']['e30ya_hide_share_story'] = [
     '#type' => 'checkbox',
     '#title' => t('Hide share story'),
