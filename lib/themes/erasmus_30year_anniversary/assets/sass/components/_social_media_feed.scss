@@ -1,0 +1,48 @@
+.social-media-feed-container {
+  margin-bottom: $padding-small;
+  width: 100%;
+  height: 100%;
+
+  .swiper-slide {
+    text-align: center;
+    max-width: 300px;
+    
+    /* Center slide text vertically */
+    display: flex;
+    @include justify-content(center);
+    
+    background: #fff;
+    padding: $padding;
+    box-shadow: $shadow-small;
+    word-break: break-word;
+  }
+  
+  .view-filters {
+    margin-bottom: $padding-small;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .social-media-type {
+    margin-top: $padding-small;
+    width: 30px;
+    height: 30px;
+    opacity: .8;
+    padding: $padding-small;
+    float: right;
+  }
+  
+  .social-media-type--tw {
+    background: url(../images/logo-twitter-42x42-white.png) $twitter no-repeat center;
+  }
+  
+  .social-media-type--fb {
+    background: url(../images/logo-fb-42x42-white.png) $facebook no-repeat center;
+  }
+  
+  .image + .text {
+    margin-top: $padding-small;
+  }
+}
