@@ -5,16 +5,21 @@
 
   .swiper-slide {
     text-align: center;
-    max-width: 300px;
-    
+    max-width: 100%;
+
     /* Center slide text vertically */
-    display: flex;
+    @include align-items(center);
+    @include display(flex);
     @include justify-content(center);
     
     background: #fff;
-    padding: $padding;
     box-shadow: $shadow-small;
     word-break: break-word;
+    padding: $padding;
+
+    @include media($mobile-min-width) {
+      width: 300px;
+    }
   }
   
   .view-filters {
