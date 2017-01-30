@@ -38,13 +38,13 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
   $results = drupal_json_decode($results);
   $urlTweet = 'https://twitter.com/' . $hashTag . '/status/';
   $items = [];
-  foreach ($results->statuses as $item) {
+  foreach ($results['statuses'] as $item) {
     $items[] = [
-      'text' => $item->text,
+      'text' => $item['text'],
       'type' => 'tw',
-      'date' => _erasmus_30_year_anniversary_social_media_feed_normalize_date($item->created_at),
-      'image' => isset($item->extended_entities->media[0]->media_url_https) ? $item->extended_entities->media[0]->media_url_https : NULL,
-      'url' => $urlTweet . $item->id,
+      'date' => _erasmus_30_year_anniversary_social_media_feed_normalize_date($item['created_at']),
+      'image' => isset($item['extended_entities']) ? $item['extended_entities']['media'][0]['media_url_https'] : NULL,
+      'url' => $urlTweet . $item['id'],
     ];
   }
   return $items;
