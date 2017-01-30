@@ -6,8 +6,8 @@
 
 /**
  * Gets tweets.
- * 
- * Documentation: https://github.com/J7mbo/twitter-api-php
+ *
+ * Documentation: https://github.com/J7mbo/twitter-api-php.
  */
 function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
   require_once drupal_get_path('module', 'erasmus_30_year_anniversary_social_media_feed')
@@ -20,7 +20,7 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
     'oauth_access_token' => $acces_token,
     'oauth_access_token_secret' => $acces_token_secret,
     'consumer_key' => $consumer_key,
-    'consumer_secret' => $consumer_secret
+    'consumer_secret' => $consumer_secret,
   ];
   $hashTag = variable_get('e30ya_hashtag', 'ErasmusPlus');
 
@@ -35,7 +35,7 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
   if (!isset($results) || empty($results)) {
     return [];
   }
-  $results = json_decode($results);
+  $results = drupal_json_decode($results);
   $urlTweet = 'https://twitter.com/' . $hashTag . '/status/';
   $items = [];
   foreach ($results->statuses as $item) {
@@ -72,14 +72,14 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
   if (empty($fbAccessTokenRequest)) {
     return [];
   }
-  $fburl = 'https://graph.facebook.com/v2.8/'. $pageId;
+  $fburl = 'https://graph.facebook.com/v2.8/' . $pageId;
   $fbdata = [
     'fields' => 'posts{full_picture,message,created_time,permalink_url},picture',
     'access_token' => $fbAccessTokenRequest,
   ];
   $full_fburl = url($fburl, ['query' => $fbdata]);
   $data  = file_get_contents($full_fburl);
-  $data = json_decode($data, true);
+  $data = drupal_json_decode($data, TRUE);
   $items = [];
   foreach ($data['posts']['data'] as $item) {
     $items[] = [
@@ -136,14 +136,14 @@ function erasmus_30_year_anniversary_social_media_feed_block_view($delta = '') {
         'js' => [
           [
             'data' => '//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js',
-            'type' => 'external'
+            'type' => 'external',
           ],
-           drupal_get_path('module', 'erasmus_30_year_anniversary_social_media_feed') . '/js/e30yaSocialMediaFeed.js',
+          drupal_get_path('module', 'erasmus_30_year_anniversary_social_media_feed') . '/js/e30yaSocialMediaFeed.js',
         ],
         'css' => [
           [
             'data' => '//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css',
-            'type' => 'external'
+            'type' => 'external',
           ],
         ],
       ];
@@ -187,6 +187,8 @@ function _erasmus_30_year_anniversary_social_media_feed_manipulate_items($items)
  * Date compare function.
  */
 function _erasmus_30_year_anniversary_social_media_feed_date_compare($a, $b) {
-  if ($a['date'] == $b['date']) return 0;
+  if ($a['date'] == $b['date']) {
+    return 0;
+  }
   return ($a['date'] > $b['date']) ? -1 : 1;
-}    
+}
