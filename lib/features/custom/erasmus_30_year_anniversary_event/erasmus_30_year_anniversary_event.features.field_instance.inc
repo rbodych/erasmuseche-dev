@@ -19,9 +19,8 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'teaser' => array(
@@ -189,7 +188,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
         'label' => 'above',
         'module' => 'i18n_taxonomy',
         'settings' => array(),
-        'type' => 'i18n_taxonomy_term_reference_link',
+        'type' => 'i18n_taxonomy_term_reference_plain',
         'weight' => 5,
       ),
       'teaser' => array(
@@ -229,14 +228,8 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 10,
       ),
       'teaser' => array(
@@ -270,6 +263,49 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
       'settings' => array(),
       'type' => 'number',
       'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance: 'node-erasmus_30ya_event-field_30ya_is_passed'.
+  $field_instances['node-erasmus_30ya_event-field_30ya_is_passed'] = array(
+    'bundle' => 'erasmus_30ya_event',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'If you check this box the event will be marked as passed.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_30ya_is_passed',
+    'label' => 'Is passed',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 17,
     ),
   );
 
@@ -476,6 +512,149 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-erasmus_30ya_event-field_30ya_passed_event_report'.
+  $field_instances['node-erasmus_30ya_event-field_30ya_passed_event_report'] = array(
+    'bundle' => 'erasmus_30ya_event',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'When the event has passed, this can be used to fill in a report about the passed event. This will be shown on the detail page.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 13,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_30ya_passed_event_report',
+    'label' => 'Passed event report',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'basic_html' => 'basic_html',
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'full_html_track' => 'full_html_track',
+          'plain_text' => 'plain_text',
+          'programme_guide_editor' => 'programme_guide_editor',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'basic_html' => array(
+              'weight' => 5,
+            ),
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'full_html' => array(
+              'weight' => -10,
+            ),
+            'full_html_track' => array(
+              'weight' => -10,
+            ),
+            'plain_text' => array(
+              'weight' => -8,
+            ),
+            'programme_guide_editor' => array(
+              'weight' => 0,
+            ),
+          ),
+        ),
+      ),
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 19,
+    ),
+  );
+
+  // Exported field_instance: 'node-erasmus_30ya_event-field_30ya_pictures'.
+  $field_instances['node-erasmus_30ya_event-field_30ya_pictures'] = array(
+    'bundle' => 'erasmus_30ya_event',
+    'deleted' => 0,
+    'description' => 'Event pictures. Taken from at or after the event. These will be displayed on the detail page, on the overview page the event will get an "event passed" overlay.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mediafield',
+        'settings' => array(
+          'file_view_mode' => 'default',
+        ),
+        'type' => 'media',
+        'weight' => 12,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_30ya_pictures',
+    'label' => 'Pictures',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'file_extensions' => 'jpg jpeg gif png',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'avportal' => 0,
+          'dailymotion' => 0,
+          'ffp' => 0,
+          'node' => 0,
+          'private' => 0,
+          'public' => 'public',
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 'media_internet',
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 18,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-erasmus_30ya_event-field_30ya_presence_commissioner'.
   $field_instances['node-erasmus_30ya_event-field_30ya_presence_commissioner'] = array(
     'bundle' => 'erasmus_30ya_event',
@@ -489,9 +668,8 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'hidden',
         'weight' => 9,
       ),
       'teaser' => array(
@@ -529,9 +707,8 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
+        'type' => 'hidden',
         'weight' => 11,
       ),
       'teaser' => array(
@@ -697,16 +874,22 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
   t('City');
   t('Country');
   t('Date');
+  t('Event pictures. Taken from at or after the event. These will be displayed on the detail page, on the overview page the event will get an "event passed" overlay.');
   t('Expected number of participants');
+  t('If you check this box the event will be marked as passed.');
   t('If you check this box, you are stating that a commissioner will be present on the event.');
+  t('Is passed');
   t('Lead organisation');
   t('Link');
   t('Link of the event. This will probably on an external website.');
   t('Link organiser');
+  t('Passed event report');
+  t('Pictures');
   t('Presence of commisioner');
   t('Sector');
   t('Short description');
   t('Title');
+  t('When the event has passed, this can be used to fill in a report about the passed event. This will be shown on the detail page.');
 
   return $field_instances;
 }

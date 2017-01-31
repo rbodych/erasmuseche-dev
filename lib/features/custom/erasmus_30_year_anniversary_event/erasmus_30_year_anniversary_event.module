@@ -89,7 +89,13 @@ function erasmus_30_year_anniversary_event_form_views_exposed_form_alter(&$vars)
     if (isset($vars['#info']['filter-field_30ya_country_tid_i18n'])) {
       $vars['#info']['filter-field_30ya_country_tid_i18n']['label'] = '';
     }
-    $vars['#attributes']['class'][] = 'country-filter-form';
+    $vars['#attributes']['class'][] = 'exposed-filter-form';
+  }
+  if (isset($vars['event_is_passed'])) {
+    $vars['event_is_passed']['#title'] = t('Show passed events');
+    unset($vars['event_is_passed']['#options'][0]);
+    $vars['event_is_passed']['#options'][1] = t('Show passed events');
+    $vars['event_is_passed']['#options']['All'] = t('Show all events');
   }
 }
 
@@ -146,10 +152,62 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     $countryClass
       = drupal_strtolower($vars['field_30ya_country'][0]['taxonomy_term']->name);
     $vars['card_class'] = drupal_clean_css_identifier($countryClass);
+    if (isset($vars['field_30ya_pictures'])) {
+      $vars['card_class'] .= ' event-passed';
+      $detail_link = drupal_get_path_alias('node/' . $vars['nid']);
+      $vars['detail_link'] = l(t('View pictures'),
+        $detail_link,
+        [
+          'attributes' => [
+            'title' => t('View more pictures'),
+            'class' => 'button button--primary button--medium',
+          ],
+        ]
+      );
+    }
   }
-  if (isset($vars['type']) && $vars['view_mode'] == 'full'
-      && $vars['type'] == 'erasmus_30ya_event') {
-    drupal_goto('/anniversary/events');
+  if (isset($vars['type']) && $vars['type'] == 'erasmus_30ya_event' &&
+      isset($vars['view_mode']) && $vars['view_mode'] == 'full') {
+    $to_unset = [
+      'field_30ya_txt_date',
+      'field_30ya_city',
+      'field_30ya_country',
+    ];
+    foreach ($to_unset as $unset) {
+      unset($vars['content'][$unset]);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function erasmus_30_year_anniversary_event_preprocess_page(&$vars) {
+  if (isset($vars['node'])
+      && $vars['node']->type == 'erasmus_30ya_event'
+      && isset($vars['node']->field_30ya_pictures[LANGUAGE_NONE][0])) {
+
+    $top_media = $vars['node']->field_30ya_pictures[LANGUAGE_NONE][0]['file']->uri;
+    $item
+      = theme('image_style', [
+        'path' => $top_media,
+        'style_name' => 'erasmus_30_year_story_card__370x210',
+        'attributes' => [
+          'class' => 'top-image',
+        ],
+        'alt' => $vars['node']->title,
+      ]
+      );
+
+    $vars['page']['sidebar_right'] = $item . render($vars['page']['sidebar_right']);
+    $fields_to_render;
+    $fields_to_render[] = $vars['node']->field_30ya_txt_date[LANGUAGE_NONE][0]['value'];
+    $fields_to_render[] = $vars['node']->field_30ya_city[LANGUAGE_NONE][0]['value'];
+    $fields_to_render[] = $vars['node']->field_30ya_country[LANGUAGE_NONE][0]['taxonomy_term']->name;
+    $vars['page']['sidebar_left'] = implode('<br/>', $fields_to_render);
+    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_event')
+      . '/js/e30yaEventCarrousel.js');
+    _erasmus_30ya_core_add_swiper_library();
   }
 }
 
