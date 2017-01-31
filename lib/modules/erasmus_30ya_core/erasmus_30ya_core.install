@@ -22,7 +22,6 @@ function erasmus_30ya_core_install() {
 }
 
 /**
- * Implements hook_update_N();
  * Save all events with is_passed status 0.
  */
 function erasmus_30ya_core_update_7102() {
