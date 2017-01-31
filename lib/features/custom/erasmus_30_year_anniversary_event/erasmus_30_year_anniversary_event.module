@@ -93,9 +93,8 @@ function erasmus_30_year_anniversary_event_form_views_exposed_form_alter(&$vars)
   }
   if (isset($vars['event_is_passed'])) {
     $vars['event_is_passed']['#title'] = t('Show passed events');
-    unset($vars['event_is_passed']['#options'][0]);
     $vars['event_is_passed']['#options'][1] = t('Show passed events');
-    $vars['event_is_passed']['#options']['All'] = t('Show all events');
+    $vars['event_is_passed']['#options'][0] = t('Show coming events');
   }
 }
 
@@ -155,7 +154,7 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     if (isset($vars['field_30ya_pictures'])) {
       $vars['card_class'] .= ' event-passed';
       $detail_link = drupal_get_path_alias('node/' . $vars['nid']);
-      $vars['detail_link'] = l(t('View pictures'),
+      $vars['detail_link'] = l(t('View event'),
         $detail_link,
         [
           'attributes' => [
