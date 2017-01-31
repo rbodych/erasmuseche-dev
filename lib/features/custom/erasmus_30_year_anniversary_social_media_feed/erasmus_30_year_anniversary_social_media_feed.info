@@ -1,6 +1,0 @@
-name = Erasmus 30year anniversary social media feed
-description = Anniversary 30 year social media food homepage
-core = 7.x
-package = Erasmus+ 30 year anniversary
-multisite_version = 2.2
-php = 5.2.9
