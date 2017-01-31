@@ -200,7 +200,7 @@ function erasmus_30_year_anniversary_event_preprocess_page(&$vars) {
       );
 
     $vars['page']['sidebar_right'] = $item . render($vars['page']['sidebar_right']);
-    $fields_to_render;
+    $fields_to_render = [];
     $fields_to_render[] = $vars['node']->field_30ya_txt_date[LANGUAGE_NONE][0]['value'];
     $fields_to_render[] = $vars['node']->field_30ya_city[LANGUAGE_NONE][0]['value'];
     $fields_to_render[] = $vars['node']->field_30ya_country[LANGUAGE_NONE][0]['taxonomy_term']->name;
