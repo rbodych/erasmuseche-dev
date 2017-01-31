@@ -92,8 +92,7 @@ function erasmus_30_year_anniversary_hero_preprocess_page(&$variables) {
   $current_path = request_uri();
 
   if (strpos($current_path, $allowed_uri) !== FALSE) {
-    drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css', 'external');
-    drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js', 'external');
+    _erasmus_30ya_core_add_swiper_library();
     drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
       . '/js/erasmus_30_year_anniversary_hero.js');
     drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
