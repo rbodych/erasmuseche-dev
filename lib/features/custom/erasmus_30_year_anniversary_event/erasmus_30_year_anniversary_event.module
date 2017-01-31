@@ -190,7 +190,7 @@ function erasmus_30_year_anniversary_event_preprocess_page(&$vars) {
     $item
       = theme('image_style', [
         'path' => $top_media,
-        'style_name' => 'erasmus_30_year_story_card__370x210',
+        'style_name' => 'erasmus_30_year_story_huge__720x574',
         'attributes' => [
           'class' => 'top-image',
         ],

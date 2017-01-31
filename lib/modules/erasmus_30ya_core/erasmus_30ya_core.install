@@ -20,3 +20,20 @@ function erasmus_30ya_core_install() {
 
   variable_set('colorbox_load', TRUE);
 }
+
+/**
+ * Implements hook_update_N();
+ * Save all events with is_passed status 0.
+ */
+function erasmus_30ya_core_update_7102() {
+  $result = db_select('node', 'n')
+    ->fields('n', ['nid'])
+    ->condition('type', 'erasmus_30ya_event')
+    ->execute();
+
+  foreach ($result as $res) {
+    $node = node_load($res->nid);
+    $node->field_30ya_is_passed[LANGUAGE_NONE][0]['value'] = "0";
+    node_save($node);
+  }
+}
