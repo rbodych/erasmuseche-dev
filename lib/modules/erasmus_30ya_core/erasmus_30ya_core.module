@@ -90,6 +90,14 @@ function erasmus_30ya_core_preprocess_node(&$vars) {
       && in_array($vars['view']->name, $allowed_views)) {
     $vars['theme_hook_suggestions'][] = 'node__card';
   }
+  $allowed_detail_pages = [
+    'erasmus_30ya_event',
+    'erasmus_30_year_anniversary_pres',
+  ];
+  if ($vars['view_mode'] == 'full'
+      && in_array($vars['type'], $allowed_detail_pages)) {
+    $vars['theme_hook_suggestions'][] = 'node__detail';
+  }
 }
 
 /**
@@ -332,4 +340,12 @@ function _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url) {
  */
 function erasmus_30ya_core_preprocess_page(&$vars) {
   drupal_add_library('system', 'ui.autocomplete');
+}
+
+/**
+ * Helper module to add Swiper library.
+ */
+function _erasmus_30ya_core_add_swiper_library() {
+  drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css', 'external');
+  drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js', 'external');
 }
