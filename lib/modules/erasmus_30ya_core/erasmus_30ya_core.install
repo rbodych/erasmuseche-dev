@@ -24,7 +24,7 @@ function erasmus_30ya_core_install() {
 /**
  * Save all events with is_passed status 0.
  */
-function erasmus_30ya_core_update_7102() {
+function erasmus_30ya_core_update_7101() {
   $result = db_select('node', 'n')
     ->fields('n', ['nid'])
     ->condition('type', 'erasmus_30ya_event')
