@@ -64,6 +64,7 @@ function erasmus_30_year_anniversary_event_field_group_info() {
       0 => 'field_30ya_pictures',
       1 => 'field_30ya_passed_event_report',
       2 => 'field_30ya_is_passed',
+      3 => 'field_30ya_video_event',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
