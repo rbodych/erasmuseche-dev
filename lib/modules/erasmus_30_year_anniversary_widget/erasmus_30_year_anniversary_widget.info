@@ -1,0 +1,6 @@
+name = Erasmus 30year anniversary widget
+description = Anniversary 30 year widget (logo links back to our site)
+core = 7.x
+package = Erasmus+ 30 year anniversary
+multisite_version = 2.2
+php = 5.2.9
