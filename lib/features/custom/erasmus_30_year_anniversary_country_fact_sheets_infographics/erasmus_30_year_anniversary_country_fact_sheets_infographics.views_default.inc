@@ -51,6 +51,7 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_views_defa
   $handler->display->display_options['sorts']['field_country_na_events_tid_i18n']['id'] = 'field_country_na_events_tid_i18n';
   $handler->display->display_options['sorts']['field_country_na_events_tid_i18n']['table'] = 'field_data_field_country_na_events';
   $handler->display->display_options['sorts']['field_country_na_events_tid_i18n']['field'] = 'field_country_na_events_tid_i18n';
+  $handler->display->display_options['sorts']['field_country_na_events_tid_i18n']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
