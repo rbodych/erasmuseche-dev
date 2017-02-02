@@ -248,7 +248,7 @@ function erasmus_30ya_core_preprocess_block(&$vars) {
       && $vars['block_html_id'] == 'block-menu-menu-erasmus-30') {
 
     $path = path_to_theme();
-    $logo_path = $path . '/logo_' . $language->language . '.png';
+    $logo_path = $path . '/assets/images/logos/logo_' . $language->language . '.png';
     if (file_exists($logo_path)) {
       $vars['logo'] = $base_url . '/' . $logo_path;
     }
