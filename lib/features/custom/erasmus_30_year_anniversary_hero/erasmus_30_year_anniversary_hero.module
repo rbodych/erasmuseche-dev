@@ -62,7 +62,7 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
 
         $node['content']['node_url'] = $node['node_url'];
 
-        $node['content']['moreLink'] = l(t('Read more'),
+        $node['content']['moreLink'] = l(t('Read more and watch video'),
           '/anniversary/discover-erasmusplus',
           [
             'attributes' => ['class' => 'button button--primary button--small'],
