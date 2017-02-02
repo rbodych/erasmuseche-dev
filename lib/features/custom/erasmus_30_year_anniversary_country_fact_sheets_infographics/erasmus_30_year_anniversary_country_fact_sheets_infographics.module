@@ -17,7 +17,7 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_preprocess
 
     foreach ($vars['field_30ya_fact_sheets'][$vars['language']] as $fact_sheet) {
       $fileSize = number_format($fact_sheet['filesize'] / 1048576, 2) . ' MB';
-      $vars['intro'] = t('File size:') . ' ' . $fileSize;
+      $vars['intro'] = t('File size: %filesize', ['%filesize' => $fileSize]);
       $factSheet = l(t('Download'),
         file_create_url($fact_sheet['uri']),
         [
