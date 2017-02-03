@@ -314,6 +314,19 @@ function _erasmus_30ya_core_return_countries_map_tids_name() {
 }
 
 /**
+ * Retrieve all countries.
+ */
+function _erasmus_30ya_core_retrieve_all_countries() {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('ec_world_countries');
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  $return = [];
+  foreach ($terms as $tid => $objectTerm) {
+    $return[$tid] = $objectTerm->name;
+  }
+  return $return;
+}
+
+/**
  * Helper function to construct a twitter tweet intent url.
  */
 function _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url) {

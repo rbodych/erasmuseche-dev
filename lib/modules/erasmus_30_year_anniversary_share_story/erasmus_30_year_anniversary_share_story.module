@@ -68,7 +68,7 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
   $form['intro_3'] = [
     '#type' => 'item',
     '#title' => t('Prize'),
-    '#markup' => t("During the submission period, we'll be giving away 3 x €100 travel vouchers for inspiring entries. But that’s not all - the public’s choice will win a €400 travel voucher!"),
+    '#markup' => t("During the submission period, we'll be giving away 4 x €100 travel vouchers for inspiring entries. But that’s not all - the public’s choice will win a €600 travel voucher!"),
   ];
   $form['intro_4'] = [
     '#type' => 'item',
@@ -76,9 +76,9 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#markup' => t("Whether you studied, did a traineeship, went on a youth exchange, volunteered, got teacher/youth worker/sports coach training, or undertook any other activity with Erasmus+ funding in the past 30 years, this competition is for you!"),
   ];
   $form['intro_5'] = [
-    '#markup' => '<div class="center">' .
+    '#markup' => '<div class="center"><strong>' .
     t('Don’t forget to share your entry on social media too! #ErasmusPlus')
-    . '</div>',
+    . '</strong></div>',
     '#suffix' => '</div>',
   ];
   $form['name'] = [
@@ -86,7 +86,13 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#title' => t('Name'),
     '#type' => 'textfield',
     '#required' => TRUE,
-    '#attributes' => ['placeholder' => t('Your firstname and lastname')],
+    '#attributes' => ['placeholder' => t('Your firstname')],
+  ];
+  $form['last_name'] = [
+    '#title' => t('Name'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Your lastname')],
   ];
   $form['email'] = [
     '#title' => t('Email address'),
@@ -94,10 +100,10 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#required' => TRUE,
     '#attributes' => ['placeholder' => t('Email address')],
   ];
-  $form['country'] = [
-    '#title' => t('Country'),
+  $form['nationality'] = [
+    '#title' => t('Nationality'),
     '#type' => 'select',
-    '#options' => _erasmus_30ya_core_return_countries_map_tids_name(),
+    '#options' => _erasmus_30ya_core_retrieve_all_countries(),
     '#chosen' => TRUE,
     '#required' => TRUE,
   ];
@@ -111,7 +117,7 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
   $form['erasmus_destination'] = [
     '#title' => t('Erasmus+ destination'),
     '#type' => 'select',
-    '#options' => _erasmus_30ya_core_return_countries_map_tids_name(),
+    '#options' => _erasmus_30ya_core_retrieve_all_countries(),
     '#required' => TRUE,
     '#chosen' => TRUE,
     '#attributes' => ['placeholder' => t('Erasmus+ destination')],
@@ -141,11 +147,14 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#title' => t('Terms & Conditions'),
     '#type' => 'checkbox',
     '#required' => TRUE,
-    '#description' => l(t('Click here to view the Terms & conditions'),
-      '/anniversary/terms-conditions-share-story',
-      [
+    '#description' => t('I have read, understood and accept the !privacy and the !terms', [
+      '!privacy' => l(t('Specific Privacy Statement'), '/anniversary/privacy-statement-share-story', [
         'attributes' => ['target' => '_blank'],
       ]),
+      '!terms' => l(t('Terms and Conditions'), '/anniversary/terms-conditions-share-story', [
+        'attributes' => ['target' => '_blank'],
+      ]),
+    ]),
   ];
   $form['submit'] = [
     '#type' => 'submit',
@@ -164,10 +173,11 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
   file_save($file);
 
   $countries = _erasmus_30ya_core_return_countries_map_tids_name();
-  $values['country'] = $countries[$form_state['values']['country']];
+  $values['nationality'] = $countries[$form_state['values']['nationality']];
   $values['body'] = $form_state['values']['description'];
   $values['email'] = $form_state['values']['email'];
   $values['name'] = $form_state['values']['name'];
+  $values['last_name'] = $form_state['values']['last_name'];
   $values['erasmus_destination'] = $countries[$form_state['values']['erasmus_destination']];
   $values['erasmus_year'] = $form_state['values']['erasmus_year'];
   $values['image'] = file_create_url($file->uri);
@@ -202,7 +212,8 @@ function erasmus_30_year_anniversary_share_story_mail($key, &$message, $params) 
       $message['body'][] = 'Image url:' . $params['image'];
       $message['body'][] = 'From email: ' . $params['email'];
       $message['body'][] = 'From name: ' . $params['name'];
-      $message['body'][] = 'Country: ' . $params['country'];
+      $message['body'][] = 'From last name: ' . $params['last_name'];
+      $message['body'][] = 'Nationality: ' . $params['nationality'];
       $message['body'][] = 'Destination: ' . $params['erasmus_destination'];
       $message['body'][] = 'Year: ' . $params['erasmus_year'];
       break;
