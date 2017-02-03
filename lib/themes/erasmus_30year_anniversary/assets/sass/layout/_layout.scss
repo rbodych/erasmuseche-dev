@@ -916,7 +916,8 @@ header {
       }
       .right {
         width: 60%;
-        flex-basis: 60%;
+        @include flex-basis(60%);
+        flex: 1 0;
         padding: $padding-large;
       }
     }
