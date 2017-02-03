@@ -607,6 +607,10 @@ body {
         margin: 0 0 2.5em;
         padding: 0;
         border: 0;
+
+        &.form-type-date-select {
+          margin: 0;
+        }
     
        input,
         textarea {
