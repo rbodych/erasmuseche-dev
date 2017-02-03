@@ -121,8 +121,8 @@ function _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb_ur
  * Add a full screen link to html content.
  */
 function _erasmus_30_year_anniversary_page_add_full_screen_link($content) {
-  return $content .= l(t('View full screen'), '#', [
+  return '<div class="colorbox-image-link-wrapper">' . $content .= l(t('View full screen'), '#', [
     'attributes' => ['class' => 'activate-colorbox'],
   ]
-  );
+  ) . '</div>';
 }
