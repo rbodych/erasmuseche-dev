@@ -27,6 +27,11 @@
     max-width: none;
     background-color: transparent;
   }
+
+  video {
+    min-width: 951px;
+    min-height: 535px;
+  }
 }
 
 .background-img-full {

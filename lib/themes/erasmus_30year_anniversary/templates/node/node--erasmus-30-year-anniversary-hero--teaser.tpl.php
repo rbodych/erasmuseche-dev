@@ -17,7 +17,7 @@
     <?php endif; ?>
     <?php print render($title_suffix); ?>
     
-    <video>
+    <video preload="none" poster="<?php print $content['video_poster']; ?>">
       <source src="<?php print $content['vid']; ?>" type="video/mp4">
       <?php if (isset($content['srt']) && !empty($content['srt'])): ?>
         <track label="<?php print $content['srt_lang']; ?>" kind="subtitles"
