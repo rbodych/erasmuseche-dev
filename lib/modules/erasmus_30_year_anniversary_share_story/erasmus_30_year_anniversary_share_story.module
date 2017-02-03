@@ -89,7 +89,7 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#attributes' => ['placeholder' => t('Your firstname')],
   ];
   $form['last_name'] = [
-    '#title' => t('Name'),
+    '#title' => t('Last name'),
     '#type' => 'textfield',
     '#required' => TRUE,
     '#attributes' => ['placeholder' => t('Your lastname')],
