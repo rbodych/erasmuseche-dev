@@ -97,7 +97,7 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
  * Social media feed operator.
  */
 function _erasmus_30_year_anniversary_social_media_feed_operator() {
-  $items_tw = _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter();
+  $items_tw = array();
   $items_fb = _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook();
   $items = array_merge($items_tw, $items_fb);
   $items = _erasmus_30_year_anniversary_social_media_feed_manipulate_items($items);
