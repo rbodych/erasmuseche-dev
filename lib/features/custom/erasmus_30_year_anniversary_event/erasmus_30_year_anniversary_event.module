@@ -154,9 +154,8 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     if (isset($vars['field_30ya_is_passed'])
         && $vars['field_30ya_is_passed'][LANGUAGE_NONE][0]['value'] == TRUE) {
       $vars['card_class'] .= ' event-passed';
-      $detail_link = drupal_get_path_alias('node/' . $vars['nid']);
       $vars['detail_link'] = l(t('View event'),
-        $detail_link,
+        'node/' . $vars['nid'],
         [
           'attributes' => [
             'title' => t('View more pictures'),
