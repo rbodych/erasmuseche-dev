@@ -100,3 +100,13 @@ function erasmus_core_update_7004() {
   ];
   module_enable($modules);
 }
+
+/**
+ * Enable modules for 30year anniversary.
+ */
+function erasmus_core_update_7005() {
+  $modules = [
+    'erasmus_30_year_anniversary_social_media_feed',
+  ];
+  module_enable($modules);
+}
