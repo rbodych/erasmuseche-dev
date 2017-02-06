@@ -190,13 +190,13 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
  */
 function erasmus_30_year_anniversary_event_preprocess_page(&$vars) {
   if (isset($vars['node'])
-      && $vars['node']->type == 'erasmus_30ya_event'
-      && isset($vars['node']->field_30ya_pictures[LANGUAGE_NONE][0])) {
+      && $vars['node']->type == 'erasmus_30ya_event') {
 
+    $node_wrapper = entity_metadata_wrapper('node', $vars['node']);
+    $video = $node_wrapper->field_30ya_video_event->value();
     $item = '';
-    if (isset($vars['node']->field_30ya_video_even)) {
-      $top_media = $vars['node']->field_30ya_video_event;
-      $item = file_view_file($top_media[LANGUAGE_NONE][0]['file']);
+    if (!empty($video)) {
+      $item = file_view_file($video['file']);
       $item = render($item);
     }
 
