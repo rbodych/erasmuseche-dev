@@ -165,23 +165,6 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
       );
     }
   }
-  if (isset($vars['type']) && $vars['type'] == 'erasmus_30ya_event' &&
-      isset($vars['view_mode']) && $vars['view_mode'] == 'full') {
-    $to_unset = [
-      'field_30ya_txt_date',
-      'field_30ya_city',
-      'field_30ya_country',
-      'field_30ya_link_organiser',
-      'field_30ya_link',
-      'field_30ya_lead_organisation',
-      'field_30ya_expected_participants',
-      'field_30ya_passed_event_report',
-      'field_30ya_video_event',
-    ];
-    foreach ($to_unset as $unset) {
-      unset($vars['content'][$unset]);
-    }
-  }
 }
 
 /**
