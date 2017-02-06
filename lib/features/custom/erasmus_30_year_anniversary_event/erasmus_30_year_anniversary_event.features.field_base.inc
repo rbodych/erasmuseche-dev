@@ -77,6 +77,32 @@ function erasmus_30_year_anniversary_event_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
+  // Exported field_base: 'field_30ya_is_passed'.
+  $field_bases['field_30ya_is_passed'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_30ya_is_passed',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 1,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => '',
+      ),
+      'allowed_values_function' => '',
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_30ya_lead_organisation'.
   $field_bases['field_30ya_lead_organisation'] = array(
     'active' => 1,
@@ -159,6 +185,48 @@ function erasmus_30_year_anniversary_event_field_default_field_bases() {
     'type' => 'link_field',
   );
 
+  // Exported field_base: 'field_30ya_passed_event_report'.
+  $field_bases['field_30ya_passed_event_report'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_30ya_passed_event_report',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 1,
+    'module' => 'text',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'text_long',
+  );
+
+  // Exported field_base: 'field_30ya_pictures'.
+  $field_bases['field_30ya_pictures'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_30ya_pictures',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 1,
+    'module' => 'mediafield',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'media',
+  );
+
   // Exported field_base: 'field_30ya_presence_commissioner'.
   $field_bases['field_30ya_presence_commissioner'] = array(
     'active' => 1,
@@ -236,6 +304,27 @@ function erasmus_30_year_anniversary_event_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
+  );
+
+  // Exported field_base: 'field_30ya_video_event'.
+  $field_bases['field_30ya_video_event'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_30ya_video_event',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 1,
+    'module' => 'mediafield',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'media',
   );
 
   return $field_bases;

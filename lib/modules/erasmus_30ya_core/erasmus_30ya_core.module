@@ -90,6 +90,14 @@ function erasmus_30ya_core_preprocess_node(&$vars) {
       && in_array($vars['view']->name, $allowed_views)) {
     $vars['theme_hook_suggestions'][] = 'node__card';
   }
+  $allowed_detail_pages = [
+    'erasmus_30ya_event',
+    'erasmus_30_year_anniversary_pres',
+  ];
+  if ($vars['view_mode'] == 'full'
+      && in_array($vars['type'], $allowed_detail_pages)) {
+    $vars['theme_hook_suggestions'][] = 'node__detail';
+  }
 }
 
 /**
@@ -240,7 +248,7 @@ function erasmus_30ya_core_preprocess_block(&$vars) {
       && $vars['block_html_id'] == 'block-menu-menu-erasmus-30') {
 
     $path = path_to_theme();
-    $logo_path = $path . '/logo_' . $language->language . '.png';
+    $logo_path = $path . '/assets/images/logos/logo_' . $language->language . '.png';
     if (file_exists($logo_path)) {
       $vars['logo'] = $base_url . '/' . $logo_path;
     }
@@ -306,6 +314,19 @@ function _erasmus_30ya_core_return_countries_map_tids_name() {
 }
 
 /**
+ * Retrieve all countries.
+ */
+function _erasmus_30ya_core_retrieve_all_countries() {
+  $vocabulary = taxonomy_vocabulary_machine_name_load('ec_world_countries');
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
+  $return = [];
+  foreach ($terms as $tid => $objectTerm) {
+    $return[$tid] = $objectTerm->name;
+  }
+  return $return;
+}
+
+/**
  * Helper function to construct a twitter tweet intent url.
  */
 function _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url) {
@@ -332,4 +353,23 @@ function _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url) {
  */
 function erasmus_30ya_core_preprocess_page(&$vars) {
   drupal_add_library('system', 'ui.autocomplete');
+}
+
+/**
+ * Helper to get the path to Swiper library files.
+ */
+function _erasmus_30ya_core_retrieve_path_swiper_library() {
+  $module = drupal_get_path('module', 'erasmus_30ya_core');
+  $folder = 'swiper_assets';
+  $path = $module . '/' . $folder . '/';
+  return $path;
+}
+
+/**
+ * Helper module to add Swiper library.
+ */
+function _erasmus_30ya_core_add_swiper_library() {
+  $path = _erasmus_30ya_core_retrieve_path_swiper_library();
+  drupal_add_css($path . 'swiper.min.css');
+  drupal_add_js($path . 'swiper.min.js');
 }

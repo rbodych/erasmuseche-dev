@@ -1,0 +1,53 @@
+.share-story {
+  .share-link {
+    float: left;
+    margin-left: $padding-small;
+    
+    &:first-of-type {
+      margin: 0;
+    }
+  }
+  
+  .facebook {
+    @include display(flex);
+    @include align-items(center);
+
+    a {
+      background: url(../images/logo-fb-42x42-white.png) no-repeat center;
+      background-color: #3b5998;
+      width: 30px;
+      height: 30px;
+      opacity: .8;
+      text-indent: -999999px;
+      padding: 40px;
+      border: none;
+
+      &:hover {
+        opacity: 1;
+        padding: 40px;
+        border: none;
+      }
+    }
+  }
+
+  .twitter {
+    @include display(flex);
+    @include align-items(center);
+
+    a {
+      background: url(../images/logo-twitter-42x42-white.png) no-repeat center;
+      background-color: #1a8bf0;
+      width: 30px;
+      height: 30px;
+      opacity: .8;
+      text-indent: -999999px;
+      padding: 40px;
+
+      &:hover {
+        opacity: 1;
+        padding: 40px;
+        border: none;
+      }
+    }
+  }
+}

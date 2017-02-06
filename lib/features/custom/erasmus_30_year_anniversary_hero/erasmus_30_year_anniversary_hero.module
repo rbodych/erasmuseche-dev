@@ -26,6 +26,9 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
         unset($node['content']['field_30ya_hero_video']);
         $node['content']['srt_lang'] = $node['language'];
         $node['content']['vid'] = file_create_url($vid_url);
+        $video_uri = $node['field_30ya_hero_video_poster'][LANGUAGE_NONE][0]['uri'];
+        $node['content']['video_poster']
+          = image_style_url('erasmus_30_year_hero_video_poster_951x535', $video_uri);
         $banner_uri = $node['field_30ya_hero_banner'][0]['uri'];
         $node['content']['banner_url']
           = theme('image_style', [
@@ -62,7 +65,7 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
 
         $node['content']['node_url'] = $node['node_url'];
 
-        $node['content']['moreLink'] = l(t('Read more'),
+        $node['content']['moreLink'] = l(t('Watch video'),
           '/anniversary/discover-erasmusplus',
           [
             'attributes' => ['class' => 'button button--primary button--small'],
@@ -92,16 +95,12 @@ function erasmus_30_year_anniversary_hero_preprocess_page(&$variables) {
   $current_path = request_uri();
 
   if (strpos($current_path, $allowed_uri) !== FALSE) {
-    drupal_add_css('//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css', 'external');
-    drupal_add_js('//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js', 'external');
-    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
-      . '/js/erasmus_30_year_anniversary_hero.js');
-    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
-      . '/js/all_heroes_dropdown.js');
-    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
-      . '/js/social_hero.js');
-    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_hero')
-      . '/js/video_controls.js');
+    $heroPath = drupal_get_path('module', 'erasmus_30_year_anniversary_hero');
+    _erasmus_30ya_core_add_swiper_library();
+    drupal_add_js($heroPath . '/js/erasmus_30_year_anniversary_hero.js');
+    drupal_add_js($heroPath . '/js/all_heroes_dropdown.js');
+    drupal_add_js($heroPath . '/js/social_hero.js');
+    drupal_add_js($heroPath . '/js/video_controls.js');
 
     $variables['theme_hook_suggestions'][] = 'page__discover_erasmusplus';
   }

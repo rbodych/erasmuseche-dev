@@ -69,6 +69,11 @@
         </li>
       <?php endforeach; ?>
     <?php endif; ?>
+    <?php if (isset($detail_link)): ?>
+      <li>
+        <?php print $detail_link; ?>
+      </li>
+    <?php endif; ?>
   </ul>
   <?php if (isset($share) && $share): ?>
     <div class="share-links">

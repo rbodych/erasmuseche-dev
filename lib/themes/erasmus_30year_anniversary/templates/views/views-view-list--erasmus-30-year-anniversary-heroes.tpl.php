@@ -25,7 +25,9 @@
     <div class="swiper-wrapper">
         <!-- Slides -->
         <?php foreach ($rows as $id => $row): ?>
-          <div class="swiper-slide"><?php print $row; ?></div>
+          <div class="swiper-slide">
+            <?php print $row; ?>
+          </div>
         <?php endforeach; ?>
     </div>
     <!-- If we need pagination -->

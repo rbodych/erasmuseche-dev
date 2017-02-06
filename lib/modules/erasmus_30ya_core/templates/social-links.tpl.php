@@ -6,7 +6,7 @@
 ?>
 <div class="find-us-on">
   <div class="title">
-    <?php print t('Erasmus+ on:'); ?>
+    <?php print t('Follow Erasmus+ on:'); ?>
   </div>
   <div class="links">
     <ul>

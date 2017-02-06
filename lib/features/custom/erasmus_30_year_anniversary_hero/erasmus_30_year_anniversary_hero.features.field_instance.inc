@@ -285,6 +285,106 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-erasmus_30_year_anniversary_hero-field_30ya_hero_video_poster'.
+  $field_instances['node-erasmus_30_year_anniversary_hero-field_30ya_hero_video_poster'] = array(
+    'bundle' => 'erasmus_30_year_anniversary_hero',
+    'deleted' => 0,
+    'description' => 'A thumbnail for the video. To speed up page loading.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => '',
+        ),
+        'type' => 'image',
+        'weight' => 7,
+      ),
+      'erasmus_30_year_hero_homepage' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_30ya_hero_video_poster',
+    'label' => 'Video poster',
+    'required' => 1,
+    'settings' => array(
+      'alt_field' => 0,
+      'default_image' => 0,
+      'entity_translation_sync' => FALSE,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'filefield_paths' => array(
+        'active_updating' => 0,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '',
+        ),
+        'redirect' => FALSE,
+        'retroactive_update' => 0,
+      ),
+      'filefield_paths_enabled' => 1,
+      'max_filesize' => '1 MB',
+      'max_resolution' => '',
+      'min_resolution' => '900x500',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'avportal' => 0,
+          'dailymotion' => 0,
+          'ffp' => 0,
+          'node' => 0,
+          'private' => 0,
+          'public' => 'public',
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 'media_internet',
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-erasmus_30_year_anniversary_hero-field_30ya_hero_video_srt'.
   $field_instances['node-erasmus_30_year_anniversary_hero-field_30ya_hero_video_srt'] = array(
     'bundle' => 'erasmus_30_year_anniversary_hero',
@@ -373,7 +473,7 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'file_generic',
-      'weight' => 7,
+      'weight' => 8,
     ),
   );
 
@@ -564,6 +664,7 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('A thumbnail for the video. To speed up page loading.');
   t('Banner');
   t('Country');
   t('Position');
@@ -571,6 +672,7 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
   t('Teaser');
   t('Title');
   t('Video');
+  t('Video poster');
 
   return $field_instances;
 }

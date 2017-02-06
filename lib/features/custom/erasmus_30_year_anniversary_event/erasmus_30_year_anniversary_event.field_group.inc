@@ -34,8 +34,7 @@ function erasmus_30_year_anniversary_event_field_group_info() {
       8 => 'field_30ya_txt_date',
       9 => 'field_30ya_presence_commissioner',
       10 => 'title_field',
-      11 => 'workbench_access',
-      12 => 'language',
+      11 => 'language',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -49,9 +48,40 @@ function erasmus_30_year_anniversary_event_field_group_info() {
   );
   $field_groups['group_content|node|event|form'] = $field_group;
 
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_passed_event|node|erasmus_30ya_event|form';
+  $field_group->group_name = 'group_passed_event';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'erasmus_30ya_event';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Passed event',
+    'weight' => '20',
+    'children' => array(
+      0 => 'field_30ya_pictures',
+      1 => 'field_30ya_passed_event_report',
+      2 => 'field_30ya_is_passed',
+      3 => 'field_30ya_video_event',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-passed-event field-group-tab',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $field_groups['group_passed_event|node|erasmus_30ya_event|form'] = $field_group;
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Content');
+  t('Passed event');
 
   return $field_groups;
 }

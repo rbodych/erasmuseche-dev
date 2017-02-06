@@ -7,12 +7,13 @@ div[class*=views-widget-filter-field_] {
     display: none;
   }
   
-  .form-item-country {
+  .form-item-country,
+  .form-item-event-is-passed {
     display: none;
   }
   
-  .js-country-list__wrapper {
-    .js-country-list__content {
+  .js-filter-list__wrapper {
+    .js-filter-list__content {
       display: none;
       
       ul {
@@ -38,7 +39,7 @@ div[class*=views-widget-filter-field_] {
       }
     }
   
-    .js-country-list__selected {
+    .js-filter-list__selected {
       background: url(../images/picto-arrow-down-light-gray.png) no-repeat 99%;
       margin-top: 15px;
       width: 100%;
@@ -141,6 +142,14 @@ div[class*=views-widget-filter-field_] {
           background: $c-primary-2;
         }
       }
+
+      .chosen-results li {
+        color: $c-primary-1;
+
+        &:hover {
+          color: $c-gradient-intro-1;
+        }
+      }
     }
       
       textarea {
@@ -200,10 +209,23 @@ div[class*=views-widget-filter-field_] {
       
     }
     
-    .form-item-termsconditions .description {
-      background: none;
-      a {
-        color: #fff;
+    .form-item-termsconditions {
+      display: block !important;
+
+      .form-checkbox {
+        margin: 8px 0 0 !important;
+      }
+
+      label {
+        line-height: normal !important;
+        width: 100%;
+      }
+
+      .description {
+        background: none;
+        a {
+          color: #fff;
+        }
       }
     }
     
@@ -524,8 +546,8 @@ body {
 
 @include media($tablet-min-width) {
   div[class*=views-widget-filter-field_] {
-    .js-country-list__wrapper {
-      .js-country-list__content {
+    .js-filter-list__wrapper {
+      .js-filter-list__content {
         ul {
           position: absolute;
           z-index: 9;
@@ -585,6 +607,10 @@ body {
         margin: 0 0 2.5em;
         padding: 0;
         border: 0;
+
+        &.form-type-date-select {
+          margin: 0;
+        }
     
        input,
         textarea {
@@ -678,8 +704,8 @@ body {
   
 
     div[class*=views-widget-filter-field_] {
-      .js-country-list__wrapper {
-        .js-country-list__content {
+      .js-filter-list__wrapper {
+        .js-filter-list__content {
           ul {
             li {
               @include flex-basis(25%);
@@ -688,7 +714,7 @@ body {
           }
         }
         
-        .js-country-list__selected {
+        .js-filter-list__selected {
           width: 100%;
         }
       }
@@ -729,21 +755,25 @@ body {
     }
   }
   
-  .country-filter-form {
+  .exposed-filter-form {
     div[class*=views-widget-filter-field_] {
-      .js-country-list__wrapper {
-        .js-country-list__content {
+      .js-filter-list__wrapper {
+        .js-filter-list__content {
           ul {
             li {
               width: 25%;
             }
           }
           
-        .js-country-list__selected {
+        .js-filter-list__selected {
           width: 60%;
         }
         }
       }
+    }
+    
+    .views-exposed-widget + .views-exposed-widget {
+      margin-top: $padding;
     }
   }
   

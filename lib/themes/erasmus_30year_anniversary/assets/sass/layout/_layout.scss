@@ -41,9 +41,12 @@ header {
         box-shadow: $shadow-big;
         object-fit: cover;
         width: 100%;
-        
-        &.image-thumb {
+      }
+      
+      & > .colorbox-wrapper {
+        .image-thumb {
           max-width: inherit;
+          width: 100%;
         }
       }
       
@@ -340,7 +343,6 @@ header {
 
       img {
         width: 100%;
-        max-width: 500px;
         height: initial;
         max-height: none;
         object-fit: cover;

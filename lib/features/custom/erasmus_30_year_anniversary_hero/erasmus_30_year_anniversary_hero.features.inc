@@ -65,6 +65,25 @@ function erasmus_30_year_anniversary_hero_image_default_styles() {
     ),
   );
 
+  // Exported image style: erasmus_30_year_hero_video_poster_951x535.
+  $styles['erasmus_30_year_hero_video_poster_951x535'] = array(
+    'label' => 'erasmus_30_year_hero_video_poster(951x535)',
+    'effects' => array(
+      10 => array(
+        'name' => 'focal_point_scale_and_crop',
+        'data' => array(
+          'width' => 951,
+          'height' => 535,
+          'focal_point_advanced' => array(
+            'shift_x' => '',
+            'shift_y' => '',
+          ),
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }
 
