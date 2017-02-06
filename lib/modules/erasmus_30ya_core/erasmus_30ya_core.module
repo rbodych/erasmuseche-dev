@@ -356,12 +356,20 @@ function erasmus_30ya_core_preprocess_page(&$vars) {
 }
 
 /**
- * Helper module to add Swiper library.
+ * Helper to get the path to Swiper library files.
  */
-function _erasmus_30ya_core_add_swiper_library() {
+function _erasmus_30ya_core_retrieve_path_swiper_library() {
   $module = drupal_get_path('module', 'erasmus_30ya_core');
   $folder = 'swiper_assets';
   $path = $module . '/' . $folder . '/';
+  return $path;
+}
+
+/**
+ * Helper module to add Swiper library.
+ */
+function _erasmus_30ya_core_add_swiper_library() {
+  $path = _erasmus_30ya_core_retrieve_path_swiper_library();
   drupal_add_css($path . 'swiper.min.css');
   drupal_add_js($path . 'swiper.min.js');
 }

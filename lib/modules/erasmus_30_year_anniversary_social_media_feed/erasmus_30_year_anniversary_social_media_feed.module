@@ -127,7 +127,7 @@ function erasmus_30_year_anniversary_social_media_feed_block_info() {
  */
 function erasmus_30_year_anniversary_social_media_feed_block_view($delta = '') {
   $block = array();
-
+  $pathSwiper = _erasmus_30ya_core_retrieve_path_swiper_library();
   switch ($delta) {
     case 'e30ya_social_media_feed':
       $block['content']['#markup']
@@ -135,15 +135,13 @@ function erasmus_30_year_anniversary_social_media_feed_block_view($delta = '') {
       $block['content']['#attached'] = [
         'js' => [
           [
-            'data' => '//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js',
-            'type' => 'external',
+            'data' => $pathSwiper . 'swiper.min.js',
           ],
           drupal_get_path('module', 'erasmus_30_year_anniversary_social_media_feed') . '/js/e30yaSocialMediaFeed.js',
         ],
         'css' => [
           [
-            'data' => '//cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css',
-            'type' => 'external',
+            'data' => $pathSwiper . 'swiper.min.css',
           ],
         ],
       ];
