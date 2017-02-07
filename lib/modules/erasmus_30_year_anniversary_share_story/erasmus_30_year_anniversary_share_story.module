@@ -257,8 +257,8 @@ function _erasmus_30_year_anniversary_share_story_social_share_content() {
   $url = $base_url . ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_CONFIRMATION_URL;
   drupal_add_js([
     'erasmus_30_year_anniversary_share_story' => [
-      'shareCompetitionUrl' => $url
-      ]
+      'shareCompetitionUrl' => $url,
+      ],
     ],
   'setting');
   $title = t("I've just told my Erasmus+ story. Tell yours and you could win a travel voucher!");
