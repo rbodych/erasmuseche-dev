@@ -274,7 +274,7 @@ class TwitterAPIExchange
     {
         if (!is_bool($return))
         {
-            throw new Exception('performRequest parameter must be true or false');
+          throw new Exception('performRequest parameter must be true or false');
         }
 
         $header = array($this->buildAuthorizationHeader($this->oauth), 'Expect:');
@@ -293,9 +293,9 @@ class TwitterAPIExchange
         }
         $options = array(
           CURLOPT_HTTPHEADER => $header,
-          CURLOPT_HEADER => false,
+          CURLOPT_HEADER => FALSE,
           CURLOPT_URL => $this->url,
-          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_RETURNTRANSFER => TRUE,
           CURLOPT_TIMEOUT => 10,
           CURLOPT_PROXY => $proxy,
           CURLOPT_PROXYUSERPWD => $proxyUserPwd,

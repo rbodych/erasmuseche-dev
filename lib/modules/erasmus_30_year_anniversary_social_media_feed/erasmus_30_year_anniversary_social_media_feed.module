@@ -32,7 +32,8 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
     $results = $twitter->setGetfield($getfield)
       ->buildOauth($url, $requestMethod)
       ->performRequest();
-  } catch (Exception $e) {
+  }
+  catch (Exception $e) {
     watchdog('erasmus_30ya_social_feed', 'Error contacting Twitter: %error', ['%error' => $e], WATCHDOG_ERROR);
     return [];
   }
