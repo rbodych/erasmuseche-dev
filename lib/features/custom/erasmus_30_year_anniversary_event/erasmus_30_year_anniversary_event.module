@@ -151,7 +151,7 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     $countryClass
       = drupal_strtolower($vars['field_30ya_country'][0]['taxonomy_term']->name);
     $vars['card_class'] = drupal_clean_css_identifier($countryClass);
-    if (isset($vars['field_30ya_is_passed'])
+    if (isset($vars['field_30ya_is_passed'][LANGUAGE_NONE][0])
         && $vars['field_30ya_is_passed'][LANGUAGE_NONE][0]['value'] == TRUE) {
       $vars['card_class'] .= ' event-passed';
       $vars['detail_link'] = l(t('View event'),
@@ -177,14 +177,18 @@ function erasmus_30_year_anniversary_event_preprocess_page(&$vars) {
     $node_wrapper = entity_metadata_wrapper('node', $vars['node']);
     $video = $node_wrapper->field_30ya_video_event->value();
     $item = '';
-    if (!empty($video)) {
+    if (!empty($video) && !empty($video['file'])) {
       $item = file_view_file($video['file']);
       $item = render($item);
     }
 
     $vars['page']['sidebar_right'] = $item . render($vars['page']['sidebar_right']);
-    $vars['page']['sidebar_left']
-      = $vars['node']->field_30ya_passed_event_report[LANGUAGE_NONE][0]['value'];
+
+    $passedEventReport = $node_wrapper->field_30ya_passed_event_report->value();
+    if (!empty($passedEventReport)) {
+      $vars['page']['sidebar_left']
+        = $passedEventReport;
+    }
     drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_event')
       . '/js/e30yaEventCarrousel.js');
     _erasmus_30ya_core_add_swiper_library();
