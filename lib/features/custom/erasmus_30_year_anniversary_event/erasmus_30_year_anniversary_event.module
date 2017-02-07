@@ -36,6 +36,7 @@ function erasmus_30_year_anniversary_event_theme() {
         'countries' => NULL,
         'events' => NULL,
         'participants' => NULL,
+        'label' => NULL,
       ),
       'template' => 'erasmus-30-year-anniversary-event-header',
       'path' => drupal_get_path('module', 'erasmus_30_year_anniversary_event') . '/templates',
@@ -49,7 +50,7 @@ function erasmus_30_year_anniversary_event_theme() {
 function erasmus_30_year_anniversary_event_block_info() {
   $blocks['e30ya_event_global_header'] = array(
     'info' => t('Erasmus+ 30 year global event header'),
-    'region' => 'sidebar_right',
+    'region' => 'content_top',
     'cache' => DRUPAL_CACHE_GLOBAL,
     'status' => TRUE,
     'visibility' => BLOCK_VISIBILITY_LISTED,
