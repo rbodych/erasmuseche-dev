@@ -277,14 +277,14 @@ class TwitterAPIExchange
             throw new Exception('performRequest parameter must be true or false');
         }
 
-        $header =  array($this->buildAuthorizationHeader($this->oauth), 'Expect:');
+        $header = array($this->buildAuthorizationHeader($this->oauth), 'Expect:');
 
         $getfield = $this->getGetfield();
         $postfields = $this->getPostfields();
 
         $proxyUsername = variable_get('proxy_username', '');
         $proxyPassword = variable_get('proxy_password', '');
-        $proxyUserPwd =  $proxyUsername . ':' . $proxyPassword;
+        $proxyUserPwd = $proxyUsername . ':' . $proxyPassword;
         $proxyServer = variable_get('proxy_server', '');
         $proxyPort = variable_get('proxy_port', '');
         $proxy = $proxyServer . ':' . $proxyPort;
@@ -292,13 +292,13 @@ class TwitterAPIExchange
             throw new Exception('Proxy settings are empty.');
         }
         $options = array(
-            CURLOPT_HTTPHEADER => $header,
-            CURLOPT_HEADER => false,
-            CURLOPT_URL => $this->url,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_TIMEOUT => 10,
-            CURLOPT_PROXY => $proxy,
-            CURLOPT_PROXYUSERPWD => $proxyUserPwd,
+          CURLOPT_HTTPHEADER => $header,
+          CURLOPT_HEADER => false,
+          CURLOPT_URL => $this->url,
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_TIMEOUT => 10,
+          CURLOPT_PROXY => $proxy,
+          CURLOPT_PROXYUSERPWD => $proxyUserPwd,
         ) + $curlOptions;
 
         if (!is_null($postfields))
