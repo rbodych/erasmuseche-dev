@@ -27,12 +27,17 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
   $url = variable_get('e30ya_tw_twitter_get_api_url', 'https://api.twitter.com/1.1/search/tweets.json');
   $getfield = '?q=%23' . $hashTag . '%20OR%20%23Erasmus30&count=25';
   $requestMethod = 'GET';
-
-  $twitter = new TwitterAPIExchange($settings);
-  $results = $twitter->setGetfield($getfield)
+  try {
+    $twitter = new TwitterAPIExchange($settings);
+    $results = $twitter->setGetfield($getfield)
       ->buildOauth($url, $requestMethod)
       ->performRequest();
-  if (!isset($results) || empty($results)) {
+  } catch (Exception $e) {
+    watchdog('erasmus_30ya_social_feed', 'Error contacting Twitter: %error', ['%error' => $e], WATCHDOG_ERROR);
+    return [];
+  }
+  if (!isset($results) || empty($results) || strpos($results, 'error') !== FALSE) {
+    watchdog('erasmus_30ya_social_feed', 'Twitter results malformed: %results', ['%results' => $results], WATCHDOG_ERROR);
     return [];
   }
   $results = drupal_json_decode($results);
@@ -97,7 +102,7 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
  * Social media feed operator.
  */
 function _erasmus_30_year_anniversary_social_media_feed_operator() {
-  $items_tw = array();
+  $items_tw = _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter();
   $items_fb = _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook();
   $items = array_merge($items_tw, $items_fb);
   $items = _erasmus_30_year_anniversary_social_media_feed_manipulate_items($items);
