@@ -76,6 +76,7 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
   }
   $fbAccessTokenRequest = str_replace('access_token=', '', $fbAccessTokenRequest->data);
   if (empty($fbAccessTokenRequest)) {
+    watchdog('erasmus_30ya_social_feed', 'Facebook access token empty', [], WATCHDOG_ERROR);
     return [];
   }
   $fburl = 'https://graph.facebook.com/v2.8/' . $pageId;
@@ -84,8 +85,12 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
     'access_token' => $fbAccessTokenRequest,
   ];
   $full_fburl = url($fburl, ['query' => $fbdata]);
-  $data  = file_get_contents($full_fburl);
-  $data = drupal_json_decode($data, TRUE);
+  $data  = drupal_http_request($full_fburl);
+  if (!isset($data->data)) {
+    watchdog('erasmus_30ya_social_feed', 'Facebook data empty', [], WATCHDOG_ERROR);
+    return [];
+  }
+  $data = drupal_json_decode($data->data, TRUE);
   $items = [];
   foreach ($data['posts']['data'] as $item) {
     $items[] = [
