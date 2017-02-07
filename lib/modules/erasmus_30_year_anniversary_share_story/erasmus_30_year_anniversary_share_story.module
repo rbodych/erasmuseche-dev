@@ -253,13 +253,16 @@ function erasmus_30_year_anniversary_share_story_theme() {
 function _erasmus_30_year_anniversary_share_story_social_share_content() {
   drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_share_story')
     . '/js/social_share_your_story.js');
+  global $base_url;
+  $url = $base_url . ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_CONFIRMATION_URL;
+  drupal_add_js([
+    'erasmus_30_year_anniversary_share_story' => [
+      'shareCompetitionUrl' => $url
+      ]
+    ],
+  'setting');
   $title = t("I've just told my Erasmus+ story. Tell yours and you could win a travel voucher!");
-  $share_url = url(current_path(), [
-    'absolute' => TRUE,
-    'query' => drupal_get_query_parameters(),
-  ]
-  );
-  $tw = _erasmus_30ya_core_construct_tweet_intent_url($title, $share_url);
+  $tw = _erasmus_30ya_core_construct_tweet_intent_url($title, $url);
   $fb = l(t('Share on Facebook'), '#', ['fragment' => '#']);
   return theme('erasmus_30_year_anniversary_share_story_social_share',
   [
