@@ -166,6 +166,10 @@
   
   .event-header--highlights {
     position: static;
+
+    @include media($mobile-min-width) {
+      padding-top: $padding;
+    }
   }
 }
 

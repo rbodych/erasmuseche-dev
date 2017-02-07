@@ -65,7 +65,7 @@ function _erasmus_30_year_anniversary_event_retrieve_global_event_block_content(
       'countries' => '33',
       'events' => number_format($amount_of_events, 0, ',', ' '),
       'participants' => number_format($participants, 0, ',', ' '),
-      'label' => t('Total results:'),
+      'label' => t('Total amount of events:'),
     ]
   );
 }
