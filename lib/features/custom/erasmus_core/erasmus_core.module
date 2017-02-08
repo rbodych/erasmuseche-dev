@@ -5,3 +5,12 @@
  */
 
 include_once 'erasmus_core.features.inc';
+
+/**
+ * Implements hook_strongarm_alter().
+ */
+function erasmus_core_strongarm_alter(&$items) {
+  if (!empty($items['theme_default'])) {
+    $items['theme_default']->value = 'erasmus';
+  }
+}
