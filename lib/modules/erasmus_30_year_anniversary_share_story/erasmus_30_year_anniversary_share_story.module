@@ -99,7 +99,7 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#attributes' => ['placeholder' => t('Email address')],
   ];
   $form['date_of_birth'] = [
-    '#title' => t('Date of birth'),
+    '#title' => t('Year of birth'),
     '#type' => 'date_select',
     '#date_format' => 'y',
     '#date_year_range' => '-110:+0',
