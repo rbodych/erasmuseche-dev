@@ -384,13 +384,11 @@ function erasmus_core_ds_layout_settings_info() {
         2 => 'field_calls_status',
         3 => 'field_calls_reference',
         4 => 'field_calls_clarifications',
-        5 => 'field_calls_documents',
       ),
       'right' => array(
-        6 => 'field_calls_images',
-        7 => 'field_calls_abstract',
-        8 => 'body',
-        9 => 'language',
+        5 => 'field_calls_images',
+        6 => 'field_calls_abstract',
+        7 => 'body',
       ),
     ),
     'fields' => array(
@@ -399,23 +397,11 @@ function erasmus_core_ds_layout_settings_info() {
       'field_calls_status' => 'left',
       'field_calls_reference' => 'left',
       'field_calls_clarifications' => 'left',
-      'field_calls_documents' => 'left',
       'field_calls_images' => 'right',
       'field_calls_abstract' => 'right',
       'body' => 'right',
-      'language' => 'right',
     ),
-    'classes' => array(
-      'layout_class' => array(
-        '' => '',
-      ),
-      'left' => array(
-        'class_left_call' => 'class_left_call',
-      ),
-      'right' => array(
-        'class_right_call' => 'class_right_call',
-      ),
-    ),
+    'classes' => array(),
     'wrappers' => array(
       'header' => 'div',
       'left' => 'div',
