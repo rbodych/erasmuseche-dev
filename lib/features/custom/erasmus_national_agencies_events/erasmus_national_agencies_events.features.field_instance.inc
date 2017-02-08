@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * erasmus_national_agencies_events.features.field_instance.inc
@@ -54,62 +53,6 @@ function erasmus_national_agencies_events_field_default_field_instances() {
       'type' => 'text_textarea_with_summary',
       'weight' => 9,
     ),
-  );
-
-  // Exported field_instance: 'node-agenda_na_events-field_address_na_events'.
-  $field_instances['node-agenda_na_events-field_address_na_events'] = array(
-    'bundle' => 'agenda_na_events',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Drag and Drop the marker on the right address',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 6,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_address_na_events',
-    'label' => 'Address (Map)',
-    'required' => 0,
-    'settings' => array(
-      'entity_translation_sync' => FALSE,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'nexteuropa_geofield',
-      'settings' => array(
-        'fs_default_map_center' => array(
-          'lat' => 50.82382,
-          'lng' => 4.35905,
-        ),
-        'fs_objects' => array(
-          'fs_prepopulate' => array(
-            'description_populate' => 'field_readable_address_na_events',
-            'name_populate' => 'field_place_name_na_events',
-          ),
-          'objects' => array(
-            'marker' => 'marker',
-            'polygon' => 'polygon',
-            'polyline' => 'polyline',
-            'rectangle' => 'rectangle',
-          ),
-          'objects_amount' => 1,
-        ),
-      ),
-      'type' => 'geofield_widget_map',
-      'weight' => 11,
-    ),
-    'workbench_access_field' => 0,
   );
 
   // Exported field_instance:
@@ -850,7 +793,7 @@ function erasmus_national_agencies_events_field_default_field_instances() {
   // Exported field_instance: 'node-agenda_na_events-field_speakers_na_events'.
   $field_instances['node-agenda_na_events-field_speakers_na_events'] = array(
     'bundle' => 'agenda_na_events',
-    'default_value' => NULL,
+    'default_value' => array(),
     'deleted' => 0,
     'description' => 'Choose the Speaker for the current scheduled slot',
     'display' => array(
@@ -877,11 +820,14 @@ function erasmus_national_agencies_events_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'entityreference',
       'settings' => array(
         'apply_chosen' => '',
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
       ),
-      'type' => 'options_select',
+      'type' => 'entityreference_autocomplete',
       'weight' => 22,
     ),
     'workbench_access_field' => 0,
@@ -1512,7 +1458,7 @@ function erasmus_national_agencies_events_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => '',
+          'image_style' => 'media_thumbnail__330x330__-_na_speakers',
         ),
         'type' => 'image',
         'weight' => 4,
@@ -1773,7 +1719,6 @@ function erasmus_national_agencies_events_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Address (Map)');
   t('Body');
   t('Browse and select the video related this conference/event');
   t('Browser and upload photos (images) from your local driver.');
@@ -1784,11 +1729,10 @@ function erasmus_national_agencies_events_field_default_field_instances() {
   t('Choose the right session for the scheduled slot.');
   t('Country');
   t('Date');
-  t('Drag and Drop the marker on the right address');
   t('Email address');
   t('Facebook');
   t('Field-Specific Sessions');
-  t('Hall/Room');
+  t('Hall/Room ');
   t('Image event');
   t('Instagram');
   t('Job Title');
@@ -1802,16 +1746,16 @@ function erasmus_national_agencies_events_field_default_field_instances() {
   t('Speaker');
   t('Speakers');
   t('Twitter');
-  t("Type the URL of the Speaker's Facebook profile. E.g.: <i>https://www.facebook.com/EUErasmusPlusProgramme</i>");
-  t("Type the URL of the Speaker's Instagram profile. E.g.: <i>https://www.instagram.com/europeancommission/</i>");
-  t("Type the URL of the Speaker's Twitter profile. E.g.: <i>https://be.linkedin.com/in/linked-in-profile</i>");
-  t("Type the URL of the Speaker's Twitter profile. E.g.: <i>https://twitter.com/JunckerEU</i>");
-  t("Type the URL of the Speaker's Yammer profile. E.g.: <i>https://www.yammer.com/ec.europa.eu/#/users/123456789</i>");
-  t("Type the URL of the Speaker's website");
+  t('Type the URL of the Speaker\'s Facebook profile. E.g.: <i>https://www.facebook.com/EUErasmusPlusProgramme</i>');
+  t('Type the URL of the Speaker\'s Instagram profile. E.g.: <i>https://www.instagram.com/europeancommission/</i>');
+  t('Type the URL of the Speaker\'s Twitter profile. E.g.: <i>https://be.linkedin.com/in/linked-in-profile</i>');
+  t('Type the URL of the Speaker\'s Twitter profile. E.g.: <i>https://twitter.com/JunckerEU</i>');
+  t('Type the URL of the Speaker\'s Yammer profile. E.g.: <i>https://www.yammer.com/ec.europa.eu/#/users/123456789</i>');
+  t('Type the URL of the Speaker\'s website ');
   t('Type the URL of the place where the event/conference will be held.');
   t('Type the current job position of the Speaker');
   t('Type the electronic mail address of the speaker');
-  t("Type the human readable address. E.g.: <i>118, rue de l'Aqueduc - 1050 Bruxelles</i>");
+  t('Type the human readable address. E.g.: <i>118, rue de l\'Aqueduc - 1050 Bruxelles</i>');
   t('Type the name/number of the Room/Hall/Lobby/Galley where the conference/event will held');
   t('Type the option to set up the conference/meeting room. E.g.: <i>50 pax + 10 chairs</i>');
   t('Type the place name where the conference/event will held');

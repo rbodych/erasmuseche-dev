@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * erasmus_national_agencies_events.field_group.inc
@@ -22,15 +21,15 @@ function erasmus_national_agencies_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Personal information',
-    'weight' => '1',
+    'weight' => '2',
     'children' => array(
-      0 => 'field_job_title_speakers',
-      1 => 'field_organiz_instit_speakers',
-      2 => 'field_email_address_speakers',
-      3 => 'field_twitter_speakers',
-      4 => 'field_facebook_speakers',
-      5 => 'field_linkedin_speakers',
-      6 => 'field_instagram_speakers',
+      0 => 'field_email_address_speakers',
+      1 => 'field_facebook_speakers',
+      2 => 'field_instagram_speakers',
+      3 => 'field_job_title_speakers',
+      4 => 'field_linkedin_speakers',
+      5 => 'field_organiz_instit_speakers',
+      6 => 'field_twitter_speakers',
       7 => 'field_website_speakers',
       8 => 'field_yammer_speakers',
     ),
@@ -62,7 +61,7 @@ function erasmus_national_agencies_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Biography',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
       0 => 'body',
     ),
@@ -402,7 +401,7 @@ function erasmus_national_agencies_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'photo',
-    'weight' => '0',
+    'weight' => '1',
     'children' => array(
       0 => 'field_photo_speakers',
     ),

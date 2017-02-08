@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * erasmus_national_agencies_events.context.inc
@@ -32,11 +31,11 @@ function erasmus_national_agencies_events_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'om_maximenu-om-maximenu-2' => array(
+        'om_maximenu-om-maximenu-8' => array(
           'module' => 'om_maximenu',
-          'delta' => 'om-maximenu-2',
+          'delta' => 'om-maximenu-8',
           'region' => 'content_top',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
       ),
     ),
@@ -82,9 +81,6 @@ function erasmus_national_agencies_events_context_default_contexts() {
         ),
       ),
     ),
-    'debug' => array(
-      'debug' => 1,
-    ),
   );
   $context->condition_mode = 0;
 
@@ -103,24 +99,24 @@ function erasmus_national_agencies_events_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'na-events/events' => 'na-events/events',
+        'node/441' => 'node/441',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'block-26' => array(
+          'module' => 'block',
+          'delta' => '26',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
         'quicktabs-na_events_days_' => array(
           'module' => 'quicktabs',
           'delta' => 'na_events_days_',
           'region' => 'content',
-          'weight' => '-10',
-        ),
-        'print_ui-print-links' => array(
-          'module' => 'print_ui',
-          'delta' => 'print-links',
-          'region' => 'content_bottom',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
       ),
     ),
