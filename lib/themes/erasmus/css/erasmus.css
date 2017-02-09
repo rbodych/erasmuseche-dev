@@ -10,50 +10,35 @@
 @font-face {
   font-family: 'ECSquareSansProLight';
   src: url('../fonts/ecsquaresanspro-light-web.eot');
-  src: url('../fonts/ecsquaresanspro-light-web.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/ecsquaresanspro-light-web.woff') format('woff'),
-  url('../fonts/ecsquaresanspro-light-web.ttf') format('truetype'),
-  url('../fonts/ecsquaresanspro-light-web.svg#ECSquareSansProLight') format('svg');
+  src: url('../fonts/ecsquaresanspro-light-web.eot?#iefix') format('embedded-opentype'), url('../fonts/ecsquaresanspro-light-web.woff') format('woff'), url('../fonts/ecsquaresanspro-light-web.ttf') format('truetype'), url('../fonts/ecsquaresanspro-light-web.svg#ECSquareSansProLight') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'ECSquareSansProMedium';
   src: url('../fonts/ecsquaresanspro-medium-web.eot');
-  src: url('../fonts/ecsquaresanspro-medium-web.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/ecsquaresanspro-medium-web.woff') format('woff'),
-  url('../fonts/ecsquaresanspro-medium-web.ttf') format('truetype'),
-  url('../fonts/ecsquaresanspro-medium-web.svg#ECSquareSansProMedium') format('svg');
+  src: url('../fonts/ecsquaresanspro-medium-web.eot?#iefix') format('embedded-opentype'), url('../fonts/ecsquaresanspro-medium-web.woff') format('woff'), url('../fonts/ecsquaresanspro-medium-web.ttf') format('truetype'), url('../fonts/ecsquaresanspro-medium-web.svg#ECSquareSansProMedium') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'ECSquareSansProRegular';
   src: url('../fonts/ecsquaresanspro-regular-web.eot');
-  src: url('../fonts/ecsquaresanspro-regular-web.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/ecsquaresanspro-regular-web.woff') format('woff'),
-  url('../fonts/ecsquaresanspro-regular-web.ttf') format('truetype'),
-  url('../fonts/ecsquaresanspro-regular-web.svg#ECSquareSansProRegular') format('svg');
+  src: url('../fonts/ecsquaresanspro-regular-web.eot?#iefix') format('embedded-opentype'), url('../fonts/ecsquaresanspro-regular-web.woff') format('woff'), url('../fonts/ecsquaresanspro-regular-web.ttf') format('truetype'), url('../fonts/ecsquaresanspro-regular-web.svg#ECSquareSansProRegular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'ECSquareSansProBold';
   src: url('../fonts/ecsquaresanspro-bold-web.eot');
-  src: url('../fonts/ecsquaresanspro-bold-web.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/ecsquaresanspro-bold-web.woff') format('woff'),
-  url('../fonts/ecsquaresanspro-bold-web.ttf') format('truetype'),
-  url('../fonts/ecsquaresanspro-bold-web.svg#ECSquareSansProBold') format('svg');
+  src: url('../fonts/ecsquaresanspro-bold-web.eot?#iefix') format('embedded-opentype'), url('../fonts/ecsquaresanspro-bold-web.woff') format('woff'), url('../fonts/ecsquaresanspro-bold-web.ttf') format('truetype'), url('../fonts/ecsquaresanspro-bold-web.svg#ECSquareSansProBold') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'ECSquareSansProExtraBlack';
   src: url('../fonts/ecsquaresanspro-xblack-web.eot');
-  src: url('../fonts/ecsquaresanspro-xblack-web.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/ecsquaresanspro-xblack-web.woff') format('woff'),
-  url('../fonts/ecsquaresanspro-xblack-web.ttf') format('truetype'),
-  url('../fonts/ecsquaresanspro-xblack-web.svg#ECSquareSansProExtraBlack') format('svg');
+  src: url('../fonts/ecsquaresanspro-xblack-web.eot?#iefix') format('embedded-opentype'), url('../fonts/ecsquaresanspro-xblack-web.woff') format('woff'), url('../fonts/ecsquaresanspro-xblack-web.ttf') format('truetype'), url('../fonts/ecsquaresanspro-xblack-web.svg#ECSquareSansProExtraBlack') format('svg');
   font-weight: normal;
   font-style: normal;
 }
