@@ -6,15 +6,6 @@
 ?>
 
 <section class="social-media-feed-container">
-  <section class="view-filters gradient-stripe gradient-a">
-    <div class="gradient-stripe__content">
-      <h2>
-        <?php print t('Social media feed'); ?>
-      </h2>
-    </div>
-    <div class="background-pattern"></div>
-  </section>
-
   <div class="swiper-wrapper">
     <?php foreach ($items as $item): ?>
       <div class="swiper-slide">
