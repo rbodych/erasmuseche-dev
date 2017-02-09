@@ -6,6 +6,8 @@
 
 define('ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_CONFIRMATION_URL',
   '/anniversary/share-your-story-confirmation');
+define('ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_URL',
+  '/anniversary/share-your-story');
 
 /**
  * Implements hook_block_info().
@@ -254,7 +256,7 @@ function _erasmus_30_year_anniversary_share_story_social_share_content() {
   drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_share_story')
     . '/js/social_share_your_story.js');
   global $base_url;
-  $url = $base_url . ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_CONFIRMATION_URL;
+  $url = $base_url . ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_URL;
   drupal_add_js([
     'erasmus_30_year_anniversary_share_story' => [
       'shareCompetitionUrl' => $url,
