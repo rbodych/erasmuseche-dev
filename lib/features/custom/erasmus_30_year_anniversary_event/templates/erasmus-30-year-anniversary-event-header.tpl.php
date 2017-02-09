@@ -5,7 +5,7 @@
  */
 ?>
 <div class="event-header--highlights">
-  <p><?php print t('Search results:'); ?></p>
+  <p><?php print $label; ?></p>
   <?php if (isset($countries)): ?>
     <div class="event-header--country">
       <?php print format_plural($countries, t('1 country'), t('@count') . '<span>' . t('countries') . '</span>'); ?>

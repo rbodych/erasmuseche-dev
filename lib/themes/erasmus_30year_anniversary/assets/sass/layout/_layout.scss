@@ -76,7 +76,7 @@ header {
         background: $c-primary-2;
         color: #fff;
         width: 100%;
-        padding: 0;
+        padding: $padding 0;
         box-shadow: $shadow-big;
         @include justify-content(space-around);
         @include flex-wrap(wrap);
@@ -131,29 +131,51 @@ header {
 // Tile with highlight numbers
 .event-header--highlights {
   font-size: $heading-3-size;
-  padding: 0;
+  padding: $padding 0;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
 
-  @include display(flex);
-  @include align-items(center);
-  @include justify-content(center);
-  
+  @include media($mobile-min-width) {
+    padding-top: 70px;
+  }
+  @include media($tablet-min-width) {
+    padding-top: $padding;
+    text-align: left;
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+
+    > div {
+      margin-right: $padding-small;
+    }
+  }
   & > p {
     margin: 0;
     font-size: 16px;
+
+    @include media($tablet-min-width) {
+      margin: 0 $padding-small 0;
+    }
   }
-  
   & > div {
     padding: $padding;
     text-align: center;
     background: $c-gray-5;
-    margin: 0 $padding;
     @include display(flex);
     @include flex-direction(column);
-    
+
     span {
       width: 100%;
       font-size: .6em;
     }
+  }
+  .event-header--country {
+    margin-bottom: $padding-small;
+
+     @include media($tablet-min-width) {
+       margin: 0 $padding-small 0;
+     }
   }
 }
 
@@ -695,20 +717,6 @@ header {
             }
           }
         }
-        
-        .event-header--highlights {
-          position: absolute;
-          right: 10%;
-          top: 70%;
-          
-          & > div {
-            display: inline-block;
-            
-            span {
-              margin-left: 5px;
-            }
-          }
-        }        
       }
     }
   }
@@ -916,7 +924,8 @@ header {
       }
       .right {
         width: 60%;
-        flex-basis: 60%;
+        @include flex-basis(60%);
+        flex: 1 0;
         padding: $padding-large;
       }
     }
@@ -1029,14 +1038,6 @@ header {
           }
           
         }
-        
-        .event-header--highlights {
-          position: absolute;
-          left: -10%;
-          top: 70%;
-          max-width: 500px;
-        } 
-
       }
     }
   }

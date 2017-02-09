@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * erasmus_national_agencies_events.features.field_base.inc

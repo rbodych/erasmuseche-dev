@@ -162,11 +162,14 @@
   text-align: center;
   background: none;
   box-shadow: 0 0 0;
-  padding-top: $padding-medium;
   background: none;
   
   .event-header--highlights {
     position: static;
+
+    @include media($mobile-min-width) {
+      padding-top: $padding;
+    }
   }
 }
 

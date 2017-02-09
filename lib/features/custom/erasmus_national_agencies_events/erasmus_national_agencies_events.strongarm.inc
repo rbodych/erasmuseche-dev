@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * erasmus_national_agencies_events.strongarm.inc
@@ -22,21 +21,21 @@ function erasmus_national_agencies_events_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_agenda_na_events';
-  $strongarm->value = 0;
+  $strongarm->value = '0';
   $export['comment_anonymous_agenda_na_events'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_na_events_pages';
-  $strongarm->value = 0;
+  $strongarm->value = '0';
   $export['comment_anonymous_na_events_pages'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_speakers_na_events';
-  $strongarm->value = 0;
+  $strongarm->value = '0';
   $export['comment_anonymous_speakers_na_events'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -275,6 +274,12 @@ function erasmus_national_agencies_events_strongarm() {
         'custom_settings' => FALSE,
       ),
       'revision' => array(
+        'custom_settings' => FALSE,
+      ),
+      'newsroom_event' => array(
+        'custom_settings' => FALSE,
+      ),
+      'viewresults' => array(
         'custom_settings' => FALSE,
       ),
     ),

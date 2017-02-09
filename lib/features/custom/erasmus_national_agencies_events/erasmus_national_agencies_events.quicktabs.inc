@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * erasmus_national_agencies_events.quicktabs.inc
@@ -61,8 +60,8 @@ function erasmus_national_agencies_events_quicktabs_default_quicktabs() {
       'type' => 'view',
     ),
     5 => array(
-      'vid' => 'timeline_na_events_agenda_day_1_',
-      'display' => 'block_5',
+      'vid' => 'day_1_na_events',
+      'display' => 'block_6',
       'args' => '',
       'title' => 'Youth',
       'weight' => '-95',
@@ -431,37 +430,37 @@ function erasmus_national_agencies_events_quicktabs_default_quicktabs() {
   $quicktabs->api_version = 1;
   $quicktabs->machine_name = 'na_events_days_';
   $quicktabs->ajax = 0;
-  $quicktabs->hide_empty_tabs = FALSE;
+  $quicktabs->hide_empty_tabs = TRUE;
   $quicktabs->default_tab = 0;
   $quicktabs->title = 'NA-Events (days)';
   $quicktabs->tabs = array(
     0 => array(
       'machine_name' => 'day_1_monday_12_december_2016',
-      'title' => 'Day 1 (Mon 12/12)',
+      'title' => 'Day 1 (Mon 12)',
       'weight' => '-100',
       'type' => 'qtabs',
     ),
     1 => array(
       'machine_name' => 'day_2_tuesday_13_december_2016',
-      'title' => 'Day 2 (Tue 13/12)',
+      'title' => 'Day 2 (Tue 13)',
       'weight' => '-99',
       'type' => 'qtabs',
     ),
     2 => array(
       'machine_name' => 'day_3_wednesday_14_december_2016',
-      'title' => 'Day 3 (Wed 14/12)',
+      'title' => 'Day 3 (Wed 14)',
       'weight' => '-98',
       'type' => 'qtabs',
     ),
     3 => array(
       'machine_name' => 'day_4_thursday_15_december_2016',
-      'title' => 'Day 4 (Thu 15/12)',
+      'title' => 'Day 4 (Thu 15)',
       'weight' => '-97',
       'type' => 'qtabs',
     ),
     4 => array(
       'machine_name' => 'day_5_friday_16_december_2016',
-      'title' => 'Day 5 (Fri 16/12)',
+      'title' => 'Day 5 (Fri 16)',
       'weight' => '-96',
       'type' => 'qtabs',
     ),
@@ -472,11 +471,11 @@ function erasmus_national_agencies_events_quicktabs_default_quicktabs() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Day 1 (Mon 12/12)');
-  t('Day 2 (Tue 13/12)');
-  t('Day 3 (Wed 14/12)');
-  t('Day 4 (Thu 15/12)');
-  t('Day 5 (Fri 16/12)');
+  t('Day 1 (Mon 12)');
+  t('Day 2 (Tue 13)');
+  t('Day 3 (Wed 14)');
+  t('Day 4 (Thu 15)');
+  t('Day 5 (Fri 16)');
   t('NA-Events (days)');
 
   $export['na_events_days_'] = $quicktabs;

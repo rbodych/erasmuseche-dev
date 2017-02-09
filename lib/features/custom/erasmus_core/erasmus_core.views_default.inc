@@ -22,6 +22,7 @@ function erasmus_core_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'About';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -31,18 +32,18 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_tab_plugin_style';
   $handler->display->display_options['style_options']['uses_fields'] = TRUE;
-  $handler->display->display_options['style_options']['tab_field'] = 'title';
+  $handler->display->display_options['style_options']['tab_field'] = 'title_field';
   $handler->display->display_options['style_options']['tab_type'] = 'pills';
   $handler->display->display_options['style_options']['justified'] = 0;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'full';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Field: Title */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -61,16 +62,18 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'about' => 'about',
   );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+  /* Filter criterion: Content: about_level (field_about_level) */
+  $handler->display->display_options['filters']['field_about_level_value']['id'] = 'field_about_level_value';
+  $handler->display->display_options['filters']['field_about_level_value']['table'] = 'field_data_field_about_level';
+  $handler->display->display_options['filters']['field_about_level_value']['field'] = 'field_about_level_value';
+  $handler->display->display_options['filters']['field_about_level_value']['value'] = array(
+    1 => '1',
   );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'About';
   $handler->display->display_options['path'] = 'about';
   $export['about'] = $view;
 
@@ -112,22 +115,11 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  /* Sort criterion: Content: Calls type (field_calls_type) */
-  $handler->display->display_options['sorts']['field_calls_type_value']['id'] = 'field_calls_type_value';
-  $handler->display->display_options['sorts']['field_calls_type_value']['table'] = 'field_data_field_calls_type';
-  $handler->display->display_options['sorts']['field_calls_type_value']['field'] = 'field_calls_type_value';
-  $handler->display->display_options['sorts']['field_calls_type_value']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['field_calls_type_value']['expose']['label'] = 'Calls type ';
   /* Sort criterion: Content: Status (field_calls_status) */
-  $handler->display->display_options['sorts']['field_calls_status_value']['id'] = 'field_calls_status_value';
-  $handler->display->display_options['sorts']['field_calls_status_value']['table'] = 'field_data_field_calls_status';
-  $handler->display->display_options['sorts']['field_calls_status_value']['field'] = 'field_calls_status_value';
-  $handler->display->display_options['sorts']['field_calls_status_value']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['field_calls_status_value']['expose']['label'] = 'Status';
+  $handler->display->display_options['sorts']['field_calls_status_value_1']['id'] = 'field_calls_status_value_1';
+  $handler->display->display_options['sorts']['field_calls_status_value_1']['table'] = 'field_data_field_calls_status';
+  $handler->display->display_options['sorts']['field_calls_status_value_1']['field'] = 'field_calls_status_value';
+  $handler->display->display_options['sorts']['field_calls_status_value_1']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -141,13 +133,6 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'calls' => 'calls',
-  );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
 
   /* Display: Page */
@@ -258,6 +243,7 @@ function erasmus_core_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Contact';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -267,19 +253,19 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_tab_plugin_style';
   $handler->display->display_options['style_options']['uses_fields'] = TRUE;
-  $handler->display->display_options['style_options']['tab_field'] = 'title';
+  $handler->display->display_options['style_options']['tab_field'] = 'title_field';
   $handler->display->display_options['style_options']['tab_type'] = 'pills';
   $handler->display->display_options['style_options']['justified'] = 0;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'full';
   $handler->display->display_options['row_options']['links'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Field: Title */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -297,13 +283,6 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'contact' => 'contact',
-  );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
 
   /* Display: Page */
@@ -329,8 +308,7 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '';
+  $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -2962,6 +2940,7 @@ function erasmus_core_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Individuals';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -2971,18 +2950,16 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_tab_plugin_style';
   $handler->display->display_options['style_options']['uses_fields'] = TRUE;
-  $handler->display->display_options['style_options']['tab_field'] = 'title';
+  $handler->display->display_options['style_options']['tab_field'] = 'title_field';
   $handler->display->display_options['style_options']['tab_type'] = 'pills';
   $handler->display->display_options['style_options']['justified'] = 0;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'full';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Field: Title */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -3007,13 +2984,6 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['filters']['field_individuals_level_value']['field'] = 'field_individuals_level_value';
   $handler->display->display_options['filters']['field_individuals_level_value']['value'] = array(
     1 => '1',
-  );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
 
   /* Display: Page */
@@ -3055,12 +3025,20 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['created']['expose']['label'] = 'Date';
+  $handler->display->display_options['sorts']['created']['granularity'] = 'day';
   /* Sort criterion: Content: Date -  start date (field_events_date) */
   $handler->display->display_options['sorts']['field_events_date_value']['id'] = 'field_events_date_value';
   $handler->display->display_options['sorts']['field_events_date_value']['table'] = 'field_data_field_events_date';
   $handler->display->display_options['sorts']['field_events_date_value']['field'] = 'field_events_date_value';
-  $handler->display->display_options['sorts']['field_events_date_value']['exposed'] = TRUE;
   $handler->display->display_options['sorts']['field_events_date_value']['expose']['label'] = 'Date -  start date';
+  /* Sort criterion: Content: Published */
+  $handler->display->display_options['sorts']['status']['id'] = 'status';
+  $handler->display->display_options['sorts']['status']['table'] = 'node';
+  $handler->display->display_options['sorts']['status']['field'] = 'status';
+  $handler->display->display_options['sorts']['status']['expose']['label'] = 'Published';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -3158,7 +3136,7 @@ function erasmus_core_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'resources';
+  $handler->display->display_options['title'] = 'Resources';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -3169,18 +3147,18 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_tab_plugin_style';
   $handler->display->display_options['style_options']['uses_fields'] = TRUE;
-  $handler->display->display_options['style_options']['tab_field'] = 'title';
+  $handler->display->display_options['style_options']['tab_field'] = 'title_field';
   $handler->display->display_options['style_options']['tab_type'] = 'pills';
   $handler->display->display_options['style_options']['justified'] = 0;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'full';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Field: Title */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -3206,13 +3184,6 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['filters']['field_ressources_level_value']['value'] = array(
     1 => '1',
   );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
-  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -3231,6 +3202,7 @@ function erasmus_core_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Organisations';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -3241,7 +3213,7 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_bootstrap_tab_plugin_style';
   $handler->display->display_options['style_options']['uses_fields'] = TRUE;
-  $handler->display->display_options['style_options']['tab_field'] = 'title';
+  $handler->display->display_options['style_options']['tab_field'] = 'title_field';
   $handler->display->display_options['style_options']['tab_type'] = 'pills';
   $handler->display->display_options['style_options']['justified'] = 0;
   $handler->display->display_options['row_plugin'] = 'node';
@@ -3253,6 +3225,12 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Field: Title */
+  $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
+  $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
+  $handler->display->display_options['fields']['title_field']['label'] = 'Title OK';
+  $handler->display->display_options['fields']['title_field']['link_to_entity'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -3277,13 +3255,6 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['filters']['field_organisations_level_value']['field'] = 'field_organisations_level_value';
   $handler->display->display_options['filters']['field_organisations_level_value']['value'] = array(
     1 => '1',
-  );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
   );
 
   /* Display: Page */
@@ -3364,13 +3335,11 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['fields']['field_events_abstract']['alter']['max_length'] = '375';
   $handler->display->display_options['fields']['field_events_abstract']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_events_abstract']['element_label_colon'] = FALSE;
-  /* Sort criterion: Content: Updated date */
-  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['table'] = 'node';
-  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  $handler->display->display_options['sorts']['changed']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['changed']['expose']['label'] = 'Updated date';
+  /* Sort criterion: Content: Publication date (field_article_publication_date) */
+  $handler->display->display_options['sorts']['field_article_publication_date_value']['id'] = 'field_article_publication_date_value';
+  $handler->display->display_options['sorts']['field_article_publication_date_value']['table'] = 'field_data_field_article_publication_date';
+  $handler->display->display_options['sorts']['field_article_publication_date_value']['field'] = 'field_article_publication_date_value';
+  $handler->display->display_options['sorts']['field_article_publication_date_value']['order'] = 'DESC';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -3390,6 +3359,12 @@ function erasmus_core_views_default_views() {
 
   /* Display: Home - L - Text */
   $handler = $view->new_display('block', 'Home - L - Text', 'block');
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Updated date */
+  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['table'] = 'node';
+  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
+  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
 
   /* Display: Page News - Events */
   $handler = $view->new_display('page', 'Page News - Events', 'page_1');
@@ -3518,13 +3493,14 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['fields']['field_events_abstract']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_events_abstract']['element_default_classes'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Updated date */
-  $handler->display->display_options['sorts']['changed']['id'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['table'] = 'node';
-  $handler->display->display_options['sorts']['changed']['field'] = 'changed';
-  $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  $handler->display->display_options['sorts']['changed']['exposed'] = TRUE;
-  $handler->display->display_options['sorts']['changed']['expose']['label'] = 'Updated date';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['created']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['created']['expose']['label'] = 'Date';
+  $handler->display->display_options['sorts']['created']['granularity'] = 'day';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -3715,6 +3691,12 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['fields']['field_calls_status']['element_label_type'] = 'h4';
   $handler->display->display_options['fields']['field_calls_status']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_calls_status']['element_default_classes'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Deadline (field_calls_deadline) */
+  $handler->display->display_options['sorts']['field_calls_deadline_value']['id'] = 'field_calls_deadline_value';
+  $handler->display->display_options['sorts']['field_calls_deadline_value']['table'] = 'field_data_field_calls_deadline';
+  $handler->display->display_options['sorts']['field_calls_deadline_value']['field'] = 'field_calls_deadline_value';
+  $handler->display->display_options['sorts']['field_calls_deadline_value']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -3989,13 +3971,6 @@ function erasmus_core_views_default_views() {
     'events' => 'events',
     'news' => 'news',
   );
-  /* Filter criterion: Content: Language */
-  $handler->display->display_options['filters']['language']['id'] = 'language';
-  $handler->display->display_options['filters']['language']['table'] = 'node';
-  $handler->display->display_options['filters']['language']['field'] = 'language';
-  $handler->display->display_options['filters']['language']['value'] = array(
-    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
-  );
 
   /* Display: Home - R - Text */
   $handler = $view->new_display('block', 'Home - R - Text', 'block');
@@ -4166,6 +4141,13 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'video_gallery' => 'video_gallery',
   );
+  /* Filter criterion: Content: Language */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    'en' => 'en',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
@@ -4240,11 +4222,9 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['defaults']['use_more_text'] = FALSE;
   $handler->display->display_options['use_more_text'] = 'All videos';
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '8';
   $handler->display->display_options['pager']['options']['offset'] = '';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';

@@ -12,19 +12,19 @@
 function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
   require_once drupal_get_path('module', 'erasmus_30_year_anniversary_social_media_feed')
   . '/includes/TwitterAPIExchange.php';
-  $consumer_key = variable_get('e30ya_tw_consumer_key', NULL);
-  $consumer_secret = variable_get('e30ya_tw_consumer_secret', NULL);
-  $acces_token = variable_get('e30ya_tw_access_token', NULL);
-  $acces_token_secret = variable_get('e30ya_tw_access_token_secret', NULL);
+  $consumer_key = variable_get('erasmus_30ya_core_tw_consumer_key', NULL);
+  $consumer_secret = variable_get('erasmus_30ya_core_tw_consumer_secret', NULL);
+  $acces_token = variable_get('erasmus_30ya_core_tw_access_token', NULL);
+  $acces_token_secret = variable_get('erasmus_30ya_core_tw_access_token_secret', NULL);
   $settings = [
     'oauth_access_token' => $acces_token,
     'oauth_access_token_secret' => $acces_token_secret,
     'consumer_key' => $consumer_key,
     'consumer_secret' => $consumer_secret,
   ];
-  $hashTag = variable_get('e30ya_hashtag', 'ErasmusPlus');
+  $hashTag = variable_get('erasmus_30ya_core_hashtag', 'ErasmusPlus');
 
-  $url = variable_get('e30ya_tw_twitter_get_api_url', 'https://api.twitter.com/1.1/search/tweets.json');
+  $url = variable_get('erasmus_30ya_core_tw_twitter_get_api_url', 'https://api.twitter.com/1.1/search/tweets.json');
   $getfield = '?q=%23' . $hashTag . '%20OR%20%23Erasmus30&count=25';
   $requestMethod = 'GET';
   try {
@@ -60,9 +60,9 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
  * Gets facebook posts.
  */
 function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
-  $appId = variable_get('e30ya_fb_app_id', NULL);
-  $pageId = variable_get('e30ya_fb_page_id', NULL);
-  $appSecret = variable_get('e30ya_fb_app_secret', NULL);
+  $appId = variable_get('erasmus_30ya_core_fb_app_id', NULL);
+  $pageId = variable_get('erasmus_30ya_core_fb_page_id', NULL);
+  $appSecret = variable_get('erasmus_30ya_core_fb_app_secret', NULL);
   $url = 'https://graph.facebook.com/oauth/access_token';
   $data = [
     'client_id' => $appId,
@@ -76,6 +76,7 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
   }
   $fbAccessTokenRequest = str_replace('access_token=', '', $fbAccessTokenRequest->data);
   if (empty($fbAccessTokenRequest)) {
+    watchdog('erasmus_30ya_social_feed', 'Facebook access token empty', [], WATCHDOG_ERROR);
     return [];
   }
   $fburl = 'https://graph.facebook.com/v2.8/' . $pageId;
@@ -84,8 +85,12 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
     'access_token' => $fbAccessTokenRequest,
   ];
   $full_fburl = url($fburl, ['query' => $fbdata]);
-  $data  = file_get_contents($full_fburl);
-  $data = drupal_json_decode($data, TRUE);
+  $data  = drupal_http_request($full_fburl);
+  if (!isset($data->data)) {
+    watchdog('erasmus_30ya_social_feed', 'Facebook data empty', [], WATCHDOG_ERROR);
+    return [];
+  }
+  $data = drupal_json_decode($data->data, TRUE);
   $items = [];
   foreach ($data['posts']['data'] as $item) {
     $items[] = [

@@ -29,7 +29,7 @@ function erasmus_core_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -49,
+    'weight' => -48,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -53,31 +53,7 @@ function erasmus_core_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 1,
-    'weight' => -45,
-    'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: main-menu_home:<front>.
-  $menu_links['main-menu_home:<front>'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => '<front>',
-    'router_path' => '',
-    'link_title' => 'Home',
-    'options' => array(
-      'attributes' => array(
-        'data-display-title' => 0,
-        'data-hide-children' => 0,
-        'data-remove-class' => 0,
-      ),
-      'identifier' => 'main-menu_home:<front>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -50,
+    'weight' => -43,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
@@ -101,29 +77,10 @@ function erasmus_core_menu_default_menu_links() {
     'external' => 1,
     'has_children' => 0,
     'expanded' => 1,
-    'weight' => -48,
+    'weight' => -47,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
-  );
-  // Exported menu link: main-menu_newsletters:my_subscriptions.
-  $menu_links['main-menu_newsletters:my_subscriptions'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'my_subscriptions',
-    'router_path' => 'my_subscriptions',
-    'link_title' => 'Newsletters',
-    'options' => array(
-      'identifier' => 'main-menu_newsletters:my_subscriptions',
-    ),
-    'module' => 'system',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => 20,
-    'customized' => 0,
-    'language' => 'und',
-    'menu_links_customized' => 0,
   );
   // Exported menu link: main-menu_organisations:<front>.
   $menu_links['main-menu_organisations:<front>'] = array(
@@ -138,30 +95,6 @@ function erasmus_core_menu_default_menu_links() {
         'data-remove-class' => 0,
       ),
       'identifier' => 'main-menu_organisations:<front>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 1,
-    'weight' => -47,
-    'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: main-menu_ressources:<front>.
-  $menu_links['main-menu_ressources:<front>'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => '<front>',
-    'router_path' => '',
-    'link_title' => 'Ressources',
-    'options' => array(
-      'attributes' => array(
-        'data-display-title' => 1,
-        'data-hide-children' => 0,
-        'data-remove-class' => 0,
-      ),
-      'identifier' => 'main-menu_ressources:<front>',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -187,20 +120,18 @@ function erasmus_core_menu_default_menu_links() {
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -44,
+    'weight' => -42,
     'customized' => 1,
     'language' => 'und',
     'menu_links_customized' => 1,
   );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('About');
   t('Contact');
-  t('Home');
   t('Individuals');
-  t('Newsletters');
   t('Organisations');
-  t('Ressources');
   t('Search');
 
   return $menu_links;

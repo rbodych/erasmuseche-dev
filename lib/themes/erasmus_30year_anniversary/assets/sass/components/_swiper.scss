@@ -110,7 +110,7 @@
         h2 {
           font-size: $heading-1-size;
         }
-        
+
         p {
           font-size: $heading-3-size;
         }
@@ -277,10 +277,6 @@
   }
 }
 
-
-
-
-
 @include media($desktop-min-width) {
   .swiper-numeric-pagination {
     width: 70%;
@@ -309,10 +305,13 @@
           h2,
           p,
           ul li {
-            color: $c-primary-5;
-            text-shadow: 0 0 0;
+            color: $c-gradient-intro-1;
+            text-shadow: 2px 2px 1px rgba(0,0,0,0.7);
           }
         }
+      }
+      .video-controls {
+         background: linear-gradient(to right, rgba(0,0,0,.5), transparent);
       }
     }
   }

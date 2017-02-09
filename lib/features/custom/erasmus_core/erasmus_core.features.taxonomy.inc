@@ -1,17 +1,17 @@
 <?php
 /**
  * @file
- * erasmus_national_agencies_events.features.taxonomy.inc
+ * erasmus_core.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function erasmus_national_agencies_events_taxonomy_default_vocabularies() {
+function erasmus_core_taxonomy_default_vocabularies() {
   return array(
-    'thematic_na_events' => (object) array(
-      'name' => 'Thematic NA-Events',
-      'machine_name' => 'thematic_na_events',
+    'headers_programme_guide' => (object) array(
+      'name' => 'Headers/Footer Programme Guide',
+      'machine_name' => 'headers_programme_guide',
       'description' => '',
       'hierarchy' => 0,
       'module' => 'taxonomy',

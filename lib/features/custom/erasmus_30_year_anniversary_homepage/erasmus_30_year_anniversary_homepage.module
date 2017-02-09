@@ -27,7 +27,7 @@ function erasmus_30_year_anniversary_homepage_preprocess_page(&$vars) {
 function erasmus_30_year_anniversary_homepage_preprocess_node(&$node) {
   if ($node['type'] == 'erasmus_30_year_anniversary_home'
       && $node['view_mode'] == 'full') {
-    $hideShareStory = variable_get('e30ya_hide_share_story', FALSE);
+    $hideShareStory = variable_get('erasmus_30ya_core_hide_share_story', FALSE);
     if ($hideShareStory) {
       $node['content']['hideShareStory'] = TRUE;
     }

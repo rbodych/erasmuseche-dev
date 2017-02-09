@@ -93,24 +93,51 @@ function erasmus_core_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'programmeguide';
   $context->description = 'programme guide';
-  $context->tag = 'theme';
+  $context->tag = 'Programme Guide, Theme';
   $context->conditions = array(
-    'node' => array(
+    'book' => array(
       'values' => array(
-        'programme_guide_attached_pages' => 'programme_guide_attached_pages',
-      ),
-      'options' => array(
-        'node_form' => '1',
+        'book-toc-296' => 'book-toc-296',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'block-14' => array(
+        'block-19' => array(
           'module' => 'block',
-          'delta' => '14',
+          'delta' => '19',
+          'region' => 'header_right',
+          'weight' => '-10',
+        ),
+        'om_maximenu-om-maximenu-2' => array(
+          'module' => 'om_maximenu',
+          'delta' => 'om-maximenu-2',
+          'region' => 'featured',
+          'weight' => '-10',
+        ),
+        'block-13' => array(
+          'module' => 'block',
+          'delta' => '13',
+          'region' => 'featured',
+          'weight' => '-8',
+        ),
+        'easy_breadcrumb-easy_breadcrumb' => array(
+          'module' => 'easy_breadcrumb',
+          'delta' => 'easy_breadcrumb',
+          'region' => 'featured',
+          'weight' => '-7',
+        ),
+        'print_ui-print-links' => array(
+          'module' => 'print_ui',
+          'delta' => 'print-links',
           'region' => 'content_bottom',
+          'weight' => '-10',
+        ),
+        'webform-client-block-387' => array(
+          'module' => 'webform',
+          'delta' => 'client-block-387',
+          'region' => 'feedbackform',
           'weight' => '-10',
         ),
       ),
@@ -120,8 +147,8 @@ function erasmus_core_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Programme Guide, Theme');
   t('programme guide');
-  t('theme');
   $export['programmeguide'] = $context;
 
   $context = new stdClass();

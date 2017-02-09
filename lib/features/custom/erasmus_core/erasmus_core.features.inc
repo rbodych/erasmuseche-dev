@@ -120,7 +120,7 @@ function erasmus_core_node_info() {
     'programme_guide' => array(
       'name' => t('Programme guide'),
       'base' => 'node_content',
-      'description' => '',
+      'description' => t('The Content Type "Programme Guide" host the Erasmus+ Programme Guide.'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',
