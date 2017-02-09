@@ -36,3 +36,28 @@ function erasmus_30ya_core_update_7101() {
     node_save($node);
   }
 }
+
+/**
+ * Remove deleted variables.
+ */
+function erasmus_30ya_core_update_7102() {
+  $varsToDelete = [
+    'e30ya_hide_share_story',
+    '30ya_current_theme',
+    '30ya_share_story_mail_to',
+    '30ya_share_story_mail_from',
+    'e30ya_tw_consumer_key',
+    'e30ya_tw_consumer_secret',
+    'e30ya_tw_access_token',
+    'e30ya_tw_access_token_secret',
+    'e30ya_hashtag',
+    'e30ya_tw_twitter_get_api_url',
+    'e30ya_fb_app_id',
+    'e30ya_fb_page_id',
+    'e30ya_fb_app_secret',
+    'e30ya_twitter_url',
+  ];
+  foreach ($varsToDelete as $var) {
+    variable_delete($var);
+  }
+}
