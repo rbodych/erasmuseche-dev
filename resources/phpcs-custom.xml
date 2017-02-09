@@ -17,7 +17,7 @@
         <severity>0</severity>
     </rule>
     -->
-
+    <exclude-pattern>*TwitterAPIExchange\.php</exclude-pattern>
     <!-- New guidelines allow for use of version property. -->
     <!-- Remove comment to disable the version check on info files.
     <rule ref="Drupal.InfoFiles.AutoAddedKeys.Version">
