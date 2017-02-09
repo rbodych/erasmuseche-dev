@@ -58,6 +58,6 @@ function erasmus_30ya_core_update_7102() {
     'e30ya_twitter_url',
   ];
   foreach ($varsToDelete as $var) {
-    variable_delete($var);
+    variable_del($var);
   }
 }
