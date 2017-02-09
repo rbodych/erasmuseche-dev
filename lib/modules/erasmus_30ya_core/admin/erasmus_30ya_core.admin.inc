@@ -34,42 +34,42 @@ function erasmus_30ya_core_admin() {
     '#collapsed' => FALSE,
   ];
   $monthly_themes = _erasmus_30ya_core_admin_get_monthly_themes();
-  $form['story']['30ya_current_theme'] = [
+  $form['story']['erasmus_30ya_core_current_theme'] = [
     '#type' => 'select',
     '#title' => t('Current monthly theme'),
     '#options' => $monthly_themes,
-    '#default_value' => variable_get('30ya_current_theme', ''),
+    '#default_value' => variable_get('erasmus_30ya_core_current_theme', ''),
     '#required' => TRUE,
   ];
-  $form['mail']['30ya_share_story_mail_to'] = [
+  $form['mail']['erasmus_30ya_core_share_story_mail_to'] = [
     '#type' => 'textfield',
     '#title' => t('Share story TO email address'),
-    '#default_value' => variable_get('30ya_share_story_mail_to', ''),
+    '#default_value' => variable_get('erasmus_30ya_core_share_story_mail_to', ''),
     '#required' => TRUE,
   ];
-  $form['mail']['30ya_share_story_mail_from'] = [
+  $form['mail']['erasmus_30ya_core_share_story_mail_from'] = [
     '#type' => 'textfield',
     '#title' => t('Share story FROM email address'),
-    '#default_value' => variable_get('30ya_share_story_mail_from', ''),
+    '#default_value' => variable_get('erasmus_30ya_core_share_story_mail_from', ''),
     '#required' => TRUE,
   ];
-  $form['social']['e30ya_hashtag'] = [
+  $form['social']['erasmus_30ya_core_hashtag'] = [
     '#type' => 'textfield',
     '#title' => t('Hashtag'),
-    '#default_value' => variable_get('e30ya_hashtag', 'ErasmusPlus'),
+    '#default_value' => variable_get('erasmus_30ya_core_hashtag', 'ErasmusPlus'),
     '#required' => TRUE,
   ];
-  $form['social']['e30ya_twitter_url'] = [
+  $form['social']['erasmus_30ya_core_twitter_url'] = [
     '#type' => 'textfield',
     '#title' => t('Twitter url'),
-    '#default_value' => variable_get('e30ya_twitter_url',
+    '#default_value' => variable_get('erasmus_30ya_core_twitter_url',
     'https://twitter.com/EUErasmusPlus'),
     '#required' => TRUE,
   ];
-  $form['social']['e30ya_facebook_url'] = [
+  $form['social']['erasmus_30ya_core_facebook_url'] = [
     '#type' => 'textfield',
     '#title' => t('Facebook url'),
-    '#default_value' => variable_get('e30ya_facebook_url',
+    '#default_value' => variable_get('erasmus_30ya_core_facebook_url',
     'https://www.facebook.com/EUErasmusPlusProgramme/'),
     '#required' => TRUE,
   ];
@@ -81,10 +81,10 @@ function erasmus_30ya_core_admin() {
     'twitter_get_api_url' => 'Twitter API url',
   ];
   foreach ($twitterConfig as $tw_conf => $tw_conf_name) {
-    $form['social']['e30ya_tw_' . $tw_conf] = [
+    $form['social']['erasmus_30ya_core_tw_' . $tw_conf] = [
       '#type' => 'textfield',
       '#title' => $tw_conf_name,
-      '#default_value' => variable_get('e30ya_tw_' . $tw_conf, FALSE),
+      '#default_value' => variable_get('erasmus_30ya_core_tw_' . $tw_conf, FALSE),
     ];
   }
   $fbConfig = [
@@ -93,16 +93,16 @@ function erasmus_30ya_core_admin() {
     'app_secret' => 'Facebook app secret',
   ];
   foreach ($fbConfig as $fb_conf => $fb_conf_name) {
-    $form['social']['e30ya_fb_' . $fb_conf] = [
+    $form['social']['erasmus_30ya_core_fb_' . $fb_conf] = [
       '#type' => 'textfield',
       '#title' => $fb_conf_name,
-      '#default_value' => variable_get('e30ya_fb_' . $fb_conf, '630809920303095'),
+      '#default_value' => variable_get('erasmus_30ya_core_fb_' . $fb_conf, '630809920303095'),
     ];
   }
-  $form['general']['e30ya_hide_share_story'] = [
+  $form['general']['erasmus_30ya_core_hide_share_story'] = [
     '#type' => 'checkbox',
     '#title' => t('Hide share story'),
-    '#default_value' => variable_get('e30ya_hide_share_story', FALSE),
+    '#default_value' => variable_get('erasmus_30ya_core_hide_share_story', FALSE),
   ];
   return system_settings_form($form);
 }
