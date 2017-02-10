@@ -108,8 +108,8 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
  * Social media feed operator.
  */
 function _erasmus_30_year_anniversary_social_media_feed_operator() {
-  $items_tw = _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter();
-  $items_fb = _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook();
+  $items_tw = _erasmus_30_year_anniversary_social_media_feed_cache_wrapper('erasmus_30_year_anniversary_social_media_feed_twitter', 'twitter');
+  $items_fb = _erasmus_30_year_anniversary_social_media_feed_cache_wrapper('erasmus_30_year_anniversary_social_media_feed_facebook', 'facebook');
   $items = array_merge($items_tw, $items_fb);
   $items = _erasmus_30_year_anniversary_social_media_feed_manipulate_items($items);
   return theme('erasmus_30_year_anniversary_social_media_feed', [
@@ -200,4 +200,23 @@ function _erasmus_30_year_anniversary_social_media_feed_date_compare($a, $b) {
     return 0;
   }
   return ($a['date'] > $b['date']) ? -1 : 1;
+}
+
+/**
+ * Helper function for cache.
+ *
+ * @param String $name a cache name.
+ * @param String $type used to call feed retrieve $type function dynamically.
+ *
+ * @return the results of the social media feed for this $type.
+ */
+function _erasmus_30_year_anniversary_social_media_feed_cache_wrapper($name, $type) {
+  if ($cache = cache_get($name)) {
+    $my_data = $cache->data;
+  }
+  else {
+    $my_data = call_user_func('_erasmus_30_year_anniversary_social_media_feed_retrieve_' . $type);
+    cache_set($name, $my_data, 'cache', time() + 60 * 15);
+  }
+  return $my_data;
 }
