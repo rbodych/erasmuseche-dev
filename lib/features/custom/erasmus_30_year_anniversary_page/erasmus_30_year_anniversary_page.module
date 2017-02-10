@@ -17,7 +17,7 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
     $top_media = $vars['node']->field_30ya_contentrow_media;
     $top_txt = $vars['node']->field_30ya_contentrow_richtext;
     $item = '';
-    if (isset( $top_txt[$vars['language']->language][0]['value'])) {
+    if (isset($top_txt[$vars['language']->language][0]['value'])) {
       $vars['page']['sidebar_left'] = $top_txt[$vars['language']->language][0]['value'];
     }
 
@@ -33,9 +33,9 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
       $item = render($item);
     }
     elseif (isset($top_media[$vars['language']->language][0]['fid'])) {
+      $file = $top_media[$vars['language']->language][0]['fid'];
+      $file = file_load($file);
       if (!empty($vars['node']->field_30ya_media_thumb)) {
-        $file = $top_media[$vars['language']->language][0]['fid'];
-        $file = file_load($file);
         $thumb = $vars['node']->field_30ya_media_thumb[$vars['language']->language][0]['file']->uri;
         $big_uri = file_create_url($file->uri);
         $media = _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb);
