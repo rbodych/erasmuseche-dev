@@ -160,9 +160,11 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#description' => t('I have read, understood and accept the !privacy and the !terms', [
       '!privacy' => l(t('Specific Privacy Statement'), '/anniversary/privacy-statement-share-story', [
         'attributes' => ['target' => '_blank'],
+        'language' => (object) ['language' => 'en'],
       ]),
       '!terms' => l(t('Terms and Conditions'), '/anniversary/terms-conditions-share-story', [
         'attributes' => ['target' => '_blank'],
+        'language' => (object) ['language' => 'en'],
       ]),
     ]),
   ];
