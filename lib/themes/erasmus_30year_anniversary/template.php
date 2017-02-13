@@ -171,7 +171,7 @@ function erasmus_30year_anniversary_file_entity_file_video($variables) {
   }
 
   $output .= '<video' . drupal_attributes($video_attributes) . '>';
-  foreach ($files as $delta => $file) {
+  foreach ($files as $file) {
     $source_attributes = array(
       'src' => file_create_url($file['uri']),
       'type' => $file['filemime'],
