@@ -16,15 +16,23 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
       && isset($vars['language']->language)) {
     $top_media = $vars['node']->field_30ya_contentrow_media;
     $top_txt = $vars['node']->field_30ya_contentrow_richtext;
-
-    $vars['page']['sidebar_left'] = $top_txt[$vars['language']->language][0]['value'];
+    $item = '';
+    if (isset($top_txt[$vars['language']->language][0]['value'])) {
+      $vars['page']['sidebar_left'] = $top_txt[$vars['language']->language][0]['value'];
+    }
 
     if (isset($top_media[$vars['language']->language][0]['file'])
         && $top_media[$vars['language']->language][0]['file']->type == 'video') {
       $item = file_view_file($top_media[$vars['language']->language][0]['file']);
+      $node_wrapper = entity_metadata_wrapper('node', $vars['node']);
+      $poster = $node_wrapper->field_30ya_media_poster->value();
+      if (!empty($poster)) {
+        $poster = image_style_url('erasmus_30_year_story_huge__720x574', $poster['file']->uri);
+        $item['#files'][0]['poster'] = $poster;
+      }
       $item = render($item);
     }
-    else {
+    elseif (isset($top_media[$vars['language']->language][0]['fid'])) {
       $file = $top_media[$vars['language']->language][0]['fid'];
       $file = file_load($file);
       if (!empty($vars['node']->field_30ya_media_thumb)) {

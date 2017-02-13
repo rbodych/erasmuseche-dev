@@ -134,6 +134,27 @@ function erasmus_30_year_anniversary_page_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
+  // Exported field_base: 'field_30ya_media_poster'.
+  $field_bases['field_30ya_media_poster'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_30ya_media_poster',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 1,
+    'module' => 'mediafield',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'media',
+  );
+
   // Exported field_base: 'field_30ya_media_thumb'.
   $field_bases['field_30ya_media_thumb'] = array(
     'active' => 1,

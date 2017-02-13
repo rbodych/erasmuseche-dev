@@ -506,7 +506,6 @@ header {
         padding: 0;
         margin-bottom: 10px;
         padding-bottom: 10px;
-        border-bottom: 1px dashed #ccc;
       }
       
       figure {
@@ -790,8 +789,7 @@ header {
         
         .stripe-highlight--assets-text {
           margin: 0 0 $padding $padding;
-          min-width: 40%;
-          max-width: 70%;
+          max-width: 40%;
         }
       }
     }

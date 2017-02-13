@@ -83,6 +83,7 @@ function erasmus_30_year_anniversary_page_field_group_info() {
     'children' => array(
       0 => 'field_30ya_contentrow_media',
       1 => 'field_30ya_media_thumb',
+      2 => 'field_30ya_media_poster',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
@@ -112,6 +113,7 @@ function erasmus_30_year_anniversary_page_field_group_info() {
     'children' => array(
       0 => 'field_30ya_contentrow_media',
       1 => 'field_30ya_media_thumb',
+      2 => 'field_30ya_media_poster',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

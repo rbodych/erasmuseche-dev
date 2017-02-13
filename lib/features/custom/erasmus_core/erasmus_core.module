@@ -90,6 +90,51 @@ function erasmus_core_strongarm_alter(&$items) {
       ),
     ];
   }
+  if (!empty($items['eu_cookie_compliance_en'])) {
+    $items['eu_cookie_compliance_en'] = array(
+      'popup_enabled' => 0,
+      'popup_clicking_confirmation' => 0,
+      'popup_position' => 0,
+      'popup_agree_button_message' => 'OK, I agree',
+      'popup_disagree_button_message' => 'No, give me more info',
+      'popup_info' => array(
+        'value' => '<h2>We use cookies on this site to enhance your user experience</h2><p>By clicking any link on this page you are giving your consent for us to set cookies.</p>',
+        'format' => 'full_html',
+      ),
+      'popup_agreed_enabled' => 0,
+      'popup_hide_agreed' => 0,
+      'popup_find_more_button_message' => 'More info',
+      'popup_hide_button_message' => 'Hide',
+      'popup_agreed' => array(
+        'value' => 'Thank you for accepting cookies.You can now hide this message or find out more about cookies.',
+        'format' => 'plain_text',
+      ),
+      'popup_link' => 'http://ec.europa.eu/cookies/index_en.htm',
+      'popup_link_new_window' => 1,
+      'popup_height' => '60',
+      'popup_width' => '100%',
+      'popup_delay' => '1',
+      'popup_bg_hex' => '0779BF',
+      'popup_text_hex' => 'ffffff',
+      'domains_option' => '1',
+      'domains_list' => 'https://ec.europa.eu/programmes/erasmus-plus
+  http://ec.europa.eu/programmes/erasmus-plus',
+      'exclude_paths' => '<front>
+  *',
+    );
+  }
+  if (!empty($items['popup_disagree_button_message'])) {
+    $items['popup_disagree_button_message'] = 'No, give me more info';
+  }
+  if (!empty($items['popup_find_more_button_message'])) {
+    $items['popup_find_more_button_message'] = 'More info';
+  }
+  if (!empty($items['popup_hide_button_message'])) {
+    $items['popup_hide_button_message'] = 'Hide';
+  }
+  if (!empty($items['popup_link_new_window'])) {
+    $items['popup_link_new_window'] = TRUE;
+  }
 }
 
 /**
@@ -117,5 +162,16 @@ function erasmus_core_features_post_restore($op, $items) {
     multisite_drupal_toolbox_add_block_context('homepage', 'block-3', 'block', '3', 'stats');
     multisite_drupal_toolbox_add_block_context('homepage', 'block-7', 'block', '7', 'stats', '-9');
     multisite_drupal_toolbox_add_block_context('homepage', 'block-4', 'block', '4', 'headerbox');
+  }
+}
+
+/**
+ * Implements hook_user_default_permissions_alter().
+ */
+function mymodule_user_default_permissions_alter(&$permissions) {
+  // Permission: 'display EU Cookie Compliance popup'.
+  if (!empty($permissions['display EU Cookie Compliance popup'])) {
+    $permissions['display EU Cookie Compliance popup']['roles']['anonymous user'] = 'anonymous user';
+    $permissions['display EU Cookie Compliance popup']['roles']['authenticated user'] = 'authenticated user';
   }
 }

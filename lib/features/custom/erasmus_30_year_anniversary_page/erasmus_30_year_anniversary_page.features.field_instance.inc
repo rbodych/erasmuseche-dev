@@ -217,11 +217,69 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'field_collection_item-field_30ya_content_row-field_30ya_media_poster'.
+  $field_instances['field_collection_item-field_30ya_content_row-field_30ya_media_poster'] = array(
+    'bundle' => 'field_30ya_content_row',
+    'deleted' => 0,
+    'description' => 'Only usable as a video poster.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'mediafield',
+        'settings' => array(
+          'file_view_mode' => 'default',
+        ),
+        'type' => 'media',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_30ya_media_poster',
+    'label' => 'Media Poster',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'file_extensions' => 'jpg jpeg gif png',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'avportal' => 0,
+          'dailymotion' => 0,
+          'ffp' => 0,
+          'node' => 0,
+          'private' => 0,
+          'public' => 'public',
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 'media_internet',
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
   // 'field_collection_item-field_30ya_content_row-field_30ya_media_thumb'.
   $field_instances['field_collection_item-field_30ya_content_row-field_30ya_media_thumb'] = array(
     'bundle' => 'field_30ya_content_row',
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Media thumbnail that applies a popup for the normal media',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
@@ -536,6 +594,67 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-erasmus_30_year_anniversary_page-field_30ya_media_poster'.
+  $field_instances['node-erasmus_30_year_anniversary_page-field_30ya_media_poster'] = array(
+    'bundle' => 'erasmus_30_year_anniversary_page',
+    'deleted' => 0,
+    'description' => 'Is usable for a video poster.',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_30ya_media_poster',
+    'label' => 'Media Poster',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'file_extensions' => 'jpg jpeg gif png',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'avportal' => 0,
+          'dailymotion' => 0,
+          'ffp' => 0,
+          'node' => 0,
+          'private' => 0,
+          'public' => 'public',
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 'media_internet',
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-erasmus_30_year_anniversary_page-field_30ya_media_thumb'.
   $field_instances['node-erasmus_30_year_anniversary_page-field_30ya_media_thumb'] = array(
     'bundle' => 'erasmus_30_year_anniversary_page',
@@ -645,8 +764,11 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   t('Content row');
   t('Disable auto columns');
   t('If checked the auto columns feature will be disabled and the text will be underneath each other as normal.');
+  t('Is usable for a video poster.');
   t('Media');
+  t('Media Poster');
   t('Media thumb');
+  t('Only usable as a video poster.');
   t('Rich text');
   t('Title');
   t('Type');

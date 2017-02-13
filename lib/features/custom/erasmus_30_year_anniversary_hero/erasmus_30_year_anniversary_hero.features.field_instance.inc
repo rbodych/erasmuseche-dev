@@ -26,11 +26,8 @@ function erasmus_30_year_anniversary_hero_field_default_field_instances() {
       ),
       'erasmus_30_year_hero_homepage' => array(
         'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 300,
-        ),
-        'type' => 'text_summary_or_trimmed',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
       'teaser' => array(
