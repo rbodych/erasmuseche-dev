@@ -12,19 +12,19 @@
 function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
   require_once drupal_get_path('module', 'erasmus_30_year_anniversary_social_media_feed')
   . '/includes/TwitterAPIExchange.php';
-  $consumer_key = variable_get('e30ya_tw_consumer_key', NULL);
-  $consumer_secret = variable_get('e30ya_tw_consumer_secret', NULL);
-  $acces_token = variable_get('e30ya_tw_access_token', NULL);
-  $acces_token_secret = variable_get('e30ya_tw_access_token_secret', NULL);
+  $consumer_key = variable_get('erasmus_30ya_core_tw_consumer_key', NULL);
+  $consumer_secret = variable_get('erasmus_30ya_core_tw_consumer_secret', NULL);
+  $acces_token = variable_get('erasmus_30ya_core_tw_access_token', NULL);
+  $acces_token_secret = variable_get('erasmus_30ya_core_tw_access_token_secret', NULL);
   $settings = [
     'oauth_access_token' => $acces_token,
     'oauth_access_token_secret' => $acces_token_secret,
     'consumer_key' => $consumer_key,
     'consumer_secret' => $consumer_secret,
   ];
-  $hashTag = variable_get('e30ya_hashtag', 'ErasmusPlus');
+  $hashTag = variable_get('erasmus_30ya_core_hashtag', 'ErasmusPlus');
 
-  $url = variable_get('e30ya_tw_twitter_get_api_url', 'https://api.twitter.com/1.1/search/tweets.json');
+  $url = variable_get('erasmus_30ya_core_tw_twitter_get_api_url', 'https://api.twitter.com/1.1/search/tweets.json');
   $getfield = '?q=%23' . $hashTag . '%20OR%20%23Erasmus30&count=25';
   $requestMethod = 'GET';
   try {
@@ -60,9 +60,9 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
  * Gets facebook posts.
  */
 function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
-  $appId = variable_get('e30ya_fb_app_id', NULL);
-  $pageId = variable_get('e30ya_fb_page_id', NULL);
-  $appSecret = variable_get('e30ya_fb_app_secret', NULL);
+  $appId = variable_get('erasmus_30ya_core_fb_app_id', NULL);
+  $pageId = variable_get('erasmus_30ya_core_fb_page_id', NULL);
+  $appSecret = variable_get('erasmus_30ya_core_fb_app_secret', NULL);
   $url = 'https://graph.facebook.com/oauth/access_token';
   $data = [
     'client_id' => $appId,
@@ -108,8 +108,8 @@ function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
  * Social media feed operator.
  */
 function _erasmus_30_year_anniversary_social_media_feed_operator() {
-  $items_tw = _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter();
-  $items_fb = _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook();
+  $items_tw = _erasmus_30_year_anniversary_social_media_feed_cache_wrapper('erasmus_30_year_anniversary_social_media_feed_twitter', 'twitter');
+  $items_fb = _erasmus_30_year_anniversary_social_media_feed_cache_wrapper('erasmus_30_year_anniversary_social_media_feed_facebook', 'facebook');
   $items = array_merge($items_tw, $items_fb);
   $items = _erasmus_30_year_anniversary_social_media_feed_manipulate_items($items);
   return theme('erasmus_30_year_anniversary_social_media_feed', [
@@ -200,4 +200,23 @@ function _erasmus_30_year_anniversary_social_media_feed_date_compare($a, $b) {
     return 0;
   }
   return ($a['date'] > $b['date']) ? -1 : 1;
+}
+
+/**
+ * Helper function for cache.
+ *
+ * @param String $name a cache name.
+ * @param String $type used to call feed retrieve $type function dynamically.
+ *
+ * @return the results of the social media feed for this $type.
+ */
+function _erasmus_30_year_anniversary_social_media_feed_cache_wrapper($name, $type) {
+  if ($cache = cache_get($name)) {
+    $my_data = $cache->data;
+  }
+  else {
+    $my_data = call_user_func('_erasmus_30_year_anniversary_social_media_feed_retrieve_' . $type);
+    cache_set($name, $my_data, 'cache', time() + 60 * 15);
+  }
+  return $my_data;
 }

@@ -48,7 +48,7 @@ function _erasmus_30_year_anniversary_story_get_monthly_theme() {
     return NULL;
   }
 
-  $current_theme_month = variable_get('30ya_current_theme', NULL);
+  $current_theme_month = variable_get('erasmus_30ya_core_current_theme', NULL);
 
   if ($current_theme_month) {
     return views_embed_view('erasmus_30_year_anniversary_stories',
@@ -60,7 +60,7 @@ function _erasmus_30_year_anniversary_story_get_monthly_theme() {
  * Retrieve the homepage HTML for the random stories.
  */
 function _erasmus_30_year_anniversary_story_get_html_random_stories() {
-  $current_theme_month = variable_get('30ya_current_theme', NULL);
+  $current_theme_month = variable_get('erasmus_30ya_core_current_theme', NULL);
   $result = db_select('node', 'n');
   $result->join('field_data_field_e30ya_monthly_theme', 'b', 'n.nid = b.entity_id');
   $result->fields('n', ['nid'])

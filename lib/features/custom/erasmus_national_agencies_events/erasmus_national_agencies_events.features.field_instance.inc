@@ -1732,7 +1732,7 @@ function erasmus_national_agencies_events_field_default_field_instances() {
   t('Email address');
   t('Facebook');
   t('Field-Specific Sessions');
-  t('Hall/Room ');
+  t('Hall/Room');
   t('Image event');
   t('Instagram');
   t('Job Title');
@@ -1751,7 +1751,7 @@ function erasmus_national_agencies_events_field_default_field_instances() {
   t('Type the URL of the Speaker\'s Twitter profile. E.g.: <i>https://be.linkedin.com/in/linked-in-profile</i>');
   t('Type the URL of the Speaker\'s Twitter profile. E.g.: <i>https://twitter.com/JunckerEU</i>');
   t('Type the URL of the Speaker\'s Yammer profile. E.g.: <i>https://www.yammer.com/ec.europa.eu/#/users/123456789</i>');
-  t('Type the URL of the Speaker\'s website ');
+  t('Type the URL of the Speaker\'s website');
   t('Type the URL of the place where the event/conference will be held.');
   t('Type the current job position of the Speaker');
   t('Type the electronic mail address of the speaker');

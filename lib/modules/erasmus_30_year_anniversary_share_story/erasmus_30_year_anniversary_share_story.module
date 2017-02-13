@@ -6,6 +6,8 @@
 
 define('ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_CONFIRMATION_URL',
   '/anniversary/share-your-story-confirmation');
+define('ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_URL',
+  '/anniversary/share-your-story');
 
 /**
  * Implements hook_block_info().
@@ -158,9 +160,11 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
     '#description' => t('I have read, understood and accept the !privacy and the !terms', [
       '!privacy' => l(t('Specific Privacy Statement'), '/anniversary/privacy-statement-share-story', [
         'attributes' => ['target' => '_blank'],
+        'language' => (object) ['language' => 'en'],
       ]),
       '!terms' => l(t('Terms and Conditions'), '/anniversary/terms-conditions-share-story', [
         'attributes' => ['target' => '_blank'],
+        'language' => (object) ['language' => 'en'],
       ]),
     ]),
   ];
@@ -193,10 +197,10 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
 
   $module = 'erasmus_30_year_anniversary_share_story';
   $key = 'share_story_erasmus30year';
-  $to = variable_get('30ya_share_story_mail_to', 'michael.schuddings@one-agency.be');
+  $to = variable_get('erasmus_30ya_core_share_story_mail_to', 'michael.schuddings@one-agency.be');
   $language = language_default();
   $params = $values;
-  $from = variable_get('30ya_share_story_mail_from', 'webteameac@ec.europa.eu');
+  $from = variable_get('erasmus_30ya_core_share_story_mail_from', 'webteameac@ec.europa.eu');
 
   $send = TRUE;
 
@@ -254,7 +258,7 @@ function _erasmus_30_year_anniversary_share_story_social_share_content() {
   drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_share_story')
     . '/js/social_share_your_story.js');
   global $base_url;
-  $url = $base_url . ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_CONFIRMATION_URL;
+  $url = $base_url . ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_URL;
   drupal_add_js([
     'erasmus_30_year_anniversary_share_story' => [
       'shareCompetitionUrl' => $url,

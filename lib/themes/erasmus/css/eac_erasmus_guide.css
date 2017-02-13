@@ -4327,10 +4327,6 @@ aside .sidebar-wrapper .list-group-flush li.active-trail + li a {
 aside {
   padding: 15px;
 }
-aside .sidebar-wrapper {
-  /* SHARE */
-  /* AT A GLANCE */
-}
 aside .sidebar-wrapper article {
   padding: 0;
   margin-top: 15px;
