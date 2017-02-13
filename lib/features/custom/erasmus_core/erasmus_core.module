@@ -165,7 +165,6 @@ function erasmus_core_features_post_restore($op, $items) {
   }
 }
 
-
 /**
  * Implements hook_user_default_permissions_alter().
  */
