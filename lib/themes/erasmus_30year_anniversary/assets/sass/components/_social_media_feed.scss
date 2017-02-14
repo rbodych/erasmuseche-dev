@@ -50,4 +50,9 @@
   .image + .text {
     margin-top: $padding-small;
   }
+  
+  .image img {
+    height: auto;
+    width: 100%;
+  }
 }
