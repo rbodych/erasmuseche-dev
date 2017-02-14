@@ -52,7 +52,7 @@ function erasmus_30_year_anniversary_hero_field_default_field_bases() {
     'settings' => array(
       'entity_translation_sync' => FALSE,
     ),
-    'translatable' => 0,
+    'translatable' => 1,
     'type' => 'media',
   );
 

@@ -205,26 +205,8 @@
   }
 }
 
-
-
-
-
 @include media($desktop-min-width) {
   .anniversary-navbar {
-    border-bottom: 1px solid $c-gray-4;
-    background: none;
-    max-width: 1800px;
-    margin: 0 auto;
-    
-    & > .container:not(.newsletter-form) {
-      z-index: 9999;
-      padding: 0;
-    }
-    
-    .js-mobile-nav-toggle {
-      display: none;
-    }
-    
     .logo-anniversary {
       width: 180px;
 
@@ -232,7 +214,25 @@
         margin-top: -25px;
       }
     }
-    
+  }
+}
+
+@include media($largedesktop-min-width) {
+  .anniversary-navbar {
+    border-bottom: 1px solid $c-gray-4;
+    background: none;
+    max-width: 1800px;
+    margin: 0 auto;
+
+    .js-mobile-nav-toggle {
+      display: none;
+    }
+
+    & > .container:not(.newsletter-form) {
+      z-index: 9999;
+      padding: 0;
+    }
+
     nav {
       display: block;
       padding-top: 0;
@@ -314,17 +314,7 @@
             }
           }
         }
-        
       }
     }
   }
-
-}
-
-
-
-
-
-@include media($largedesktop-min-width) {
-  
 }

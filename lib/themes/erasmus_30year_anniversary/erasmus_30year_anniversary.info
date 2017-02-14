@@ -25,7 +25,7 @@ regions[content_bottom] = "Content Bottom"
 regions[footer] = "Footer"
 
 ; STYLESHEETS
-stylesheets[all][] = assets/css/style.css
+stylesheets[all][] = assets/css/style.min.css
 
 ; SCRIPTS
 scripts[] = assets/js/anniv-country-list.js
