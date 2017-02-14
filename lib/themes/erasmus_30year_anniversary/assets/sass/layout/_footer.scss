@@ -162,12 +162,7 @@ footer {
     .find-us-on {
       margin: 0 auto;
       padding: 27px;
-      
-      .title,
-      .links {
-        float: left;
-      }
-      
+
       ul {
         list-style-type: none;
         padding-left: 10px;
@@ -188,6 +183,12 @@ footer {
 @include media($largedesktop-min-width) {
   footer {
     .container {
+      .find-us-on {
+        .title,
+        .links {
+          float: left;
+        }
+      }
       .menu {
         li {
           a {
