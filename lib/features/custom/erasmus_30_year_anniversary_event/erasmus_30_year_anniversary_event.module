@@ -117,6 +117,8 @@ function erasmus_30_year_anniversary_event_module_implements_alter(&$implementat
  * Implements hook_preprocess_node().
  */
 function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
+  global $theme;
+
   if (isset($vars['view']->name)
       && $vars['view']->name == 'erasmus_30_year_anniversary_events') {
     $vars['city'] = $vars['field_30ya_city'][0]['value'];
@@ -166,6 +168,18 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
       );
     }
   }
+
+  if ($vars['type'] == 'erasmus_30ya_event' && $vars['view_mode'] == 'full'
+    && $theme == 'erasmus_30year_anniversary') {
+
+    if (isset($vars['field_30ya_pictures']) && !empty($vars['field_30ya_pictures'])) {
+      foreach ($vars['field_30ya_pictures'] as &$picture) {
+        $img = $picture['file']->uri;
+        $img = image_style_url('erasmus_30_year_hero_video_poster_951x535', $img);
+        $picture['file']->data_src = $img;
+      }
+    }
+  }
 }
 
 /**
@@ -180,6 +194,11 @@ function erasmus_30_year_anniversary_event_preprocess_page(&$vars) {
     $item = '';
     if (!empty($video) && !empty($video['file'])) {
       $item = file_view_file($video['file']);
+      $poster = $node_wrapper->field_30ya_video_event_poster->value();
+      if (!empty($poster)) {
+        $poster = image_style_url('erasmus_30_year_story_huge__720x574', $poster['file']->uri);
+        $item['#files'][0]['poster'] = $poster;
+      }
       $item = render($item);
     }
 

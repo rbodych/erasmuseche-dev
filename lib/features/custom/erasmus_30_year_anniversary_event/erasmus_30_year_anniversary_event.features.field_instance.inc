@@ -873,6 +873,67 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance:
+  // 'node-erasmus_30ya_event-field_30ya_video_event_poster'.
+  $field_instances['node-erasmus_30ya_event-field_30ya_video_event_poster'] = array(
+    'bundle' => 'erasmus_30ya_event',
+    'deleted' => 0,
+    'description' => 'A poster for the event video. Required when you upload a video.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_30ya_video_event_poster',
+    'label' => 'Video event poster',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'file_extensions' => 'jpg jpeg gif png',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'avportal' => 0,
+          'dailymotion' => 0,
+          'ffp' => 0,
+          'node' => 0,
+          'private' => 0,
+          'public' => 'public',
+          'vimeo' => 0,
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
+          'media_default--media_browser_my_files' => 'media_default--media_browser_my_files',
+          'media_internet' => 'media_internet',
+          'upload' => 'upload',
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => 21,
+    ),
+  );
+
   // Exported field_instance: 'node-erasmus_30ya_event-title_field'.
   $field_instances['node-erasmus_30ya_event-title_field'] = array(
     'bundle' => 'erasmus_30ya_event',
@@ -924,6 +985,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('A link to the event organiser');
+  t('A poster for the event video. Required when you upload a video.');
   t('City');
   t('Country');
   t('Date');
@@ -943,6 +1005,7 @@ function erasmus_30_year_anniversary_event_field_default_field_instances() {
   t('Short description');
   t('Title');
   t('Video event');
+  t('Video event poster');
   t('When the event has passed, this can be used to fill in a report about the passed event. This will be shown on the detail page.');
 
   return $field_instances;
