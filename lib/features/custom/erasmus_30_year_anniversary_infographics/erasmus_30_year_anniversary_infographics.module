@@ -1,0 +1,78 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Infographics feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_infographics.features.inc';
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_infographics_preprocess_node(&$node) {
+  global $theme;
+
+  if ($node['type'] == 'erasmus_30_year_anniversary_info'
+    && $theme == 'erasmus_30year_anniversary') {
+
+    switch ($node['elements']['#view_mode']) {
+      case 'teaser':
+
+        $infographic = $node['field_30ya_infographic'][0]['file']->uri;
+        if (!empty($infographic)) {
+          $thumb = image_style_url('erasmus_30_year_story_card__370x210', $infographic);
+          $big_uri = file_create_url($infographic);
+          $socialMedia = _erasmus_30_year_anniversary_infographics_generate_html_share($big_uri, $node);
+
+          $media = _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb, 'handle-html-popup');
+          $item = _erasmus_30_year_anniversary_page_add_full_screen_link($media);
+          $renderBigFile = file_view($node['field_30ya_infographic'][0]['file']);
+          $items = [
+            'main' => drupal_render($renderBigFile),
+            'sub' => [
+              l(t('Download'), $big_uri, [
+              'attributes' => [
+                  'class' => ['link', 'link--download', 'button', 'button--primary', 'button--medium'],
+                  'download' => '',
+                ],
+              ]),
+              theme('erasmus_30_year_anniversary_global_sharing', [
+                'fb' => $socialMedia['share_fb'],
+                'tw' => $socialMedia['share_tw'],
+                'title' => $node['title'],
+                'class' => 'infographic',
+              ]
+              ),
+            ],
+          ];
+          $item = _erasmus_30_year_anniversary_page_add_popup_html($item, $items);
+          $node['content']['infographic'] = $item;
+        }
+
+        $suggestions = $node['theme_hook_suggestions'];
+        array_unshift($suggestions, 'node__erasmus_30_year_anniversary_info__teaser');
+        $node['theme_hook_suggestions'] = $suggestions;
+        
+        drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_infographics')
+        . '/js/e30yaInfoGraphicCarrousel.js');
+        drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_infographics')
+        . '/js/e30yaSocialShareInfographic.js');
+        _erasmus_30ya_core_add_swiper_library();
+        break;
+    }
+  }
+}
+
+/**
+ * Helper function to generate social buttons.
+ */
+function _erasmus_30_year_anniversary_infographics_generate_html_share($big_uri, $node) {
+  $return = [];
+
+  $share_link = $big_uri;
+
+  $return['share_fb'] = l(t('Share on Facebook'), '', ['fragment' => '#']);
+  $tw = _erasmus_30ya_core_construct_tweet_intent_url($node['title'], $share_link);
+  $return['share_tw'] = $tw;
+  return $return;
+}
