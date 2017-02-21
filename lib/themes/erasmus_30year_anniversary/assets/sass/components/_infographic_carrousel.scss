@@ -37,17 +37,22 @@
       padding: 0;
       position: absolute;
       top: 0;
-      left: 0;
-    
-      .item:first-child {
-        margin: $padding 0 0 $padding;
-        float: left;
-      }
+      right: 0;
+      width: auto;
+      text-align: left;
       
-      .item:last-child {
-        float: right;
+      .item {
+        float: left;
+        
+        &:first-child {
+          margin: 25px $padding 0 $padding;
+        }
       }
     }
+  }
+  
+  .link--download {
+    padding: $padding;
   }
   
   .facebook {
@@ -109,6 +114,12 @@
     .share-link {
       @include display(flex);
       @include align-items(center);
+    }
+    
+    .no-link {
+      @include media($tablet-min-width) {
+        margin-top: 15px;
+      }
     }
   }
 }
