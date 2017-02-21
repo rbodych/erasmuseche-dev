@@ -1,4 +1,5 @@
 name = Erasmus+ 30 year anniversary: Infographics
+description = Infographic content type and view.
 core = 7.x
 package = Features
 dependencies[] = field_group
@@ -71,4 +72,4 @@ features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][features] = features
 features_exclude[dependencies][media] = media
 multisite_version = 2.2
-project path = sites/all/modules/features/custom
+php = 5.5.9

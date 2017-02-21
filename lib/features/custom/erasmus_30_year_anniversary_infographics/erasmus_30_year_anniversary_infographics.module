@@ -31,8 +31,14 @@ function erasmus_30_year_anniversary_infographics_preprocess_node(&$node) {
             'main' => drupal_render($renderBigFile),
             'sub' => [
               l(t('Download'), $big_uri, [
-              'attributes' => [
-                  'class' => ['link', 'link--download', 'button', 'button--primary', 'button--medium'],
+                'attributes' => [
+                  'class' => [
+                    'link',
+                    'link--download',
+                    'button',
+                    'button--primary',
+                    'button--medium',
+                  ],
                   'download' => '',
                 ],
               ]),
@@ -52,7 +58,7 @@ function erasmus_30_year_anniversary_infographics_preprocess_node(&$node) {
         $suggestions = $node['theme_hook_suggestions'];
         array_unshift($suggestions, 'node__erasmus_30_year_anniversary_info__teaser');
         $node['theme_hook_suggestions'] = $suggestions;
-        
+
         drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_infographics')
         . '/js/e30yaInfoGraphicCarrousel.js');
         drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_infographics')

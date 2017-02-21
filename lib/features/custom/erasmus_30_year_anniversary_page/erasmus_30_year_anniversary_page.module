@@ -146,14 +146,13 @@ function _erasmus_30_year_anniversary_page_add_full_screen_link($content) {
 /**
  * Adds HTML to an existing that will be disabled in the colorbox popup.
  *
- * @param HTML String
- *  Item to which it will be appended to.
- *
- * @param Array
- *  Items array that are being printed directly in the TPL.
+ * @param string $item
+ *   Item to which it will be appended to.
+ * @param array $items
+ *   Items array that are being printed directly in the TPL.
  *
  * @return HTML String
- *  Html String to be printed
+ *   Html String to be printed
  */
 function _erasmus_30_year_anniversary_page_add_popup_html($item, $items) {
   $popupHtml = theme('e30ya_colorbox_html', [
