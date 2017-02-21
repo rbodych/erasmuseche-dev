@@ -1,0 +1,134 @@
+.swiper-container--infographics {
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+        
+  .swiper-slide {
+    text-align: center;
+
+    @include align-items(center);
+    @include display(flex);
+    @include justify-content(center);
+  }
+
+  .colorbox-wrapper .activate-colorbox {
+    box-sizing: border-box;
+  }
+}
+
+.colorbox-popup-html {
+  display: none;
+  
+  &.shown {
+    display: block;
+  }
+  
+  img {
+    height: auto;
+  }
+  
+  .sub-items {
+    padding-top: $padding-small;
+    text-align: center;
+    width: 100%;
+
+    @include media($tablet-min-width) {
+      padding: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    
+      .item:first-child {
+        margin: $padding 0 0 $padding;
+        float: left;
+      }
+      
+      .item:last-child {
+        float: right;
+      }
+    }
+  }
+  
+  .facebook {
+    @include display(flex);
+    @include align-items(center);
+
+    a {
+      background: url(../images/logo-fb-42x42-white.png) no-repeat center;
+      width: 30px;
+      height: 30px;
+      opacity: .8;
+      text-indent: -999999px;
+      padding: 40px;
+      border: none;
+    
+      &:hover {
+        opacity: 1;
+        background-color: #3b5998;
+        padding: 40px;
+        border: none;
+      }
+    }
+  }
+    
+  .twitter {
+    @include display(flex);
+    @include align-items(center);
+    
+    a {
+      background: url(../images/logo-twitter-42x42-white.png) no-repeat center;
+      width: 30px;
+      height: 30px;
+      opacity: .8;
+      text-indent: -999999px;
+      padding: 40px;
+      
+      &:hover {
+        opacity: 1;
+        background-color: #1a8bf0;
+        padding: 40px;
+        border: none;
+      }
+    }
+  }
+    
+  .share {
+    @include flex-grow(2);
+    @include display(flex);
+    @include justify-content(flex-end);
+    @include align-items(center);
+    padding: 0 0 0 $padding;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: $c-gradient-intro-1;
+
+    @include media($tablet-min-width) {
+      max-width: 310px;
+    }
+
+    .share-link {
+      @include display(flex);
+      @include align-items(center);
+    }
+  }
+}
+
+.view-erasmus-30-year-anniversary-infographics {
+  section {
+    margin-top: $padding;
+  }
+  
+  .container {
+    background: none;
+  }
+  
+  .swiper-numeric-pagination {
+    width: 100%;
+    padding: $padding-small;
+    
+    @include media($mobile-min-width) {
+      width: 85%;
+      padding: $padding;
+    }
+  }
+}
