@@ -194,6 +194,7 @@ function _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_conte
     'fb' => $fb,
     'tw' => $tw,
     'title' => $title,
+    'class' => 'normal',
   ]
   );
 }
@@ -222,6 +223,7 @@ function erasmus_30ya_core_theme() {
         'fb' => NULL,
         'tw' => NULL,
         'title' => NULL,
+        'class' => NULL,
       ),
       'template' => 'social-share',
       'path' => drupal_get_path('module', 'erasmus_30ya_core') . '/templates',
