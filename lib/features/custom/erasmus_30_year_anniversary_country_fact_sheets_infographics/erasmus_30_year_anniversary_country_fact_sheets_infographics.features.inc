@@ -29,9 +29,9 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_views_api(
 function erasmus_30_year_anniversary_country_fact_sheets_infographics_node_info() {
   $items = array(
     'erasmus_30_year_anniversary_fact' => array(
-      'name' => t('Erasmus+ 30 year anniversary: Fact Sheet / Infographic'),
+      'name' => t('Erasmus+ 30 year anniversary: Fact Sheet'),
       'base' => 'node_content',
-      'description' => t('Contains country facts sheets and infographics.'),
+      'description' => t('Contains country facts sheets'),
       'has_title' => '1',
       'title_label' => t('Title'),
       'help' => '',

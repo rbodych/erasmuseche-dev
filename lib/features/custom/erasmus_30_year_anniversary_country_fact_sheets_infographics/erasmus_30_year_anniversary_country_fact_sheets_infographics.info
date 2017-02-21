@@ -1,5 +1,5 @@
-name = Erasmus+ 30 year anniversary: Country fact sheets & infographics
-description = Country fact sheets & infographics content type and view
+name = Erasmus+ 30 year anniversary: Country fact sheets
+description = Country fact sheets content type and view
 core = 7.x
 package = Erasmus+ 30 year anniversary
 dependencies[] = erasmus_national_agencies_events

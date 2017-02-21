@@ -14,7 +14,7 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_strongarm(
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'additional_settings__active_tab_erasmus_30_year_anniversary_fact';
-  $strongarm->value = 'edit-print';
+  $strongarm->value = 'edit-submission';
   $export['additional_settings__active_tab_erasmus_30_year_anniversary_fact'] = $strongarm;
 
   $strongarm = new stdClass();
