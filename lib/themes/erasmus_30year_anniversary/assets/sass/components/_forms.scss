@@ -809,8 +809,11 @@ body {
 
   .form-text {
     height: 45px;
+  }
+
+  .form-text,
+  textarea {
     padding: 0 1em;
-    background: $c-primary-4;
     border: none;
     border-radius: 0;
     width: 100%;
@@ -855,12 +858,26 @@ body {
     }
   }
 
+  .form-select,
+  textarea {
+    padding: 1em 1em;
+  }
+
+  .form-select {
+    float: left;
+    border: none;
+    border-radius: 0;
+    height: auto;
+  }
+
+  .webform-component-select,
+  .form-item {
+    overflow: hidden;
+  }
+
   .webform-datepicker {
     .form-select {
       width: auto;
-      float: left;
-      border: none;
-      border-radius: 0;
     }
 
     .form-select {
