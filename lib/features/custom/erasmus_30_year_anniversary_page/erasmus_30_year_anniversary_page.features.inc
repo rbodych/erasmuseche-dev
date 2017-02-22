@@ -17,6 +17,34 @@ function erasmus_30_year_anniversary_page_ctools_plugin_api($module = NULL, $api
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function erasmus_30_year_anniversary_page_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: erasmus_30_year_video_poster_640_370.
+  $styles['erasmus_30_year_video_poster_640_370'] = array(
+    'label' => 'erasmus_30_year_video_poster_640_370',
+    'effects' => array(
+      11 => array(
+        'name' => 'focal_point_scale_and_crop',
+        'data' => array(
+          'width' => 640,
+          'height' => 370,
+          'focal_point_advanced' => array(
+            'shift_x' => '',
+            'shift_y' => '',
+          ),
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function erasmus_30_year_anniversary_page_node_info() {
