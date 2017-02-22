@@ -840,18 +840,31 @@ body {
       padding: $padding-small;
     }
   }
-  
+
   label {
     color: $c-gradient-intro-1;
     transition: all 0.3s;
     font-family: $font-family;
   }
-  
+
   .form-actions .button-primary {
     width: 100%;
-    
+
    @include media($tablet-min-width) {
       width: auto;
+    }
+  }
+
+  .webform-datepicker {
+    .form-select {
+      width: auto;
+      float: left;
+      border: none;
+      border-radius: 0;
+    }
+
+    .form-select {
+      margin-right: $padding-small;
     }
   }
 }
