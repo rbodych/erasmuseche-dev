@@ -375,3 +375,40 @@ function _erasmus_30ya_core_add_swiper_library() {
   drupal_add_css($path . 'swiper.min.css');
   drupal_add_js($path . 'swiper.min.js');
 }
+
+/**
+ * Implements hook_form_id_alter().
+ */
+function erasmus_30ya_core_form_views_exposed_form_alter(&$form, &$form_state) {
+  if (isset($form['country']['#options'])) {
+    $form['country']['#options']['other'] = t('Other countries');
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function erasmus_30ya_core_views_query_alter(&$view, &$query) {
+  if (isset($view->exposed_raw_input['country']) && $view->exposed_raw_input['country'] == 'other') {
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+
+        $allowed_fields = [
+          'field_data_field_30ya_country.field_30ya_country_tid',
+          'field_data_field_country_na_events.field_country_na_events_tid',
+        ];
+        foreach ($allowed_fields as $allowed_field) {
+          if ($condition['field'] == $allowed_field &&
+              $condition['value'] == 'other') {
+            $countries = _erasmus_30ya_core_return_countries_map_tids();
+            $condition = array(
+              'field' => $allowed_field,
+              'value' => $countries,
+              'operator' => 'not in',
+            );
+          }
+        }
+      }
+    }
+  }
+}
