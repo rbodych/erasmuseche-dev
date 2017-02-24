@@ -22,13 +22,13 @@ function erasmus_30_year_anniversary_infographics_preprocess_node(&$node) {
         if (!empty($infographic)) {
           $thumb = image_style_url('erasmus_30_year_story_card__370x210', $infographic);
           $big_uri = file_create_url($infographic);
-          $socialMedia = _erasmus_30_year_anniversary_infographics_generate_html_share($big_uri, $node);
+          $social_media = _erasmus_30_year_anniversary_infographics_generate_html_share($big_uri, $node);
 
           $media = _erasmus_30_year_anniversary_page_popup_media_thumb($big_uri, $thumb, 'handle-html-popup');
           $item = _erasmus_30_year_anniversary_page_add_full_screen_link($media);
-          $renderBigFile = file_view($node['field_30ya_infographic'][0]['file']);
+          $render_big_file = file_view($node['field_30ya_infographic'][0]['file']);
           $items = [
-            'main' => drupal_render($renderBigFile),
+            'main' => drupal_render($render_big_file),
             'sub' => [
               l(t('Download'), $big_uri, [
                 'attributes' => [
@@ -43,8 +43,8 @@ function erasmus_30_year_anniversary_infographics_preprocess_node(&$node) {
                 ],
               ]),
               theme('erasmus_30_year_anniversary_global_sharing', [
-                'fb' => $socialMedia['share_fb'],
-                'tw' => $socialMedia['share_tw'],
+                'fb' => $social_media['share_fb'],
+                'tw' => $social_media['share_tw'],
                 'title' => $node['title'],
                 'class' => 'infographic',
               ]

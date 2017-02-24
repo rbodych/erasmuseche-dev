@@ -26,11 +26,11 @@
     <?php
       print drupal_render($form['progressbar']);
 
-      if (isset($form['preview_message'])) {
+      if (isset($form['preview_message'])) :
         print '<div class="messages warning">';
         print drupal_render($form['preview_message']);
         print '</div>';
-      }
+      endif;
 
       print drupal_render($form['submitted']);
 
