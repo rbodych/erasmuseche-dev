@@ -135,6 +135,9 @@ function erasmus_core_strongarm_alter(&$items) {
   if (!empty($items['popup_link_new_window'])) {
     $items['popup_link_new_window'] = TRUE;
   }
+  if (!empty($items['mimemail_format'])) {
+    $items['mimemail_format']->value = 'filtered_html';
+  }
 }
 
 /**
