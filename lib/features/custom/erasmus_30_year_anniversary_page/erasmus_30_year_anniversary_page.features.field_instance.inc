@@ -768,6 +768,7 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   t('Media');
   t('Media Poster');
   t('Media thumb');
+  t('Media thumbnail that applies a popup for the normal media');
   t('Only usable as a video poster.');
   t('Rich text');
   t('Title');

@@ -16,7 +16,11 @@ function erasmus_30_year_anniversary_event_views_pre_render(&$view) {
     $filter = isset($view->exposed_raw_input['country']) ?
       $view->exposed_raw_input['country'] : NULL;
 
-    if (isset($filter) && $filter !== 'All') {
+    $not_allowed_filter_options = [
+      'All',
+      'partners',
+    ];
+    if (isset($filter) && !in_array($filter, $not_allowed_filter_options)) {
       $html = _erasmus_30_year_anniversary_event_count_participants_per_country($view);
       $view->header['area']->options['content'] = $html;
     }

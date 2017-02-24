@@ -123,10 +123,8 @@
           foreach ($content['field_30ya_pictures']['#items'] as $key => $pic):
       ?>
         <div class="swiper-slide">
-          <div class="content-wrapper swiper-lazy">
-            <img src="<?php print $content['field_30ya_pictures'][$key]['#file']->data_src; ?>" />
-            <div class="swiper-lazy-preloader"></div>
-          </div>
+          <img class="swiper-lazy" data-src="<?php print $content['field_30ya_pictures'][$key]['#file']->data_src; ?>" />
+          <div class="swiper-lazy-preloader"></div>
         </div>
         <?php
           endforeach;

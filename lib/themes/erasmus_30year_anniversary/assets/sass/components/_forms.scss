@@ -423,8 +423,8 @@ footer .container > form {
           margin-top: 0;
           padding-right: 10px;
           margin-bottom: $padding;
-          width: calc(100% / 3);
-          
+          width: auto;
+
           label {
             color: #fff;
           }
@@ -777,5 +777,111 @@ body {
       margin-top: $padding;
     }
   }
+}
+
+// General theming FORM.
+// Please extend this class or make it more generic.
+.webform--container {
+  background: $c-primary-1;
+  padding-top: $padding-medium;
   
+  @include media($mobile-min-width) {
+    padding-top: $padding-large;
+  }
+  
+  @include media($tablet-min-width) {
+    padding-top: $padding-medium;
+  }
+
+  .form-layout-wrapper {
+    margin-bottom: $padding-large;
+    
+    @include media($tablet-min-width) {
+      @include span-columns(8);
+      @include shift(2);
+    }
+    
+    @include media($desktop-min-width) {
+      @include span-columns(4);
+      @include shift(4);
+    }
+  }
+
+  .form-text {
+    height: 45px;
+  }
+
+  .form-text,
+  textarea {
+    padding: 0 1em;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .description {
+    background: $c-primary-2;
+    color: #fff;
+    padding: $padding-small;
+  }
+
+  .form-managed-file {
+    @include display(flex);
+    @include align-items(center);
+    border: 1px solid $c-primary-2;
+    padding: $padding-small;
+
+    .form-file {
+      color: $c-primary-4;
+      width: 100%;
+    }
+
+    input[type=submit].btn.btn-default {
+      background: none;
+      border: 2px solid $c-gradient-intro-1;
+      color: $c-gradient-intro-1 !important;
+      padding: $padding-small;
+    }
+  }
+
+  label {
+    color: $c-gradient-intro-1;
+    transition: all 0.3s;
+    font-family: $font-family;
+  }
+
+  .form-actions .button-primary {
+    width: 100%;
+
+   @include media($tablet-min-width) {
+      width: auto;
+    }
+  }
+
+  .form-select,
+  textarea {
+    padding: 1em 1em;
+  }
+
+  .form-select {
+    float: left;
+    border: none;
+    border-radius: 0;
+    height: auto;
+  }
+
+  .webform-component-select,
+  .form-item {
+    overflow: hidden;
+  }
+
+  .webform-datepicker {
+    .form-select {
+      width: auto;
+    }
+
+    .form-select {
+      margin-right: $padding-small;
+    }
+  }
 }

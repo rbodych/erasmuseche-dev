@@ -194,6 +194,7 @@ function _erasmus_30_year_anniversary_event_retrieve_global_social_sharing_conte
     'fb' => $fb,
     'tw' => $tw,
     'title' => $title,
+    'class' => 'normal',
   ]
   );
 }
@@ -222,6 +223,7 @@ function erasmus_30ya_core_theme() {
         'fb' => NULL,
         'tw' => NULL,
         'title' => NULL,
+        'class' => NULL,
       ),
       'template' => 'social-share',
       'path' => drupal_get_path('module', 'erasmus_30ya_core') . '/templates',
@@ -372,4 +374,41 @@ function _erasmus_30ya_core_add_swiper_library() {
   $path = _erasmus_30ya_core_retrieve_path_swiper_library();
   drupal_add_css($path . 'swiper.min.css');
   drupal_add_js($path . 'swiper.min.js');
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function erasmus_30ya_core_form_views_exposed_form_alter(&$form, &$form_state) {
+  if (isset($form['country']['#options'])) {
+    $form['country']['#options']['partners'] = t('Partner countries');
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function erasmus_30ya_core_views_query_alter(&$view, &$query) {
+  if (isset($view->exposed_raw_input['country']) && $view->exposed_raw_input['country'] == 'partners') {
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+
+        $allowed_fields = [
+          'field_data_field_30ya_country.field_30ya_country_tid',
+          'field_data_field_country_na_events.field_country_na_events_tid',
+        ];
+        foreach ($allowed_fields as $allowed_field) {
+          if ($condition['field'] == $allowed_field &&
+              $condition['value'] == 'partners') {
+            $countries = _erasmus_30ya_core_return_countries_map_tids();
+            $condition = array(
+              'field' => $allowed_field,
+              'value' => $countries,
+              'operator' => 'not in',
+            );
+          }
+        }
+      }
+    }
+  }
 }

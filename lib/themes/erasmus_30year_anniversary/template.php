@@ -103,7 +103,7 @@ function erasmus_30year_anniversary_field_collection_view($variables) {
     if (isset($fc_item['field_30ya_media_poster'])) {
       $poster = $fc_item['field_30ya_media_poster'];
       if (!empty($poster)) {
-        $poster = image_style_url('erasmus_30_year_story_huge__720x574', $poster['#items'][0]['file']->uri);
+        $poster = image_style_url('erasmus_30_year_video_poster_640_370', $poster['#items'][0]['file']->uri);
         $fc_item['field_30ya_contentrow_media'][0]['file']['#files'][0]['poster'] = $poster;
       }
     }

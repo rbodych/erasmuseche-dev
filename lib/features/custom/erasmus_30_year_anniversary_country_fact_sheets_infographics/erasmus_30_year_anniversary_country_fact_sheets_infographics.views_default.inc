@@ -15,14 +15,14 @@ function erasmus_30_year_anniversary_country_fact_sheets_infographics_views_defa
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Erasmus+ 30 year anniversary: Country facts sheets & Infographics';
+  $view->human_name = 'Erasmus+ 30 year anniversary: Country facts sheets';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Country facts sheets & Infographics';
+  $handler->display->display_options['title'] = 'Country facts sheets';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
