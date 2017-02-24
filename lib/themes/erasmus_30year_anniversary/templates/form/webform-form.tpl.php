@@ -23,17 +23,14 @@
 ?>
 <div class="container webform--container">
   <div class="form-layout-wrapper">
+    <?php print drupal_render($form['progressbar']); ?>
+    <?php if (isset($form['preview_message'])) : ?>
+      <div class="messages warning">
+        <?php print drupal_render($form['preview_message']); ?>
+      </div>
+    <?php endif; ?>
     <?php
-      print drupal_render($form['progressbar']);
-
-      if (isset($form['preview_message'])) :
-        print '<div class="messages warning">';
-        print drupal_render($form['preview_message']);
-        print '</div>';
-      endif;
-
       print drupal_render($form['submitted']);
-
       print drupal_render_children($form);
     ?>
   </div>
