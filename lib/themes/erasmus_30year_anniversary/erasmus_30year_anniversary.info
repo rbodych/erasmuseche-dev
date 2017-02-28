@@ -31,3 +31,4 @@ stylesheets[all][] = assets/css/style.min.css
 scripts[] = assets/js/anniv-country-list.js
 scripts[] = assets/js/anniv-global.js
 scripts[] = assets/js/vendor/jquery.jqpagination.min.js
+scripts[] = assets/js/vendor/jquery.shorten.min.js
