@@ -106,17 +106,3 @@ function erasmus_30ya_core_admin() {
   ];
   return system_settings_form($form);
 }
-
-/**
- * Retrieve all monthly theme options.
- */
-function _erasmus_30ya_core_admin_get_monthly_themes() {
-  $vocabulary
-    = taxonomy_vocabulary_machine_name_load('erasmus_30_year_anniversary_monthly_themes');
-  $tree = taxonomy_get_tree($vocabulary->vid);
-  $terms = [];
-  foreach ($tree as $term) {
-    $terms[$term->tid] = $term->name;
-  }
-  return $terms;
-}
