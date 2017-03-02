@@ -40,7 +40,7 @@
     </p>
   <?php endif; ?>
   <?php if (isset($intro)): ?>
-    <div class="p-summary">
+    <div class="p-summary collapsible-text">
       <?php print $intro; ?>
     </div>
   <?php endif; ?>

@@ -143,15 +143,15 @@ function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
   // Max upload 1 MB.
   $form['upload'] = [
     '#type' => 'managed_file',
-    '#title' => t('Choose an image:'),
+    '#title' => t('Choose an image or video:'),
     '#upload_location' => 'public://story_image/',
     '#required' => TRUE,
     '#upload_validators' => [
-      'file_validate_extensions' => ['png jpg jpeg gif'],
-      'file_validate_size' => ['10' * 1024 * 1024],
+      'file_validate_extensions' => ['png jpg jpeg gif mp4 avi wmv mov qt'],
+      'file_validate_size' => ['50' * 1024 * 1024],
     ],
     '#description'
-    => t('Only files with the following extensions are allowed: png jpg jpeg gif. The maximum file size is 10 MB.'),
+    => t('Only files with the following extensions are allowed: png jpg jpeg gif mp4 avi wmv mov qt. The maximum file size is 50 MB.'),
   ];
   $form['termsconditions'] = [
     '#title' => t('Terms & Conditions'),
@@ -184,16 +184,18 @@ function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state
   $file->status = FILE_STATUS_PERMANENT;
   file_save($file);
 
-  $countries = _erasmus_30ya_core_return_countries_map_tids_name();
-  $values['nationality'] = $countries[$form_state['values']['nationality']];
+  $countries = _erasmus_30ya_core_retrieve_all_countries();
+  $values['nationality']
+    = isset($countries[$form_state['values']['nationality']]) ? $countries[$form_state['values']['nationality']] : $form_state['values']['nationality'];
   $values['body'] = $form_state['values']['description'];
   $values['email'] = $form_state['values']['email'];
   $values['name'] = $form_state['values']['name'];
   $values['last_name'] = $form_state['values']['last_name'];
-  $values['erasmus_destination'] = $countries[$form_state['values']['erasmus_destination']];
+  $values['erasmus_destination']
+    = isset($countries[$form_state['values']['erasmus_destination']]) ? $countries[$form_state['values']['erasmus_destination']] : $form_state['values']['erasmus_destination'];
   $values['erasmus_year'] = $form_state['values']['erasmus_year'];
   $values['date_of_birth'] = $form_state['values']['date_of_birth'];
-  $values['image'] = file_create_url($file->uri);
+  $values['file'] = file_create_url($file->uri);
 
   $module = 'erasmus_30_year_anniversary_share_story';
   $key = 'share_story_erasmus30year';
@@ -222,7 +224,7 @@ function erasmus_30_year_anniversary_share_story_mail($key, &$message, $params) 
     case 'share_story_erasmus30year':
       $message['subject'] = t('Erasmus Share your story submission');
       $message['body'][] = 'Body: ' . $params['body'];
-      $message['body'][] = 'Image url:' . $params['image'];
+      $message['body'][] = 'File url:' . $params['file'];
       $message['body'][] = 'From email: ' . $params['email'];
       $message['body'][] = 'From name: ' . $params['name'];
       $message['body'][] = 'From last name: ' . $params['last_name'];
