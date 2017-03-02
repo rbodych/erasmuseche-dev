@@ -414,11 +414,11 @@ function erasmus_30ya_core_views_query_alter(&$view, &$query) {
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_BASE_FORM_ID_alter().
  */
-function erasmus_30ya_core_form_alter(&$form, &$form_state, $form_id) {
+function erasmus_30ya_core_form_webform_client_form_alter(&$form, &$form_state) {
   global $theme;
-  if (strpos($form_id, 'webform_client_form_') !== FALSE && $theme == 'erasmus_30year_anniversary') {
+  if ($theme == 'erasmus_30year_anniversary') {
     foreach ($form['submitted'] as &$element) {
       $maxlength = 0;
       if (isset($element['#webform_component']['extra']['css_classes'])) {
@@ -431,4 +431,18 @@ function erasmus_30ya_core_form_alter(&$form, &$form_state, $form_id) {
       }
     }
   }
+}
+
+/**
+ * Retrieve all monthly theme options.
+ */
+function _erasmus_30ya_core_admin_get_monthly_themes() {
+  $vocabulary
+    = taxonomy_vocabulary_machine_name_load('erasmus_30_year_anniversary_monthly_themes');
+  $tree = taxonomy_get_tree($vocabulary->vid);
+  $terms = [];
+  foreach ($tree as $term) {
+    $terms[$term->tid] = $term->name;
+  }
+  return $terms;
 }
