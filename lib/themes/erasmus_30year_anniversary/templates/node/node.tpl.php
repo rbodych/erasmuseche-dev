@@ -112,11 +112,3 @@
   </div>
 </div>
 <?php endif;?>
-
-<?php if (isset($content['links']) && !empty($content['links'])): ?>
-  <div class="link-wrapper right">
-    <?php print render($content['links']); ?>
-  </div>
-<?php endif; ?>
-
-<?php print render($content['comments']); ?>
