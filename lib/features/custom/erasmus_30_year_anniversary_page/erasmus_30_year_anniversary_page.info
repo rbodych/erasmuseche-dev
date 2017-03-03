@@ -78,6 +78,7 @@ features[variable][] = maxlength_js_label_erasmus_30_year_anniversary_page
 features[variable][] = menu_options_erasmus_30_year_anniversary_page
 features[variable][] = menu_parent_erasmus_30_year_anniversary_page
 features[variable][] = metatag_enable_node__erasmus_30_year_anniversary_page
+features[variable][] = mimemail_format
 features[variable][] = node_options_erasmus_30_year_anniversary_page
 features[variable][] = node_preview_erasmus_30_year_anniversary_page
 features[variable][] = node_submitted_erasmus_30_year_anniversary_page
