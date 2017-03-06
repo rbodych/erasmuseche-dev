@@ -52,8 +52,9 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
         $suggestions = $node['theme_hook_suggestions'];
         array_unshift($suggestions, 'node__erasmus_30_year_anniversary_file__teaser');
         $node['theme_hook_suggestions'] = $suggestions;
-  
+
         break;
+
       case 'full':
         drupal_goto('/anniversary/resources');
 
