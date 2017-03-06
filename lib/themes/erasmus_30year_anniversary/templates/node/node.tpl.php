@@ -112,9 +112,3 @@
   </div>
 </div>
 <?php endif;?>
-
-<div class="link-wrapper right">
-  <?php print render($content['links']); ?>
-</div>
-
-<?php print render($content['comments']); ?>
