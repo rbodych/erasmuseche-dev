@@ -61,3 +61,13 @@ function erasmus_30ya_core_update_7102() {
     variable_del($var);
   }
 }
+
+/**
+ * Enable module File module.
+ */
+function erasmus_30ya_core_update_7103() {
+  $modules = [
+    'erasmus_30_year_anniversary_file',
+  ];
+  module_enable($modules);
+}
