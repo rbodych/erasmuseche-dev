@@ -9,6 +9,9 @@
     display: none;
   }
   
+  .swiper-wrapper {
+    max-width: $max-width;
+  }
 }
 
 
@@ -78,6 +81,7 @@
   .node-erasmus-30-year-anniversary-hero {
     position: relative;
     z-index: -1;
+    max-width: 951px;
   
     /* Center slide text vertically */
     @include display(flex);
@@ -352,14 +356,12 @@
   .swiper-numeric-pagination {
     width: 20%;
   }
-  
-  
-  
-  
+
   .swiper-slide {
     width: 50%;
   
     .node-erasmus-30-year-anniversary-hero {
+      min-width: 951px;
       .share {
         width: calc(33.3333% - (#{$padding-medium} + #{$padding}) * 2);
         @include flex-basis(calc(33.3333% - (#{$padding-medium} + #{$padding}) * 2));

@@ -8,9 +8,12 @@
         background: transparent;
       }
     }
+    
+  > .container {
+    background: none;
+  }
   
   header {
-    width: 85%;
     margin: 0 auto;
     margin-top: 2em;
     padding: $padding;
@@ -29,8 +32,10 @@
   }
 
   video {
-    min-width: 951px;
-    min-height: 535px;
+    @include media($desktop-min-width) {
+      min-width: 951px;
+      min-height: 535px;
+    }
   }
 }
 
@@ -109,7 +114,6 @@
   .discover-erasmus-plus {
     header {
       padding: $padding-medium;
-      margin-left: $padding-big;
       background: rgba(255,255,255, .3);
     }
   }
