@@ -48,6 +48,9 @@ projects[field_collection][version] = "1.0-beta12"
 projects[entity_translation][subdir] = "contrib"
 projects[entity_translation][version] = "1.0-beta5"
 
+projects[webform_localization][subdir] = "contrib"
+projects[webform_localization][version] = "4.10"
+
 ; =========
 ; Libraries
 ; =========

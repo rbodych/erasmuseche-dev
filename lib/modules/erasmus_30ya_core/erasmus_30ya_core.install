@@ -71,3 +71,13 @@ function erasmus_30ya_core_update_7103() {
   ];
   module_enable($modules);
 }
+
+/**
+ * Enable module webform_localization.
+ */
+function erasmus_30ya_core_update_7104() {
+  $modules = [
+    'webform_localization',
+  ];
+  module_enable($modules);
+}
