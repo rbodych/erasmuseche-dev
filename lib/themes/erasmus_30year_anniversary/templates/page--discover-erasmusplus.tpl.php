@@ -154,17 +154,19 @@
   </div><!-- /#responsive-sidebar-->
 <?php endif; ?>
 
-<header class="header-discover-erasmus container">
-  <?php print render($title_prefix); ?>
-    <?php if ($title): ?>
-      <h1>
-        <?php print $title; ?>
-      </h1>
-  <?php endif; ?>
-  <?php if ($regions['sidebar_left']): ?>
-    <?php print $regions['sidebar_left']; ?>
-  <?php endif; ?>
-</header>
+<div class="container">
+  <header class="header-discover-erasmus container">
+    <?php print render($title_prefix); ?>
+      <?php if ($title): ?>
+        <h1>
+          <?php print $title; ?>
+        </h1>
+    <?php endif; ?>
+    <?php if ($regions['sidebar_left']): ?>
+      <?php print $regions['sidebar_left']; ?>
+    <?php endif; ?>
+  </header>
+</div>
   
 <a id="content"></a>
 
