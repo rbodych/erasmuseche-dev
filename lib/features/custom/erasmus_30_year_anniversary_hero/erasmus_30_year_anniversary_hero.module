@@ -56,9 +56,9 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
           $vid_url,
           [
             'attributes' => [
-              'title' => t('Download @title', ['@title' =>$node['title']]),
+              'title' => t('Download @title', ['@title' => $node['title']]),
               'class' => 'button button--primary button--medium',
-              'download'
+              'download' => 'download',
             ],
           ]
         );
