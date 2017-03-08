@@ -59,11 +59,16 @@ function erasmus_30_year_anniversary_page_preprocess_page(&$vars) {
  * Implements hook_preprocess_node().
  */
 function erasmus_30_year_anniversary_page_preprocess_node(&$vars) {
+  global $theme;
+
   if (isset($vars['content']['field_30ya_contentrow_media'])) {
     unset($vars['content']['field_30ya_contentrow_media']);
     unset($vars['content']['field_30ya_contentrow_richtext']);
   }
-  drupal_add_js(path_to_theme() . '/assets/js/vendor/jquery.matchHeight.min.js');
+
+  if ($theme == 'erasmus_30year_anniversary') {
+    drupal_add_js(path_to_theme() . '/assets/js/vendor/jquery.matchHeight.min.js');
+  }
 }
 
 /**
