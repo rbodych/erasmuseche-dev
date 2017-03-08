@@ -62,7 +62,6 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
             curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyUserPwd);
           }
 
-          $head = curl_exec($ch);
           $size = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
           $size = format_size($size);
         }

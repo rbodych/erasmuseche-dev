@@ -88,7 +88,7 @@ function erasmus_30_year_anniversary_file_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_e30ya_file_url',
     'indexes' => array(),
-    'locked' => 0,
+    'locked' => 1,
     'module' => 'link',
     'settings' => array(
       'attributes' => array(
