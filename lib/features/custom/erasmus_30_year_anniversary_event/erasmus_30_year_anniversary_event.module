@@ -156,7 +156,8 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     if (!isset($vars['body'][0])) {
       $body = array_pop($vars['body']);
       $vars['intro'] = $body[0]['value'];
-    } else {
+    }
+    else {
       $vars['intro'] = $vars['body'][0]['value'];
     }
 
