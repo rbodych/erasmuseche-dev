@@ -23,9 +23,10 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
           $node['content']['srt'] = $srt_url;
         }
         $vid_url = $node['field_30ya_hero_video'][0]['file']->uri;
+        $vid_url = file_create_url($vid_url);
         unset($node['content']['field_30ya_hero_video']);
         $node['content']['srt_lang'] = $node['language'];
-        $node['content']['vid'] = file_create_url($vid_url);
+        $node['content']['vid'] = $vid_url;
         $video_uri = $node['field_30ya_hero_video_poster'][LANGUAGE_NONE][0]['uri'];
         $node['content']['video_poster']
           = image_style_url('erasmus_30_year_hero_video_poster_951x535', $video_uri);
@@ -50,6 +51,18 @@ function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
         $node['content']['share_fb'] = l(t('Share on Facebook'), '', ['fragment' => '#']);
         $tw = _erasmus_30ya_core_construct_tweet_intent_url($node['title'], $share_link);
         $node['content']['share_tw'] = $tw;
+
+        $download_link = l(t('Download'),
+          $vid_url,
+          [
+            'attributes' => [
+              'title' => t('Download @title', ['@title' =>$node['title']]),
+              'class' => 'button button--primary button--medium',
+              'download'
+            ],
+          ]
+        );
+        $node['content']['download_link'] = $download_link;
 
         break;
 

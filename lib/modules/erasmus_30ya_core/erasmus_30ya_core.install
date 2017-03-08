@@ -81,3 +81,19 @@ function erasmus_30ya_core_update_7104() {
   ];
   module_enable($modules);
 }
+
+/**
+ * All events should be language neutral.
+ */
+function erasmus_30ya_core_update_7105() {
+  $result = db_select('node', 'n')
+    ->fields('n', ['nid'])
+    ->condition('type', 'erasmus_30ya_event')
+    ->execute();
+
+  foreach ($result as $res) {
+    $node = node_load($res->nid);
+    $node->language = LANGUAGE_NONE;
+    node_save($node);
+  }
+}

@@ -208,27 +208,40 @@
         display: none;
       }
     }
-    
-    .share {
-      visibility: hidden;
-      opacity: 0;
+
+    .right {
       position: relative;
-      z-index: -1;
-      background: rgba(0,0,0, .8);
-      padding: 0 $padding;
       @include align-self(flex-start);
       @include display(flex);
       @include justify-content(space-around);
       overflow: hidden;
-      
+      z-index: -1;
+      flex-wrap: wrap;
+
+      .download {
+        margin-top: $padding;
+        @include media($mobile-min-width) {
+          padding-left: $padding;
+        }
+
+        @include media($xldesktop-min-width) {
+          padding-left: 0;
+        }
+      }
+
+      .share {
+        background: rgba(0,0,0, .8);
+        display: flex;
+      }
+
       p {
         color: $c-gray-5;
         @include align-self(center);
         margin-bottom: 0;
+        padding-left: $padding;
       }
-        
+
       .share-link {
-        
         a {
           padding: $padding-medium;
           display: block;
@@ -362,9 +375,14 @@
   
     .node-erasmus-30-year-anniversary-hero {
       min-width: 951px;
-      .share {
-        width: calc(33.3333% - (#{$padding-medium} + #{$padding}) * 2);
-        @include flex-basis(calc(33.3333% - (#{$padding-medium} + #{$padding}) * 2));
+      .right {
+        width: calc(33.3333% - (#{$padding-medium}) * 2);
+        @include flex-basis(calc(33.3333% - (#{$padding-medium}) * 2));
+        flex-wrap: wrap;
+
+        .share {
+          width: 100%;
+        }
       }
       
       .content {
