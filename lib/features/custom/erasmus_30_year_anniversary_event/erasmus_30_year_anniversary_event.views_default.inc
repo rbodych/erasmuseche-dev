@@ -112,6 +112,10 @@ function erasmus_30_year_anniversary_event_views_default_views() {
   $handler->display->display_options['sorts']['promote']['table'] = 'node';
   $handler->display->display_options['sorts']['promote']['field'] = 'promote';
   $handler->display->display_options['sorts']['promote']['order'] = 'DESC';
+  /* Sort criterion: Content: Is passed (field_30ya_is_passed) */
+  $handler->display->display_options['sorts']['field_30ya_is_passed_value']['id'] = 'field_30ya_is_passed_value';
+  $handler->display->display_options['sorts']['field_30ya_is_passed_value']['table'] = 'field_data_field_30ya_is_passed';
+  $handler->display->display_options['sorts']['field_30ya_is_passed_value']['field'] = 'field_30ya_is_passed_value';
   /* Sort criterion: Content: Date (field_30ya_txt_date) */
   $handler->display->display_options['sorts']['field_30ya_txt_date_value']['id'] = 'field_30ya_txt_date_value';
   $handler->display->display_options['sorts']['field_30ya_txt_date_value']['table'] = 'field_data_field_30ya_txt_date';
