@@ -31,7 +31,7 @@ function erasmus_30_year_anniversary_file_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete terms erasmus_30_year_anniversary_file_tags'.
+  // Exported permission: 'delete terms in erasmus_30_year_anniversary_file_tags'.
   $permissions['delete terms in erasmus_30_year_anniversary_file_tags'] = array(
     'name' => 'delete terms in erasmus_30_year_anniversary_file_tags',
     'roles' => array(),

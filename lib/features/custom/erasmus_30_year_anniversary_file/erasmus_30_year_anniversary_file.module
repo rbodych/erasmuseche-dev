@@ -35,15 +35,46 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
 
     switch ($node['elements']['#view_mode']) {
       case 'teaser':
-        $file_url = $node['field_e30ya_file'][0]['file']->uri;
-        $size = format_size($node['field_e30ya_file'][0]['file']->filesize);
+        $node_wrapper = entity_metadata_wrapper('node', (object) $node);
+        $file = $node_wrapper->field_e30ya_file_url->value();
+
+        if (empty($file)) {
+          $file_url = $node['field_e30ya_file'][0]['file']->uri;
+          $size = format_size($node['field_e30ya_file'][0]['file']->filesize);
+          $file_url = file_create_url($file_url);
+        }
+        else {
+          $file_url = $file['url'];
+          $ch = curl_init();
+          curl_setopt($ch, CURLOPT_URL, $file_url);
+          curl_setopt($ch, CURLOPT_HEADER, TRUE);
+          curl_setopt($ch, CURLOPT_NOBODY, TRUE);
+          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+          $proxyUsername = variable_get('proxy_username', '');
+          $proxyPassword = variable_get('proxy_password', '');
+          $proxyUserPwd = $proxyUsername . ':' . $proxyPassword;
+          $proxyServer = variable_get('proxy_server', '');
+          $proxyPort = variable_get('proxy_port', '');
+          $proxy = $proxyServer . ':' . $proxyPort;
+          if (!empty($proxyPassword) || !empty($proxyUsername) || !empty($proxyServer) || !empty($proxyPort)) {
+            curl_setopt($ch, CURLOPT_PROXY, $proxy);
+            curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyUserPwd);
+          }
+
+          $head = curl_exec($ch);
+          $size = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
+          $size = format_size($size);
+        }
+
         $title = $node['title_field'][0]['value'];
         $node['content']['file'] = l(t('Download'),
-          file_create_url($file_url),
+          $file_url,
           [
             'attributes' => [
               'title' => t('Download @title', ['@title' => $title]),
               'class' => 'button button--primary button--medium',
+              'download' => 'download',
             ],
           ]
         );
