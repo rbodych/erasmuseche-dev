@@ -45,25 +45,10 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
         }
         else {
           $file_url = $file['url'];
-          $ch = curl_init();
-          curl_setopt($ch, CURLOPT_URL, $file_url);
-          curl_setopt($ch, CURLOPT_HEADER, TRUE);
-          curl_setopt($ch, CURLOPT_NOBODY, TRUE);
-          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-          $proxyUsername = variable_get('proxy_username', '');
-          $proxyPassword = variable_get('proxy_password', '');
-          $proxyUserPwd = $proxyUsername . ':' . $proxyPassword;
-          $proxyServer = variable_get('proxy_server', '');
-          $proxyPort = variable_get('proxy_port', '');
-          $proxy = $proxyServer . ':' . $proxyPort;
-          if (!empty($proxyPassword) || !empty($proxyUsername) || !empty($proxyServer) || !empty($proxyPort)) {
-            curl_setopt($ch, CURLOPT_PROXY, $proxy);
-            curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyUserPwd);
+          $response = drupal_http_request($file_url);
+          if (isset($response->headers['content-length']) && !empty($response->headers['content-length'])) {
+            $size = format_size($response->headers['content-length']);
           }
-
-          $size = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
-          $size = format_size($size);
         }
 
         $title = $node['title_field'][0]['value'];
