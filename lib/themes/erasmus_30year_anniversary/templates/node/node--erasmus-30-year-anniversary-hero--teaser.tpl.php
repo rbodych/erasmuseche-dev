@@ -40,13 +40,18 @@
     </figure>
   </div>
   
-  <div class="share">
-    <p> <?php print t('share'); ?></p>
-    <div class="share-link facebook hero">
-      <?php print $content['share_fb']; ?>
+  <div class="right">
+    <div class="share">
+      <p> <?php print t('share'); ?></p>
+      <div class="share-link facebook hero">
+        <?php print $content['share_fb']; ?>
+      </div>
+      <div class="share-link twitter">
+        <?php print $content['share_tw']; ?>
+      </div>
     </div>
-    <div class="share-link twitter">
-      <?php print $content['share_tw']; ?>
+    <div class="download">
+      <?php print $content['download_link']; ?>
     </div>
   </div>
 </div>

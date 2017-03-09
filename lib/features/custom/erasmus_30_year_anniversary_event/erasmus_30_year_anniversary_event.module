@@ -153,7 +153,13 @@ function erasmus_30_year_anniversary_event_preprocess_node(&$vars) {
     $field = field_info_field('field_30ya_sector');
     $label = $field['settings']['allowed_values'][$vars['field_30ya_sector'][0]['value']];
     $vars['sector'] = $label;
-    $vars['intro'] = $vars['body'][0]['value'];
+    if (!isset($vars['body'][0])) {
+      $body = array_pop($vars['body']);
+      $vars['intro'] = $body[0]['value'];
+    }
+    else {
+      $vars['intro'] = $vars['body'][0]['value'];
+    }
 
     $countryClass
       = drupal_strtolower($vars['field_30ya_country'][0]['taxonomy_term']->name);
