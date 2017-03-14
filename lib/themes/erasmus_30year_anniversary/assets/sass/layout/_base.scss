@@ -1,0 +1,17 @@
+body {
+  font-size: $font-size;
+  line-height: 1.6;
+  font-family: $font-family-alt;
+  background: #fff;
+  overflow-x: hidden;
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  body {
+    background: $c-gray-4;
+  }
+}

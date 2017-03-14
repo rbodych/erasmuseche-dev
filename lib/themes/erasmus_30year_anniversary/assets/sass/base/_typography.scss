@@ -1,0 +1,14 @@
+@font-face {
+    font-family: Daxline;
+    src: url(../fonts/DaxlinePro-Medium.otf), url('../fonts/DaxlinePro-Medium.eot?#iefix') format('embedded-opentype');
+}
+@font-face {
+    font-family: Daxline;
+    src: url(../fonts/DaxlinePro-Bold.otf), url('../fonts/DaxlinePro-Bold.eot?#iefix') format('embedded-opentype');
+    font-weight: bold;
+}
+
+$font-family: Daxline, Verdana, Geneva, sans-serif;
+$font-family-alt: Verdana, Geneva, sans-serif;
+
+$font-size: 16px;

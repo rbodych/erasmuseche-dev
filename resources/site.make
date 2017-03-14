@@ -39,10 +39,25 @@ projects[feeds_et][subdir] = "contrib"
 projects[feeds_et][version] = "1.x-dev"
 projects[feeds_et][patch][] = "https://www.drupal.org/files/issues/feeds_et_link_support-2078069-3.patch"
 
+projects[focal_point][subdir] = "contrib"
+projects[focal_point][version] = "1.0"
+
+projects[field_collection][subdir] = "contrib"
+projects[field_collection][version] = "1.0-beta12"
+
+projects[entity_translation][subdir] = "contrib"
+projects[entity_translation][version] = "1.0-beta5"
+
+projects[webform_localization][subdir] = "contrib"
+projects[webform_localization][version] = "4.10"
+
 ; =========
 ; Libraries
 ; =========
-
+libraries[history.js][download][type] = "get"
+libraries[history.js][download][url] = "https://github.com/browserstate/history.js/archive/master.zip"
+libraries[history.js][directory_name] = "history.js"
+libraries[history.js][type] = "library"
 
 ; ======
 ; Themes

@@ -1,0 +1,32 @@
+.view-display-id-block_e30ya_files_toolkit {
+  padding-top: 0 !important;
+
+  .view-content {
+    background: none;
+    padding: 0;
+  }
+  
+  .views-row {
+    background: $c-primary-1 !important;
+  }
+  
+  .p-summary {
+    border-top: 1px solid #efefef;
+    padding-top: 1.4em
+  }
+  
+  h3 {
+    margin-top: 0 !important;
+    margin-bottom: $padding !important;
+  }
+  
+  .description {
+    font-style: italic;
+  }
+  
+  .button--primary {
+    margin-top: $padding;
+    display: block;
+    width: 100%;
+  }
+}

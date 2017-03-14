@@ -68,3 +68,45 @@ function erasmus_core_update_7002() {
   );
   module_enable($modules);
 }
+
+/**
+ * Enable partner module for 30year anniversary.
+ */
+function erasmus_core_update_7003() {
+  $modules = [
+    'erasmus_30_year_anniversary_partner',
+  ];
+  module_enable($modules);
+}
+
+/**
+ * Enable modules for 30year anniversary.
+ */
+function erasmus_core_update_7004() {
+  $modules = [
+    'erasmus_30ya_core',
+    'erasmus_30_year_anniversary_partner',
+    'erasmus_30_year_anniversary_event',
+    'erasmus_30_year_anniversary_hero',
+    'erasmus_30_year_anniversary_homepage',
+    'erasmus_30_year_anniversary_page',
+    'erasmus_30_year_anniversary_menu',
+    'erasmus_30_year_anniversary_share_story',
+    'erasmus_30_year_anniversary_story',
+    'erasmus_30_year_anniversary_page',
+    'erasmus_30_year_anniversary_newsletter',
+    'erasmus_30_year_anniversary_press_release',
+    'erasmus_30_year_anniversary_country_fact_sheets_infographics',
+  ];
+  module_enable($modules);
+}
+
+/**
+ * Enable modules for 30year anniversary.
+ */
+function erasmus_core_update_7005() {
+  $modules = [
+    'erasmus_30_year_anniversary_social_media_feed',
+  ];
+  module_enable($modules);
+}

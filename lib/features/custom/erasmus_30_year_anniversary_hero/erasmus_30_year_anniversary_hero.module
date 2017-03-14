@@ -1,0 +1,131 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Hero feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_hero.features.inc';
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_hero_preprocess_node(&$node) {
+  global $theme;
+  if ($node['type'] == 'erasmus_30_year_anniversary_hero'
+    && $theme == 'erasmus_30year_anniversary') {
+
+    switch ($node['elements']['#view_mode']) {
+      case 'teaser':
+        if (isset($node['field_30ya_hero_video_srt'])
+            && !empty($node['field_30ya_hero_video_srt'])) {
+          $srt_uri = $node['field_30ya_hero_video_srt'][$node['language']][0]['uri'];
+          $srt_url = file_create_url($srt_uri);
+          $node['content']['srt'] = $srt_url;
+        }
+        $vid_url = $node['field_30ya_hero_video'][0]['file']->uri;
+        $vid_url = file_create_url($vid_url);
+        unset($node['content']['field_30ya_hero_video']);
+        $node['content']['srt_lang'] = $node['language'];
+        $node['content']['vid'] = $vid_url;
+        $video_uri = $node['field_30ya_hero_video_poster'][LANGUAGE_NONE][0]['uri'];
+        $node['content']['video_poster']
+          = image_style_url('erasmus_30_year_hero_video_poster_951x535', $video_uri);
+        $banner_uri = $node['field_30ya_hero_banner'][0]['uri'];
+        $node['content']['banner_url']
+          = theme('image_style', [
+            'path' => $banner_uri,
+            'style_name' => 'erasmus_30_year_hero_bg',
+            'attributes' => ['alt' => $node['title']],
+          ]
+          );
+
+        $suggestions = $node['theme_hook_suggestions'];
+        array_unshift($suggestions, 'node__erasmus_30_year_anniversary_hero__teaser');
+        $node['theme_hook_suggestions'] = $suggestions;
+
+        $currentUri = request_uri();
+        $currentUri = ltrim($currentUri, '/');
+        $share_link = url(NULL, array('absolute' => TRUE))
+        . $currentUri . '#slideid=' . $node['nid'];
+
+        $node['content']['share_fb'] = l(t('Share on Facebook'), '', ['fragment' => '#']);
+        $tw = _erasmus_30ya_core_construct_tweet_intent_url($node['title'], $share_link);
+        $node['content']['share_tw'] = $tw;
+
+        $download_link = l(t('Download'),
+          $vid_url,
+          [
+            'attributes' => [
+              'title' => t('Download @title', ['@title' => $node['title']]),
+              'class' => 'button button--primary button--medium',
+              'download' => 'download',
+            ],
+          ]
+        );
+        $node['content']['download_link'] = $download_link;
+
+        break;
+
+      case 'erasmus_30_year_hero_homepage':
+        $banner_uri = $node['field_30ya_hero_banner'][0]['uri'];
+        $node['content']['banner_url']
+          = theme('image_style', [
+            'path' => $banner_uri,
+            'style_name' => 'erasmus_30_year_hero_small_hp',
+            'attributes' => ['alt' => $node['title']],
+          ]
+          );
+
+        $node['content']['node_url'] = $node['node_url'];
+
+        $node['content']['moreLink'] = l(t('Watch video'),
+          '/anniversary/discover-erasmusplus',
+          [
+            'attributes' => ['class' => 'button button--primary button--small'],
+            'fragment' => 'slideid=' . $node['nid'],
+          ]
+        );
+
+        $suggestions = $node['theme_hook_suggestions'];
+        array_unshift($suggestions,
+          'node__erasmus_30_year_anniversary_hero__teaser_homepage');
+        $node['theme_hook_suggestions'] = $suggestions;
+        break;
+
+      case 'full':
+        drupal_goto('/anniversary/discover-erasmusplus');
+
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function erasmus_30_year_anniversary_hero_preprocess_page(&$variables) {
+  $allowed_uri = 'anniversary/discover-erasmusplus';
+  $current_path = request_uri();
+
+  if (strpos($current_path, $allowed_uri) !== FALSE) {
+    $heroPath = drupal_get_path('module', 'erasmus_30_year_anniversary_hero');
+    _erasmus_30ya_core_add_swiper_library();
+    drupal_add_js($heroPath . '/js/erasmus_30_year_anniversary_hero.js');
+    drupal_add_js($heroPath . '/js/all_heroes_dropdown.js');
+    drupal_add_js($heroPath . '/js/social_hero.js');
+    drupal_add_js($heroPath . '/js/video_controls.js');
+
+    $variables['theme_hook_suggestions'][] = 'page__discover_erasmusplus';
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function erasmus_30_year_anniversary_hero_preprocess_html(&$variables) {
+  $allowed_uri = 'anniversary/discover-erasmusplus';
+  $current_path = request_uri();
+  if (strpos($current_path, $allowed_uri) !== FALSE) {
+    $variables['classes_array'][] = 'discover-erasmus-plus';
+  }
+}

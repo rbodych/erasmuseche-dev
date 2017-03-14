@@ -1,0 +1,225 @@
+<?php
+/**
+ * @file
+ * Code for the erasmus_30_year_anniversary_social_media_feed feature.
+ */
+
+/**
+ * Gets tweets.
+ *
+ * Documentation: https://github.com/J7mbo/twitter-api-php.
+ */
+function _erasmus_30_year_anniversary_social_media_feed_retrieve_twitter() {
+  require_once drupal_get_path('module', 'erasmus_30_year_anniversary_social_media_feed')
+  . '/includes/TwitterAPIExchange.php';
+  $consumer_key = variable_get('erasmus_30ya_core_tw_consumer_key', NULL);
+  $consumer_secret = variable_get('erasmus_30ya_core_tw_consumer_secret', NULL);
+  $acces_token = variable_get('erasmus_30ya_core_tw_access_token', NULL);
+  $acces_token_secret = variable_get('erasmus_30ya_core_tw_access_token_secret', NULL);
+  $settings = [
+    'oauth_access_token' => $acces_token,
+    'oauth_access_token_secret' => $acces_token_secret,
+    'consumer_key' => $consumer_key,
+    'consumer_secret' => $consumer_secret,
+  ];
+  $hashTag = variable_get('erasmus_30ya_core_hashtag', 'ErasmusPlus');
+
+  $url = variable_get('erasmus_30ya_core_tw_twitter_get_api_url', 'https://api.twitter.com/1.1/search/tweets.json');
+  $getfield = '?q=%23' . $hashTag . '%20OR%20%23Erasmus30&count=25';
+  $requestMethod = 'GET';
+  try {
+    $twitter = new TwitterAPIExchange($settings);
+    $results = $twitter->setGetfield($getfield)
+      ->buildOauth($url, $requestMethod)
+      ->performRequest();
+  }
+  catch (Exception $e) {
+    watchdog('erasmus_30ya_social_feed', 'Error contacting Twitter: %error', ['%error' => $e], WATCHDOG_ERROR);
+    return [];
+  }
+  if (!isset($results) || empty($results) || strpos($results, 'error') !== FALSE) {
+    watchdog('erasmus_30ya_social_feed', 'Twitter results malformed: %results', ['%results' => $results], WATCHDOG_ERROR);
+    return [];
+  }
+  $results = drupal_json_decode($results);
+  $urlTweet = 'https://twitter.com/' . $hashTag . '/status/';
+  $items = [];
+  foreach ($results['statuses'] as $item) {
+    $items[] = [
+      'text' => $item['text'],
+      'type' => 'tw',
+      'date' => _erasmus_30_year_anniversary_social_media_feed_normalize_date($item['created_at']),
+      'image' => isset($item['extended_entities']) ? $item['extended_entities']['media'][0]['media_url_https'] : NULL,
+      'url' => $urlTweet . $item['id'],
+    ];
+  }
+  return $items;
+}
+
+/**
+ * Gets facebook posts.
+ */
+function _erasmus_30_year_anniversary_social_media_feed_retrieve_facebook() {
+  $appId = variable_get('erasmus_30ya_core_fb_app_id', NULL);
+  $pageId = variable_get('erasmus_30ya_core_fb_page_id', NULL);
+  $appSecret = variable_get('erasmus_30ya_core_fb_app_secret', NULL);
+  $url = 'https://graph.facebook.com/oauth/access_token';
+  $data = [
+    'client_id' => $appId,
+    'client_secret' => $appSecret,
+    'grant_type' => 'client_credentials',
+  ];
+  $full_url = url($url, ['query' => $data]);
+  $fbAccessTokenRequest = drupal_http_request($full_url);
+  if (!isset($fbAccessTokenRequest) || !isset($fbAccessTokenRequest->data) || empty($fbAccessTokenRequest->data)) {
+    return [];
+  }
+  $fbAccessTokenRequest = str_replace('access_token=', '', $fbAccessTokenRequest->data);
+  if (empty($fbAccessTokenRequest)) {
+    watchdog('erasmus_30ya_social_feed', 'Facebook access token empty', [], WATCHDOG_ERROR);
+    return [];
+  }
+  $fburl = 'https://graph.facebook.com/v2.8/' . $pageId;
+  $fbdata = [
+    'fields' => 'posts{full_picture,message,created_time,permalink_url},picture',
+    'access_token' => $fbAccessTokenRequest,
+  ];
+  $full_fburl = url($fburl, ['query' => $fbdata]);
+  $data  = drupal_http_request($full_fburl);
+  if (!isset($data->data)) {
+    watchdog('erasmus_30ya_social_feed', 'Facebook data empty', [], WATCHDOG_ERROR);
+    return [];
+  }
+  $data = drupal_json_decode($data->data, TRUE);
+  $items = [];
+  foreach ($data['posts']['data'] as $item) {
+    $items[] = [
+      'text' => $item['message'],
+      'type' => 'fb',
+      'date' => _erasmus_30_year_anniversary_social_media_feed_normalize_date($item['created_time']),
+      'image' => isset($item['full_picture']) ? $item['full_picture'] : NULL,
+      'url' => $item['permalink_url'],
+    ];
+  }
+  return $items;
+}
+
+/**
+ * Social media feed operator.
+ */
+function _erasmus_30_year_anniversary_social_media_feed_operator() {
+  $items_tw = _erasmus_30_year_anniversary_social_media_feed_cache_wrapper('erasmus_30_year_anniversary_social_media_feed_twitter', 'twitter');
+  $items_fb = _erasmus_30_year_anniversary_social_media_feed_cache_wrapper('erasmus_30_year_anniversary_social_media_feed_facebook', 'facebook');
+  $items = array_merge($items_tw, $items_fb);
+  $items = _erasmus_30_year_anniversary_social_media_feed_manipulate_items($items);
+  return theme('erasmus_30_year_anniversary_social_media_feed', [
+    'items' => $items,
+  ]);
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function erasmus_30_year_anniversary_social_media_feed_block_info() {
+  $blocks['e30ya_social_media_feed'] = array(
+    'info' => t('Erasmus+ 30 year Social media feed'),
+    'region' => 'content',
+    'status' => TRUE,
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => '<front>',
+    'theme' => 'erasmus_30year_anniversary',
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function erasmus_30_year_anniversary_social_media_feed_block_view($delta = '') {
+  $block = array();
+  $pathSwiper = _erasmus_30ya_core_retrieve_path_swiper_library();
+  switch ($delta) {
+    case 'e30ya_social_media_feed':
+      $block['content']['#markup']
+        = _erasmus_30_year_anniversary_social_media_feed_operator();
+      $block['content']['#attached'] = [
+        'js' => [
+          [
+            'data' => $pathSwiper . 'swiper.min.js',
+          ],
+          drupal_get_path('module', 'erasmus_30_year_anniversary_social_media_feed') . '/js/e30yaSocialMediaFeed.js',
+        ],
+        'css' => [
+          [
+            'data' => $pathSwiper . 'swiper.min.css',
+          ],
+        ],
+      ];
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function erasmus_30_year_anniversary_social_media_feed_theme() {
+  return array(
+    'erasmus_30_year_anniversary_social_media_feed' => array(
+      'variables' => array(
+        'items' => NULL,
+      ),
+      'template' => 'erasmus-30-year-anniversary-social-media-feed',
+      'path' => drupal_get_path('module', 'erasmus_30_year_anniversary_social_media_feed') . '/templates',
+    ),
+  );
+}
+
+/**
+ * Helper function to normalize date.
+ */
+function _erasmus_30_year_anniversary_social_media_feed_normalize_date($date) {
+  return strtotime($date);
+}
+
+/**
+ * Sort social media items by date and attach image.
+ */
+function _erasmus_30_year_anniversary_social_media_feed_manipulate_items($items) {
+  usort($items, '_erasmus_30_year_anniversary_social_media_feed_date_compare');
+  return $items;
+}
+
+/**
+ * Date compare function.
+ */
+function _erasmus_30_year_anniversary_social_media_feed_date_compare($a, $b) {
+  if ($a['date'] == $b['date']) {
+    return 0;
+  }
+  return ($a['date'] > $b['date']) ? -1 : 1;
+}
+
+/**
+ * Helper function for cache.
+ *
+ * @param string $name
+ *   The cache name.
+ * @param string $type
+ *   Used to call feed retrieve $type function dynamically.
+ *
+ * @return array $my_data
+ *   The results of the social media feed for this $type.
+ */
+function _erasmus_30_year_anniversary_social_media_feed_cache_wrapper($name, $type) {
+  if ($cache = cache_get($name)) {
+    $my_data = $cache->data;
+  }
+  else {
+    $my_data = call_user_func('_erasmus_30_year_anniversary_social_media_feed_retrieve_' . $type);
+    cache_set($name, $my_data, 'cache', time() + 60 * 15);
+  }
+  return $my_data;
+}

@@ -5,3 +5,176 @@
  */
 
 include_once 'erasmus_core.features.inc';
+
+/**
+ * Implements hook_strongarm_alter().
+ */
+function erasmus_core_strongarm_alter(&$items) {
+  if (!empty($items['theme_default'])) {
+    $items['theme_default']->value = 'erasmus';
+  }
+  if (!empty($items['language_negotiation_language_url'])) {
+    $items['language_negotiation_language_url'] = [
+      'nexteuropa_multilingual_url_suffix' => array(
+        'callbacks' => array(
+          'language' => 'nexteuropa_multilingual_language_negotiation_provider_callback',
+          'url_rewrite' => 'nexteuropa_multilingual_language_negotiation_url_rewrite_callback',
+          'switcher' => 'nexteuropa_multilingual_language_negotiation_switcher_url',
+        ),
+        'file' => 'profiles/multisite_drupal_standard/modules/features/nexteuropa_multilingual/nexteuropa_multilingual.callbacks.inc',
+      ),
+      'locale-url' => array(
+        'callbacks' => array(
+          'language' => 'locale_language_from_url',
+          'switcher' => 'locale_language_switcher_url',
+          'url_rewrite' => 'locale_language_url_rewrite_url',
+        ),
+        'file' => 'includes/locale.inc',
+      ),
+      'language_cookie' => array(
+        'callbacks' => array(
+          'language' => 'language_cookie_language',
+          'switcher' => 'language_cookie_language_switcher',
+          'url_rewrite' => 'language_cookie_language_rewrite',
+        ),
+        'file' => 'profiles/multisite_drupal_standard/modules/contrib/language_cookie/language_cookie.module',
+      ),
+      'locale-url-fallback' => array(
+        'callbacks' => array(
+          'language' => 'locale_language_url_fallback',
+        ),
+        'file' => 'includes/locale.inc',
+      ),
+    ];
+  }
+  if (!empty($items['locale_language_providers_weight_language'])) {
+    $items['locale_language_providers_weight_language']->value = [
+      'locale-url' => '-8',
+      'nexteuropa_multilingual_url_suffix' => '-8',
+      'locale-session' => '-6',
+      'language_cookie' => '-5',
+      'locale-user' => '-4',
+      'locale-browser' => '-2',
+      'language-default' => '10',
+    ];
+  }
+  if (!empty($items['language_negotiation_language_content'])) {
+    $items['language_negotiation_language_content']->value = [
+      'locale-interface' => array(
+        'callbacks' => array(
+          'language' => 'locale_language_from_interface',
+        ),
+        'file' => 'includes/locale.inc',
+      ),
+      'language-default' => array(
+        'callbacks' => array(
+          'language' => 'language_from_default',
+        ),
+      ),
+    ];
+  }
+  if (!empty($items['language_negotiation_language'])) {
+    $items['language_negotiation_language']->value = [
+      'nexteuropa_multilingual_url_suffix' => array(
+        'callbacks' => array(
+          'language' => 'nexteuropa_multilingual_language_negotiation_provider_callback',
+          'url_rewrite' => 'nexteuropa_multilingual_language_negotiation_url_rewrite_callback',
+          'switcher' => 'nexteuropa_multilingual_language_negotiation_switcher_url',
+        ),
+        'file' => 'profiles/multisite_drupal_standard/modules/features/nexteuropa_multilingual/nexteuropa_multilingual.callbacks.inc',
+      ),
+      'language-default' => array(
+        'callbacks' => array(
+          'language' => 'language_from_default',
+        ),
+      ),
+    ];
+  }
+  if (!empty($items['eu_cookie_compliance_en'])) {
+    $items['eu_cookie_compliance_en'] = array(
+      'popup_enabled' => 0,
+      'popup_clicking_confirmation' => 0,
+      'popup_position' => 0,
+      'popup_agree_button_message' => 'OK, I agree',
+      'popup_disagree_button_message' => 'No, give me more info',
+      'popup_info' => array(
+        'value' => '<h2>We use cookies on this site to enhance your user experience</h2><p>By clicking any link on this page you are giving your consent for us to set cookies.</p>',
+        'format' => 'full_html',
+      ),
+      'popup_agreed_enabled' => 0,
+      'popup_hide_agreed' => 0,
+      'popup_find_more_button_message' => 'More info',
+      'popup_hide_button_message' => 'Hide',
+      'popup_agreed' => array(
+        'value' => 'Thank you for accepting cookies.You can now hide this message or find out more about cookies.',
+        'format' => 'plain_text',
+      ),
+      'popup_link' => 'http://ec.europa.eu/cookies/index_en.htm',
+      'popup_link_new_window' => 1,
+      'popup_height' => '60',
+      'popup_width' => '100%',
+      'popup_delay' => '1',
+      'popup_bg_hex' => '0779BF',
+      'popup_text_hex' => 'ffffff',
+      'domains_option' => '1',
+      'domains_list' => 'https://ec.europa.eu/programmes/erasmus-plus
+  http://ec.europa.eu/programmes/erasmus-plus',
+      'exclude_paths' => '<front>
+  *',
+    );
+  }
+  if (!empty($items['popup_disagree_button_message'])) {
+    $items['popup_disagree_button_message'] = 'No, give me more info';
+  }
+  if (!empty($items['popup_find_more_button_message'])) {
+    $items['popup_find_more_button_message'] = 'More info';
+  }
+  if (!empty($items['popup_hide_button_message'])) {
+    $items['popup_hide_button_message'] = 'Hide';
+  }
+  if (!empty($items['popup_link_new_window'])) {
+    $items['popup_link_new_window'] = TRUE;
+  }
+  if (!empty($items['mimemail_format'])) {
+    $items['mimemail_format']->value = 'filtered_html';
+  }
+}
+
+/**
+ * Implements hook_field_default_field_bases_alter().
+ */
+function erasmus_core_field_default_field_bases_alter(&$fields) {
+  if (!empty($fields['body'])) {
+    $fields['body']['translatable'] = 1;
+  }
+}
+
+/**
+ * Implements hook_features_post_restore().
+ */
+function erasmus_core_features_post_restore($op, $items) {
+  if ($op == 'revert' && !empty($items['multisite_settings_core'])) {
+    multisite_drupal_toolbox_add_block_context('homepage', 'om_maximenu-om-maximenu-1', 'om_maximenu', 'om-maximenu-1', 'featured');
+    multisite_drupal_toolbox_add_block_context('homepage', 'bean-twitter-widget', 'bean', 'twitter-widget', 'sidebar_right');
+    multisite_drupal_toolbox_add_block_context('homepage', 'block-2', 'block', '2', 'sidebar_right', '-9');
+    multisite_drupal_toolbox_add_block_context('homepage', 'views-updates_images-block', 'views', 'updates_images-block', 'updates_left');
+    multisite_drupal_toolbox_add_block_context('homepage', 'views-updates-block', 'views', 'updates-block', 'updates_left', '-9');
+    multisite_drupal_toolbox_add_block_context('homepage', 'views-updates_images_right-block', 'views', 'updates_images_right-block', 'updates_right');
+    multisite_drupal_toolbox_add_block_context('homepage', 'views-updates_right-block', 'views', 'updates_right-block', 'updates_right', '-9');
+    multisite_drupal_toolbox_add_block_context('homepage', 'views-valor_projects-block', 'views', 'valor_projects-block', 'content_bottom1');
+    multisite_drupal_toolbox_add_block_context('homepage', 'block-3', 'block', '3', 'stats');
+    multisite_drupal_toolbox_add_block_context('homepage', 'block-7', 'block', '7', 'stats', '-9');
+    multisite_drupal_toolbox_add_block_context('homepage', 'block-4', 'block', '4', 'headerbox');
+  }
+}
+
+/**
+ * Implements hook_user_default_permissions_alter().
+ */
+function mymodule_user_default_permissions_alter(&$permissions) {
+  // Permission: 'display EU Cookie Compliance popup'.
+  if (!empty($permissions['display EU Cookie Compliance popup'])) {
+    $permissions['display EU Cookie Compliance popup']['roles']['anonymous user'] = 'anonymous user';
+    $permissions['display EU Cookie Compliance popup']['roles']['authenticated user'] = 'authenticated user';
+  }
+}

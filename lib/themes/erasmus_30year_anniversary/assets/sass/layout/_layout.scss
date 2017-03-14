@@ -1,0 +1,1148 @@
+.container {
+  // Max-width setting will be applied to outer-container.
+  @include outer-container;
+  padding: 0 $padding;
+  background: #fff;
+  
+  #path & {
+    background: transparent;
+  }
+}
+
+.half-width {
+  @include span-columns(6);
+}
+
+
+
+
+
+// basic intro stripe
+header {
+
+  &.introduction {
+    position: relative;
+
+    .background-pattern {
+      display: none;
+    }
+
+    .introduction__highlights {
+      @include display(flex);
+      @include flex-wrap(wrap);
+      bottom: -10px;
+      position: relative;
+      z-index: 9;
+      
+      & > video,
+      & > img,
+      & > .colorbox-wrapper {
+        @include align-self(baseline);
+        box-shadow: $shadow-big;
+        object-fit: cover;
+        width: 100%;
+      }
+      
+      & > .colorbox-wrapper {
+        .image-thumb {
+          max-width: inherit;
+          width: 100%;
+        }
+      }
+      
+      .item-card-float {
+        
+        img {
+          object-fit: cover;
+          position: static;
+          box-shadow: 0 0 0;
+          width: 100%;
+        }
+        
+        &:first-of-type {
+          @include flex-basis(50%);
+        }
+        
+        &:nth-of-type(2) {
+          @include flex-basis(50%);
+        }
+        
+        &:nth-of-type(3) {
+          @include flex-basis(100%);
+        }
+      }
+      
+      .event-header--highlights {
+        background: $c-primary-2;
+        color: #fff;
+        width: 100%;
+        padding: $padding 0;
+        box-shadow: $shadow-big;
+        @include justify-content(space-around);
+        @include flex-wrap(wrap);
+
+        & > p {
+          display: none;
+        }
+        
+        & > div {
+          background: none;
+          @include flex-basis(50%);
+          margin: 0;
+          
+          &:first-of-type {
+            border-right: 1px dashed rgba(255,255,255, .2);
+          }
+          
+          &.event-header--participants {
+            @include flex-basis(100%);
+            border-top: 1px dashed rgba(255,255,255, .2);
+          }
+        }
+      }
+    }
+  }
+}
+
+.object-fit-not-supported {
+  header {
+
+    &.introduction {
+
+      .introduction__highlights {
+
+        & > img {
+          height: auto;
+
+        }
+        
+        .item-card-float {
+          
+          img {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Tile with highlight numbers
+.event-header--highlights {
+  font-size: $heading-3-size;
+  padding: $padding 0;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+
+  @include media($mobile-min-width) {
+    padding-top: 70px;
+  }
+  @include media($tablet-min-width) {
+    padding-top: $padding;
+    text-align: left;
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+
+    > div {
+      margin-right: $padding-small;
+    }
+  }
+  & > p {
+    margin: 0;
+    font-size: 16px;
+
+    @include media($tablet-min-width) {
+      margin: 0 $padding-small 0;
+    }
+  }
+  & > div {
+    padding: $padding;
+    text-align: center;
+    background: $c-gray-5;
+    @include display(flex);
+    @include flex-direction(column);
+
+    span {
+      width: 100%;
+      font-size: .6em;
+    }
+  }
+  .event-header--country {
+    margin-bottom: $padding-small;
+
+     @include media($tablet-min-width) {
+       margin: 0 $padding-small 0;
+     }
+  }
+}
+
+
+
+
+
+#cboxWrapper {
+ background: none;
+ border-radius: 0 0 0;
+}
+
+
+
+
+
+.colorbox-wrapper {
+  position: relative;
+  @include transition(all .2s);
+  
+  &:hover {
+    background: rgba(0,0,0,.5);
+    @include transition-delay(.2s);
+    
+    .activate-colorbox {
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.7);
+      @include transition-delay(.2s);
+      
+      &:before {
+        font-size: 4em;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include transition-delay(.2s);
+        @include transform(translate(-50%, -50%));
+        @include filter(drop-shadow(2px 2px 2px #000));
+      }
+    }
+    
+  }
+
+  .activate-colorbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0,0,0,.5);
+    padding: 10px;
+    padding-left: $padding;
+    color: #fff;
+    text-decoration: none;
+    width: 170px;
+    height: 50px;
+    text-align: right;
+    @include transition(all .2s);
+    
+    &:hover {
+      color: #fff;
+    }
+    
+    &:active {
+      background: rgba(0,0,0,.8);
+      @include transition-delay(0s);
+    }
+    
+    &:before {
+      content: "\e015";
+      position: relative;
+      margin-right: 6px;
+      position: absolute;
+      left: $padding-small;
+      top: 15px;
+      display: inline-block;
+      font-family: 'Glyphicons Halflings';
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      @include transition(all .2s);
+    }
+  }
+}
+
+      
+      
+      
+      
+      
+// Stripes for basic pages layout
+.content-stripe {
+  padding: 0;
+  
+  .infographics-wrapper {
+    img {
+      width: 100% !important;
+      max-width: 720px;
+    }
+  }
+  
+  &:nth-of-type(2n+1) {
+    background: $c-gray-5;
+  }
+  
+  &.gray-bg {
+    background: $c-primary-5;
+    color: $c-gray-4;
+    padding: $padding-large $padding;
+    padding-bottom: $padding-medium;
+    
+    .bg-info {
+      background: $c-primary-1;
+      padding: $padding-small;
+    }
+    
+    h2,
+    h3,
+    h4 {
+      color: #fff;
+      margin-bottom: 30px;
+      margin-top: 45px;
+    }
+    
+    h2:first-of-type {
+      margin-top: 0;
+    }
+    
+    ul {
+      li {
+        color: $c-gray-4;
+      }
+    }
+    
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  &.blue-bg {
+    background: $c-primary-2;
+    padding: $padding-large $padding;
+    padding-bottom: $padding-medium;
+    color: $c-primary-4;
+    
+    ul {
+      li {
+        color: $c-primary-4;
+      }
+    }
+    
+    .bg-info {
+      background: $c-primary-1;
+      padding: $padding-small;
+    }
+    
+    h2,
+    h3,
+    h4 {
+      color: #fff;
+      margin-bottom: 30px;
+      margin-top: 45px;
+    }
+    
+    h2:first-of-type {
+      margin-top: 0;
+    }   
+    
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  &.image-left-row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 160px;
+    
+    .left {
+      width: calc(100% - #{$padding}*2);
+      padding-left: $padding;
+      margin-top: -120px;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: initial;
+        max-height: none;
+        object-fit: cover;
+        box-shadow: $shadow-big;
+        
+        &.image-thumb {
+          max-width: inherit;
+        }
+      }
+    }
+    .right {
+      padding: $padding;
+      padding-bottom: $padding-medium;
+    }
+  }
+  
+  &.video-row {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .left {
+      padding: $padding-large $padding;
+      padding-bottom: 0;
+    }
+    
+    .right {
+      position: relative;
+      padding: 0 $padding;
+      padding-bottom: $padding-medium;
+
+      & > div {
+        margin-top: $padding;
+        
+        video {
+          box-shadow: $shadow-big;
+        }
+      }
+    }
+  }
+  
+  &.enable-auto-columns {
+    & > .content {
+        img {
+          margin: 0 0 1.4em;
+        }
+      } 
+    } 
+}
+
+
+
+
+
+
+.gradient-stripe {
+  text-align: center;
+  position: relative;
+  padding: $padding-large $padding;
+  
+  .background-pattern {
+    @include filter(grayscale(50%));
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    background: url(../images/pattern-stripe-white.png) no-repeat 0 0;
+    height: 100%;
+    mix-blend-mode: overlay;
+    opacity: .5;
+  }
+  
+  &.gradient-a {
+    @include linear-gradient(to right, $c-gradient-A1  24%, $c-gradient-A2);
+    color: #fff;
+    
+    h2 {
+      color: $c-gray-4;
+    }
+  }
+  
+  .gradient-stripe__content {
+    z-index: 9;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    
+    ul {
+      list-style: none;
+      
+      li {
+        color: #fff;
+      }
+    }
+    
+    .button {
+      margin-top: 1em;
+    }
+  }
+}
+
+
+
+
+
+.stripe-highlight--right {
+  background: $c-primary-5;
+
+  h2 {
+    color: #fff;
+  }
+  
+  .button {
+    margin-top: 1em;
+  }  
+
+  .stripe-highlight--content {
+    color: $c-gray-4;
+    background: url(../images/pattern-building-dark.png) no-repeat left bottom;
+    padding: $padding-large $padding;
+  }
+  
+  .stripe-highlight--assets {
+
+    & > pre {
+      display: none;
+    }
+    
+    & > div {
+      width: 100%;
+      height: 100%;
+    }
+    
+    article {
+      width: 100%;
+      
+      ul.links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+      }
+      
+      figure {
+        margin: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .stripe-highlight--assets-text {
+        position: relative;
+        z-index: 1;
+        padding: $padding;
+        bottom: 0;
+        background: rgba(255, 255, 255, .9);
+      }
+      
+      p:last-of-type {
+        text-align: right;
+      }
+    }
+  }
+}
+
+
+
+
+//Squares highlight
+.square-medium {
+  display: inline-block;
+  position: relative;
+  left: -25%;
+  width: $square-size-medium;
+  height: $square-size-medium;
+  padding: $padding-medium;
+  box-shadow: $shadow-big;
+  background: $c-secondary-1;
+  color: $c-primary-4;
+}
+
+
+
+
+#layout-body {
+  background: #fff;
+}
+
+
+
+
+
+@include media($mobile-min-width) {
+  header {
+    
+    &.introduction {
+      
+      .introduction__highlights {
+        bottom: -60px;
+        
+        .item-card-float {
+          box-shadow: $shadow-big;
+
+          &:first-of-type {
+            @include flex-basis(33.3333%);
+          }
+          
+          &:nth-of-type(2) {
+            @include flex-basis(33.3333%);
+          }
+          
+          &:nth-of-type(3) {
+            @include flex-basis(33.3333%);
+          }
+          
+        }        
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($tablet-min-width) {
+  header {
+    
+    &.introduction {
+      @include background-image(url("../images/pattern-light-gray.png"), linear-gradient(to right, $c-gradient-intro-1 $c-gradient-intro-start,$c-gradient-intro-2  $c-gradient-intro-start));
+      background-position: left bottom, right top;
+      background-repeat: no-repeat, no-repeat;
+      position: relative;
+      background-size: 60%, 100%;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
+      &:before,
+      &:after {
+        display: none;
+      }
+  
+      .background-pattern {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40%;
+        background: url(../images/pattern-top-right.png) no-repeat center;
+        mix-blend-mode: overlay;
+        background-size: 100%;
+        height: 100%;
+      }
+      
+      .introduction__content {
+        width: 50%;
+        padding: $padding;
+        padding-top: $padding-large;
+        padding-right: $padding;
+        display: inline-block;
+        opacity: 0;
+        @include animation(fade .8s ease-in-out .5s forwards);
+      }
+      
+      .introduction__highlights {
+        width: 45%;
+        float: right;
+        display: inline-block;
+        bottom: initial;
+        
+        & > video,
+        & > .colorbox-wrapper {
+          position: absolute;
+          right: $padding;
+          top: 10em;
+        }
+        
+        & > img {
+          position: absolute;
+          right: $padding;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+        
+        .item-card-float {
+          position: absolute;
+          box-shadow: $shadow-big;
+          
+          &.flip-card {
+            transform: translateX(1500px);
+            opacity: 0;
+          }
+
+          &:first-of-type {
+            z-index: 2;
+            width: 200px;
+            right: 2%;
+            top: 45%;
+            @include animation(translate-content .9s ease-in-out .5s forwards);
+          }
+          
+          &:nth-of-type(2) {
+            right: 42%;
+            top: 68%;
+            width: 200px;
+            z-index: 3;
+            @include animation(translate-content .7s ease-in-out .5s forwards);
+          }
+          
+          &:nth-of-type(3) {
+            width: 280px;
+            right: 15%;
+            top: 8%;
+            z-index: 1;
+            @include animation(translate-content .8s ease-in-out .5s forwards);
+          }
+          
+          &:nth-of-type(4) {
+            height: 100%;
+            right: 0;
+            top: 0;
+            box-shadow: 0 0 0;
+            
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+        
+        .event-header {
+          font-size: 2em;
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+          
+          & > div {
+            width: 50%;
+            
+            &:last-of-type {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .object-fit-not-supported {
+    header {
+      &.introduction {
+        .introduction__highlights {
+          &:nth-of-type(4) {
+            img {
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($desktop-min-width) {
+  .gradient-stripe {
+    text-align: center;
+    position: relative;
+    padding: $padding-large $padding;
+  }
+  
+  
+  
+  
+  .stripe-highlight--right {
+    @include outer-container;
+    display: flex;
+
+    .stripe-highlight--content {
+      width: 40%;
+      padding: $padding-medium;
+      border-right: 1px solid rgba(255,255,255,.1);
+      float: left;
+    }
+    
+    .stripe-highlight--assets {
+      width: 60%;
+      float: left;
+      position: relative;
+      min-height: 520px;
+
+      & > div {
+        display: flex;
+        align-items: flex-end;
+      }
+      
+      article {
+        width: 100%;
+        
+        figure {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          display: inline-flex;
+          
+          img {
+            object-fit: cover;
+          }
+        }
+        
+        .stripe-highlight--assets-text {
+          margin: 0 0 $padding $padding;
+          max-width: 40%;
+        }
+      }
+    }
+  }
+  .object-fit-not-supported {
+    .stripe-highlight--right {
+      .stripe-highlight--assets {
+        article {
+          figure {
+            width: auto;
+            img {
+              max-width: 100%;
+              height: auto;
+              width: auto \9;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  header {
+    
+    &.introduction {
+
+      .introduction__content {
+        padding: $padding-large;
+        padding-top: $padding-big;
+        padding-right: $padding;
+      }
+      
+      .introduction__highlights {
+
+        .item-card-float {
+
+          &:first-of-type {
+            width: 280px;
+            right: 4%;
+            top: 36%;
+          }
+          
+          &:nth-of-type(2) {
+            width: 250px;
+            right: 56%;
+            top: 64%;
+          }
+          
+          &:nth-of-type(3) {
+            left: -8%;
+            top: 5%;
+            width: 400px;
+          }
+        }
+        
+        .event-header {
+          font-size: 2em;
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+          
+          & > div {
+            width: 50%;
+            
+            &:last-of-type {
+              width: 100%;
+            }
+          }
+        }
+        
+      }
+    }
+  }
+  
+  
+  
+  
+  
+  .gradient-stripe {
+    @include outer-container;
+    
+    .gradient-stripe__content {
+      @include span-columns(10);
+      @include shift(1);
+    }    
+  }
+
+
+
+
+
+  // Stripes for basic pages layout
+  .content-stripe {
+    
+    &.gray-bg,
+    &.blue-bg {
+      padding: $padding-large;
+    }
+
+    &.enable-auto-columns {
+     & > .content {
+        @include column-count(2);
+        @include column-gap($padding-medium);
+        
+        img {
+          margin: 0 0 1.4em;
+        }
+      } 
+    } 
+    
+    &.image-left-row {
+      flex-direction: row;
+      margin-top: 0;
+      
+      .left {
+        width: 40%;
+        @include flex-basis(40%);
+        padding: 0;
+        margin: 0;
+        padding-left: $padding-large;
+        @include align-self(center);
+        
+        img {
+          width: 100%;
+          max-height: initial;
+          box-shadow: 0 0 0;
+          box-shadow: $shadow-big;
+        }
+      }
+      .right {
+        width: 60%;
+        @include flex-basis(60%);
+        flex: 1 0;
+        padding: $padding-large;
+      }
+    }
+    
+    &.video-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
+      &:before,
+      &:after {
+        display: none;
+      }
+      
+      .left {
+        width: 50%;
+        flex-basis: 50%;
+        padding: $padding-large;
+      }
+      
+      .right {
+        width: 50%;
+        flex-basis: 50%;
+        padding: 0;
+        @include background-image(url(../images/pattern-stripe-white.png), transparent 20%, linear-gradient(to right, $c-gradient-A1  20%, $c-gradient-A2));
+        background-blend-mode: overlay;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        & > div {
+          width: 100%;
+          margin-top: 0;
+          
+          video {
+            box-shadow: $shadow-big;
+            position: absolute;
+            top: $padding-big;
+            right: $padding;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  
+  .gradient-stripe {
+    text-align: center;
+    position: relative;
+    padding: $padding-big $padding;
+  }
+  
+  
+  
+  
+  
+  .stripe-highlight--right {
+
+    .stripe-highlight--content {
+      padding: $padding-large;
+    }
+  }  
+    
+    
+    
+    
+
+  header {
+  
+    &.introduction {
+
+      .introduction__content {
+        padding: $padding-big $padding-large;
+      }
+      
+      .introduction__highlights {
+        width: 40%;
+        
+        & > video,
+        & > .colorbox-wrapper {
+          left: -20%;
+          top: $padding-big;
+        }
+        
+        & > img {
+          left: -20%;
+        }
+        
+        .item-card-float {
+          &:first-of-type {
+            right: 3%;
+            top: 35%;
+          }
+          
+          &:nth-of-type(2) {
+            left: -35%;
+            top: 68%;
+            width: 300px;
+          }
+          
+          &:nth-of-type(3) {
+            left: -15%;
+            top: 10%;
+            width: 480px;
+          }
+          
+        }
+      }
+    }
+  }
+  
+  
+  
+  
+  
+  .gradient-stripe {
+    @include outer-container;
+    
+    .gradient-stripe__content {
+      @include span-columns(6);
+      @include shift(3);
+    }    
+  }
+  
+  
+  
+  
+  
+  &.enable-auto-columns {
+    & > .content {
+      img {
+        float: left;
+      }
+    } 
+  } 
+  
+  
+  
+  
+  
+  // Stripes for basic pages layout
+  .content-stripe {
+    
+    &.gray-bg,
+    &.blue-bg {
+      padding: $padding-large;
+    }
+
+    &.enable-auto-columns {
+     & > .content {
+        @include column-count(3);
+      } 
+    } 
+    
+    &.image-left-row {
+
+      .right {
+        padding: $padding-big;
+      }
+    }
+    
+    &.video-row {
+
+      .left {
+        padding: $padding-big;
+      }
+      
+      .right {
+        width: 40%;
+        flex-basis: 40%;
+        
+        & > div {
+
+          video {
+            left: -20%;
+            top: $padding-big;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($xldesktop-min-width) {
+  header {
+    &.introduction {
+      background-size: auto, 100%;
+      
+      .introduction__content {
+        padding: $padding-big 5em 5em;
+      }
+      
+      .introduction__highlights {
+
+        .item-card-float {
+          &:first-of-type {
+            right: 18%;
+          }
+
+          &:nth-of-type(3) {
+            width: 500px;
+          }
+          
+        }
+
+      }
+    }
+  }
+}
+
+body #colorbox #cboxContent {
+  background: rgba(0, 0, 0, 0.5);
+}

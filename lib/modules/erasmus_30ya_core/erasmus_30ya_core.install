@@ -1,0 +1,99 @@
+<?php
+/**
+ * @file
+ * Erasmus 30year core install.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function erasmus_30ya_core_install() {
+  theme_enable(array('erasmus_30year_anniversary'));
+
+  db_insert('captcha_points')
+    ->fields(array(
+      'form_id' => 'erasmus_30_year_anniversary_share_story_form',
+      'module' => NULL,
+      'captcha_type' => 'default',
+    ))
+    ->execute();
+
+  variable_set('colorbox_load', TRUE);
+}
+
+/**
+ * Save all events with is_passed status 0.
+ */
+function erasmus_30ya_core_update_7101() {
+  $result = db_select('node', 'n')
+    ->fields('n', ['nid'])
+    ->condition('type', 'erasmus_30ya_event')
+    ->execute();
+
+  foreach ($result as $res) {
+    $node = node_load($res->nid);
+    $node->field_30ya_is_passed[LANGUAGE_NONE][0]['value'] = "0";
+    node_save($node);
+  }
+}
+
+/**
+ * Remove deleted variables.
+ */
+function erasmus_30ya_core_update_7102() {
+  $varsToDelete = [
+    'e30ya_hide_share_story',
+    '30ya_current_theme',
+    '30ya_share_story_mail_to',
+    '30ya_share_story_mail_from',
+    'e30ya_tw_consumer_key',
+    'e30ya_tw_consumer_secret',
+    'e30ya_tw_access_token',
+    'e30ya_tw_access_token_secret',
+    'e30ya_hashtag',
+    'e30ya_tw_twitter_get_api_url',
+    'e30ya_fb_app_id',
+    'e30ya_fb_page_id',
+    'e30ya_fb_app_secret',
+    'e30ya_twitter_url',
+  ];
+  foreach ($varsToDelete as $var) {
+    variable_del($var);
+  }
+}
+
+/**
+ * Enable module File module.
+ */
+function erasmus_30ya_core_update_7103() {
+  $modules = [
+    'erasmus_30_year_anniversary_file',
+  ];
+  module_enable($modules);
+}
+
+/**
+ * Enable module webform_localization.
+ */
+function erasmus_30ya_core_update_7104() {
+  $modules = [
+    'webform_localization',
+  ];
+  module_enable($modules);
+}
+
+/**
+ * All events should be language neutral.
+ */
+function erasmus_30ya_core_update_7105() {
+  $result = db_select('node', 'n')
+    ->fields('n', ['nid'])
+    ->condition('type', 'erasmus_30ya_event')
+    ->execute();
+
+  foreach ($result as $res) {
+    $node = node_load($res->nid);
+    $node->language = LANGUAGE_NONE;
+    node_save($node);
+  }
+}

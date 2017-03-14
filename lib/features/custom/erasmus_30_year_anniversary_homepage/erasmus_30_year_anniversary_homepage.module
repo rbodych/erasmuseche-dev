@@ -1,0 +1,38 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Homepage feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_homepage.features.inc';
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function erasmus_30_year_anniversary_homepage_preprocess_page(&$vars) {
+  if (isset($vars['node'])
+      && $vars['node']->type == 'erasmus_30_year_anniversary_home') {
+
+    $body = $vars['node']->field_30ya_introduction[$vars['language']->language][0]['value'];
+    $right = _erasmus_30_year_anniversary_story_get_html_random_stories();
+
+    $vars['page']['sidebar_left'] = $body;
+    $vars['page']['sidebar_right'] = $right;
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_homepage_preprocess_node(&$node) {
+  if ($node['type'] == 'erasmus_30_year_anniversary_home'
+      && $node['view_mode'] == 'full') {
+    $hideShareStory = variable_get('erasmus_30ya_core_hide_share_story', FALSE);
+    if ($hideShareStory) {
+      $node['content']['hideShareStory'] = TRUE;
+    }
+    else {
+      $node['content']['hideShareStory'] = FALSE;
+    }
+  }
+}

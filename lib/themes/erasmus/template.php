@@ -38,6 +38,7 @@ function erasmus_preprocess_html(&$variables) {
  */
 function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   global $base_url;
+  $path_to_theme = drupal_get_path('theme', 'erasmus');
   $empty = '';
   $variables['base_url'] = $base_url;
   global $language;
@@ -157,18 +158,17 @@ function erasmus_preprocess_om_maximenu_submenu(&$variables) {
   );
   $variables['nav_ico'] = theme(
     'image', array(
-      'path' => $base_url . '/sites/all/themes/erasmus' . '/images/mobile-nav-ico.svg',
+      'path' => $base_url . '/' . $path_to_theme . '/images/mobile-nav-ico.svg',
     )
   );
   $variables['flat_ec_logo'] = theme(
     'image', array(
-      'path' => $base_url . '/sites/all/themes/erasmus'
-      . '/images/mobile-flat-ec-logo.svg',
+      'path' => $base_url . '/' . $path_to_theme . '/images/mobile-flat-ec-logo.svg',
     )
   );
   $variables['logo_ce_en'] = theme(
     'image', array(
-      'path' => $base_url . '/sites/all/themes/erasmus' . '/images/logo_ce-en.svg',
+      'path' => $base_url . '/' . $path_to_theme . '/images/logo_ce-en.svg',
     )
   );
 }
@@ -187,7 +187,7 @@ function erasmus_preprocess_page(&$variables, $hook) {
   $variables['is_newlayoutr'] = FALSE;
   $variables['language'] = $language;
   $variables['abouttitle'] = t('About');
-  $variables['aboutsubtitle'] = t("Erasmus+ is the EU's programme to support education, training, youth and sport in Europe. Its budget of €14.7 billion will provide opportunities for over 4 million Europeans to study, train gain experience, and volunteers abroad.");
+  $variables['aboutsubtitle'] = t("Erasmus+ is the EU's programme to support education, training, youth and sport in Europe. Its budget of €14.7 billion will provide opportunities for over 4 million Europeans to study, train, gain experience, and volunteer abroad.");
   $variables['individualstitle'] = t('Opportunities for individuals');
   $variables['individualssubtitle'] = t('Erasmus+ has opportunities for people of all ages, helping them develop and share knowledge and experience at institutions and organisations in different countries');
   $variables['organisationstitle'] = t('Opportunities for organisations');
