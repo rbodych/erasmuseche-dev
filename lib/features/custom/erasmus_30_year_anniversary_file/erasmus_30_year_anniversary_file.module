@@ -43,7 +43,7 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
           $size = format_size($node['field_e30ya_file'][0]['file']->filesize);
           $file_url = file_create_url($file_url);
         }
-        elseif (isset($file['url']) && !empty($file['url'])) {
+        elseif (!empty($file['url'])) {
           $file_url = $file['url'];
           $response = drupal_http_request($file_url);
           if (isset($response->headers['content-length']) && !empty($response->headers['content-length'])) {
