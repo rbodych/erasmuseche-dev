@@ -5292,3 +5292,78 @@ span.date-published em {
   font-size: 21px;
   width: 100% !important;
 }
+
+@media (max-width: 481px) {
+ #ErasmusDisclaimer .sloganbis {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 453px) {
+  #ErasmusDisclaimer .sloganbis {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 426px) {
+  #ErasmusDisclaimer .sloganbis {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 357px) {
+  #ErasmusDisclaimer .sloganbis {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 343px) {
+  #ErasmusDisclaimer .punchline {
+    font-size: 1.9em;
+  }
+}
+
+@media (max-width: 329px) {
+  #ErasmusDisclaimer .punchline {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 313px) {
+  #ErasmusDisclaimer .punchline {
+    font-size: 1.7em;
+  }
+}
+
+@media (max-width: 307px) {
+  #ErasmusDisclaimer .slogan {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 298px) {
+  #ErasmusDisclaimer .punchline {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 289px) {
+  #ErasmusDisclaimer .slogan {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 282px) {
+  #ErasmusDisclaimer .punchline {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 267px) {
+  #ErasmusDisclaimer .punchline {
+    font-size: 1.2em;
+  }
+  #ErasmusDisclaimer .slogan {
+    font-size: 1em;
+  }
+}
