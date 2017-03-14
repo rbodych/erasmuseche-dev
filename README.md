@@ -12,6 +12,12 @@ This is a starting point for creating new websites for the [NextEuropa
 platform](https://blogs.ec.europa.eu/eu-digital/content/next-europa-it-platform)
 of the European Commission.
 
+> The subsite-starterkit in combination with platform-dev has limited
+> Windows support. Issues regarding setting up the platform within this
+> operating system can be submitted either:
+> * internally by following our [contribution guide](docs/contributing.md)
+> * externally via the [issue queue on github](issues)
+
 
 ## Features
 
@@ -26,6 +32,22 @@ of the European Commission.
 
 ## Recent notable changes
 
+- **2017-03-13**: The resources folder is expanded with a composer and git
+    folder where you can place scripts that will be executed on the name of the
+    hook that matches the folder name.
+- **2017-02-04**: The build-dev target now has backup and restore support for
+    when you have a site installed. This allows you to make a selection of
+    certain files and folders to backup before build-dev and restore them after.
+    The added functionality also comes with a dedicated target "rebuild-dev".
+- **2017-02-06**: The resources/build.custom.xml is now the master build file.
+    This allows you to override starterkit build targets in this file. The phing
+    calls build-custom in build-dist and build-dev have been removed.
+- **2017-01-19**: Subsites now have a dedicated phpcs-custom.xml file in their
+    resources folder to add excludes if they wish not to clutter their code with
+    codingStandardsIgnore tags.
+- **2017-01-18**: New build target "build-clone" added to setup a local
+    clone by importing a sanitized production database.
+- **2017-01-17**: New version of QA automation tools based on symfony/console.
 - **2016-10-05**: Added QA automation tools that should be run before each time
     you make a pull request to your reference repository.
 - **2016-08-09**: We made the `resources/site.make` optional for use. Please
@@ -134,3 +156,6 @@ This README is divided in different parts, please read the relevant section:
    new features to the Subsite Starterkit.
 6. [Upgrading from 1.0.x to 2.0.x](docs/upgrading.md): How to upgrade to the
    2.0.x and enjoy full Composer support.
+7. [Running scripts on composer and/or git hooks](docs/scripts.md): Add your
+   own scripts that will be called when a composer hook or git hook is
+   executed.
