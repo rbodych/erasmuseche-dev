@@ -5214,13 +5214,14 @@ span.date-published em {
   background-color: #0077c9;
   color: white;
   padding: 0;
-  color: white;
-  padding: 0;
   z-index: 9999999999999999;
   position: inherit;
   background: url("../images/30years/e30_landing.png");
   height: 258px;
-  padding-top: 15px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
 }
 #ErasmusDisclaimer .punchline {
   font-size: 2em;
