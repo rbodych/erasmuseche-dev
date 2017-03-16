@@ -5221,7 +5221,6 @@ span.date-published em {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
 }
 #ErasmusDisclaimer .punchline {
   font-size: 2em;
@@ -5280,7 +5279,7 @@ span.date-published em {
 }
 
 @media (max-width: 481px) {
- #ErasmusDisclaimer .sloganbis {
+  #ErasmusDisclaimer .sloganbis {
     font-size: 1.5em;
   }
 }
