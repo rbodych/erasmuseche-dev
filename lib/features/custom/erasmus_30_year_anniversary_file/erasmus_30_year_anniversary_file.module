@@ -44,9 +44,6 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
         }
         else {
           $file_url = $file['url'];
-          $response = drupal_http_request($file_url);
-          if (isset($response->headers['content-length']) && !empty($response->headers['content-length'])) {
-          }
         }
 
         $title = $node['title_field'][0]['value'];
