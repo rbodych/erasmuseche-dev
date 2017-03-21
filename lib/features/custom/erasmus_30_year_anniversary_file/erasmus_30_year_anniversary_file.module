@@ -58,7 +58,7 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
           ]
         );
 
-        if (isset($size) && isset($file_url)) {
+        if (isset($file_url)) {
           $title = $node['title_field'][0]['value'];
           $node['content']['file'] = l(t('Download'),
             $file_url,
@@ -70,7 +70,6 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
               ],
             ]
           );
-          $node['content']['file_size'] = t('File size: @size', ['@size' => $size]);
         }
 
         $suggestions = $node['theme_hook_suggestions'];

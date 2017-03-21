@@ -29,7 +29,8 @@ function erasmus_30_year_anniversary_file_field_group_info() {
       3 => 'field_e30ya_file_description',
       4 => 'field_e30ya_file_url',
       5 => 'field_file_size',
-      6 => 'language',
+      6 => 'field_e30ya_file_size',
+      7 => 'language',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
