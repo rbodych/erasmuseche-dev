@@ -19,12 +19,9 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'mediafield',
-        'settings' => array(
-          'file_view_mode' => 'default',
-        ),
-        'type' => 'media',
-        'weight' => 1,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -33,7 +30,7 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
           'file_view_mode' => 'default',
         ),
         'type' => 'media',
-        'weight' => 0,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'node',
@@ -72,7 +69,7 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
         ),
       ),
       'type' => 'media_generic',
-      'weight' => 41,
+      'weight' => -47,
     ),
   );
 
@@ -89,7 +86,7 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -153,7 +150,7 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 43,
+      'weight' => -44,
     ),
   );
 
@@ -170,13 +167,13 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
         'module' => 'i18n_taxonomy',
         'settings' => array(),
         'type' => 'i18n_taxonomy_term_reference_link',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'node',
@@ -192,7 +189,7 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 42,
+      'weight' => -45,
     ),
   );
 
@@ -209,13 +206,13 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'node',
@@ -251,7 +248,89 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 41,
+      'weight' => -48,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'node-erasmus_30_year_anniversary_file-field_file_size'.
+  $field_instances['node-erasmus_30_year_anniversary_file-field_file_size'] = array(
+    'bundle' => 'erasmus_30_year_anniversary_file',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Use MB Unit.
+Examples:
+0.1 MB
+15 MB',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_plain',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_file_size',
+    'label' => 'File size',
+    'required' => 1,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'basic_html' => 'basic_html',
+          'filtered_html' => 'filtered_html',
+          'full_html' => 'full_html',
+          'full_html_track' => 'full_html_track',
+          'plain_text' => 'plain_text',
+          'programme_guide_editor' => 'programme_guide_editor',
+        ),
+        'allowed_formats_toggle' => 0,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'basic_html' => array(
+              'weight' => 5,
+            ),
+            'filtered_html' => array(
+              'weight' => -9,
+            ),
+            'full_html' => array(
+              'weight' => -10,
+            ),
+            'full_html_track' => array(
+              'weight' => -10,
+            ),
+            'plain_text' => array(
+              'weight' => -8,
+            ),
+            'programme_guide_editor' => array(
+              'weight' => 0,
+            ),
+          ),
+        ),
+      ),
+      'entity_translation_sync' => FALSE,
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -46,
     ),
   );
 
@@ -267,14 +346,14 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -296,7 +375,7 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => -5,
+      'weight' => -49,
     ),
   );
 
@@ -305,8 +384,13 @@ function erasmus_30_year_anniversary_file_field_default_field_instances() {
   t('Description');
   t('File');
   t('File URL');
+  t('File size');
   t('File tag');
   t('Title');
+  t('Use MB Unit.
+Examples:
+0.1 MB
+15 MB');
 
   return $field_instances;
 }
