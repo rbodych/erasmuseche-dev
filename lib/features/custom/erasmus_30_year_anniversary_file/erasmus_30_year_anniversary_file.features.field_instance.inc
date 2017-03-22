@@ -172,10 +172,14 @@ Examples:
         'weight' => 5,
       ),
       'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_plain',
+        'label' => 'inline',
+        'module' => 'title',
+        'settings' => array(
+          'title_class' => 'size',
+          'title_link' => '',
+          'title_style' => 'span',
+        ),
+        'type' => 'title_linked',
         'weight' => 3,
       ),
     ),

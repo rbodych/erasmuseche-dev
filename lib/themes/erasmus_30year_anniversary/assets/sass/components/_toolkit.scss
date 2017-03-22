@@ -12,7 +12,6 @@
   
   .p-summary {
     border-top: 1px solid #efefef;
-    padding-top: 1.4em;
   }
   
   h3 {
@@ -36,6 +35,20 @@
 .node-erasmus-30-year-anniversary-file {
   position: relative;
   min-height: 354px;
+}
+
+span .size {
+    clear: both;
+    float: none;
+}
+
+.field_e30ya_file_size {
+    float: left;
+    margin-right: 10px;
+    font-size: 21px;
+    font-weight: normal;
+    clear: both;
+    margin-bottom: 0px !important;
 }
 
 @media (max-width: 1635px) and (min-width: 1495px) {
