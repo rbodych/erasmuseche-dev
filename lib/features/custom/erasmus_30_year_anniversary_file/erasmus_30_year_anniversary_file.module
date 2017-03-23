@@ -40,18 +40,25 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
 
         if (empty($file)) {
           $file_url = $node['field_e30ya_file'][0]['file']->uri;
-          $size = format_size($node['field_e30ya_file'][0]['file']->filesize);
           $file_url = file_create_url($file_url);
         }
         elseif (!empty($file['url'])) {
           $file_url = $file['url'];
-          $response = drupal_http_request($file_url);
-          if (isset($response->headers['content-length']) && !empty($response->headers['content-length'])) {
-            $size = format_size($response->headers['content-length']);
-          }
         }
 
-        if (isset($size) && isset($file_url)) {
+        $title = $node['title_field'][0]['value'];
+        $node['content']['file'] = l(t('Download'),
+          $file_url,
+          [
+            'attributes' => [
+              'title' => t('Download @title', ['@title' => $title]),
+              'class' => 'button button--primary button--medium',
+              'download' => 'download',
+            ],
+          ]
+        );
+
+        if (isset($file_url)) {
           $title = $node['title_field'][0]['value'];
           $node['content']['file'] = l(t('Download'),
             $file_url,
@@ -63,7 +70,6 @@ function erasmus_30_year_anniversary_file_preprocess_node(&$node) {
               ],
             ]
           );
-          $node['content']['file_size'] = t('File size: @size', ['@size' => $size]);
         }
 
         $suggestions = $node['theme_hook_suggestions'];
