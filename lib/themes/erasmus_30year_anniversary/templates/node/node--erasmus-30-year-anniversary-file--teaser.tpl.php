@@ -13,7 +13,7 @@
     </h3>
     <p class="p-summary">
       <?php
-       print t('File size: ') . render($content['field_e30ya_file_size']);
+       print render($content['field_e30ya_file_size']);
      ?>
     </p>
     <div class="description equal-height">
