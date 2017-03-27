@@ -150,7 +150,7 @@
     <div id="responsive-sidebar">
       <div id="responsive-header-right"></div>
       <div id="responsive-sidebar-left"></div>
-    /  <div id="responsive-sidebar-right"></div>
+      <div id="responsive-sidebar-right"></div>
     </div><!-- /#responsive-sidebar-->
   <?php endif; ?>
 
