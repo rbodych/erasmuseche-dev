@@ -50,10 +50,11 @@ function erasmus_30_year_anniversary_page_field_group_info() {
     'label' => 'Content',
     'weight' => '0',
     'children' => array(
-      0 => 'title_field',
-      1 => 'field_30ya_contentrow_richtext',
-      2 => 'language',
-      3 => 'group_media',
+      0 => 'field_30ya_contentrow_richtext',
+      1 => 'title_field',
+      2 => 'field_30ya_in_the_spotlight',
+      3 => 'language',
+      4 => 'group_media',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
@@ -109,7 +110,7 @@ function erasmus_30_year_anniversary_page_field_group_info() {
   $field_group->parent_name = 'group_content';
   $field_group->data = array(
     'label' => 'Media',
-    'weight' => '8',
+    'weight' => '5',
     'children' => array(
       0 => 'field_30ya_contentrow_media',
       1 => 'field_30ya_media_thumb',

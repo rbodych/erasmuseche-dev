@@ -149,14 +149,17 @@
   <?php if ($has_responsive_sidebar): ?>
     <div id="responsive-sidebar">
       <div id="responsive-header-right"></div>
-      <div id="responsive-sidebar-left"></div>
       <div id="responsive-sidebar-right"></div>
+    /  <div id="responsive-sidebar-left"></div>
     </div><!-- /#responsive-sidebar-->
   <?php endif; ?>
 
   <header class="introduction container">
     <div class="background-pattern"></div>
     <div class="introduction__content">
+      <?php if ($node->field_30ya_in_the_spotlight[LANGUAGE_NONE][0]['value'] == 1 && $regions['sidebar_left']): ?>
+        <?php print views_embed_view('monthly_themes', 'block', $node->nid); ?>
+      <?php endif; ?>
       <?php print render($title_prefix); ?>
 
       <?php if ($title): ?>
@@ -165,14 +168,19 @@
         </h1>
       <?php endif; ?>
       
-      <?php if ($regions['sidebar_left']): ?>
+      <?php if ($node->field_30ya_in_the_spotlight[LANGUAGE_NONE][0]['value'] == 1 && $regions['sidebar_left']): ?>
+        <?php print $regions['sidebar_left']; ?>
+        <?php print $regions['sidebar_right']; ?>
+      <?php elseif ($regions['sidebar_left']): ?>
         <?php print $regions['sidebar_left']; ?>
       <?php endif; ?>
 
       <?php print render($title_suffix); ?>
     </div>
     <div class="introduction__highlights">
-      <?php if ($regions['sidebar_right']): ?>
+      <?php if ($node->field_30ya_in_the_spotlight[LANGUAGE_NONE][0]['value'] == 1 && $regions['sidebar_right']): ?>
+        <?php print views_embed_view('monthly_themes', 'block', $node->nid); ?>
+      <?php elseif ($regions['sidebar_right']): ?>
         <?php print $regions['sidebar_right']; ?>
       <?php endif; ?>
     </div>
