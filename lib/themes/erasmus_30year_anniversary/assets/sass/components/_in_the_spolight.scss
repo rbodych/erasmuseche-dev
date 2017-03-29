@@ -1,60 +1,69 @@
-#views-bootstrap-grid-1 {
+div.introduction__content {
+  #views-bootstrap-grid-1 {
     .contextual-links {
-        display: none;
+      display: none;
     }
   
-  	img {
-  	    margin-bottom: 5px;
+    img {
+      margin-bottom: 5px;
     }
-}
+  }
 
-.view-content #views-bootstrap-grid-1 {
+  .view-content #views-bootstrap-grid-1 {
     background: none;
     margin-left: 216px;
-    box-shadow: 0;
-    box-shadow: 0px 0px 0px;
+    box-shadow: 0px 0px;
+  }
+  
+  .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes .view-content {
+    background: none;
+  }
 }
 
-#views-bootstrap-grid-2 {
+div.introduction__highlights {
+  #views-bootstrap-grid-1 {
     background: none;
     min-width: 431px;
     margin-top: 150px;
-    
+    box-shadow: 0px 0px;
+  }  
     .contextual-links {
-        display: none;
+      display: none;
     }
 	
-	img {
-	    margin-top: 30px;
+    img {
+      margin-top: 30px;
     }
-}
 
-.introduction__content .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes .view-content {
-	background: none;
-}
-.introduction__highlights .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes .view-content.visible {
-	background: none;
+  .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes .view-content.visible {
+    background: none;
+  }
 }
 	
 @media(max-width: 768px) {
-	.introduction__highlights .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes {
-		display: none;	
-	}
-	.view-content #views-bootstrap-grid-1 {
-	    margin-left: -54px;
-        min-width: 406px;
-        margin-bottom: -50px;
-        
-        .row {
-            display: inline-flex;
-        }
+  .introduction__highlights .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes {
+    display: none;
+  }
+  
+	div.introduction__content {
+    .view-content #views-bootstrap-grid-1 {
+      margin-left: -54px;
+      min-width: 406px;
+      margin-bottom: -50px;
+          
+      .row {
+        display: inline-flex;
+      }
     }
+	}  
 }
+
 @media(min-width: 769px) {
-    .introduction__content .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes {
-		display: none;
-	}
-	header.introduction .background-pattern {
-        background-position: top;
-    }
+  div.introduction__content .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes {
+    display: none;
+  }
+  
+  header.introduction .background-pattern {
+    background-position: top;
+  }
 }
