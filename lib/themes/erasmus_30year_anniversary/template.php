@@ -184,12 +184,14 @@ function erasmus_30year_anniversary_file_entity_file_video($variables) {
 
 function erasmus_30year_anniversary_preprocess_page(&$variables) {
   $spotlight_page = $variables['node'];
-  $in_the_spotlight = field_get_items('node', $spotlight_page, 'field_30ya_in_the_spotlight');
+  $in_the_spotlight = field_get_items('node', $spotlight_page, 'field_30ya_in_the_spotlight', [LANGUAGE_NONE]);
 
   if($in_the_spotlight[0]['value'] == 1) {
-    $variables['monthlythemes'] = views_embed_view('monthly_themes', 'block');
-    $variables['sidebar_left'] = $variables['regions']['sidebar_left'] . $variables['regions']['sidebar_right'];
-    unset($variables['regions']['sidebar_left']);
-    unset($variables['regions']['sidebar_right']);
+    foreach (field_get_items('node', $spotlight_page, 'field_30ya_in_the_spotlight', [LANGUAGE_NONE]) as $spotlight_page) {
+      $variables['monthly_themes'] = views_embed_view('monthly_themes', 'block');
+      $variables['sidebar_left'] = $variables['regions']['sidebar_left'] . $variables['regions']['sidebar_right'];
+      unset($variables['regions']['sidebar_left']);
+      unset($variables['regions']['sidebar_right']);
+    }
   }
 }

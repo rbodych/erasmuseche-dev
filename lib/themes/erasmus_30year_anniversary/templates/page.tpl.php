@@ -158,7 +158,7 @@
     <div class="background-pattern"></div>
     <div class="introduction__content">
       <?php print render($title_prefix); ?>
-      <?php print $monthlythemes; ?>
+      <?php print $monthly_themes; ?>
       <?php if ($title): ?>
         <h1>
           <?php print $title; ?>
@@ -174,7 +174,7 @@
       <?php print render($title_suffix); ?>
     </div>
     <div class="introduction__highlights">
-      <?php print $monthlythemes; ?>
+      <?php print $monthly_themes; ?>
       <?php if (isset($regions['sidebar_right'])): ?>
         <?php $regions['sidebar_right'] = $regions['sidebar_right']; ?>
         <?php print $regions['sidebar_right']; ?>
