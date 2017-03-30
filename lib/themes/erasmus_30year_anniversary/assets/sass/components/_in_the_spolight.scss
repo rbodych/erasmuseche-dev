@@ -1,22 +1,19 @@
+.view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes .view-content {
+  background: none;
+}
+
 div.introduction__content {
   #views-bootstrap-grid-1 {
-    .contextual-links {
-      display: none;
-    }
-  
-    img {
-      margin-bottom: 5px;
-    }
-  }
-
-  .view-content #views-bootstrap-grid-1 {
     background: none;
     margin-left: 216px;
     box-shadow: 0px 0px;
-  }
-  
-  .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes .view-content {
-    background: none;
+    
+    .contextual-links {
+      display: none;
+    }
+    img {
+      margin-bottom: 5px;
+    }
   }
 }
 
@@ -26,17 +23,13 @@ div.introduction__highlights {
     min-width: 431px;
     margin-top: 150px;
     box-shadow: 0px 0px;
-  }  
+    
     .contextual-links {
       display: none;
     }
-	
     img {
       margin-top: 30px;
     }
-
-  .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes .view-content.visible {
-    background: none;
   }
 }
 	
