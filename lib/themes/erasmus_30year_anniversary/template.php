@@ -182,6 +182,9 @@ function erasmus_30year_anniversary_file_entity_file_video($variables) {
   return $output;
 }
 
+/**
+ * Implements template_preprocess_page().
+ */
 function erasmus_30year_anniversary_preprocess_page(&$variables) {
   $spotlight_page = $variables['node'];
   $in_the_spotlight = field_get_items('node', $spotlight_page, 'field_30ya_in_the_spotlight', [LANGUAGE_NONE]);
