@@ -17,6 +17,13 @@ function erasmus_30_year_anniversary_page_ctools_plugin_api($module = NULL, $api
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function erasmus_30_year_anniversary_page_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_image_default_styles().
  */
 function erasmus_30_year_anniversary_page_image_default_styles() {

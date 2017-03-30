@@ -154,6 +154,9 @@ function erasmus_30_year_anniversary_page_strongarm() {
       'erasmus_30_year_hero_homepage' => array(
         'custom_settings' => FALSE,
       ),
+      'viewresults' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -170,7 +173,18 @@ function erasmus_30_year_anniversary_page_strongarm() {
           'weight' => '2',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'webform' => array(
+          'default' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '10',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__erasmus_30_year_anniversary_page'] = $strongarm;
@@ -244,7 +258,7 @@ function erasmus_30_year_anniversary_page_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mimemail_format';
-  $strongarm->value = 'full_html';
+  $strongarm->value = 'filtered_html';
   $export['mimemail_format'] = $strongarm;
 
   $strongarm = new stdClass();

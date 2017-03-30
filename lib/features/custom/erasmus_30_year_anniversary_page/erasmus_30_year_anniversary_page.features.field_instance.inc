@@ -594,6 +594,50 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   );
 
   // Exported field_instance:
+  // 'node-erasmus_30_year_anniversary_page-field_30ya_in_the_spotlight'.
+  $field_instances['node-erasmus_30_year_anniversary_page-field_30ya_in_the_spotlight'] = array(
+    'bundle' => 'erasmus_30_year_anniversary_page',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_30ya_in_the_spotlight',
+    'label' => 'In the Spotlight',
+    'required' => 0,
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 6,
+    ),
+  );
+
+  // Exported field_instance:
   // 'node-erasmus_30_year_anniversary_page-field_30ya_media_poster'.
   $field_instances['node-erasmus_30_year_anniversary_page-field_30ya_media_poster'] = array(
     'bundle' => 'erasmus_30_year_anniversary_page',
@@ -764,6 +808,7 @@ function erasmus_30_year_anniversary_page_field_default_field_instances() {
   t('Content row');
   t('Disable auto columns');
   t('If checked the auto columns feature will be disabled and the text will be underneath each other as normal.');
+  t('In the Spotlight');
   t('Is usable for a video poster.');
   t('Media');
   t('Media Poster');

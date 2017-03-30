@@ -158,21 +158,25 @@
     <div class="background-pattern"></div>
     <div class="introduction__content">
       <?php print render($title_prefix); ?>
-
+      <?php print $monthly_themes; ?>
       <?php if ($title): ?>
         <h1>
           <?php print $title; ?>
         </h1>
       <?php endif; ?>
       
-      <?php if ($regions['sidebar_left']): ?>
+      <?php print $sidebar_left; ?>
+      <?php if (isset($regions['sidebar_left'])): ?>
+        <?php $regions['sidebar_left'] = $regions['sidebar_left']; ?>
         <?php print $regions['sidebar_left']; ?>
       <?php endif; ?>
 
       <?php print render($title_suffix); ?>
     </div>
     <div class="introduction__highlights">
-      <?php if ($regions['sidebar_right']): ?>
+      <?php print $monthly_themes; ?>
+      <?php if (isset($regions['sidebar_right'])): ?>
+        <?php $regions['sidebar_right'] = $regions['sidebar_right']; ?>
         <?php print $regions['sidebar_right']; ?>
       <?php endif; ?>
     </div>
