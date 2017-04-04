@@ -1,0 +1,13 @@
+name = ECHE Text Formats
+description = Custom text formats settings
+core = 7.x
+package = ECHE
+dependencies[] = eche_core
+dependencies[] = filter
+dependencies[] = media_wysiwyg
+dependencies[] = wysiwyg
+php = 5.5
+features[features_api][] = api:2
+features[filter][] = eche_custom_text_format
+features[filter][] = eche_html_markup
+multisite_version = 2.0

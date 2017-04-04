@@ -1,0 +1,28 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Press release feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_press_release.features.inc';
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_press_release_preprocess_node(&$vars) {
+  if (isset($vars['elements']['#view_mode'])
+      && $vars['elements']['#view_mode'] == 'teaser'
+      && $vars['type'] == 'erasmus_30_year_anniversary_pres') {
+
+    $vars['intro'] = $vars['body'][0]['summary'];
+    $vars['link'] = l(t('Read more'),
+      $vars['node_url'],
+      [
+        'attributes' => [
+          'title' => t('Read more'),
+          'class' => 'button button--primary button--medium',
+        ],
+      ]
+    );
+  }
+}

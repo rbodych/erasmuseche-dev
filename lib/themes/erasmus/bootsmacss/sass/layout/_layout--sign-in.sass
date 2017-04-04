@@ -1,0 +1,42 @@
+// Section layout--sign-in
+// --------------------------------------------------
+.bootsmacss
+
+  .layout--sign-in
+    background: url('../images/png/full-bg-wrapper-bg.png') center no-repeat
+    background-size: cover
+    padding: 90px 0 110px
+
+  .layout--sign-in__inner
+    background-color: #fff
+    +breakpoint(desktop)
+      margin: 0 100px
+
+  .layout--sign-in__login
+    padding: 50px 60px 40px 100px
+    +breakpoint(tablet)
+      margin-right: -30px
+      padding-right: 90px
+      border-right: 2px solid $brand-primary
+
+    .form-group
+      margin-bottom: 28px
+    .help-block
+      margin: 4px 0 0 !important
+    .form-actions
+      margin: 0
+
+  .layout--sign-in__register
+    padding: 50px
+
+  .layout--sign-in__title
+    min-height: 58px
+    margin-bottom: 42px !important
+    padding: 0
+
+  .layout--sign-in__description p
+    font-size: inherit
+    line-height: 22px
+    margin-bottom: 40px
+    strong
+      font-weight: $font-weight-bold

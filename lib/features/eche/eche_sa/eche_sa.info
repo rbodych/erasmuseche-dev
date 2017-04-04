@@ -1,0 +1,14 @@
+name = ECHE SA
+description = ECHE self assessment tool feature.
+core = 7.x
+package = ECHE
+dependencies[] = better_exposed_filters
+dependencies[] = eche_core
+dependencies[] = eche_wf
+dependencies[] = eche_wf_invite
+dependencies[] = eche_wf_share
+php = 5.5
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = self_assessment_submissions
+multisite_version = 2.0

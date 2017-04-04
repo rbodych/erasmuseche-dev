@@ -1,0 +1,114 @@
+// Configuration
+$btn-name:  'button' !default;
+$btn-size-ratio: 1.2 !default;
+$btn-hover:  saturate 25% !default;
+
+// The module
+.#{$btn-name},
+input[type=submit] {
+  // Default styles
+  padding: .6em 1.4em;
+  color: $c-gray-4;
+  text-transform: uppercase;
+  font-family: $font-family;
+  font-weight: bold;
+  transition: background .15s;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 0 !important;
+
+
+  // Modifiers
+  &--large {
+    font-size: 1.2em;
+  }
+
+  &--medium {
+    font-size: 1em;
+  }
+  
+  &--small {
+    font-size: .8em;
+  }
+  
+  &:hover,
+  &:active,
+  &:visited {
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+  }
+
+}
+
+input[type=submit].btn.btn-default {
+  @include linear-gradient(-45deg, $c-gradient-A2, $c-gradient-A1 $c-gradient-start-A);
+  border: 2px solid $c-gradient-A2;
+  color: #fff !important;
+  @include transition(all .4s);
+  
+  &:focus,
+  &:hover,
+  &:active {
+    color: #fff !important;
+    background: $c-secondary-2 !important;
+    border: 2px solid $c-secondary-2 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0;
+  }
+}
+
+.#{$btn-name} {
+
+  // Modifiers
+  &--primary {
+    @include linear-gradient(-45deg, $c-gradient-A2, $c-gradient-A1 $c-gradient-start-A);
+    border: 2px solid $c-gradient-A2;
+    
+    a:visited:hover,
+    &:hover {
+      @include linear-gradient(-45deg, $c-gradient-A2, $c-gradient-A1 100%);
+      color: #fff !important;
+    }
+  }
+
+  &--secondary {
+    @include linear-gradient(-45deg, $c-gradient-B1  $c-gradient-start-B, $c-gradient-B2);
+    border: 2px solid $c-gradient-B2;
+  }
+  
+  &--stroke-primary {
+    border: 2px solid $c-secondary-2;
+    color: $c-secondary-2;
+    
+    &:visited {
+      color: $c-secondary-2;
+    }
+    
+    &:focus,
+    &:hover,
+    &:active {
+      color: #fff !important;
+      background: $c-secondary-2;
+      text-decoration: none;
+    }
+  }
+  
+  &--stroke-secondary {
+    border: 2px solid $c-gray-4;
+    
+    &:visited {
+      color: #fff !important;
+    }
+    
+    &:focus,
+    &:hover,
+    &:active {
+      background: rgba(255,255,255,.2);
+      color: #fff !important;
+      text-decoration: none;
+    }
+  }
+
+}

@@ -1,0 +1,53 @@
+<?php
+/**
+ * @file
+ * Code for the ECHE SA feature.
+ */
+
+include_once 'eche_sa.features.inc';
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function eche_sa_preprocess_page(&$variables) {
+  if (arg(0) == 'node' && is_numeric(arg(1)) && arg(2) == 'submission' && is_numeric(arg(3))) {
+    if (arg(4) == 'report' || arg(4) == 'report-overview' || arg(4) == 'combined' || arg(4) == 'delete') {
+      $variables['theme_hook_suggestions'][] = 'page__self_assessment';
+      $variables['offsets'] = TRUE;
+    }
+  }
+
+  if (!empty($variables['node'])) {
+    $node = $variables['node'];
+
+    if ($node->type == 'webform') {
+      $machine_name = field_get_items('node', $node, 'field_machine_name', $node->language);
+      $machine_name_value = $machine_name[0]['value'];
+      if ($machine_name_value == 'rectors-self-assesment' || $machine_name_value == 'self-assesment') {
+        $variables['theme_hook_suggestions'][] = 'page__self_assessment';
+        $variables['offsets'] = TRUE;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function eche_sa_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-self-assessment-submissions-page'
+    || $form['#id'] == 'views-exposed-form-self-assessment-submissions-page-1'
+  ) {
+    $form['submit']['#attributes']['class'] = ['btn--primary btn--block'];
+  }
+}
+
+/**
+ * Submission tabs function.
+ */
+function eche_sa_user_submissions_tabs() {
+  $output = '';
+  $output .= l(t('My submissions'), 'user/my-submissions', ['attributes' => ['class' => ['tabs__item']]]);
+  $output .= l(t('Results shared with me'), 'user/shared-with-me', ['attributes' => ['class' => ['tabs__item']]]);
+  return '<div class="tabs">' . $output . '</div>';
+}

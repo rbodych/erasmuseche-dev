@@ -1,0 +1,39 @@
+<?php
+/**
+ * @file
+ * ECHE User install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function eche_user_install() {
+  $path = drupal_get_path('module', 'eche_user') . '/eche_user.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE User %v feature is installed on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function eche_user_uninstall() {
+  $path = drupal_get_path('module', 'eche_user') . '/eche_user.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE User %v feature is uninstalled on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_enable().
+ */
+function eche_user_enable() {
+  drupal_set_message(t('ECHE User is now active on your site.'));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function eche_user_disable() {
+  drupal_set_message(t('ECHE User is now disabled on your site.'));
+}

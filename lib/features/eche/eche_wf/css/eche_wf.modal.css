@@ -1,0 +1,17 @@
+#modalContent {
+  top: 12% !important;
+  bottom: 12% !important;
+  right: 4% !important;
+  left: 4% !important;
+}
+
+/* Limit max width to 1000px */
+div.ctools-modal-content {
+  width: 100% !important;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+div.ctools-modal-content .modal-content {
+  width: 100% !important;
+}

@@ -1,0 +1,296 @@
+.view-filters {
+  padding: $padding 10px $padding-small;
+}
+
+
+
+
+
+.view-content {
+  padding: $padding-medium $padding;
+  background: $c-gray-4;
+  display: flex;
+  @include flex-direction(column);
+  @include justify-content(center);
+
+  & > div:not(.all-heroes) {
+    background: #fff;
+    padding: $padding;
+    margin-bottom: $padding;
+    box-shadow: $shadow-small;
+    
+    article {
+      
+      h3 {
+        padding: $padding 0;
+      }
+      
+      .card-image {
+        margin: 0 auto;
+        margin-bottom: $padding;
+        display: block;
+        object-fit: cover;
+        min-width: 100%;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+      }
+      
+      & > .p-summary,
+      & > p {
+        padding: $padding 0;
+        border-top: 1px solid #efefef;
+      }
+        
+      .p-location,
+      .dt-start,
+      .p-category {
+        @include set-heading();
+        text-transform: none;
+      }
+  
+      .node--card__participants {
+        padding: $padding;
+        border-top: 1px solid #efefef;
+        border-bottom: 1px solid #efefef;
+        text-align: center;
+        
+        p {
+          font-size: $heading-2-size;
+          color: $c-secondary-2;
+          margin: 0;
+        }
+        
+        h4 {
+          font-size: 1em;
+          color: $c-gray-2;
+          text-transform: none;
+        }
+      }
+      
+      .node--card__links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        
+        li {
+          display: inline-block;
+          float: left;
+          width: 100%;
+          margin-bottom: $padding-small;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+          
+          a {
+            width: 100%;
+          }
+        }
+      }
+      
+      .share-links {
+        @include display(flex);
+        @include flex-wrap(wrap);
+        @include align-items(center);
+        
+        .facebook {
+          @include display(flex);
+          @include align-items(center);
+          box-shadow: 0 0 0;
+          padding: 0;
+          margin: 0;
+          margin-right: $padding;
+    
+          a {
+            background: url(../images/logo-fb-42x42-white.png) $c-gray-3 no-repeat center;
+            width: 30px;
+            height: 30px;
+            opacity: .8;
+            text-indent: -999999px;
+            padding: 30px;
+            border: none;
+
+            &:hover {
+              opacity: 1;
+              padding: 30px;
+              background-color: #3b5998;
+              border: none;
+            }
+          }
+        }
+        
+        .twitter {
+          @include display(flex);
+          @include align-items(center);
+          
+          a {
+            background: url(../images/logo-twitter-42x42-white.png) $c-gray-3 no-repeat center;
+            width: 30px;
+            height: 30px;
+            opacity: .8;
+            text-indent: -999999px;
+            padding: 30px;
+
+            &:hover {
+              opacity: 1;
+              padding: 30px;
+              border: none;
+              background-color: #1a8bf0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.object-fit-not-supported {
+  .view-content {
+    & > div:not(.all-heroes) {
+      article {
+        .card-image {
+          height: auto;
+        }
+      }
+    }
+  }
+}
+    
+.view-header--wapper {
+  @include flex-basis(100%);
+  text-align: center;
+  background: none;
+  box-shadow: 0 0 0;
+  background: none;
+  
+  .event-header--highlights {
+    position: static;
+
+    @include media($mobile-min-width) {
+      padding-top: $padding;
+    }
+  }
+}
+
+
+
+
+.view-empty {
+  background: none !important;
+  box-shadow: 0 0 0 !important;
+  width: 100% !important;
+  
+  p {
+    font-size:  $heading-2-size;
+    text-align: center;
+    color: $c-gray-2;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+div.item-list {
+  @include flex-basis(100%);
+  margin: 0;
+  margin-top: 30px;
+  box-shadow: 0 0 0;
+  min-height: auto;
+  background: transparent;
+  @include flex-basis(100%);
+  
+  .pager {
+    li,
+    span {
+      a {
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($mobile-min-width) {
+  .view-filters {
+    padding: $padding-large 20px $padding-medium;
+  }
+  
+  .view-content {
+    @include outer-container;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    & > div:not(.all-heroes) {
+      
+      @include media($tablet-max-width) {
+        @include span-columns(6);
+        @include omega(2n);
+      }
+    }
+  
+  }
+
+}
+
+
+
+
+
+@include media($tablet-min-width) {
+  .node--card__links {
+    li {
+      width: calc(50% - 5px);
+      
+      &:first-of-type {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($desktop-min-width) {
+  .view-content {
+
+    & > div:not(.all-heroes) {
+
+      @include media($desktop-max-width) {
+        @include span-columns(4);
+        @include omega(3n);
+      }
+    }
+  
+  }
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  
+  .view-content {
+    padding: $padding-medium $padding;
+    
+    & > div:not(.all-heroes) {
+      @include span-columns(3);
+      @include omega(4n);
+      background: #fff;
+    }
+  
+  }
+  
+}

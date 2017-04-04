@@ -1,0 +1,6 @@
+@mixin set-heading() {
+  font-weight: bold;
+  font-family: $font-family;
+  color: $c-gray-1;
+  margin: 0;
+}

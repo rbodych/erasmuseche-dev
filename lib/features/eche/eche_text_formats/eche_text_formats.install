@@ -1,0 +1,39 @@
+<?php
+/**
+ * @file
+ * ECHE Text formats install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function eche_text_formats_install() {
+  $path = drupal_get_path('module', 'eche_text_formats') . '/eche_text_formats.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE Text formats %v feature is installed on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function eche_text_formats_uninstall() {
+  $path = drupal_get_path('module', 'eche_text_formats') . '/eche_text_formats.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE Text formats %v feature is uninstalled on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_enable().
+ */
+function eche_text_formats_enable() {
+  drupal_set_message(t('ECHE Text formats is now active on your site.'));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function eche_text_formats_disable() {
+  drupal_set_message(t('ECHE Text formats is now disabled on your site.'));
+}

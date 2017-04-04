@@ -1,0 +1,10 @@
+name = ECHE WF Invite
+description = ECHE Self Assesment and Rectors Quiz invite feature
+core = 7.x
+package = ECHE
+dependencies[] = eche_wf_invite
+php = 5.5
+features[features_api][] = api:2
+features[user_permission][] = invite members
+files[] = includes/eche_wf_invite.invites.inc
+multisite_version = 2.0

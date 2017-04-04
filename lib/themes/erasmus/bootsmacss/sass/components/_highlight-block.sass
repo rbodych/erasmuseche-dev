@@ -1,0 +1,53 @@
+// Highlight Block
+//
+// Block to display featured content
+//
+// default                 - Default style
+// .highlight-block--solid  - Style with solid background
+
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .highlight-block
+    border: 2px solid $brand-primary
+    padding: 40px 30px 70px 85px
+    position: relative
+
+  // Elements
+  // --------------------------------------------------
+  .highlight-block__title
+    font-size: 20px
+    font-weight: $font-weight-bold
+    margin-bottom: 0
+
+  .highlight-block__content
+    font-size: $font-size-base
+    line-height: 22px
+    margin-bottom: 20px
+    color: darken($gray-light, 33%)
+    strong
+      font-weight: $font-weight-bold
+      color: $gray-base
+    +breakpoint(tablet)
+      min-height: 135px
+
+  .highlight-block__icon
+    position: absolute
+    top: 50px
+    left: 0
+    font-size: 30px
+    width: 85px
+    text-align: center
+
+  // Modifiers
+  // --------------------------------------------------
+  .highlight-block--solid
+    background-color: $brand-primary
+    .highlight-block__title,
+    strong
+      color: #fff !important
+    .highlight-block__content,
+    .highlight-block__icon
+      color: $brand-primary-light

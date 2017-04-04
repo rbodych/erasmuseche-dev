@@ -1,0 +1,74 @@
+<?php
+/**
+ * @file
+ * ECHE Core install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function eche_core_install() {
+  $path = drupal_get_path('module', 'eche_core') . '/eche_core.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE CORE %v feature is installed on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function eche_core_uninstall() {
+  $path = drupal_get_path('module', 'eche_core') . '/eche_core.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE CORE %v feature is uninstalled on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_enable().
+ */
+function eche_core_enable() {
+  drupal_set_message(t('ECHE CORE is now active on your site.'));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function eche_core_disable() {
+  drupal_set_message(t('ECHE CORE is now disabled on your site.'));
+}
+
+/**
+ * Create or update About  page.
+ */
+function eche_core_update_7100() {
+  eche_core_create_about_page();
+}
+
+/**
+ * Create or update Video Tutorials  page.
+ */
+function eche_core_update_7101() {
+  eche_core_create_video_turorials_page();
+}
+
+/**
+ * Create or update  Homepage - about   page.
+ */
+function eche_core_update_7102() {
+  eche_core_create_homepage_about_page();
+}
+
+/**
+ * Create or update  Homepage - intro content.
+ */
+function eche_core_update_7103() {
+  eche_core_create_homepage_intro_content_page();
+}
+
+/**
+ * Create or update  Homepage - intro.
+ */
+function eche_core_update_7104() {
+  eche_core_create_homepage_intro_page();
+}

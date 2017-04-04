@@ -1,0 +1,94 @@
+// Results
+//
+// Results with accordion smechanism witched by pure CSS basing on radio inputs.
+// Works with up to 20 elements.
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .results
+    margin-bottom: 65px
+
+  // Elements
+  // --------------------------------------------------
+  .results__heading
+    font-weight: $font-weight-semibold
+    display: table
+    width: 100%
+
+  .results__heading-label
+    display: table-cell
+    vertical-align: top
+    &.results__heading-label--right
+      width: 170px
+      padding-left: 60px
+
+  .results__input
+    // Visually hide radio buttons
+    position: absolute
+    opacity: 0
+
+  .results__label
+    position: relative
+    display: table
+    width: 100%
+    //cursor: pointer
+    padding: 21px 0
+    overflow: hidden
+    font-size: 16px
+    font-weight: $font-weight-semibold !important
+    border-bottom: 2px solid $gray-lightest
+    margin-bottom: 2px
+    +clearfix
+
+  .results__label-description
+    display: table-cell
+    vertical-align: top
+
+  .results__rating
+    display: table-cell
+    vertical-align: middle
+    width: 170px
+    padding-left: 60px
+
+  .results__content
+    height: 0
+    opacity: 0
+    transition: 500ms opacity ease-in-out
+    font-size: 16px
+    overflow: hidden
+
+  .results__content-heading
+    font-size: 14px
+    margin-bottom: 23px
+    font-weight: $font-weight-semibold
+
+  .results__suggestions
+
+  // States
+  // --------------------------------------------------
+  // Open content when clicking label.
+  #results-toggle-1:checked ~ #results-content-1,
+  #results-toggle-2:checked ~ #results-content-2,
+  #results-toggle-3:checked ~ #results-content-3,
+  #results-toggle-4:checked ~ #results-content-4,
+  #results-toggle-5:checked ~ #results-content-5,
+  #results-toggle-6:checked ~ #results-content-6,
+  #results-toggle-7:checked ~ #results-content-7,
+  #results-toggle-8:checked ~ #results-content-8,
+  #results-toggle-9:checked ~ #results-content-9,
+  #results-toggle-10:checked ~ #results-content-10,
+  #results-toggle-11:checked ~ #results-content-11,
+  #results-toggle-12:checked ~ #results-content-12,
+  #results-toggle-13:checked ~ #results-content-13,
+  #results-toggle-14:checked ~ #results-content-14,
+  #results-toggle-15:checked ~ #results-content-15,
+  #results-toggle-16:checked ~ #results-content-17,
+  #results-toggle-18:checked ~ #results-content-18,
+  #results-toggle-19:checked ~ #results-content-19,
+  #results-toggle-20:checked ~ #results-content-20
+    height: auto
+    opacity: 1
+    padding: 15px 0 65px 20px
+    border-bottom: 2px solid $gray-lightest

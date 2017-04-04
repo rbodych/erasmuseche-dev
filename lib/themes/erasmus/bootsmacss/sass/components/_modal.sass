@@ -1,0 +1,127 @@
+// Modal
+//
+// Animated modal popup with darkened overlay. Clicking on the "X" icon or
+// the overlay dismisses the window.
+//
+// Markup: html/modal.html
+//
+// sg-wrapper:
+// <div class="modal-demo"><sg-wrapper-content/></div>
+//
+// Styleguide 2.31
+
+$modal-width: 400px
+
+// Block
+// --------------------------------------------------
+// .modal
+
+// Elements
+// --------------------------------------------------
+.modal__inner
+  border: none !important
+
+.modal__header
+  border: none
+  padding-right: 10px !important
+
+.modal__close
+  font-size: 14px !important
+  margin-top: 13px !important
+
+  &:hover,
+  &:focus
+    outline: none
+
+.modal__title
+  background-color: $brand-primary
+  padding: 10px 30px
+  color: #fff
+  text-align: center
+  font-weight: $font-weight-bold
+
+.modal__content
+  background-color: #fff
+  border: none
+  box-shadow: none
+  -moz-box-shadow: none
+  -o-box-shadow: none
+  -webkit-box-shadow: none
+  padding: 30px !important
+
+.modal__field-header
+  font-size: 16px !important
+  font-weight: 400
+  margin-bottom: 10px !important
+
+// Dependencies
+// --------------------------------------------------
+.modal__content
+  .messages
+    margin: 0 0 15px
+
+    li
+      font-size: 14px
+
+      &:before
+        top: 3px
+
+  h2
+    font-size: 30px
+    line-height: 1.5em
+    margin: 0
+
+  h3
+    font-size: 20px
+    font-weight: 300
+    padding: 0
+    margin-bottom: 25px
+
+  .form-wrapper
+    background-color: $almost-white
+    padding: 30px
+    margin: 30px 0
+
+    .form-wrapper
+      background: none
+      padding: 0
+      margin: 0
+
+  .form-item
+    margin-bottom: 25px
+
+  label
+    font-weight: 400
+    margin: 0 0 5px !important
+    width: auto !important
+
+  .radio input[type="radio"],
+  .radio-inline input[type="radio"],
+  .checkbox input[type="checkbox"],
+  .checkbox-inline input[type="checkbox"]
+    margin: 0 0 0 2px
+
+  .form-checkboxes .form-item,
+  .form-radios .form-item
+    margin-top: 0.4em
+    margin-bottom: 0.4em
+
+  .radio label,
+  .checkbox label
+    font-weight: 300
+    margin: 0 !important
+
+  .resizable-textarea
+    margin: 0 !important
+
+  ul
+    margin-bottom: 10px
+
+    li
+      padding-left: 20px
+
+      .btn
+        margin-left: 15px
+
+      &:before
+        top: 7px

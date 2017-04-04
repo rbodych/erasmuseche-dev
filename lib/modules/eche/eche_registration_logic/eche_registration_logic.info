@@ -1,0 +1,7 @@
+name = ECHE registration logic
+description = ECHE redirections logic on registration process.
+dependencies[] = eche_wf
+core = 7.x
+package = ECHE
+php = 5.5
+multisite_version = 2.0

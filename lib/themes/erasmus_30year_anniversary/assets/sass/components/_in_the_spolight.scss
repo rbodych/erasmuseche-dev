@@ -1,0 +1,62 @@
+.view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes .view-content {
+  background: none;
+}
+
+div.introduction__content {
+  #views-bootstrap-grid-1 {
+    background: none;
+    margin-left: 216px;
+    box-shadow: 0px 0px;
+    
+    .contextual-links {
+      display: none;
+    }
+    img {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+div.introduction__highlights {
+  #views-bootstrap-grid-1 {
+    background: none;
+    min-width: 431px;
+    margin-top: 150px;
+    box-shadow: 0px 0px;
+    
+    .contextual-links {
+      display: none;
+    }
+    img {
+      margin-top: 30px;
+    }
+  }
+}
+	
+@media(max-width: 768px) {
+  .introduction__highlights .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes {
+    display: none;
+  }
+  
+  div.introduction__content {
+    .view-content #views-bootstrap-grid-1 {
+      margin-left: -54px;
+      min-width: 406px;
+      margin-bottom: -50px;
+          
+      .row {
+        display: inline-flex;
+      }
+    }
+  }  
+}
+
+@media(min-width: 769px) {
+  div.introduction__content .view.view-monthly-themes.view-id-monthly_themes.view-display-id-block.monthly-themes {
+    display: none;
+  }
+  
+  header.introduction .background-pattern {
+    background-position: top;
+  }
+}

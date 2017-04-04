@@ -1,0 +1,39 @@
+<?php
+/**
+ * @file
+ * ECHE SA install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function eche_sa_install() {
+  $path = drupal_get_path('module', 'eche_sa') . '/eche_sa.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE SA %v feature is installed on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function eche_sa_uninstall() {
+  $path = drupal_get_path('module', 'eche_sa') . '/eche_sa.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE SA %v feature is uninstalled on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_enable().
+ */
+function eche_sa_enable() {
+  drupal_set_message(t('ECHE SA is now active on your site.'));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function eche_sa_disable() {
+  drupal_set_message(t('ECHE SA is now disabled on your site.'));
+}

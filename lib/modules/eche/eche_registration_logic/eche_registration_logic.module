@@ -1,0 +1,153 @@
+<?php
+/**
+ * @file
+ * ECHE redirections logic on registration process.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function eche_registration_logic_menu() {
+  $items['user/complete'] = [
+    'title' => 'Complete your self-assessment',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['eche_registration_logic_form'],
+    'access callback' => 'user_is_logged_in',
+  ];
+
+  return $items;
+}
+
+/**
+ * Implements hook_page_build().
+ */
+function eche_registration_logic_page_build(&$page) {
+  if (user_is_logged_in()) {
+    if (isset($_SESSION['first_login']) && current_path() != 'user/complete') {
+      // First of all force user to finish configuring his profile.
+      drupal_goto('user/complete');
+    }
+  }
+
+  // Save destination parameter in session for later redirection (code above).
+  if (!user_is_logged_in() && arg(0) == 'user' && arg(1) == 'login') {
+    $destination = drupal_get_destination();
+    if (!empty($destination['destination'])) {
+      $_SESSION['destination'] = $destination['destination'];
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function eche_registration_logic_form_user_register_form_alter(&$form, &$form_state, $form_id) {
+  // Add additional submission handler.
+  // array_unshift($form['#submit'], 'eche_registration_logic_first_login');.
+  $form['#submit'][] = 'eche_registration_logic_first_login';
+}
+
+/**
+ * Adds information that user is newly created.
+ */
+function eche_registration_logic_first_login() {
+  $_SESSION['first_login'] = TRUE;
+}
+
+/**
+ * Complete your self-assessment form.
+ */
+function eche_registration_logic_form($form, &$form_state) {
+
+  global $user;
+
+  $account = user_load($user->uid);
+
+  $field = field_info_field('field_organisation_type');
+  $options = list_allowed_values($field);
+  $form['organisation_type'] = [
+    '#type' => 'select',
+    '#title' => t('Type of organisation'),
+    '#options' => $options,
+    '#required' => TRUE,
+    '#default_value' => !empty($account->field_organisation_type[LANGUAGE_NONE][0]['value']) ? $account->field_organisation_type[LANGUAGE_NONE][0]['value'] : NULL,
+  ];
+
+  $field = field_info_field('field_position');
+  $options = list_allowed_values($field);
+  $form['position'] = [
+    '#type' => 'select',
+    '#title' => t('Position in organisation'),
+    '#options' => $options,
+    '#required' => TRUE,
+    '#default_value' => !empty($account->field_position[LANGUAGE_NONE][0]['value']) ? $account->field_position[LANGUAGE_NONE][0]['value'] : NULL,
+  ];
+
+  $form['department'] = [
+    '#type' => 'textfield',
+    '#title' => t('Department'),
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Please fill in your department')],
+    '#default_value' => !empty($account->field_department[LANGUAGE_NONE][0]['value']) ? $account->field_department[LANGUAGE_NONE][0]['value'] : NULL,
+  ];
+
+  $form['submit'] = [
+    '#type' => 'submit',
+    '#value' => t('Next') . '<span class="icon icon--arrow-right"></span>',
+    '#attributes' => [
+      'class' => [
+        'btn--primary',
+        'btn--lg',
+      ],
+    ],
+  ];
+
+  if (!empty($_SESSION['first_login'])) {
+    unset($_SESSION['first_login']);
+  }
+
+  return $form;
+}
+
+/**
+ * Complete your self-assessment form submission handler.
+ */
+function eche_registration_logic_form_submit($form, &$form_state) {
+  global $user;
+
+  // Updating user profile data.
+  $account = user_load($user->uid);
+  $account->field_organisation_type[LANGUAGE_NONE][0]['value'] = $form_state['values']['organisation_type'];
+  $account->field_position[LANGUAGE_NONE][0]['value'] = $form_state['values']['position'];
+  $account->field_department[LANGUAGE_NONE][0]['value'] = $form_state['values']['department'];
+  user_save($account);
+
+  $redirect = eche_wf_get_self_assesment_path_depending_on_position($form_state['values']['position']);
+
+  // If user is logged first time, we redirect him to the form
+  // depending on his position.
+  if (!empty($_SESSION['first_login'])) {
+    unset($_SESSION['first_login']);
+  }
+  if (isset($redirect)) {
+    $form_state['redirect'] = $redirect;
+  }
+
+}
+
+/**
+ * Implements hook_user_login().
+ */
+function eche_registration_logic_user_login(&$edit, $account) {
+  // Don't redirect on password reset.
+  $current_menu_item = menu_get_item();
+  if ($current_menu_item['path'] == 'user/reset/%/%/%') {
+    return;
+  }
+  // Redirect user to profile page after the login.
+  if (empty($_SESSION['first_login'])) {
+    if (!isset($_GET['destination'])) {
+      $_GET['destination'] = 'user/my-submissions';
+    }
+  }
+}

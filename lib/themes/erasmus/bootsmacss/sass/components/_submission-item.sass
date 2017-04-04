@@ -1,0 +1,69 @@
+// Submission item
+//
+// A listing item
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .submission-item
+    +clearfix
+    border: 2px solid $gray-lighter
+    border-bottom-width: 4px
+    margin-bottom: 20px
+    padding: 10px 16px
+
+  // Elements
+  // --------------------------------------------------
+  .submission-item__title
+    font-size: 16px
+    font-weight: $font-weight-bold
+    line-height: 26px
+    padding: 0
+    margin: 0
+    color: $gray-base
+
+    span
+      font-size: $font-size-base
+      font-weight: $font-weight
+
+    div
+      margin-left: 15px
+      position: relative
+      top: -2px
+
+  a.submission-item__title,
+  div.submission-item__title a
+    &:hover
+      text-decoration: underline
+
+  .submission-item__subtitle
+    margin-bottom: 5px
+
+  .submission-item__meta
+    margin-top: -5px
+    color: $gray-dark
+
+  .submission-item__actions
+    font-size: 20px
+    +breakpoint(tablet)
+      float: right
+      margin-top: 25px
+
+  .submission-item__action
+    & + .submission-item__action
+      margin-left: 20px
+    &,
+    &:visited
+      color: $gray-dark
+
+    &:hover
+      color: $link-hover-color
+
+  .submission-item__left
+    +breakpoint(tablet)
+      float: left
+
+  .submission-item__link
+    .btn
+      padding-bottom: 0

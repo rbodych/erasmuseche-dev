@@ -1,0 +1,152 @@
+.all-heroes {
+  width: 100%;
+  padding: $padding-medium;
+  z-index: 9999999;
+
+  & > h2 {
+    color: #fff;
+    text-align: center;
+    border-bottom: 1px dashed rgba(255, 255, 255, .15);
+    padding-bottom: 5px;
+    opacity: .9;
+    
+    .close {
+      float: none;
+      color: #fff;
+      opacity: 1;
+      line-height: inherit;
+      
+      span {
+        opacity: 1;
+        border: 2px solid rgba(255, 255, 255, .8);
+        border-radius: 50%;
+        padding: 4px;
+        top: 0;
+        line-height: inherit;
+      }
+    }
+  }
+  
+  .all-heroes-content {
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include justify-content(space-around);
+
+    .all-heroes-item {
+      box-shadow: $shadow-big;
+      width: 100%;
+      @include flex-basis(100%);
+      margin: 2em;
+      padding: 0;
+      position: relative;
+      height: 280px;
+      
+      a {
+        &:first-of-type {
+          color: #fff;
+          position: absolute;
+          top: 0;
+          left: -30px;
+          bottom: 0;
+          margin: auto;
+          font-size: $heading-2-size;
+          height: $heading-2-size;
+          text-shadow: $shadow-heading;
+          z-index: 999;
+          text-decoration: none;
+          font-family: $font-family;
+        }
+        
+        &:nth-of-type(2) {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+.object-fit-not-supported {
+  .all-heroes-content {
+    .all-heroes-item {
+      a {
+        &:nth-of-type(2) {
+          img {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($tablet-min-width) {
+  .all-heroes-content.modal-dialog {
+    width: inherit;
+  }
+  
+  
+  
+  
+  
+  .all-heroes {
+    .all-heroes-content {
+      .all-heroes-item {
+        width: 50%;
+        @include flex-basis(50%);
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($desktop-min-width) {
+  .all-heroes {
+    .all-heroes-content {
+      .all-heroes-item {
+        width: 33.3333%;
+        @include flex-basis(33.3333%);
+      }
+    }
+  }
+}
+
+
+
+
+
+@include media($largedesktop-min-width) {
+  .all-heroes {
+    .all-heroes-content {
+      .all-heroes-item {
+        width: 20%;
+        @include flex-basis(20%);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+.modal-backdrop.in {
+  z-index: 999999;
+  opacity: .98;
+  background: #121C26;
+}

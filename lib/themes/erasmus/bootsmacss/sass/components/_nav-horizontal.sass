@@ -1,0 +1,83 @@
+// Horizontal navigation
+//
+// Inline navigation used for example for footer links
+//
+// Markup: html/nav-horizontal.html
+//
+// Styleguide 2.13
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .nav-horizontal
+    font-size: 13px
+    font-weight: $font-weight-semibold
+    padding: 0
+    margin: 0
+
+  // Elements
+  // --------------------------------------------------
+  .nav-horizontal__item
+    display: block
+    float: left
+    padding: 0
+    margin: 0
+    position: relative
+
+    &:after
+      content: ""
+      display: block
+      width: 100%
+      height: 5px
+      bottom: 0
+      position: absolute
+      z-index: 2
+
+  .nav-horizontal__link
+    padding: 10px 27px
+    display: block
+    float: left
+    background-color: #fff
+    border: none
+    border-radius: 0
+    color: $text-color !important
+    cursor: pointer
+    position: relative
+    &:hover
+      background-color: $almost-white
+
+  // Modifiers
+  // --------------------------------------------------
+  .nav-horizontal__link--primary
+    background-color: $brand-primary-light
+    text-transform: uppercase
+    &:hover,
+    &:focus
+      background-color: darken($brand-primary-light, 10%)
+
+  .nav-horizontal__item--primary
+    .nav-horizontal__item--primary
+      .nav-horizontal__link
+        background-color: #fff
+        text-transform: none
+
+        &:hover,
+        &:focus
+          background-color: $almost-white
+
+  // Dependencies
+  // --------------------------------------------------
+  .nav-horizontal__item.active:after
+    background-color: $azure
+
+  // States
+  // --------------------------------------------------
+  .nav-horizontal__link.is-active::after
+    content: ''
+    position: absolute
+    bottom: 0
+    right: 20px
+    left: 20px
+    height: 6px
+    background-color: $brand-primary-light

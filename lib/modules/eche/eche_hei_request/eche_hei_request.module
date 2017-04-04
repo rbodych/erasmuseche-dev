@@ -1,0 +1,209 @@
+<?php
+/**
+ * @file
+ * ECHE HEI request form.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function eche_hei_request_menu() {
+  $items = [];
+
+  $items['institution-request'] = [
+    'title' => 'Request Higher Education Institution',
+    'description' => 'HEI request form.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['eche_hei_request_form'],
+    // Access for everyone.
+    'access callback' => TRUE,
+  ];
+
+  $items['admin/config/institution-request'] = [
+    'title' => 'HEI request form setting',
+    'description' => 'HEI request form.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['eche_hei_request_admin_form'],
+    'access arguments' => ['administer configuration'],
+  ];
+
+  return $items;
+}
+
+/**
+ * Implements hook_form().
+ */
+function eche_hei_request_admin_form($form, &$form_state) {
+  global $base_url;
+
+  $form['form_admin'] = [
+    '#markup' => '<p>Click on the link to start adding a new institutional entry to the database: <a target="_blank" href="' . $base_url . url('admin/structure/taxonomy/higher_education_institutions/add') . '">adding new HEI</a> and to <a target="_blank" href="' . $base_url . url('admin/structure/taxonomy/higher_education_institutions') . '">browse existing</a> </p>',
+  ];
+
+  $form['form_description'] = [
+    '#markup' => '<p>Please set email from wich will be requested intitution request and who will be received the institution request.</p>',
+  ];
+
+  $form['eche_hei_request_email_request_from'] = [
+    '#type' => 'textfield',
+    '#title' => t('E-mail request from'),
+    '#default_value' => variable_get('eche_hei_request_email_request_from', 'no-reply@waat.eu'),
+    '#required' => TRUE,
+  ];
+
+  $form['eche_hei_request_email_request_to'] = [
+    '#type' => 'textfield',
+    '#title' => t('E-mail request to'),
+    '#default_value' => variable_get('eche_hei_request_email_request_to', 'no-reply@waat.eu'),
+    '#required' => TRUE,
+  ];
+
+  $form['submit'] = [
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  ];
+
+  return $form;
+}
+
+/**
+ * Implements hook_validate().
+ */
+function eche_hei_request_admin_form_validate($form, &$form_state) {
+  $eche_hei_request_email_request_from = $form_state['values']['eche_hei_request_email_request_from'];
+  $eche_hei_request_email_request_to = $form_state['values']['eche_hei_request_email_request_to'];
+  if (!valid_email_address($eche_hei_request_email_request_from)) {
+    form_set_error('eche_hei_request_email_request_from', t('Your E-mail address %email_address is not valid. Please submit a valid E-mail address.', ['%email_address' => $eche_hei_request_email_request_from]));
+  }
+  if (!valid_email_address($eche_hei_request_email_request_to)) {
+    form_set_error('eche_hei_request_email_request_to', t('Your E-mail address %email_address is not valid. Please submit a valid E-mail address.', ['%email_address' => $eche_hei_request_email_request_to]));
+  }
+}
+
+/**
+ * Implements hook_submit().
+ */
+function eche_hei_request_admin_form_submit($form, &$form_state) {
+  $eche_hei_request_email_request_from = $form_state['values']['eche_hei_request_email_request_from'];
+  $eche_hei_request_email_request_to = $form_state['values']['eche_hei_request_email_request_to'];
+
+  variable_set('eche_hei_request_email_request_from', $eche_hei_request_email_request_from);
+  variable_set('eche_hei_request_email_request_to', $eche_hei_request_email_request_to);
+
+  drupal_set_message(t('Settings are saved !'));
+}
+
+/**
+ * Implements hook_form().
+ */
+function eche_hei_request_form($form, &$form_state) {
+
+  $form['form_description'] = [
+    '#markup' => '<p>Please complete the following fields to request the registration of a new Higher Education Institution on the website. Your request will be sent to the ECHE Team, who will contact you as soon as the registration request is processed.</p>',
+  ];
+
+  $form['first_name'] = [
+    '#type' => 'textfield',
+    '#title' => t('First Name'),
+    '#required' => TRUE,
+  ];
+
+  $form['last_name'] = [
+    '#type' => 'textfield',
+    '#title' => t('Last Name'),
+    '#required' => TRUE,
+  ];
+
+  $form['email'] = [
+    '#type' => 'textfield',
+    '#title' => t('E-mail address'),
+    '#attributes' => ['placeholder' => t('example@email.com')],
+    '#required' => TRUE,
+  ];
+
+  $form['eche_hei_request_country'] = [
+    '#type' => 'select',
+    '#title' => t('Country of the Higher Education Institution'),
+    '#default_value' => variable_get('eche_hei_request_country', ''),
+    '#options' => ['' => t('Please select a country')] + country_get_list(),
+    '#required' => TRUE,
+  ];
+
+  $form['hei'] = [
+    '#type' => 'textfield',
+    '#title' => t('Name of the Higher Education Institution'),
+    '#required' => TRUE,
+  ];
+
+  $form['submit'] = [
+    '#type' => 'submit',
+    '#value' => t('Send Request'),
+  ];
+
+  return $form;
+}
+
+/**
+ * Implements hook_validate().
+ */
+function eche_hei_request_form_validate($form, &$form_state) {
+  $valid_email = $form_state['values']['email'];
+  if (!valid_email_address($valid_email)) {
+    form_set_error('email', t('Your E-mail address %email_address is not valid. Please submit a valid E-mail address.', ['%email_address' => $valid_email]));
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function eche_hei_request_form_mail($key, &$message, $params) {
+  $headers = [
+    'MIME-Version' => '1.0',
+    'Content-Type' => 'text/plain; charset=UTF-8; format=flowed',
+    'Content-Transfer-Encoding' => '8Bit',
+    'X-Mailer' => 'Drupal',
+  ];
+
+  foreach ($headers as $key => $value) {
+    $message['headers'][$key] = $value;
+  }
+
+  $message['subject'] = $params['subject'];
+  $message['body'] = $params['body'];
+}
+
+/**
+ * Implements hook_submit().
+ */
+function eche_hei_request_form_submit($form, &$form_state) {
+  global $base_url;
+
+  $valid_email = $form_state['values']['email'];
+  $institution_country_key = $form_state['values']['country'];
+  $institution_country = $form['eche_hei_request_country']['#options'][$institution_country_key];
+  $institution_name = $form_state['values']['hei'];
+
+  $from = variable_get('eche_hei_request_email_request_from');
+  $to = variable_get('eche_hei_request_email_request_to');
+
+  $body[] = 'The following Higher Education Institution registration request was submitted on the ECHE website:';
+  $body[] = 'First name: ' . $form_state['values']['first_name'];
+  $body[] = 'Last name: ' . $form_state['values']['last_name'];
+  $body[] = 'E-mail: ' . $valid_email;
+  $body[] = 'Country: ' . $institution_country;
+  $body[] = 'Higher Education Institution: ' . $institution_name;
+  $body[] = 'Click on the link below to start adding a new institutional entry to the database:';
+  $body[] = $base_url . url('admin/structure/taxonomy/higher_education_institutions/add');
+
+  $params = [
+    'body' => $body,
+    'subject' => 'New HEI registration request',
+  ];
+
+  if (drupal_mail('eche_hei_request_form', 'hei_request', $to, language_default(), $params, $from, TRUE)) {
+    drupal_set_message(t('Thank you for submitting the registration request! We will contact you when the institutional entry is created, and you will be able to proceed with the registration.'));
+  }
+  else {
+    drupal_set_message(t('There was an error with sending the request. Please try again later'));
+  }
+}

@@ -1,0 +1,34 @@
+// Social links
+//
+// Social media icons.
+//
+// Markup: html/social-links.html
+//
+// Styleguide 2.19
+
+$social-links-size: 60px
+$social-links-color: $brand-primary
+
+// Block
+// --------------------------------------------------
+.social-links
+  margin: 28px -25px -20px
+  +breakpoint(tablet)
+    margin-bottom: -30px
+
+// Elements
+// --------------------------------------------------
+.social-links__link
+  display: inline-block
+  margin: 0 27px $social-links-size+27px
+  font-size: $social-links-size * 0.5
+  color: $social-links-color
+  width: $social-links-size - 2
+  height: $social-links-size - 2
+  line-height: $social-links-size - 2
+  text-align: center
+  color: #fff
+  +circle($social-links-color, 1px, $social-links-color)
+  &:hover
+    color: $social-links-color
+    +circle(transparent, 1px, $social-links-color)

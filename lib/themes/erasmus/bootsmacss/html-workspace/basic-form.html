@@ -1,0 +1,93 @@
+{{> partials/head }}
+{{> partials/header }}
+
+<main class="bootsmacss">
+  <div class="layout--form-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2 class="layout--form-page__title">Basic form fields</h2>
+          <div class="layout--form-page__inner">
+            <h3>Lorem ipsum form</h3>
+            <div class="row">
+              <div class="col-sm-3 col-sm-push-9">
+                <div class="layout--form-page__description">
+                  Help text. You have signed, on behalf of your Higher Education Institution, an Erasmus Charter for
+                  Higher Education (ECHE). <br/><strong>Are you aware of the most and least effective ways to implement
+                  its key principles?</strong><br/><br/>
+                  <div class="help-block">
+                    <a href="#">I forgot my password</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-8 col-sm-pull-3">
+                <form class="layout--form-page__form">
+                  <div class="form-group">
+                    <label for="name" class="control-label">Name</label>
+                    <input type="text" class="form-control" name="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="lastname" class="control-label">Last Name</label>
+                    <input type="text" class="form-control" name="lastname">
+                  </div>
+                  <h4>Form subtitle</h4>
+                  <div class="form-group">
+                    <label for="email" class="control-label">E-mail address</label>
+                    <input type="email" class="form-control" id="email">
+                    <div class="help-block">Hint text. Enter your e-mail address</div>
+                  </div>
+                  <div class="form-group">
+                    <label for="dropdown">Dropdown menu</label>
+                    <select class="form-control">
+                      <option>- Select -</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>Radio buttons</label>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="radio" id="optionsRadios1" value="option1">
+                        Option 1
+                      </label>
+                      <label>
+                        <input type="radio" name="radio" id="optionsRadios1" value="option1">
+                        Option 2
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="checkbox">Checkbox</label>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value="1">
+                        Option 1
+                      </label>
+                      <label>
+                        <input type="checkbox" value="2">
+                        Option 2
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-actions">
+                    <input type="submit" class="btn btn--primary btn--lg" value="Previous"></input>
+                    <input type="submit" class="btn btn--primary btn--lg pull-right" value="Next"></input>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="designs designs--basic-form"></div>
+
+{{> partials/footer }}
+{{> partials/scripts }}

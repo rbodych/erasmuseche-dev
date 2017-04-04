@@ -1,0 +1,92 @@
+// Detail
+//
+// Styling of Detail in self assessment.
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .detail
+    margin: 62px 0 0
+
+  // Elements
+  // --------------------------------------------------
+  .detail__item
+    margin-bottom: 30px
+    border-bottom: 1px $gray-lighter solid
+    margin-left: 35px
+
+  .detail__input
+    // Visually hide radio buttons
+    position: absolute
+    opacity: 0
+
+  .detail__category
+    font-size: 26px
+    padding: 0
+    margin: 30px 0 15px
+
+  .detail__label
+    position: relative
+    font-size: 22px
+    font-weight: $font-weight
+    line-height: 27px
+    margin-bottom: 20px
+    color: $text-color
+    cursor: pointer
+    &::before
+      content: '▸'
+      position: absolute
+      left: -27px
+      font-size: 14px
+
+  .detail__content
+    padding-bottom: 20px
+    opacity: 0
+    display: none
+    h3
+      font-size: 16px
+      padding: 0
+      margin: 0 0 17px
+      line-height: $line-height-computed
+
+    p
+      font-size: 16px
+      line-height: 22px
+      margin: 0 0 22px
+      color: darken($gray-light, 40%)
+
+    strong
+      font-weight: $font-weight
+      color: $text-color
+
+  // Dependencies
+  // --------------------------------------------------
+
+  // States
+  // --------------------------------------------------
+  // Open content when clicking label.
+  #detail-toggle-1:checked ~ #detail-content-1,
+  #detail-toggle-2:checked ~ #detail-content-2,
+  #detail-toggle-3:checked ~ #detail-content-3,
+  #detail-toggle-4:checked ~ #detail-content-4,
+  #detail-toggle-5:checked ~ #detail-content-5,
+  #detail-toggle-6:checked ~ #detail-content-6,
+  #detail-toggle-7:checked ~ #detail-content-7,
+  #detail-toggle-8:checked ~ #detail-content-8,
+  #detail-toggle-9:checked ~ #detail-content-9,
+  #detail-toggle-10:checked ~ #detail-content-10,
+  #detail-toggle-11:checked ~ #detail-content-11,
+  #detail-toggle-12:checked ~ #detail-content-12,
+  #detail-toggle-13:checked ~ #detail-content-13,
+  #detail-toggle-14:checked ~ #detail-content-14,
+  #detail-toggle-15:checked ~ #detail-content-15,
+  #detail-toggle-16:checked ~ #detail-content-17,
+  #detail-toggle-18:checked ~ #detail-content-18,
+  #detail-toggle-19:checked ~ #detail-content-19,
+  #detail-toggle-20:checked ~ #detail-content-20
+    display: block
+    opacity: 1
+
+  .detail__input:checked ~ .detail__label::before
+    content: '▾'

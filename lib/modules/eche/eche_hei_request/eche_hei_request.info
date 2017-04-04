@@ -1,0 +1,6 @@
+name = "ECHE HEI request form"
+description = "HEI request form."
+core = "7.x"
+package = ECHE
+php = 5.5
+multisite_version = 2.0

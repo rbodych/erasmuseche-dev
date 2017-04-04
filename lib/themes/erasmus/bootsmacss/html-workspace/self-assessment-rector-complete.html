@@ -1,0 +1,303 @@
+{{> partials/head }}
+{{> partials/header }}
+
+<main class="bootsmacss">
+  <div class="layout--page-title">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5"><h2>Self-assessment</h2></div>
+        <div class="col-sm-7">
+          <nav class="nav-horizontal pull-right">
+            <a class="nav-horizontal__link" href="#">Home</a>
+            <a class="nav-horizontal__link is-active" href="#">Self-assessment</a>
+            <a class="nav-horizontal__link" href="#">Resources</a>
+            <a class="nav-horizontal__link" href="#">About</a>
+            <div class="dropdown">
+              <a class="nav-horizontal__link nav-horizontal__link--primary" data-toggle="dropdown" aria-haspopup="true"
+                 aria-expanded="false">User name <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+              </ul>
+            </div>
+            <a class="nav-horizontal__link nav-horizontal__link--primary" href="#">Logout</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="layout--content-boxed">
+    <div class="container">
+      <div class="layout--content-boxed__inner">
+        <div class="layout--content-boxed__preinner">
+          <div class="subway">
+            <div class="subway__item">
+              <div class="subway__label">Start</div>
+            </div>
+            <div class="subway__item">
+              <div class="subway__label">Page 1</div>
+            </div>
+            <div class="subway__item">
+              <div class="subway__label">Page 2</div>
+            </div>
+            <div class="subway__item">
+              <div class="subway__label">Page 3</div>
+            </div>
+            <div class="subway__item">
+              <div class="subway__label">Page 4</div>
+            </div>
+            <div class="subway__item">
+              <div class="subway__label">Page 5</div>
+            </div>
+            <div class="subway__item">
+              <div class="subway__label">Page 6</div>
+            </div>
+            <div class="subway__item is-active">
+              <div class="subway__label">Complete</div>
+            </div>
+          </div>
+        </div>
+        <div class="layout--content-boxed__header">
+          <div class="submission-info">
+            <h2 class="submission-info__title">SELF-ASSESSMENT COMPLETE</h2>
+            <p>Based on your answers, we have prepared an overview for you. You can view it below and / or download it
+              by clicking on the "Download results" button at the bottom of this page.</p>
+          </div>
+        </div>
+        <div class="results">
+          <div class="results__heading">
+            <div class="results__heading-label">Overview</div>
+            <div class="results__heading-label results__heading-label--right">Your performance</div>
+            <div class="results__heading-label results__heading-label--right">Your institutions performance</div>
+          </div>
+          <input class="results__input" id="results-toggle-1" type="radio" name="toggle"/>
+          <label class="results__label" for="results-toggle-1">
+            <span class="results__label-description">1. Your institution has a strategy and an overarching structure supporting internationalisation</span>
+            <span class="results__rating">
+                <span class="stars stars--2 stars--bright">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+            <span class="results__rating">
+                <span class="stars stars--1">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+          </label>
+          <div class="results__content" id="results-content-1">
+            See markup of the expanded content for point 3.
+          </div>
+
+          <input class="results__input" id="results-toggle-2" type="radio" name="toggle"/>
+          <label class="results__label" for="results-toggle-2">
+            <span class="results__label-description">2. Your institution expresses its commitment to equal access and opportunities to Erasmus+ mobile participants from all backgrounds, by:</span>
+            <span class="results__rating">
+                <span class="stars stars--1 stars--bright">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+            <span class="results__rating">
+                <span class="stars stars--2">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+          </label>
+          <div class="results__content" id="results-content-2">
+            See markup of the expanded content for point 3.
+          </div>
+
+          <input class="results__input" id="results-toggle-3" type="radio" name="toggle"/>
+          <label class="results__label" for="results-toggle-3">
+            <span class="results__label-description">3. Your institution provides all the necessary information and support for incoming Erasmus+ participants to best prepare and make the most out of their exchange:</span>
+            <span class="results__rating">
+                <span class="stars stars--3 stars--bright">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+            <span class="results__rating">
+                <span class="stars stars--3">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+          </label>
+          <div class="results__content" id="results-content-3">
+            <div class="row">
+              <div class="col-sm-6 text-muted">
+                <div class="results__content-heading">Your answers:</div>
+                B. Organising activities to integrate them into the life of the institution and the local community
+              </div>
+              <div class="col-sm-6">
+                <div class="results__content-heading">Suggestions for considerations:</div>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.
+              </div>
+            </div>
+          </div>
+
+          <input class="results__input" id="results-toggle-4" type="radio" name="toggle"/>
+          <label class="results__label" for="results-toggle-4">
+            <span class="results__label-description">4. Your institution ensures integration of incoming participants and equally exploits their experiences to reinforce international cooperation, by:</span>
+            <span class="results__rating">
+                <span class="stars stars--2 stars--bright">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+            <span class="results__rating">
+                <span class="stars stars--2">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+          </label>
+          <div class="results__content" id="results-content-4">
+            See markup of the expanded content for point 3.
+          </div>
+
+          <input class="results__input" id="results-toggle-5" type="radio" name="toggle"/>
+          <label class="results__label" for="results-toggle-5">
+            <span class="results__label-description">5. Your institution ensures full recognition of student mobility activities successfully completed abroad.</span>
+            <span class="results__rating">
+                <span class="stars stars--3 stars--bright">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+            <span class="results__rating">
+                <span class="stars stars--2">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+          </label>
+          <div class="results__content" id="results-content-5">
+            See markup of the expanded content for point 3.
+          </div>
+
+          <input class="results__input" id="results-toggle-6" type="radio" name="toggle"/>
+          <label class="results__label" for="results-toggle-6">
+            <span class="results__label-description">6. Your institution recognises staff mobility as a key component of professional development.</span>
+            <span class="results__rating">
+                <span class="stars stars--2 stars--bright">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+            <span class="results__rating">
+                <span class="stars stars--2">
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                  <span class="stars__item"><i class="icon icon--star"></i></span>
+                </span>
+              </span>
+          </label>
+          <div class="results__content" id="results-content-6">
+            See markup of the expanded content for point 3.
+          </div>
+
+        </div>
+        <h3>Feedback and suggestions for consideration</h3>
+
+        <div class="vertical-tabs">
+          <input class="vertical-tabs__input" id="vertical-tabs-toggle-1" type="radio" name="toggle" checked/>
+          <label class="vertical-tabs__label" for="vertical-tabs-toggle-1">
+            1. Your institution has a strategy and an overarching stmcture supporting intemationalisation
+          </label>
+          <div class="vertical-tabs__content" id="vertical-tabs-content-1">
+            <h4>Your answers:</h4>
+            <ul>
+              <li>A. Embedded in the institutional strategic plan</li>
+              <li>D. All the relevant staff throughout the institution</li>
+              <li>H. Areas of mutual interest</li>
+              <li>K. A request from students</li>
+            </ul>
+            <h4>Suggestions for consideration</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiu-
+              smod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+              sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum.</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accu-
+              santium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
+              sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit asper-
+              natur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
+              ratione voluptatem sequi nesciunt Neque porro quisquam est, qui
+              dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+          </div>
+          <input class="vertical-tabs__input" id="vertical-tabs-toggle-2" type="radio" name="toggle"/>
+          <label class="vertical-tabs__label" for="vertical-tabs-toggle-2">
+            2. Your institution expresses its commitment to equal access and opportunities to Erasmus+ mobile
+            participants from all backgrounds, by:
+          </label>
+          <div class="vertical-tabs__content" id="vertical-tabs-content-2">
+            Content of tab 2. See markup of the expanded content for point 1.
+          </div>
+          <input class="vertical-tabs__input" id="vertical-tabs-toggle-3" type="radio" name="toggle"/>
+          <label class="vertical-tabs__label" for="vertical-tabs-toggle-3">
+            3. Your institution provides all the necessary information and support for incoming Erasmus+ participants to
+            best prepare and make the most out of their exchange:
+          </label>
+          <div class="vertical-tabs__content" id="vertical-tabs-content-3">
+            Content of tab 3. See markup of the expanded content for point 1.
+          </div>
+          <input class="vertical-tabs__input" id="vertical-tabs-toggle-4" type="radio" name="toggle"/>
+          <label class="vertical-tabs__label" for="vertical-tabs-toggle-4">
+            4. Your institution ensures integration of incoming participants and equally exploits their experiences to
+            reinforce international cooperation, by:
+          </label>
+          <div class="vertical-tabs__content" id="vertical-tabs-content-4">
+            Content of tab 4
+          </div>
+          <input class="vertical-tabs__input" id="vertical-tabs-toggle-5" type="radio" name="toggle"/>
+          <label class="vertical-tabs__label" for="vertical-tabs-toggle-5">
+            5. Your institution ensures full recognition of student mobility activities successfully completed abroad.
+          </label>
+          <div class="vertical-tabs__content" id="vertical-tabs-content-5">
+            Content of tab 5
+          </div>
+          <input class="vertical-tabs__input" id="vertical-tabs-toggle-6" type="radio" name="toggle"/>
+          <label class="vertical-tabs__label" for="vertical-tabs-toggle-6">
+            6. Your institution recognises staff mobility as a key component of professional development.
+          </label>
+          <div class="vertical-tabs__content" id="vertical-tabs-content-6">
+            Content of tab 6
+          </div>
+        </div>
+
+
+        <div class="form-actions clearfix">
+          <div class="pull-left">
+            <a href=#"" class="btn btn--link"><i class="icon icon--user-add"></i> Invite members</a>
+            <a href=#"" class="btn btn--link"><i class="icon icon--share-2"></i> Share / Unshare my results</a>
+          </div>
+          <a href=#"" class="btn btn--primary btn--lg pull-right">Download results</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="designs designs--self-assessment-rector-complete"></div>
+
+<!-- {{> partials/footer }} -->
+{{> partials/scripts }}
