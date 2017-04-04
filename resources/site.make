@@ -70,7 +70,7 @@ projects[entityreference_autocreate][subdir] = "contrib"
 projects[entityreference_autocreate][version] = "1.1"
 
 projects[lang_dropdown][subdir] = "contrib"
-projects[lang_dropdown][version] = "1.0-beta2"
+projects[lang_dropdown][version] = "1.5"
 
 projects[metatag][subdir] = "contrib"
 projects[metatag][version] = "1.7"
