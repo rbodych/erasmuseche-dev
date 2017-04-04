@@ -1,0 +1,87 @@
+//
+// Bootstrap variables
+// --------------------------------------------------
+
+//== Colors
+//
+//## Global colors declaration. See base/_colors.sass to edit the stleguide demo.
+
+//** Color declarations
+$gray-dark: #61696f
+$gray-base: #00121f
+$gray-light: #cbd8e1
+$gray-lighter: #dae5ed
+$gray-lightest: #eef3f7
+$almost-white: #f4f6f9
+
+$azure: #6ad6fe
+$blue: #2484cb
+$blue-dark: #154a89
+$lime: #74ae23
+$green: #36d685
+$olive: #5a8228
+$brown: #be6e14
+$orange: #e75404
+$yellow: #f4c153
+$puprle: #a3418c
+$red: #ef5d52
+
+//** Primary brand colors assigment
+$brand-primary: $blue
+$brand-primary-light: $azure
+$brand-primary-dark: $blue-dark
+
+//** Settings for some of the most global styles.
+$body-bg: $almost-white
+$text-color: $gray-base
+$link-color: $brand-primary-dark
+$link-hover-color: lighten($link-color, 15%)
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-serif: "Roboto Slab", Georgia, "Times New Roman", Times, serif
+$font-family-sans-serif: "SquareSans", Helvetica, Arial, sans-serif
+$font-family-sans-condensed: "Roboto Condensed", Helvetica, Arial, sans-serif
+$font-family-base: $font-family-sans-serif
+
+$font-size-base: 14px
+$font-size-large: 20px
+$font-size-small: 12px
+$font-size-xsmall: 10px
+
+$font-size-h1: 72px
+$font-size-h2: 46px
+$font-size-h3: 24px
+$font-size-h4: 16px
+$font-size-h5: 16px
+
+$line-height-computed: 23px
+$paragraphs-margin: 21px
+
+$font-weight-thin: 200
+$font-weight: 300
+$font-weight-semibold: 400
+$font-weight-bold: 600
+
+$headings-font-family: $font-family-sans-serif
+$headings-font-weight: $font-weight-semibold
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+$screen-xs-min: 0
+// Small screen / tablet
+$screen-sm-min: 48em
+// Medium screen / desktop
+$screen-md-min: 62em
+// Large screen / wide desktop
+$screen-lg-min: 75em
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm-min - 1)
+$screen-sm-max: ($screen-md-min - 1)
+$screen-md-max: ($screen-lg-min - 1)

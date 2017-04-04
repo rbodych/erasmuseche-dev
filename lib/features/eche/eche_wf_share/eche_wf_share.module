@@ -1,0 +1,232 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+require_once 'includes/eche_wf_share.blocks.inc';
+require_once 'includes/eche_wf_share.form.inc';
+require_once 'includes/eche_wf_share.preprocess.inc';
+require_once 'includes/eche_wf_share.counts.inc';
+require_once 'includes/eche_wf_share.shares.inc';
+require_once 'includes/eche_wf_share.mail.inc';
+
+/**
+ * Implements hook_views_api().
+ */
+function eche_wf_share_views_api() {
+  return [
+    'api' => 3,
+    'path' => drupal_get_path('module', 'eche_wf_share') . '/views',
+  ];
+}
+
+/**
+ * Implements hook_menu().
+ */
+function eche_wf_share_menu() {
+
+  $items['node/%webform_menu/submission/%webform_menu_submission/%ctools_js/share'] = [
+    'title' => 'Share submission results',
+    'page callback' => 'eche_wf_share_submission_share_page',
+    'page arguments' => [1, 3, 4],
+    'access callback' => 'eche_wf_share_submission_share_access',
+    'access arguments' => [1, 3],
+    'file' => 'includes/eche_wf_share.pages.inc',
+    'type' => MENU_CALLBACK,
+  ];
+
+  $items['eche_wf/download/%'] = [
+    'title' => 'Download PDF',
+    'page callback' => 'eche_wf_report_download_page',
+    'page arguments' => [2],
+    'access callback' => 'eche_wf_share_download_access',
+    'access arguments' => [2],
+    'file' => 'includes/eche_wf_share.pages.inc',
+    'type' => MENU_CALLBACK,
+  ];
+
+  return $items;
+}
+
+/**
+ * Webform submission access callback alteration.
+ */
+function eche_wf_share_webform_submission_access($node, $submission, $op = 'view', $account = NULL) {
+
+  // Assign token from $_SESSION to local variable and purge it from $_SESSION.
+  $token = NULL;
+  if (isset($_SESSION['eche_wf_report_token'])) {
+    $token = $_SESSION['eche_wf_report_token'];
+    unset($_SESSION['eche_wf_report_token']);
+  }
+
+  if ($op == 'view') {
+
+    if ($token) {
+      // Check if token is there.
+      $ids = eche_wf_share_get_submission_id_by_token($token);
+      if (!empty($ids)) {
+        // Allow access if token's info matches provided info.
+        if ($ids['nid'] == $node->nid && $ids['sid'] == $submission->sid) {
+          return TRUE;
+        }
+      }
+    }
+
+    if (user_is_logged_in()) {
+      if (module_exists('eche_wf_share') && eche_wf_share_check_if_submission_is_shared_with_me($submission->sid)) {
+        return TRUE;
+      }
+    }
+
+  }
+
+}
+
+/**
+ * Download access.
+ */
+function eche_wf_share_download_access($token) {
+  $ids = eche_wf_share_get_submission_id_by_token($token);
+  return !empty($ids);
+}
+
+/**
+ * Share access callback.
+ */
+function eche_wf_share_submission_share_access($node, $submission) {
+  global $user;
+  return $submission->uid == $user->uid;
+}
+
+/**
+ * Show Content in JqueryUI Dialog.
+ */
+function eche_wf_share_ajax_command_show_dialog($selector, $html, $title = NULL, $settings = NULL) {
+  $command = [
+    'command' => 'echeWfShareShowDialog',
+    'selector' => $selector,
+    'title' => $title,
+    'data' => $html,
+    'settings' => $settings,
+  ];
+  return $command;
+}
+
+/**
+ * SNS Dialog powered by JQuery UI.
+ *
+ * This function attaches necessary js to the page where called.
+ */
+function eche_wf_share_dialog_js() {
+  drupal_add_library('system', 'ui.dialog');
+  drupal_add_js(drupal_get_path('module', 'eche_wf_share') . '/js/eche_wf_share.dialog.js');
+}
+
+/**
+ * Wrapper for EcheWfUserShareCount update count.
+ */
+function eche_wf_share_update_user_count($uid) {
+  $count = new EcheWfUserShareCount($uid);
+  $count->update_count();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function eche_wf_share_theme($existing, $type, $theme, $path) {
+  return [
+    'eche_wf_share_my_submissions_tabs' => [
+      'variables' => [],
+      'file' => 'includes/eche_wf_share.theme.inc',
+    ],
+  ];
+
+}
+
+/**
+ * Get's submission id by token.
+ */
+function eche_wf_share_get_submission_id_by_token($token) {
+  return db_query('SELECT s.sid, w.nid FROM {eche_wf_mail_shares} s LEFT JOIN {webform_submissions} w ON s.sid = w.sid WHERE s.token = :token',
+    [':token' => $token])->fetchAssoc();
+}
+
+/**
+ * Return a url for combined report.
+ */
+function eche_wf_share_combined_report_url($nid, $sid) {
+  if (eche_wf_node_is_rectors_quiz($nid)) {
+    return 'download/' . $nid . '/submission/' . $sid . '/report';
+  }
+  return 'download/' . $nid . '/submission/' . $sid . '/combined';
+}
+
+/**
+ * Checks if current node is shareable.
+ */
+function eche_wf_share_node_is_shareable($nid) {
+  return in_array($nid, [
+    variable_get('eche_wf_self_assesment_form_nid', 0),
+    variable_get('eche_wf_rectors_form_nid', 0),
+  ]);
+}
+
+/**
+ * Marks report as read.
+ */
+function eche_wf_share_mark_report_as_read($submission) {
+  global $user;
+  if ($submission->uid != $user->uid) {
+    $share = new EcheWfUserSubmissionShares($submission->uid, $submission->sid);
+    $share->mark_share_as_read($user->uid);
+  }
+}
+
+/**
+ * Share button.
+ */
+function eche_wf_share_button($nid, $sid, $text = '<i class="icon icon--share-2"></i> Share/unshare my results') {
+
+  global $user;
+
+  // Show button to submission author's only!
+  $submission = webform_get_submission($nid, $sid);
+  if ($submission->uid !== $user->uid) {
+    return FALSE;
+  }
+
+  if (eche_wf_share_node_is_shareable($nid)) {
+    eche_wf_modal_js();
+    return l(t('%text', ['%text' => $text]), 'node/' . $nid . '/submission/' . $sid . '/nojs/share', [
+      'attributes' => [
+        'class' => [
+          'btn',
+          'btn--link',
+          'ctools-use-modal',
+          'ctools-modal-eche-wf-modal-style',
+          'hidden-print',
+        ],
+      ],
+      'html' => TRUE,
+    ]);
+  }
+
+  return NULL;
+}
+
+/**
+ * Submission shared with me.
+ *
+ * Return's TRUE if submission is shared with current user, otherwise it's
+ * FALSE;
+ */
+function eche_wf_share_check_if_submission_is_shared_with_me($sid) {
+  global $user;
+  $time_shared = db_query('SELECT s.timestamp FROM {eche_wf_shares} s WHERE s.uid = :uid AND s.sid = :sid', [
+    ':uid' => $user->uid,
+    ':sid' => $sid,
+  ])->fetchField();
+  return !empty($time_shared);
+}

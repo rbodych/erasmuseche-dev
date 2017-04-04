@@ -1,0 +1,84 @@
+// Button
+//
+// Button in various color and size versions.
+//
+// Markup: html/btn.html
+//
+// Styleguide 2.30
+
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .btn
+    background: transparent
+    padding: 13px 15px
+    font-family: $font-family-base
+    font-size: $font-size-small
+    font-weight: $font-weight-bold
+    letter-spacing: 0.05em
+    border: 1px solid $gray-light
+    border-radius: 0
+    white-space: nowrap
+    cursor: pointer
+    display: inline-block
+    width: auto
+    height: auto
+    box-sizing: border-box
+    text-transform: uppercase
+    +btn-color($gray-light, #fff)
+    &:hover, &:focus
+      transition: color 250ms, border-color 250ms, background 250ms
+
+  // Modifiers
+  // --------------------------------------------------
+  .btn--block
+    width: 100%
+    display: block
+    max-width: none
+    text-align: center
+
+  .btn--xs
+    padding: 3px 10px 4px
+
+  .btn--sm
+    padding: 7px 20px 9px
+
+  .btn--lg
+    padding-left: 60px
+    padding-right: 60px
+
+  .btn--primary
+    border: none
+    +btn-color(#fff, $brand-primary)
+
+  .btn--primary-light
+    border: none
+    font-size: $font-size-xsmall
+    +btn-color($brand-primary, $brand-primary-light)
+
+  .btn--link
+    padding-left: 0
+    padding-right: 0
+    border: none
+    +btn-color(darken($gray-light, 7%))
+    &:hover, &:focus
+      text-decoration: underline
+    & + .btn--link
+      margin-left: 60px
+
+  .btn--disabled
+    pointer-events: none
+    opacity: 0.2
+
+  .btn--next
+
+  // Dependencies
+  // --------------------------------------------------
+  .btn .icon
+    font-size: 9px
+    line-height: $line-height-computed
+    vertical-align: middle
+    margin: 0 5px
+    display: inline-block

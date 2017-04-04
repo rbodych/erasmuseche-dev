@@ -1,0 +1,71 @@
+// vertical-tabs
+//
+// vertical-tabs with accordion smechanism witched by pure CSS basing on radio inputs.
+// Works with up to 20 elements.
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .vertical-tabs
+    margin: 65px 0 100px
+    position: relative
+
+  // Elements
+  // --------------------------------------------------
+  .vertical-tabs__input
+    // Visually hide radio buttons
+    position: absolute
+    opacity: 0
+
+  .vertical-tabs__label
+    width: calc(40% + 30px)
+    padding: 18px 80px 17px 35px
+    margin-left: -30px
+    display: block
+    cursor: pointer
+    font-size: 15px
+    line-height: 22px
+    font-weight: $font-weight-semibold
+
+  .vertical-tabs__content
+    position: absolute
+    opacity: 0
+    height: 0
+    left: 40%
+    right: -30px
+    top: 0
+    padding: 35px 20px 35px 95px
+    background-color: $gray-lightest
+    overflow-y: scroll
+    p, ul, ol
+      font-size: 16px
+      line-height: 22px
+
+  // States
+  // --------------------------------------------------
+  // Open content when clicking label.
+  #vertical-tabs-toggle-1:checked ~ #vertical-tabs-content-1,
+  #vertical-tabs-toggle-2:checked ~ #vertical-tabs-content-2,
+  #vertical-tabs-toggle-3:checked ~ #vertical-tabs-content-3,
+  #vertical-tabs-toggle-4:checked ~ #vertical-tabs-content-4,
+  #vertical-tabs-toggle-5:checked ~ #vertical-tabs-content-5,
+  #vertical-tabs-toggle-6:checked ~ #vertical-tabs-content-6,
+  #vertical-tabs-toggle-7:checked ~ #vertical-tabs-content-7,
+  #vertical-tabs-toggle-8:checked ~ #vertical-tabs-content-8,
+  #vertical-tabs-toggle-9:checked ~ #vertical-tabs-content-9,
+  #vertical-tabs-toggle-10:checked ~ #vertical-tabs-content-10,
+  #vertical-tabs-toggle-11:checked ~ #vertical-tabs-content-11,
+  #vertical-tabs-toggle-12:checked ~ #vertical-tabs-content-12,
+  #vertical-tabs-toggle-13:checked ~ #vertical-tabs-content-13,
+  #vertical-tabs-toggle-14:checked ~ #vertical-tabs-content-14,
+  #vertical-tabs-toggle-15:checked ~ #vertical-tabs-content-15,
+  #vertical-tabs-toggle-16:checked ~ #vertical-tabs-content-17,
+  #vertical-tabs-toggle-18:checked ~ #vertical-tabs-content-18,
+  #vertical-tabs-toggle-19:checked ~ #vertical-tabs-content-19,
+  #vertical-tabs-toggle-20:checked ~ #vertical-tabs-content-20
+    opacity: 1
+    height: 100%
+
+  .vertical-tabs__input:checked + .vertical-tabs__label
+    background-color: $gray-lightest

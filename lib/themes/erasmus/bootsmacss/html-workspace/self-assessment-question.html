@@ -1,0 +1,155 @@
+{{> partials/head }}
+{{> partials/header }}
+
+<main class="bootsmacss">
+  <div class="layout--page-title">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5"><h2>Self-assessment</h2></div>
+        <div class="col-sm-7">
+          <nav class="nav-horizontal pull-right">
+            <a class="nav-horizontal__link" href="#">Home</a>
+            <a class="nav-horizontal__link is-active" href="#">Self-assessment</a>
+            <a class="nav-horizontal__link" href="#">Resources</a>
+            <a class="nav-horizontal__link" href="#">About</a>
+            <div class="dropdown">
+              <a class="nav-horizontal__link nav-horizontal__link--primary" data-toggle="dropdown" aria-haspopup="true"
+                 aria-expanded="false">User name <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+              </ul>
+            </div>
+            <a class="nav-horizontal__link nav-horizontal__link--primary" href="#">Logout</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="layout--content-boxed">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="layout--content-boxed__inner">
+            <div class="layout--content-boxed__header">
+              <div class="submission-info">
+                <h2 class="submission-info__title">COMPLETE YOUR SELF-ASSESSMENT <br/>AS RECTOR / VICE RECTOR / VICE
+                  CHANCELLOR</h2>
+                <a class="submission-info__link" href="#">Click here if you want to complete the self-assesment as
+                  Erasmus + coordinator</a>
+                <div class="submission-info__meta">
+                  <div class="submission-info__meta-item">Revision state: <em>Published</em></div>
+                  <div class="submission-info__meta-item">Most recent revision: <em>yes</em></div>
+                </div>
+              </div>
+            </div>
+            <div class="layout--content-boxed__preinner">
+              <div class="subway">
+                <div class="subway__item">
+                  <div class="subway__label">Start</div>
+                </div>
+                <div class="subway__item is-active">
+                  <div class="subway__label">Page 1</div>
+                </div>
+                <div class="subway__item">
+                  <div class="subway__label">Page 2</div>
+                </div>
+                <div class="subway__item">
+                  <div class="subway__label">Page 3</div>
+                </div>
+                <div class="subway__item">
+                  <div class="subway__label">Page 4</div>
+                </div>
+                <div class="subway__item">
+                  <div class="subway__label">Page 5</div>
+                </div>
+                <div class="subway__item">
+                  <div class="subway__label">Page 6</div>
+                </div>
+                <div class="subway__item">
+                  <div class="subway__label">Complete</div>
+                </div>
+              </div>
+            </div>
+            <form>
+              <div class="question">
+                <div class="question__number">1</div>
+                <p>Your institution has a strategy and an overarching structure supporting internationalisation.</p>
+                <div class="question__items">
+                  <div class="form-group">
+                    <h3>The strategy is:</h3>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes1" value="option1">
+                        A. Embedded in the institutional strategic plan
+                      </label>
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes1" value="option2">
+                        B. Communicated to all levels of the institution
+                      </label>
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes1" value="option2">
+                        C. Available and promintently displayed on the website of your institution
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <h3>Its effective implementation is carried out by:</h3>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes2" value="option1">
+                        D. All the relevant staff throughout the institution
+                      </label>
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes2" value="option2">
+                        E. Structures working with mobility and international projects
+                      </label>
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes2" value="option2">
+                        F. The office in charge of international relations
+                      </label>
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes2" value="option2">
+                        G. One single person (e.g. Vice Rector, institutional coordinator, etc.)
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <h3>The selection of partners for international cooperation is based on:</h3>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes1" value="option1">
+                        H. Areas of mutual interest
+                      </label>
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes1" value="option2">
+                        I. The experience and involvement of academics
+                      </label>
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes1" value="option2">
+                        J. Compatibility of study programmes
+                      </label>
+                      <label>
+                        <input type="checkbox" name="radio" id="checkboxes1" value="option2">
+                        K. A request from students
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-actions text-right">
+                <input type="submit" class="btn btn--primary btn--lg" value="Next page">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="designs designs--self-assessment-question"></div>
+
+<!-- {{> partials/footer }} -->
+{{> partials/scripts }}

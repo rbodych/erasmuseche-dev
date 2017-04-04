@@ -1,0 +1,215 @@
+<?php
+/**
+ * @file
+ * ECHE Webforms install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function eche_wf_install() {
+  $path = drupal_get_path('module', 'eche_wf') . '/eche_wf.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE Webforms %v feature is installed on your site.', ['%v' => $info['version']]));
+  db_update('system')
+    ->fields(['weight' => 1])
+    ->condition('name', 'eche_wf', '=')
+    ->execute();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function eche_wf_uninstall() {
+  $path = drupal_get_path('module', 'eche_wf') . '/eche_wf.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE Webforms %v feature is uninstalled on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_enable().
+ */
+function eche_wf_enable() {
+  drupal_set_message(t('ECHE Webforms is now active on your site.'));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function eche_wf_disable() {
+  drupal_set_message(t('ECHE Webforms is now disabled on your site.'));
+}
+
+/**
+ * Implements hook_schema().
+ */
+function eche_wf_schema() {
+
+  $schema['eche_wf_component_meta'] = [
+    'description' => 'TODO: please describe this table!',
+    'fields' => [
+      'nid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'cid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'answers' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'blob',
+        'size' => 'big',
+        'not null' => TRUE,
+      ],
+      'case_studies' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'blob',
+        'size' => 'big',
+        'not null' => TRUE,
+      ],
+      'category' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'text',
+        'not null' => FALSE,
+      ],
+      'rectors_question' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => FALSE,
+      ],
+    ],
+    'primary key' => ['nid', 'cid'],
+  ];
+
+  $schema['eche_wf_rectors_questions_scores'] = [
+    'description' => 'TODO: please describe this table!',
+    'fields' => [
+      'sid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'rectors_question' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ],
+      'score' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['sid', 'rectors_question'],
+  ];
+
+  $schema['eche_wf_component_rq_meta'] = [
+    'description' => 'TODO: please describe this table!',
+    'fields' => [
+      'nid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'cid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'meta' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'blob',
+        'size' => 'big',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['nid', 'cid'],
+  ];
+
+  $schema['eche_wf_latest_submissions'] = [
+    'description' => 'TODO: please describe this table!',
+    'fields' => [
+      'nid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'sid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'timestamp' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['nid', 'uid'],
+    'indexes' => [
+      'nid' => ['nid'],
+      'uid' => ['uid'],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Add default webforms.
+ */
+function eche_wf_update_7100() {
+  // eche_core_create_self_assesment_rector_page();
+  // eche_core_create_self_assesment_erasmus_page();
+}
+
+/**
+ * Add eche_wf_component_rq_meta table.
+ */
+function eche_wf_update_7101(&$sandbox) {
+  if (!db_table_exists('eche_wf_component_rq_meta')) {
+    $schema = eche_wf_schema();
+    db_create_table('eche_wf_component_rq_meta', $schema['eche_wf_component_rq_meta']);
+  }
+}
+
+/**
+ * Add eche_wf_latest_submissions table.
+ */
+function eche_wf_update_7102(&$sandbox) {
+  if (!db_table_exists('eche_wf_latest_submissions')) {
+    $schema = eche_wf_schema();
+    db_create_table('eche_wf_latest_submissions', $schema['eche_wf_latest_submissions']);
+  }
+}
+
+/**
+ * Change field name in eche_wf_component_rq_meta table from answers to meta.
+ */
+function eche_wf_update_7103(&$sandbox) {
+  $schema = eche_wf_schema();
+  db_change_field('eche_wf_component_rq_meta', 'answers', 'meta',
+    $schema['eche_wf_component_rq_meta']['fields']['meta']);
+}

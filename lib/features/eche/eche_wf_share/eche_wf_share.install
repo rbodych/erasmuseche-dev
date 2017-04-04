@@ -1,0 +1,130 @@
+<?php
+/**
+ * @file
+ * ECHE Webforms share install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function eche_wf_share_install() {
+  $path = drupal_get_path('module', 'eche_wf_share') . '/eche_wf_share.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE Webforms share %v feature is installed on your site.',
+    ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function eche_wf_share_uninstall() {
+  $path = drupal_get_path('module', 'eche_wf_share') . '/eche_wf_share.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE Webforms share %v feature is uninstalled on your site.',
+    ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_enable().
+ */
+function eche_wf_share_enable() {
+  drupal_set_message(t('ECHE Webforms share is now active on your site.'));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function eche_wf_share_disable() {
+  drupal_set_message(t('ECHE Webforms share is now disabled on your site.'));
+}
+
+/**
+ * Implements hook_schema().
+ */
+function eche_wf_share_schema() {
+
+  $schema['eche_wf_mail_shares'] = [
+    'description' => 'TODO: please describe this table!',
+    'fields' => [
+      'sid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'mail' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ],
+      'timestamp' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'token' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['sid', 'mail'],
+  ];
+
+  $schema['eche_wf_share_count'] = [
+    'description' => 'TODO: please describe this table!',
+    'fields' => [
+      'uid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+      'share_count' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['uid'],
+  ];
+
+  $schema['eche_wf_shares'] = [
+    'description' => 'TODO: please describe this table!',
+    'fields' => [
+      'uid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'sid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'timestamp' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'is_read' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['uid', 'sid'],
+  ];
+
+  return $schema;
+}

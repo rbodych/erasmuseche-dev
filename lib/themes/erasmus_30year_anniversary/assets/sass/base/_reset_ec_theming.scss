@@ -1,0 +1,107 @@
+body {
+  background: none;
+}
+
+.container {
+  width: auto;
+}
+
+#path {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 4px 0;
+  height: auto;
+}
+
+#layout-header{
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+#layout-body {
+  margin-top: 0;
+}
+
+.dropdown-backdrop {
+  display: none;
+}
+
+.field-collection-container {
+  margin: 0;
+  border: none;
+}
+
+.field-collection-view-links {
+  position: absolute;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  margin-top: -60px;
+  margin-right: 60px;
+  list-style: none;
+  padding: 15px;
+}
+
+.action-links {
+  position: absolute;
+  z-index: 9999;
+  background: #fff;
+  padding: 15px !important;
+  list-style: none;
+  right: 60px;
+}
+
+.element-invisible {
+  display: none;
+}
+
+.drupal-admin {
+  z-index: 1;
+}
+
+
+
+.region-header-top {
+  .menu {
+    
+    a,
+    a:visited {
+      color: #0065A2;
+      
+      &:hover {
+        color: #003556;
+      }
+    }
+  }
+}
+
+
+
+
+
+#language-selector {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 999999;
+}
+
+
+
+
+
+.e30-notification,
+.e30-notification-cta {
+  display: none;
+}
+
+
+
+
+.not-logged-in #block-system-user-menu {
+  display: block;
+  
+  a[href*="user/login"]{
+    display: none;
+  }
+}

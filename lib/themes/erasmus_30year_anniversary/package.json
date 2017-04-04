@@ -1,0 +1,34 @@
+{
+  "name": "erasmus30yearanniversary",
+  "version": "1.0.0",
+  "description": "Gulp file for Erasmus+ 30 year campaign",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mschuddings/subsite-starterkit.git"
+  },
+  "author": "Michael Schuddings",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mschuddings/subsite-starterkit/issues"
+  },
+  "homepage": "https://github.com/Mschuddings/subsite-starterkit#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.0.0",
+    "node-bourbon": "^4.2.8",
+    "node-neat": "^1.7.2"
+  },
+  "dependencies": {
+    "bourbon-neat": "^1.8.0",
+    "node-normalize-scss": "^1.4.0"
+  }
+}

@@ -1,0 +1,41 @@
+<?php
+/**
+ * @file
+ * Erasmus programme guide install.
+ */
+
+/**
+ * Implements hook_disable().
+ */
+function erasmus_programmeguide_disable() {
+  $t = get_t();
+
+  // MULTISITE guideline #11.
+  drupal_set_message($t('Erasmus programme guide  feature is now disabled on your site.'));
+}
+
+/**
+ * Implements hook_enable().
+ */
+function erasmus_programmeguide_enable() {
+  $t = get_t();
+
+  // MULTISITE guideline #11.
+  drupal_set_message($t('Erasmus programme guide  feature is now active from your site.'));
+}
+
+/**
+ * Implements hook_install().
+ */
+function erasmus_programmeguide_install() {
+  $t = get_t();
+  drupal_set_message($t('Erasmus programme guide feature is now installed on your site.'));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function erasmus_programmeguide_uninstall() {
+  $t = get_t();
+  drupal_set_message($t('Erasmus programme guide feature is now uninstalled from your site.'));
+}

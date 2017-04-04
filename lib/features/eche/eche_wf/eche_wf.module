@@ -1,0 +1,610 @@
+<?php
+/**
+ * @file
+ * Code for the ECHE Webforms feature.
+ */
+
+include_once 'eche_wf.features.inc';
+
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.blocks');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.preprocess');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.forms');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.meta');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.rq_meta');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.node');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.submission');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.report.detailed');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.report.overview');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.submission');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.utils');
+module_load_include('inc', 'eche_wf', 'includes/eche_wf.views');
+
+/**
+ * Implements hook_menu().
+ */
+function eche_wf_menu() {
+
+  $items['admin/config/self-assesment'] = [
+    'title' => 'Self-assesment settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['eche_wf_settings_form'],
+    'access arguments' => ['administer configuration'],
+    'file' => 'includes/eche_wf.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  ];
+
+  $items['node/%webform_menu/webform/meta/%webform_menu_component'] = [
+    'title' => 'Meta and settings',
+    'load arguments' => [1, 5],
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['eche_wf_recommendations_form', 1, 4, FALSE],
+    'access callback' => 'eche_wf_webform_node_update_access',
+    'access arguments' => [1, 4],
+    'file' => 'includes/eche_wf.forms.inc',
+    'type' => MENU_LOCAL_TASK,
+  ];
+
+  $items['node/%webform_menu/webform/rq-meta/%webform_menu_component'] = [
+    'title' => 'Meta and settings',
+    'load arguments' => [1, 5],
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['eche_wf_rq_meta_form', 1, 4, FALSE],
+    'access callback' => 'eche_wf_rq_webform_node_update_access',
+    'access arguments' => [1, 4],
+    'file' => 'includes/eche_wf.forms.inc',
+    'type' => MENU_LOCAL_TASK,
+  ];
+
+  $items['node/%webform_menu/submission/%webform_menu_submission/report-overview'] = [
+    'title' => 'Overview results',
+    'load arguments' => [1],
+    'page callback' => 'eche_wf_report_page_overview',
+    'page arguments' => [1, 3],
+    'access callback' => 'webform_submission_access',
+    'access arguments' => [1, 3, 'view'],
+    'file' => 'includes/eche_wf.pages.inc',
+    'type' => MENU_CALLBACK,
+    'weight' => 10,
+  ];
+
+  $items['download/%webform_menu/submission/%webform_menu_submission/report-overview'] = [
+    'title' => 'Overview results',
+    'load arguments' => [1],
+    'page callback' => 'eche_wf_report_page_overview_pdf',
+    'page arguments' => [1, 3],
+    'access callback' => 'webform_submission_access',
+    'access arguments' => [1, 3, 'view'],
+    'file' => 'includes/eche_wf.pages.inc',
+    'type' => MENU_CALLBACK,
+    'weight' => 10,
+  ];
+
+  $items['node/%webform_menu/submission/%webform_menu_submission/report'] = [
+    'title' => 'Detailed results and recommendations',
+    'load arguments' => [1],
+    'page callback' => 'eche_wf_report_page',
+    'page arguments' => [1, 3],
+    'access callback' => 'webform_submission_access',
+    'access arguments' => [1, 3, 'view'],
+    'file' => 'includes/eche_wf.pages.inc',
+    'type' => MENU_CALLBACK,
+    'weight' => 10,
+  ];
+
+  $items['download/%webform_menu/submission/%webform_menu_submission/report'] = [
+    'title' => 'Detailed results and recommendations',
+    'load arguments' => [1],
+    'page callback' => 'eche_wf_report_page_pdf',
+    'page arguments' => [1, 3],
+    'access callback' => 'webform_submission_access',
+    'access arguments' => [1, 3, 'view'],
+    'file' => 'includes/eche_wf.pages.inc',
+    'type' => MENU_CALLBACK,
+    'weight' => 10,
+  ];
+
+  $items['node/%webform_menu/submission/%webform_menu_submission/combined'] = [
+    'title' => 'Combined',
+    'load arguments' => [1],
+    'page callback' => 'eche_wf_report_page_combined',
+    'page arguments' => [1, 3],
+    'access callback' => 'webform_submission_access',
+    'access arguments' => [1, 3, 'view'],
+    'file' => 'includes/eche_wf.pages.inc',
+    'type' => MENU_CALLBACK,
+    'weight' => 10,
+  ];
+
+  $items['download/%webform_menu/submission/%webform_menu_submission/combined'] = [
+    'title' => 'Combined',
+    'load arguments' => [1],
+    'page callback' => 'eche_wf_report_page_combined_pdf',
+    'page arguments' => [1, 3],
+    'access callback' => 'webform_submission_access',
+    'access arguments' => [1, 3, 'view'],
+    'file' => 'includes/eche_wf.pages.inc',
+    'type' => MENU_CALLBACK,
+    'weight' => 10,
+  ];
+
+  $items['node/%webform_menu/webform/meta-export-import'] = [
+    'title' => 'Meta (import / export)',
+    'load arguments' => [1],
+    'page callback' => 'eche_wf_meta_import_export_page',
+    'page arguments' => [1],
+    'access callback' => 'eche_wf_webform_meta_export_access',
+    'access arguments' => [1, 'administer configuration'],
+    'file' => 'includes/eche_wf.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+  ];
+
+  $items['start-sa'] = [
+    'title' => 'Self-assesment redirect',
+    'page callback' => 'eche_wf_start_sa',
+    'access callback' => 'user_is_logged_in',
+    'file' => 'includes/eche_wf.pages.inc',
+    'type' => MENU_CALLBACK,
+  ];
+
+  return $items;
+}
+
+/**
+ * Function that executes webform_node_update_access.
+ *
+ * Before checks if component supports meta export.
+ *
+ * @param object $node
+ *    Node to be updated.
+ * @param string $permission
+ *    Permission to be cehcked.
+ *
+ * @return bool
+ *   Returns permission or False.
+ */
+function eche_wf_webform_meta_export_access($node, $permission) {
+
+  if (!eche_wf_node_is_self_assesment($node) && !eche_wf_node_is_rectors_quiz($node)) {
+    return FALSE;
+  }
+
+  if ((arg(2) == 'webform' && !arg(3)) || (arg(3) == 'meta-export-import' && !arg(4))) {
+    return user_access($permission);
+  }
+
+  return FALSE;
+}
+
+/**
+ * Function that executes webform_node_update_access.
+ *
+ * But before checks if component supports meta / guidance notes.
+ *
+ * @param object $node
+ *    Node to be updated.
+ * @param array $component
+ *    Component to be updated.
+ *
+ * @return bool
+ *   Returns access or false.
+ */
+function eche_wf_webform_node_update_access($node, $component) {
+
+  if (!eche_wf_node_is_self_assesment($node)) {
+    return FALSE;
+  }
+
+  if (!in_array($component['type'], eche_wf_recommendations_supported_component_types())) {
+    return FALSE;
+  }
+
+  return webform_node_update_access($node);
+}
+
+/**
+ * Executes webform_node_update_access.
+ *
+ * But before checks if component supports meta / guidance notes.
+ *
+ * @param object $node
+ *    Node to be updated.
+ * @param array $component
+ *    Component to be updated.
+ *
+ * @return bool
+ *   Returns access or false.
+ */
+function eche_wf_rq_webform_node_update_access($node, $component) {
+
+  if (!eche_wf_node_is_rectors_quiz($node)) {
+    return FALSE;
+  }
+
+  if (!in_array($component['type'], eche_wf_recommendations_supported_component_types())) {
+    return FALSE;
+  }
+
+  return webform_node_update_access($node);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function eche_wf_theme($existing, $type, $theme, $path) {
+  return [
+    'eche_wf_report_tabs' => [
+      'variables' => ['nid' => NULL, 'sid' => NULL],
+      'file' => 'includes/eche_wf.theme.inc',
+    ],
+    'eche_wf_stars_widget' => [
+      'variables' => ['stars' => 0],
+      'file' => 'includes/eche_wf.theme.inc',
+    ],
+    'eche_wf_report' => [
+      'variables' => [
+        'data' => NULL,
+        'node' => NULL,
+        'submission' => NULL,
+      ],
+      'file' => 'includes/eche_wf.theme.inc',
+      'template' => 'eche_wf_report',
+    ],
+    'eche_wf_report_pdf' => [
+      'variables' => [
+        'data' => NULL,
+        'node' => NULL,
+        'submission' => NULL,
+      ],
+      'file' => 'includes/eche_wf.theme.inc',
+      'template' => 'eche_wf_report_pdf',
+    ],
+    'eche_wf_report_overview' => [
+      'variables' => [
+        'data' => NULL,
+        'node' => NULL,
+        'submission' => NULL,
+      ],
+      'file' => 'includes/eche_wf.theme.inc',
+      'template' => 'eche_wf_report_overview',
+    ],
+    'eche_wf_report_overview_pdf' => [
+      'variables' => [
+        'data' => NULL,
+        'node' => NULL,
+        'submission' => NULL,
+      ],
+      'file' => 'includes/eche_wf.theme.inc',
+      'template' => 'eche_wf_report_overview_pdf',
+    ],
+    'eche_wf_rq_report' => [
+      'variables' => [
+        'data' => NULL,
+        'node' => NULL,
+        'submission' => NULL,
+      ],
+      'file' => 'includes/eche_wf.theme.inc',
+      'template' => 'eche_wf_rq_report',
+    ],
+    'eche_wf_rq_report_pdf' => [
+      'variables' => [
+        'data' => NULL,
+        'node' => NULL,
+        'submission' => NULL,
+      ],
+      'file' => 'includes/eche_wf.theme.inc',
+      'template' => 'eche_wf_rq_report_pdf',
+    ],
+  ];
+
+}
+
+/**
+ * Implements hook_mail().
+ */
+function eche_wf_mail($key, &$message, $params) {
+  $message['subject'] .= str_replace(["\r", "\n"], '', $params['subject']);
+  $message['body'][] = $params['body'];
+}
+
+/**
+ * Gets all case study.
+ *
+ * @return object
+ *   Returns an object with nid and title or nothing.
+ */
+function eche_wf_get_factsheets_available() {
+  return db_query("SELECT nid, title FROM {node} WHERE type = 'case_study' AND status > 0 ORDER BY title ASC")->fetchAllKeyed();
+}
+
+/**
+ * Extra fields.
+ *
+ * @return array
+ *    Extra field information.
+ */
+function eche_wf_field_extra_fields() {
+
+  $extra['node']['webform'] = [
+    'display' => [
+      'related_form_link' => [
+        'label' => t('Link to related webform'),
+        'description' => t('Link to related webform'),
+        'weight' => 0,
+      ],
+    ],
+  ];
+
+  return $extra;
+}
+
+/**
+ * Gets question categories.
+ *
+ * @return array
+ *    Questions and categories.
+ */
+function eche_wf_question_categories() {
+  return array(
+    'general' => t('General recommendations'),
+    'before' => t('Before the mobility'),
+    'during' => t('During the mobility'),
+    'after' => t('After the mobility'),
+  );
+}
+
+/**
+ * Gets weights.
+ *
+ * @param string $mode
+ *    Type of mode.
+ *
+ * @return array
+ *    Array with weights.
+ */
+function eche_wf_weights($mode = 'key_label') {
+  $info = array(
+    'regular' => array(
+      'label' => t('Regular'),
+      'points' => 5,
+    ),
+    'high' => array(
+      'label' => t('High'),
+      'points' => 12.5,
+    ),
+  );
+  $weights = array();
+  switch ($mode) {
+    case 'key_points':
+      foreach ($info as $key => $values) {
+        $weights[$key] = $values['points'];
+      }
+      break;
+
+    default:
+      foreach ($info as $key => $values) {
+        $weights[$key] = $values['label'];
+      }
+      break;
+  }
+  return $weights;
+}
+
+/**
+ * Components types.
+ *
+ * @return array
+ *    Array with options.
+ */
+function eche_wf_recommendations_supported_component_types() {
+  return ['select', 'optionsmarkup'];
+}
+
+/**
+ * Implements hook_admin_paths().
+ */
+function eche_wf_admin_paths() {
+  if (variable_get('node_admin_theme')) {
+    return [
+      'node/*/submission/*/report' => FALSE,
+      'node/*/submission/*/report-overview' => FALSE,
+      'node/*/submission/*/combined' => FALSE,
+    ];
+  }
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function eche_wf_menu_alter(&$items) {
+  // Block node import with node_export module. multisite_drupal_toolbox.
+  $items['node/add/node_export']['access callback'] = 'node_export_access_import';
+}
+
+/**
+ * Gets user submission.
+ *
+ * @param int $nid
+ *    Nid od submission.
+ * @param int $uid
+ *    Uid of user.
+ *
+ * @return mixed
+ *   Returns the Sid of submision.
+ */
+function eche_wf_get_latest_user_submission($nid, $uid) {
+  return db_query('SELECT sid FROM {webform_submissions} WHERE nid = :nid AND uid = :uid ORDER BY sid DESC LIMIT 1', [
+    ':nid' => $nid,
+    ':uid' => $uid,
+  ])->fetchField();
+}
+
+/**
+ * Creates button for PDF.
+ *
+ * @param string $text
+ *    Text to be displayed.
+ *
+ * @return string
+ *    Returns button link.
+ */
+function eche_wf_download_as_pdf_button($text = 'Download results') {
+  return l(t('Download results'), 'printpdf/' . str_replace("node/", "download/", current_path()), [
+    'attributes' => [
+      'class' => [
+        'btn',
+        'btn--primary',
+        'btn--lg',
+        'pull-right',
+        'hidden-print',
+      ],
+    ],
+  ]);
+}
+
+/**
+ * Creates modal js.
+ */
+function eche_wf_modal_js() {
+
+  // Include the CTools tools that we need.
+  ctools_include('modal');
+
+  // Add CTools' javascript to the page.
+  ctools_modal_add_js();
+
+  // Add style.
+  drupal_add_js(drupal_get_path('module', 'eche_wf') . '/js/eche_wf.modal.js');
+  drupal_add_css(drupal_get_path('module', 'eche_wf') . '/css/eche_wf.modal.css');
+
+  drupal_add_js([
+    'eche-wf-modal-style' => [
+      'modalSize' => [
+        'type' => 'fixed',
+        'width' => '400px',
+        'height' => 'auto',
+      ],
+      'modalTheme' => 'eche_wf_modal',
+      'modalOptions' => [
+        'opacity' => 0.55,
+        'background' => '#000',
+      ],
+      'animation' => 'fadeIn',
+      'animationSpeed' => 'slow',
+      'closeText' => t('Close'),
+    ],
+  ], 'setting');
+
+}
+
+/**
+ * Start self-assesment button.
+ */
+function eche_wf_start_sa_button($text = 'Start self-assesment') {
+  return l(t('%text', ['%text' => $text]), 'start-sa');
+}
+
+/**
+ * Self-assesment button / link.
+ */
+function eche_wf_sa_button($text = 'Click here if you want to complete the self-assesment as Erasmus + coordinator') {
+  return l(t('%text', ['%text' => $text]), 'node/' . variable_get('eche_wf_self_assesment_form_nid', NULL),
+    ['attributes' => ['class' => ['submission-info__link']]]);
+}
+
+/**
+ * Rector's quiz button / link.
+ */
+function eche_wf_rectors_quiz_button(
+  $text = 'Click here if you want to complete the self-assesment as Rector / Vice rector / Vice chancellor'
+) {
+  return l(t('%text', ['%text' => $text]), 'node/' . variable_get('eche_wf_rectors_form_nid', NULL),
+    ['attributes' => ['class' => ['submission-info__link']]]);
+}
+
+/**
+ * Returns appropriate self assesment path depending on user's position.
+ */
+function eche_wf_get_self_assesment_path_depending_on_position($position) {
+  $path = 'node/' . variable_get('eche_wf_self_assesment_form_nid', 0);
+  switch ($position) {
+    case 'rector':
+    case 'vicerector':
+      $path = 'node/' . variable_get('eche_wf_rectors_form_nid', 0);
+      break;
+  }
+  return $path;
+}
+
+/**
+ * Implements hook_url_inbound_alter().
+ */
+function eche_wf_url_inbound_alter(&$path, $original_path, $path_language) {
+  if (arg(0) == 'printpdf' || (arg(0) == 'eche_wf' && arg(1) == 'download')) {
+    $mpdf_path = libraries_get_path('mpdf');
+    variable_set('print_pdf_pdf_tool', 'print_pdf_mpdf|' . $mpdf_path . '/mpdf.php');
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function eche_wf_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'webform_client_form_' . variable_get('eche_wf_self_assesment_form_nid')) {
+    $form['#validate'][] = 'eche_wf_self_assesment_form_nid_validate';
+  }
+  if ($form_id == 'webform_client_form_' . variable_get('eche_wf_rectors_form_nid')) {
+    $form['#validate'][] = 'eche_wf_rectors_form_nid_validate';
+  }
+
+  return $form;
+
+}
+
+/**
+ * Validation callback for eche_wf_self_assesment_form_nid().
+ */
+function eche_wf_self_assesment_form_nid_validate($form, &$form_state) {
+
+  $error = form_get_errors();
+
+  $errors = &drupal_static('form_set_error', []);
+  $removed_messages = [];
+  if (isset($error)) {
+    foreach ($error as $key => $value) {
+      if (isset($errors[$key])) {
+        $removed_messages[] = $errors[$key];
+        unset($errors[$key]);
+      }
+      $_SESSION['messages']['error'] = array_diff($_SESSION['messages']['error'], $removed_messages);
+      if (empty($_SESSION['messages']['error'])) {
+        unset($_SESSION['messages']['error']);
+      }
+      form_set_error($key, t('Please tick the relevant boxes'));
+    }
+  }
+
+}
+
+/**
+ * Validation callback for eche_wf_rectors_form_nid().
+ */
+function eche_wf_rectors_form_nid_validate($form, &$form_state) {
+  $error = form_get_errors();
+
+  $errors = &drupal_static('form_set_error', []);
+  $removed_messages = [];
+  if ($error) {
+    foreach ($error as $key => $value) {
+      if (isset($errors[$key])) {
+        $removed_messages[] = $errors[$key];
+        unset($errors[$key]);
+      }
+      $_SESSION['messages']['error'] = array_diff($_SESSION['messages']['error'], $removed_messages);
+      if (empty($_SESSION['messages']['error'])) {
+        unset($_SESSION['messages']['error']);
+      }
+      form_set_error($key, t('Please tick the relevant boxes'));
+    }
+
+  }
+}

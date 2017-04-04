@@ -1,0 +1,70 @@
+<?php
+/**
+ * @file
+ * Drupal needs this blank file.
+ */
+
+require_once 'includes/eche_wf_invite.blocks.inc';
+require_once 'includes/eche_wf_invite.form.inc';
+require_once 'includes/eche_wf_invite.mail.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function eche_wf_invite_menu() {
+
+  $items['invite/%ctools_js'] = [
+    'title' => 'Invite users',
+    'page callback' => 'eche_wf_invite_page',
+    'page arguments' => [1],
+    'access arguments' => ['invite members'],
+    'file' => 'includes/eche_wf_invite.pages.inc',
+    'type' => MENU_CALLBACK,
+  ];
+
+  return $items;
+}
+
+/**
+ * Create invite button.
+ */
+function eche_wf_invite_button($text = '<i class="icon icon--user-add"></i> Invite colleagues') {
+  eche_wf_modal_js();
+  return l(t('%text', ['%text' => $text]), 'invite/nojs', [
+    'attributes' => [
+      'class' => [
+        'btn',
+        'btn--link',
+        'ctools-use-modal',
+        'ctools-modal-eche-wf-modal-style',
+        'hidden-print',
+      ],
+    ],
+    'html' => TRUE,
+  ]);
+}
+
+/**
+ * Implements hook_permission().
+ */
+function eche_wf_invite_permission() {
+  return [
+    'invite members' => [
+      'title' => t('Invite members'),
+      'description' => t('Invite members for self-assesments.'),
+    ],
+  ];
+}
+
+/**
+ * Get an invite label depending on node's id.
+ */
+function eche_wf_invite_get_webform_label($nid) {
+  if (eche_wf_node_is_self_assesment($nid)) {
+    return t('Self-assessment');
+  }
+  elseif (eche_wf_node_is_rectors_quiz($nid)) {
+    return t('Quiz');
+  }
+  return FALSE;
+}

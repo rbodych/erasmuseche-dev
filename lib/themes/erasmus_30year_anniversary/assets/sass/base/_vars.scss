@@ -1,0 +1,64 @@
+$c-gray-1: #171617;
+$c-gray-2: #959799;
+$c-gray-3: #CFD1D3;
+$c-gray-4: #F5F6F7;
+$c-gray-5: #E5E5E5;
+
+$c-primary-1: #2B3E55;
+$c-primary-2: #446495;
+$c-primary-3: #6B9CD6;
+$c-primary-4: #E6F3FC;
+$c-primary-5: #18232D;
+
+$c-secondary-1: #C15432;
+$c-secondary-2: #F36D38;
+$c-secondary-3: #C91875;
+$c-secondary-4: #F19AC2;
+
+$c-gradient-A1: #E65A1F;
+$c-gradient-A2: #D60365;
+$c-gradient-start-A: 54%;
+
+$c-gradient-B1: $c-primary-2;
+$c-gradient-B2: $c-primary-1;
+$c-gradient-start-B: 64%;
+
+$c-gradient-intro-1: #fff;
+$c-gradient-intro-2: $c-primary-1;
+$c-gradient-intro-start: 60%;
+
+$facebook: #3b5998;
+$twitter: #1a8bf0;
+
+$padding: 20px;
+$padding-small: 10px;
+$padding-medium: em(30);
+$padding-large: em(90);
+$padding-big: em(160);
+$cancel-container-padding: 0 -20px;
+
+$shadow-small: 10px 10px 10px -14px rgba(0, 0, 0, 0.25);
+$shadow-medium: -3px 10px 20px rgba(0, 0, 0, 0.2);
+$shadow-large: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+$shadow-big: -30px 20px 50px -20px rgba(0, 0, 0, 0.3);
+$shadow-heading: -2px 2px 1px rgba(0, 0, 0, 0.6);
+$shadow-heading-small: -1px 1px 1px rgba(0, 0, 0, 0.7);
+
+$square-size-small: 280px;
+$square-size-medium: 300px;
+$square-size-big: 520px;
+
+$heading-1-size: 3.1em;
+$heading-2-size: 2.369em;
+$heading-3-size: 1.777em;
+$heading-4-size: 1.333em;
+
+$mobile-min-width: new-breakpoint(screen and min-width em(480));
+$mobile-max-width: new-breakpoint(screen and max-width em(768));
+$tablet-min-width: new-breakpoint(screen and min-width em(768));
+$tablet-max-width: new-breakpoint(screen and max-width em(992));
+$desktop-min-width: new-breakpoint(screen and min-width em(992));
+$desktop-max-width: new-breakpoint(screen and max-width em(1200));
+$largedesktop-min-width: new-breakpoint(screen and min-width em(1200));
+$largedesktop-max-width: new-breakpoint(screen and max-width em(1800));
+$xldesktop-min-width: new-breakpoint(screen and min-width em(1800));

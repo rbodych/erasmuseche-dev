@@ -1,0 +1,110 @@
+//
+// Designs display on page  - pixel perfect tests
+// --------------------------------------------------
+
+
+// Displays designs on the prototype ass full page overlay.
+// Uncomment importing of this file in app.sass to compare prepared markup and
+// stylesheets with the graphical designs. With this simple tool you can perform
+// pixel-perfect tests.
+//
+// Store designs in `designs`folder in jpg/png extensions and paste its
+// URL into modifiers there.
+//
+// Add following code at the end of the comparing html file
+// (ex. html-prototypes-sandbox/index.html):
+// <div class="designs designs--name"></div>
+
+$designs-width: 1280px
+
+// Component
+// --------------------------------------------------
+.designs
+  position: absolute
+  top: 13px
+  left: 50%
+  height: 9999px
+  width: $designs-width
+  margin: 0 (-$designs-width/2)
+  background-position: top
+  background-size: contain
+  background-repeat: no-repeat
+  z-index: -100
+
+// body > #layout-header,
+// body > .region-featured,
+.bootsmacss,
+body > #layout-footer
+  opacity: 0.8
+
+// Modifiers
+// --------------------------------------------------
+.designs--index
+  background-image: url('../designs/eche_homepage_rev2.jpg')
+
+.designs--about
+  background-image: url('../designs/eche_about.jpg')
+
+.designs--sign-in
+  background-image: url('../designs/eche_sign_in.jpg')
+
+.sign-in__login .sign-in__title
+  margin-bottom: 42px !important
+
+.designs--basic-form
+  top: 8px
+  background-image: url('../designs/eche_basic_form.jpg')
+
+.help-block
+  margin-bottom: 42px !important
+
+.designs--register
+  top: 8px
+  background-image: url('../designs/eche_register_rev2.jpg')
+
+.designs--resources
+  background-image: url('../designs/eche_resources_rev2.jpg')
+
+.designs--self-assessment
+  background-image: url('../designs/eche_self_assessment.jpg')
+
+.layout--content-boxed__filters
+  margin-bottom: 15px !important
+
+.designs--self-assessment-welcome
+  background-image: url('../designs/eche_self_assessment_welcome.jpg')
+
+.designs--self-assessment-question
+  background-image: url('../designs/eche_self_assessment_question.jpg')
+
+.designs--self-assessment-complete
+  background-image: url('../designs/eche_self_assessment_complete.jpg')
+
+.designs--self-assessment-coordinator-complete-details
+  background-image: url('../designs/eche_selfassessment_coordinator_complete_details.jpg')
+
+.designs--self-assessment-coordinator-complete-overview
+  background-image: url('../designs/eche_selfassessment_coordinator_complete_overview.jpg')
+
+.bootsmacss .layout--content-boxed__header
+  margin-bottom: 27px
+
+.designs--self-assessment-rector-complete
+  background-image: url('../designs/eche_selfassessment_rector_complete.jpg')
+
+.designs--case-study-introduction
+  background-image: url('../designs/eche_casestudy_introduction.jpg')
+
+.designs--case-study-description
+  background-image: url('../designs/eche_casestudy_description_v2.jpg')
+
+.designs--case-study-contact
+  background-image: url('../designs/eche_casestudy_contact_v2.jpg')
+
+.designs--case-study-further
+  background-image: url('../designs/eche_casestudy_further_reading_v2.jpg')
+
+// Fixtures
+// --------------------------------------------------
+.slider
+  min-height: 282px

@@ -1,0 +1,174 @@
+<?php
+/**
+ * @file
+ * Code for the Erasmus+ 30 year anniversary: Story feature.
+ */
+
+include_once 'erasmus_30_year_anniversary_story.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function erasmus_30_year_anniversary_story_block_info() {
+  $blocks['e30ya_story_block'] = array(
+    'info' => t('Erasmus+ 30 year Monthly story'),
+    'region' => 'content',
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+    'status' => TRUE,
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'anniversary/stories',
+    'theme' => 'erasmus_30year_anniversary',
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function erasmus_30_year_anniversary_story_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'e30ya_story_block':
+      $block['content']
+        = _erasmus_30_year_anniversary_story_get_monthly_theme();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Retrieve the monthly stories block for month specified in url.
+ */
+function _erasmus_30_year_anniversary_story_get_monthly_theme() {
+  $current_theme_month = variable_get('erasmus_30ya_core_current_theme', NULL);
+
+  if ($current_theme_month) {
+    return views_embed_view('erasmus_30_year_anniversary_stories',
+    'block_30year_anniversary_monthly_theme', $current_theme_month);
+  }
+}
+
+/**
+ * Retrieve the homepage HTML for the random stories.
+ */
+function _erasmus_30_year_anniversary_story_get_html_random_stories() {
+  $current_theme_month = variable_get('erasmus_30ya_core_current_theme', NULL);
+  $result = db_select('node', 'n');
+  $result->join('field_data_field_e30ya_monthly_theme', 'b', 'n.nid = b.entity_id');
+  $result->fields('n', ['nid'])
+    ->condition('n.type', 'erasmus_30_year_anniversary_stor')
+    ->condition('b.field_e30ya_monthly_theme_tid', $current_theme_month)
+    ->range(0, 3)
+    ->orderRandom();
+  $result = $result->execute();
+  $images = [];
+  foreach ($result as $record) {
+    $node = $record->nid;
+    $node = node_load($node);
+    $images[] = $node->field_image[LANGUAGE_NONE][0];
+  }
+  $counter = 1;
+  $themed_images = [];
+  foreach ($images as $image) {
+    $url = $image['uri'];
+    switch ($counter) {
+      case '1':
+        $themed_images[$counter]['url']
+          = image_style_url('erasmus_30_year_story_small__280x280', $url);
+        $themed_images[$counter]['alt'] = $image['alt'];
+        break;
+
+      case '2':
+        $themed_images[$counter]['url']
+          = image_style_url('erasmus_30_year_story_medium__300x300', $url);
+        $themed_images[$counter]['alt'] = $image['alt'];
+        break;
+
+      case '3':
+        $themed_images[$counter]['url']
+          = image_style_url('erasmus_30_year_story_large__520x520', $url);
+        $themed_images[$counter]['alt'] = $image['alt'];
+        break;
+
+    }
+    $counter++;
+  }
+  return theme('erasmus_30_year_anniversary_random_stories',
+    ['stories' => $themed_images]);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function erasmus_30_year_anniversary_story_theme() {
+  return array(
+    'erasmus_30_year_anniversary_random_stories' => array(
+      'variables' => array(
+        'stories' => NULL,
+      ),
+      'template' => 'erasmus-30-year-anniversary-random-stories',
+      'path' => drupal_get_path('module', 'erasmus_30_year_anniversary_story') . '/templates',
+    ),
+  );
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function erasmus_30_year_anniversary_story_preprocess_node(&$vars) {
+  if (isset($vars['view']->name)
+      && $vars['view']->name == 'erasmus_30_year_anniversary_stories') {
+
+    $vars['image']
+      = theme('image_style', [
+        'path' => $vars['field_image'][0]['uri'],
+        'style_name' => 'erasmus_30_year_story_card__370x210',
+        'attributes' => [
+          'class' => 'card-image',
+        ],
+        'alt' => $vars['title'],
+      ]
+      );
+
+    unset($vars['date']);
+    if (isset($vars['body'][$vars['language']])) {
+      $vars['intro'] = $vars['body'][$vars['language']][0]['value'];
+    }
+    if (isset($vars['body'][0])) {
+      $vars['intro'] = $vars['body'][0]['value'];
+    }
+    $vars['share'] = TRUE;
+    $vars['share_fb'] = l(t('Share on Facebook'), '', ['fragment' => '#']);
+    $share_url = url(current_path(), [
+      'absolute' => TRUE,
+      'query' => drupal_get_query_parameters(),
+    ]
+    );
+    $vars['share_tw'] = _erasmus_30ya_core_construct_tweet_intent_url($vars['title'], $share_url);
+    drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_story')
+      . '/js/social_share_story.js');
+  }
+  if (isset($vars['type']) && $vars['view_mode'] == 'full'
+      && $vars['type'] == 'erasmus_30_year_anniversary_stor') {
+    drupal_goto('/anniversary/stories');
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function erasmus_30_year_anniversary_story_preprocess_html(&$vars) {
+  $allowed_uris = [
+    'anniversary/stories',
+    'anniversary/all-stories',
+  ];
+  $current_path = request_uri();
+  foreach ($allowed_uris as $uri) {
+    if (strpos($current_path, $uri) !== FALSE) {
+      $vars['classes_array'][] = 'contains-stories-page';
+    }
+  }
+}

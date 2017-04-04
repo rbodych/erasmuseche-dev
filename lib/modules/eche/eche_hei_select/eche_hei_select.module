@@ -1,0 +1,112 @@
+<?php
+/**
+ * @file
+ * Filters HEI in user profile basing on selected country.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function eche_hei_select_form_alter(&$form, &$form_state, $form_id) {
+
+  if (in_array($form_id, ['user_profile_form', 'user_register_form'])) {
+    $form['field_country'][LANGUAGE_NONE]['#options']['_none'] = t('- Select a country -');
+    $form['field_country'][LANGUAGE_NONE]['#attributes']['autocomplete'] = 'off';
+
+    $form['field_country'][LANGUAGE_NONE]['#ajax'] = [
+      'callback' => '_user_hei_callback',
+      'wrapper' => 'field-user-hei-ajax',
+      'method' => 'replace',
+      'effect' => 'fade',
+    ];
+
+    $form['field_user_hei']['#prefix'] = '<div id="field-user-hei-ajax">';
+    $form['field_user_hei']['#suffix'] = '</div>';
+    $form['field_user_hei']['#states'] = [
+      'visible' => [
+        ':input[name="field_country[und]"]' => ['!value' => '_none'],
+      ],
+    ];
+
+    $country_code = !empty($form_state['values']['field_country'][LANGUAGE_NONE][0]['iso2']) ? $form_state['values']['field_country'][LANGUAGE_NONE][0]['iso2'] : @$form['field_country'][LANGUAGE_NONE]['#default_value'][0];
+    $form['field_user_hei'][LANGUAGE_NONE][0]['target_id']['#autocomplete_path'] = 'eche_hei_select/autocomplete/' . $country_code;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function _user_hei_callback($form, $form_state) {
+  $form['field_user_hei'][LANGUAGE_NONE][0]['target_id']['#value'] = '';
+  return $form['field_user_hei'];
+}
+
+/**
+ * Implements hook_menu().
+ */
+function eche_hei_select_menu() {
+  // Path router for custom autocomplete path.
+  $items['eche_hei_select/autocomplete/%'] = [
+    'page callback' => 'eche_hei_select_autocomplete_callback',
+    'page arguments' => [2],
+    // Open for everyone.
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+  ];
+
+  return $items;
+}
+
+/**
+ * Autocomplete callback. Code inspired by views_autocomplete_api module.
+ */
+function eche_hei_select_autocomplete_callback() {
+  // Input data.
+  $country_code = arg(2);
+  $search = arg(3);
+  $view = views_get_view('country_hei_autocomplete');
+
+  $view_data = [];
+  if ($view) {
+    // Set view filters.
+    $view->display['default']->display_options['filters']['field_country_iso2']['value'] = $country_code;
+    $view->display['default']->display_options['filters']['name']['value'] = $search;
+
+    $view->render();
+    $view_data = [];
+    if ($view->style_plugin->rendered_fields) {
+      foreach ($view->style_plugin->rendered_fields as $row) {
+        $row_values = array_values($row);
+        $key = $val = $row_values[count($row) - 2];
+        // Take the last field to allow to call more that one and
+        // "Rewrite field" and call them all.
+        $count = count($row_values);
+        if ($count > 1) {
+          $val = $row_values[$count - 1];
+          $prefix = '';
+          preg_match_all("/^(.*),/", $prefix, $string);
+        }
+        // Accept multiple values.
+        $new_key = $string[0][0] . strip_tags($key);
+        while (isset($view_data[$new_key])) {
+          $new_key .= ' ';
+        }
+        $view_data[$val] = '<div class="reference-autocomplete">' . $val . '</div>';
+      }
+    }
+  }
+  drupal_json_output($view_data);
+  drupal_exit();
+}
+
+/**
+ * Implements hook_user_presave().
+ */
+function eche_hei_select_user_presave(&$edit, $account, $category) {
+}
+
+/**
+ * Implements hook_views_pre_execute().
+ */
+function eche_hei_select_views_pre_execute(&$view) {
+}

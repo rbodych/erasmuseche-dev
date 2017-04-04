@@ -1,0 +1,144 @@
+// Question
+//
+// Styling of question in self assessment.
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .question
+    border: none
+    border-radius: 0
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
+    margin: 0
+    padding: 25px 0 0
+    position: relative
+
+  // Elements
+  // --------------------------------------------------
+  .question__number
+    display: inline
+
+    &:after
+      content: ". "
+
+  .question__survey
+    margin-left: 20px
+
+  // Dependencies
+  // --------------------------------------------------
+  .question.webform-component-optionsmarkup
+    padding-top: 15px
+
+    .question__number
+      top: 20px
+
+  .question
+    > label
+      color: $gray-base
+      font-weight: 400
+      line-height: normal
+      margin: 0 0 25px
+
+      > p
+        color: $gray-base
+        font-size: 18px
+        font-weight: $font-weight
+        line-height: 30px
+
+    .form-group
+      padding-bottom: 10px
+      border-bottom: 2px solid $gray-lightest
+      margin-bottom: 30px
+      & > h3
+        font-size: 16px
+        margin: 15px 0
+        font-weight: $font-weight-bold
+      & > .checkbox label
+        margin-bottom: 17px
+        display: block
+        color: $text-color
+        font-weight: $font-weight
+
+    .question__number
+      display: block
+      position: absolute
+      top: 28px
+      left: -50px
+      width: 30px
+      height: 30px
+      line-height: 30px
+      text-align: center
+      font-size: $font-size-base
+      font-weight: $font-weight-bold
+      color: #fff
+      background-color: $brand-primary-light
+
+      &:after
+        display: none
+
+  .question__items
+    &.form-checkboxes
+      > .form-item
+        border: none
+        border-radius: 0
+        box-shadow: none
+        -moz-box-shadow: none
+        -webkit-box-shadow: none
+        padding: 0
+        margin: 0
+
+        > input
+          margin: 0 0 0 8px
+          line-height: $line-height-computed
+          height: 14px
+          position: static
+
+        > label.option
+          max-width: 90%
+          margin: 0 30px 17px 8px
+
+          &,
+          > p
+            font-size: $font-size-base
+            line-height: $line-height-computed
+            padding: 0
+
+          > p
+            margin: 0
+
+        p + h3
+          display: none
+
+        &:first-child
+          h3
+            margin-top: 15px
+
+        h3
+          border: none
+          border-radius: 0
+          box-shadow: none
+          -moz-box-shadow: none
+          -webkit-box-shadow: none
+          padding: 0
+          margin: 25px 0
+
+  .webform-component-markup
+    border: none
+    border-radius: 0
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
+    padding: 0
+    margin-bottom: 15px
+
+  //> p
+  //  margin: 0
+
+  .messages .question__number + p
+    display: inline
+    font-size: $font-size-base
+    line-height: 1em
+    margin: 0

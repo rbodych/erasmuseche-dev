@@ -1,0 +1,6 @@
+name = ECHE HEI select
+description = Filters Higher Education Institution in user profile basing on selected country
+core = 7.x
+package = ECHE
+php = 5.5
+multisite_version = 2.0

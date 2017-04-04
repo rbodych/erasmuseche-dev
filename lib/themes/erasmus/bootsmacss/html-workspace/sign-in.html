@@ -1,0 +1,50 @@
+{{> partials/head }}
+{{> partials/header }}
+
+<main class="bootsmacss">
+  <div class="layout--sign-in">
+    <div class="container">
+      <div class="layout--sign-in__inner">
+        <div class="row">
+          <div class="col-sm-7">
+            <div class="layout--sign-in__login">
+              <h3 class="layout--sign-in__title">Sign In with your<br/>ECHE account</h3>
+              <form action="">
+                <div class="form-group">
+                  <label for="email" class="control-label">E-mail</label>
+                  <input type="email" class="form-control" name="email">
+                  <div class="help-block">Enter your e-mail address</div>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="control-label">Password</label>
+                  <input type="password" class="form-control" name="password">
+                  <div class="help-block">Enter the password that accompanies your e-mai.</div>
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn--primary btn--block">Log in</button>
+                  <div class="help-block text-center">
+                    <a href="#">I forgot my password</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <div class="layout--sign-in__register">
+              <h3 class="layout--sign-in__title">Register</h3>
+              <div class="layout--sign-in__description">You have signed, on behalf of your Higher Education Institution,
+                an Erasmus Charter for Higher Education (ECHE).<br/><strong>Are you aware of the most and least
+                  effective ways to implement its key principles?</strong><br/><br/></div>
+              <a href="#" class="btn btn--primary btn--block">Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="designs designs--sign-in"></div>
+
+<!-- {{> partials/footer }} -->
+{{> partials/scripts }}

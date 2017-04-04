@@ -1,0 +1,55 @@
+// Vertical navigation
+//
+// Standard navigation good for a sidebar menu.
+//
+// Markup: html/nav-vertical.html
+//
+// Styleguide 2.13.5
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .nav-vertical
+    list-style-type: none
+    font-weight: $font-weight-semibold
+    padding: 0
+    margin: 0
+
+  // Elements
+  // --------------------------------------------------
+  .nav-vertical__item
+    margin: 0
+    padding: 0
+
+    &:before
+      display: none
+
+  .nav-vertical__link
+    background-color: transparent
+    border: none
+    border-radius: 0
+    color: $gray-base !important
+    padding: 11px 5px
+    display: inline-block
+    position: relative
+
+    &:after
+      content: ''
+      height: 4px
+      left: 5px
+      right: 3px
+      bottom: 11px
+      background-color: transparent
+      position: absolute
+
+  // States
+  // --------------------------------------------------
+  .nav-vertical__link
+    &.active
+      &:after
+        background-color: $brand-primary-light
+
+    &:hover
+      background-color: transparent
+      color: $brand-primary-light !important

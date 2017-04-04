@@ -1,0 +1,26 @@
+// Dropdown
+//
+// Dropdown menu switched by pure CSS. No jQuery.
+//
+// Markup: html/dropdown.html
+//
+// sg-wrapper:
+// <div class="dropdown-demo"><sg-wrapper-content/></div>
+//
+// Styleguide 2.32
+
+$dropdown-max-width: 230px
+
+// Block
+// --------------------------------------------------
+.bootsmacss
+  .dropdown
+    position: relative
+    display: inline-block
+    .dropdown-menu li
+      padding: 0
+      &::before
+        content: none
+    .dropdown-menu li a
+      font-size: 14px !important
+      color: $text-color

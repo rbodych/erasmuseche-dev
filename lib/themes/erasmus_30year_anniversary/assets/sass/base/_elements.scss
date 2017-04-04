@@ -1,0 +1,52 @@
+h1,
+h2,
+h3,
+h4 {
+  @include set-heading();
+  margin: em(10) 0 em(6) 0;
+  
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1 {
+  font-size: $heading-1-size;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: $heading-2-size;
+}
+
+h3 {
+  font-size: $heading-3-size;
+}
+
+h4 {
+  font-size: $heading-4-size;
+}
+
+p {
+  margin: 0 0 1.4em;
+}
+
+a,
+a:visited {
+  text-decoration: underline;
+  color: $c-secondary-2;
+  @include transition(.2s all);
+  
+  &:hover {
+    color: $c-secondary-1;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+video {
+  width: 100%;
+  max-width: 100%;
+}

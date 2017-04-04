@@ -1,0 +1,12 @@
+name = ECHE Webforms Share
+description = ECHE Self Assesment and Rectors Quiz share feature
+core = 7.x
+package = ECHE
+php = 5.5
+features[features_api][] = api:2
+files[] = views/eche_wf_share_handler_download_submission_link.inc
+files[] = views/eche_wf_share_handler_share_submission_link.inc
+files[] = views/eche_wf_share_handler_self_assesment_type.inc
+files[] = views/eche_wf_share_handler_view_report_link.inc
+files[] = views/eche_wf_share_handler_submission_is_read.inc
+multisite_version = 2.0

@@ -1,0 +1,124 @@
+// Tabs
+//
+
+.bootsmacss
+
+  // Block
+  // --------------------------------------------------
+  .overview
+    margin: 62px 0
+    position: relative
+
+  // Elements
+  // --------------------------------------------------
+  .overview__title
+    margin-bottom: -50px
+    margin-top: 50px
+    font-size: 28px
+    text-transform: uppercase
+
+    &:first-of-type
+      margin-top: 0
+      margin-bottom: -40px
+
+  .overview__item
+    border-bottom: 1px solid $gray-lighter
+    margin-bottom: 45px
+    padding-bottom: 40px
+
+  .overview__description
+    font-size: 16px
+    margin-bottom: 40px
+
+  .overview__label
+    margin-top: 10px
+    text-align: center
+
+  // .overview__bar
+  //   display: table-cell
+  //   height: 20px
+  //   background-color: $gray-lightest
+  //
+  // .overview__bar-meter
+  //   height: 100%
+  //   background-color: $brand-primary
+
+  .overview__donut
+    // Implementation based on http://codepen.io/MikitaLisavets/pen/PqEwvV
+    width: 96px
+    height: 96px
+    margin: 0 auto
+    background: $gray-lightest linear-gradient(to right, $gray-lightest 50%, $gray-base 50%)
+    color: $gray-base
+    border-radius: 50%
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      display: block
+      background-color: inherit
+      height: 100%
+      width: 50%
+      bottom: 0
+      right: 0
+      border-radius: 0 100% 100% 0 / 50%
+      transform: rotate(0)
+      transform-origin: 0 50%
+      animation: 50s spin infinite linear, 100s background infinite step-end
+      animation-play-state: paused
+      animation-delay: inherit
+    // Inner circle mask
+    &::after
+      content: ''
+      position: absolute
+      width: 67%
+      height: 67%
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      margin: auto
+      background: #fff
+      border-radius: 50%
+
+  @keyframes spin
+    to
+      transform: rotate(180deg)
+  @keyframes background
+    50%
+      background-color: currentColor
+
+  .overview__value
+    position: absolute
+    top: 50%
+    left: 0
+    right: 0
+    width: 50px
+    margin: 0 auto
+    transform: translateY(-50%)
+    font-weight: $font-weight-bold
+    text-align: center
+    z-index: 1
+
+  // Modifiers
+  // --------------------------------------------------
+  .overview__stat--your
+    .overview__label
+      font-weight: $font-weight-bold
+
+  .overview__stat--green
+    .overview__donut
+      background: $gray-lightest linear-gradient(to right, $gray-lightest 50%, $green 50%)
+      color: $green
+      &.full-circle
+        background: $green
+
+  .overview__stat--yellow
+    .overview__donut
+      background: $gray-lightest linear-gradient(to right, $gray-lightest 50%, $yellow 50%)
+      color: $yellow
+
+  .overview__stat--red
+    .overview__donut
+      background: $gray-lightest linear-gradient(to right, $gray-lightest 50%, $red 50%)
+      color: $red

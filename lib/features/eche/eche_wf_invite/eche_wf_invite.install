@@ -1,0 +1,79 @@
+<?php
+/**
+ * @file
+ * ECHE Webforms invite install file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function eche_wf_invite_install() {
+  $path = drupal_get_path('module', 'eche_wf_invite') . '/eche_wf_invite.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE Webforms invite %v feature is installed on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function eche_wf_invite_uninstall() {
+  $path = drupal_get_path('module', 'eche_wf_invite') . '/eche_wf_invite.info';
+  $info = drupal_parse_info_file($path);
+  $t = get_t();
+  drupal_set_message($t('ECHE Webforms invite %v feature is uninstalled on your site.', ['%v' => $info['version']]));
+}
+
+/**
+ * Implements hook_enable().
+ */
+function eche_wf_invite_enable() {
+  drupal_set_message(t('ECHE Webforms invite is now active on your site.'));
+}
+
+/**
+ * Implements hook_disable().
+ */
+function eche_wf_invite_disable() {
+  drupal_set_message(t('ECHE Webforms invite is now disabled on your site.'));
+}
+
+/**
+ * Implements hook_schema().
+ */
+function eche_wf_invite_schema() {
+  $schema['eche_wf_invites'] = [
+    'description' => 'TODO: please describe this table!',
+    'fields' => [
+      'uid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'nid' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'mail' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ],
+      'timestamp' => [
+        'description' => 'TODO: please describe this field!',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['uid', 'nid', 'mail'],
+    'indexes' => [
+      'uid' => ['uid'],
+    ],
+  ];
+  return $schema;
+}

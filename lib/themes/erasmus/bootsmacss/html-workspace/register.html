@@ -1,0 +1,80 @@
+{{> partials/head }}
+{{> partials/header }}
+
+<main class="bootsmacss">
+  <div class="layout--form-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2 class="layout--form-page__title">Register an ECHE Account</h2>
+          <div class="layout--form-page__inner">
+            <h3>Your details</h3>
+            <div class="form-group">
+              <label for="name" class="control-label">Name</label>
+              <input type="text" class="form-control" name="name">
+            </div>
+            <div class="form-group">
+              <label for="lastname" class="control-label">Last Name</label>
+              <input type="text" class="form-control" name="lastname">
+            </div>
+            <div class="form-group">
+              <label for="dropdown">Country of Higher Education Institution</label>
+              <select class="form-control">
+                <option>- Select -</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              <div class="help-block">Please select a country of your Higher Education Institution.</div>
+            </div>
+            <div class="form-group">
+              <label for="institution" class="control-label">Higher Education Institution</label>
+              <input type="text" class="form-control" name="institution">
+              <div class="help-block">Please start typing the name of your institution in your local language to select
+                your organisation. All Erasmus Charter holder institutions are included in the list.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="password" class="control-label">Password</label>
+                  <input type="password" class="form-control" name="password">
+                </div>
+                <div class="form-group">
+                  <label for="email" class="control-label">E-mail</label>
+                  <input type="email" class="form-control" name="email">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                Password compilience
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password2" class="control-label">Confirm Password</label>
+              <input type="password" class="form-control" name="password2">
+            </div>
+            <h5>Password must mach the following requirements:</h5>
+            <div class="text-primary-dark small">
+              <ul>
+                <li>Password must have at least 2 digit(s).</li>
+                <li>Password must have at least 10 character(s).</li>
+                <li>Password must not contain their username.</li>
+                <li>Password must have at least 6 letter(s).</li>
+              </ul>
+            </div>
+            <div class="form-actions text-center">
+              <input type="submit" class="btn btn--primary btn--lg" value="Submit registration"></input>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="designs designs--register"></div>
+
+<!-- {{> partials/footer }} -->
+{{> partials/scripts }}

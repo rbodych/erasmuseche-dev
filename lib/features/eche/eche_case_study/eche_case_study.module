@@ -1,0 +1,40 @@
+<?php
+/**
+ * @file
+ * Code for the ECHE Case Study feature.
+ */
+
+include_once 'eche_case_study.features.inc';
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function eche_case_study_form_views_exposed_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#id'] == 'views-exposed-form-resources-case-study-page') {
+    $form['submit']['#attributes']['class'] = ['btn--primary btn--block'];
+    $form['title']['#attributes']['placeholder'] = t('Type what you are looking for');
+  }
+}
+
+/**
+ * Preprocessor for theme('page').
+ */
+function eche_case_study_preprocess_page(&$variables) {
+  if (isset($variables['node']->type) && $variables['node']->type == 'case_study' && empty(arg(2))) {
+    $node = $variables['node'];
+    $variables['theme_hook_suggestions'][] = 'page__case_study';
+
+    $subtitle = [];
+    $organisation_field = field_get_items('node', $node, 'field_case_study_organisation', $node->language);
+    $organisation = $organisation_field[0]['safe_value'];
+    $country_field = field_get_items('node', $node, 'field_case_study_country', $node->language);
+    $country = $country_field[0]['safe_value'];
+    if (!empty($organisation)) {
+      $subtitle[] = $organisation;
+    }
+    if (!empty($country)) {
+      $subtitle[] = $country;
+    }
+    $variables['subtitle'] = implode(', ', $subtitle);
+  }
+}

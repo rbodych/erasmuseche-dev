@@ -1,0 +1,291 @@
+<?php
+/**
+ * @file
+ * Code for the erasmus_30_year_anniversary_share_story feature.
+ */
+
+define('ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_CONFIRMATION_URL',
+  '/anniversary/share-your-story-confirmation');
+define('ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_URL',
+  '/anniversary/share-your-story');
+
+/**
+ * Implements hook_block_info().
+ */
+function erasmus_30_year_anniversary_share_story_block_info() {
+  $blocks['e30ya_share_story'] = array(
+    'info' => t('Erasmus+ 30 year share your story'),
+    'region' => 'content',
+    'cache' => DRUPAL_CACHE_GLOBAL,
+    'status' => TRUE,
+    'visibility' => BLOCK_VISIBILITY_LISTED,
+    'pages' => 'anniversary/share-your-story',
+    'theme' => 'erasmus_30year_anniversary',
+  );
+  $blocks['e30ya_share_story_socialconf'] = array(
+    'info' => t('Erasmus+ 30 year Social Share your story confirmation'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function erasmus_30_year_anniversary_share_story_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'e30ya_share_story':
+      $block['content']
+        = drupal_get_form('erasmus_30_year_anniversary_share_story_form');
+      break;
+
+    case 'e30ya_share_story_socialconf':
+       $block['content']
+         = _erasmus_30_year_anniversary_share_story_social_share_content();
+      break;
+
+  }
+
+  return $block;
+}
+
+/**
+ * Form for share your story.
+ */
+function erasmus_30_year_anniversary_share_story_form($form, $form_state) {
+  $form = [
+    '#prefix' => '<section class="container share-story-form">',
+    '#suffix' => '</section>',
+  ];
+  $form['intro_second'] = [
+    '#prefix' => '<div class="intro-wrapper">',
+    '#type' => 'item',
+    '#title' => t('How to enter'),
+    '#markup' => t('Submit a photo or video with your 100 word story that tells us about the + of your Erasmus+ before 15th April. Be creative! Then come back to vote on your favourite entries!'),
+  ];
+  $form['intro_3'] = [
+    '#type' => 'item',
+    '#title' => t('Prize'),
+    '#markup' => t("During the submission period, we'll be giving away 4 x €100 travel vouchers for inspiring entries. But that’s not all - the public’s choice will win a €600 travel voucher!"),
+  ];
+  $form['intro_4'] = [
+    '#type' => 'item',
+    '#title' => t('Who can enter'),
+    '#markup' => t("Whether you studied, did a traineeship, went on a youth exchange, volunteered, got teacher/youth worker/sports coach training, or undertook any other activity with Erasmus+ funding in the past 30 years, this competition is for you!"),
+  ];
+  $form['intro_5'] = [
+    '#markup' => '<div class="center"><strong>' .
+    t('Don’t forget to share your entry on social media too! #ErasmusPlus')
+    . '</strong></div>',
+    '#suffix' => '</div>',
+  ];
+  $form['name'] = [
+    '#prefix' => '<div class="form-fields-wrapper">',
+    '#title' => t('Name'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Your firstname')],
+  ];
+  $form['last_name'] = [
+    '#title' => t('Last name'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Your lastname')],
+  ];
+  $form['email'] = [
+    '#title' => t('Email address'),
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Email address')],
+  ];
+  $form['date_of_birth'] = [
+    '#title' => t('Year of birth'),
+    '#type' => 'date_select',
+    '#date_format' => 'y',
+    '#date_year_range' => '-110:+0',
+    '#required' => TRUE,
+  ];
+  $form['nationality'] = [
+    '#title' => t('Nationality'),
+    '#type' => 'select',
+    '#options' => _erasmus_30ya_core_retrieve_all_countries(),
+    '#chosen' => TRUE,
+    '#required' => TRUE,
+  ];
+  $form['description'] = [
+    '#title' => t('Description'),
+    '#type' => 'textarea',
+    '#required' => TRUE,
+    '#maxlength_js' => TRUE,
+    '#maxlength' => 500,
+    '#attributes' => [
+      'maxlength_js_label' => t('Remaining characters: @remaining'),
+    ],
+  ];
+  $form['erasmus_destination'] = [
+    '#title' => t('Erasmus+ destination'),
+    '#type' => 'select',
+    '#options' => _erasmus_30ya_core_retrieve_all_countries(),
+    '#required' => TRUE,
+    '#chosen' => TRUE,
+    '#attributes' => ['placeholder' => t('Erasmus+ destination')],
+  ];
+  $form['erasmus_year'] = [
+    '#title' => t('Erasmus+ year'),
+    '#type' => 'date_select',
+    '#date_format' => 'y',
+    '#date_year_range' => '-80:+0',
+    '#required' => TRUE,
+    '#attributes' => ['placeholder' => t('Erasmus+ year')],
+  ];
+  // Max upload 1 MB.
+  $form['upload'] = [
+    '#type' => 'managed_file',
+    '#title' => t('Choose an image or video:'),
+    '#upload_location' => 'public://story_image/',
+    '#required' => TRUE,
+    '#upload_validators' => [
+      'file_validate_extensions' => ['png jpg jpeg gif mp4 avi wmv mov qt'],
+      'file_validate_size' => ['50' * 1024 * 1024],
+    ],
+    '#description'
+    => t('Only files with the following extensions are allowed: png jpg jpeg gif mp4 avi wmv mov qt. The maximum file size is 50 MB.'),
+  ];
+  $form['termsconditions'] = [
+    '#title' => t('Terms & Conditions'),
+    '#type' => 'checkbox',
+    '#required' => TRUE,
+    '#description' => t('I have read, understood and accept the !privacy and the !terms', [
+      '!privacy' => l(t('Specific Privacy Statement'), '/anniversary/privacy-statement-share-story', [
+        'attributes' => ['target' => '_blank'],
+        'language' => (object) ['language' => 'en'],
+      ]),
+      '!terms' => l(t('Terms and Conditions'), '/anniversary/terms-conditions-share-story', [
+        'attributes' => ['target' => '_blank'],
+        'language' => (object) ['language' => 'en'],
+      ]),
+    ]),
+  ];
+  $form['submit'] = [
+    '#type' => 'submit',
+    '#value' => t('Share my story'),
+    '#suffix' => '</section>',
+  ];
+  return $form;
+}
+
+/**
+ * Form submission logic for the share form.
+ */
+function erasmus_30_year_anniversary_share_story_form_submit($form, &$form_state) {
+  $file = file_load($form_state['values']['upload']);
+  $file->status = FILE_STATUS_PERMANENT;
+  file_save($file);
+
+  $countries = _erasmus_30ya_core_retrieve_all_countries();
+  $values['nationality']
+    = isset($countries[$form_state['values']['nationality']]) ? $countries[$form_state['values']['nationality']] : $form_state['values']['nationality'];
+  $values['body'] = $form_state['values']['description'];
+  $values['email'] = $form_state['values']['email'];
+  $values['name'] = $form_state['values']['name'];
+  $values['last_name'] = $form_state['values']['last_name'];
+  $values['erasmus_destination']
+    = isset($countries[$form_state['values']['erasmus_destination']]) ? $countries[$form_state['values']['erasmus_destination']] : $form_state['values']['erasmus_destination'];
+  $values['erasmus_year'] = $form_state['values']['erasmus_year'];
+  $values['date_of_birth'] = $form_state['values']['date_of_birth'];
+  $values['file'] = file_create_url($file->uri);
+
+  $module = 'erasmus_30_year_anniversary_share_story';
+  $key = 'share_story_erasmus30year';
+  $to = variable_get('erasmus_30ya_core_share_story_mail_to', 'michael.schuddings@one-agency.be');
+  $language = language_default();
+  $params = $values;
+  $from = variable_get('erasmus_30ya_core_share_story_mail_from', 'webteameac@ec.europa.eu');
+
+  $send = TRUE;
+
+  $result = drupal_mail($module, $key, $to, $language, $params, $from, $send);
+  if ($result['result'] == TRUE) {
+    drupal_set_message(t('Your story has been submitted.'));
+    drupal_goto(ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_CONFIRMATION_URL);
+  }
+  else {
+    drupal_set_message(t('There was a problem sending please contact the website maintainer.'), 'error');
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function erasmus_30_year_anniversary_share_story_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'share_story_erasmus30year':
+      $message['subject'] = t('Erasmus Share your story submission');
+      $message['body'][] = 'Body: ' . $params['body'];
+      $message['body'][] = 'File url:' . $params['file'];
+      $message['body'][] = 'From email: ' . $params['email'];
+      $message['body'][] = 'From name: ' . $params['name'];
+      $message['body'][] = 'From last name: ' . $params['last_name'];
+      $message['body'][] = 'From date of birth: ' . $params['date_of_birth'];
+      $message['body'][] = 'Nationality: ' . $params['nationality'];
+      $message['body'][] = 'Destination: ' . $params['erasmus_destination'];
+      $message['body'][] = 'Year: ' . $params['erasmus_year'];
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function erasmus_30_year_anniversary_share_story_theme() {
+  return array(
+    'erasmus_30_year_anniversary_share_story_social_share' => array(
+      'variables' => [
+        'fb' => NULL,
+        'tw' => NULL,
+        'title' => NULL,
+      ],
+      'template' => 'share-story-social-share',
+      'path' => drupal_get_path('module', 'erasmus_30_year_anniversary_share_story') . '/templates',
+    ),
+  );
+}
+
+/**
+ * Retrieve content for the share your story share block.
+ */
+function _erasmus_30_year_anniversary_share_story_social_share_content() {
+  drupal_add_js(drupal_get_path('module', 'erasmus_30_year_anniversary_share_story')
+    . '/js/social_share_your_story.js');
+  global $base_url;
+  $url = $base_url . ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_URL;
+  drupal_add_js([
+    'erasmus_30_year_anniversary_share_story' => [
+      'shareCompetitionUrl' => $url,
+    ],
+  ],
+  'setting');
+  $title = t("I've just told my Erasmus+ story. Tell yours and you could win a travel voucher!");
+  $tw = _erasmus_30ya_core_construct_tweet_intent_url($title, $url);
+  $fb = l(t('Share on Facebook'), '#', ['fragment' => '#']);
+  return theme('erasmus_30_year_anniversary_share_story_social_share',
+  [
+    'fb' => $fb,
+    'tw' => $tw,
+    'title' => $title,
+  ]);
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function erasmus_30_year_anniversary_share_story_preprocess_page(&$vars) {
+  $requestUri = request_uri();
+  if (strpos($requestUri, ERASMUS_30_YEAR_ANNIVERSARY_SHARE_STORY_CONFIRMATION_URL) !== FALSE) {
+    $block = module_invoke('erasmus_30_year_anniversary_share_story', 'block_view', 'e30ya_share_story_socialconf');
+    $item = render($block['content']);
+    $vars['page']['sidebar_left'] = render($vars['page']['sidebar_left']) . $item;
+  }
+}

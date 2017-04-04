@@ -1,0 +1,50 @@
+// Section content
+// --------------------------------------------------
+.bootsmacss
+
+  .layout--tab-content
+    padding: 70px 20px 60px
+    margin: 0
+    box-sizing: border-box
+    background-color: #fff
+
+  .layout--tab-content-inner
+    max-width: 940px
+    margin: 0 auto
+
+    h2
+      font-size: 32px
+      line-height: normal
+      margin-bottom: 43px
+      text-align: center
+
+    p
+      text-align: justify
+
+    ul
+      text-align: justify
+
+      li
+        font-size: 16px
+        line-height: 26px
+
+      li + li
+        padding-bottom: 15px
+        &::before
+          color: $text-color
+
+    strong
+      text-transform: capitalize
+
+    .tab-pane
+      .field-label
+        @extend p
+        @extend strong
+        text-align: center
+        margin-bottom: 0
+
+      .field-items
+        @extend p
+        text-align: center
+
+
