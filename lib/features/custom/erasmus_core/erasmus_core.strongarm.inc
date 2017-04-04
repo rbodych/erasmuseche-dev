@@ -343,7 +343,7 @@ function erasmus_core_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_per_page_programme_guide';
-  $strongarm->value = '50';
+  $strongarm->value = '10';
   $export['comment_default_per_page_programme_guide'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -791,7 +791,7 @@ function erasmus_core_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_webform';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['comment_webform'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1465,20 +1465,57 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'field_bundle_settings_node__programme_guide';
   $strongarm->value = array(
-    'view_modes' => array(),
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
+      'print' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+      'viewresults' => array(
+        'custom_settings' => FALSE,
+      ),
+      'revision' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
     'extra_fields' => array(
       'form' => array(
         'language' => array(
-          'weight' => '0',
+          'weight' => '24',
         ),
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '5',
         ),
         'title' => array(
           'weight' => '-5',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '4',
+        ),
+        'feeds' => array(
+          'weight' => '4',
+        ),
+        'workbench_access' => array(
+          'weight' => '24',
         ),
       ),
       'display' => array(),
@@ -1557,6 +1594,9 @@ function erasmus_core_strongarm() {
       'viewresults' => array(
         'custom_settings' => FALSE,
       ),
+      'newsroom_event' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1576,6 +1616,10 @@ function erasmus_core_strongarm() {
       'display' => array(
         'language' => array(
           'default' => array(
+            'weight' => '4',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
             'weight' => '4',
             'visible' => FALSE,
           ),
@@ -1716,12 +1760,6 @@ function erasmus_core_strongarm() {
       'revision' => array(
         'custom_settings' => FALSE,
       ),
-      'newsroom_event' => array(
-        'custom_settings' => FALSE,
-      ),
-      'erasmus_30_year_hero_homepage' => array(
-        'custom_settings' => FALSE,
-      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1751,12 +1789,6 @@ function erasmus_core_strongarm() {
             'visible' => FALSE,
           ),
         ),
-        'related_form_link' => array(
-          'default' => array(
-            'weight' => '0',
-            'visible' => TRUE,
-          ),
-        ),
       ),
     ),
   );
@@ -1766,56 +1798,56 @@ function erasmus_core_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_about';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_about'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_book';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_book'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_button_view_all';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_button_view_all'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_calls';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_calls'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_contact';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_contact'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_document_library';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_document_library'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_events';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_events'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_news';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_news'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1836,42 +1868,42 @@ function erasmus_core_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_programme_guide';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_programme_guide'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_programme_guide_attached_pages';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_programme_guide_attached_pages'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_resources';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_resources'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_valor_project';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_valor_project'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_video_gallery';
-  $strongarm->value = '0';
+  $strongarm->value = '4';
   $export['language_content_type_video_gallery'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_webform';
-  $strongarm->value = '1';
+  $strongarm->value = '4';
   $export['language_content_type_webform'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -1951,7 +1983,7 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_programme_guide';
   $strongarm->value = array(
-    0 => 'main-menu',
+    0 => 'menu-programme-guide',
   );
   $export['menu_options_programme_guide'] = $strongarm;
 
@@ -2005,7 +2037,7 @@ function erasmus_core_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_book';
-  $strongarm->value = 'main-menu:0';
+  $strongarm->value = 'menu-books:0';
   $export['menu_parent_book'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -2068,7 +2100,7 @@ function erasmus_core_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_programme_guide';
-  $strongarm->value = 'main-menu:0';
+  $strongarm->value = 'menu-programme-guide:0';
   $export['menu_parent_programme_guide'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -2111,7 +2143,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_about';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_about'] = $strongarm;
 
@@ -2120,7 +2153,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_book';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_book'] = $strongarm;
 
@@ -2129,7 +2163,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_button_view_all';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_button_view_all'] = $strongarm;
 
@@ -2138,7 +2173,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_calls';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_calls'] = $strongarm;
 
@@ -2147,7 +2183,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_contact';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_contact'] = $strongarm;
 
@@ -2156,7 +2193,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_document_library';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_document_library'] = $strongarm;
 
@@ -2165,7 +2203,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_events';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_events'] = $strongarm;
 
@@ -2174,7 +2213,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_news';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_news'] = $strongarm;
 
@@ -2203,7 +2243,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_programme_guide';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_programme_guide'] = $strongarm;
 
@@ -2212,7 +2253,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_programme_guide_attached_pages';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_programme_guide_attached_pages'] = $strongarm;
 
@@ -2221,7 +2263,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_resources';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_resources'] = $strongarm;
 
@@ -2230,7 +2273,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_valor_project';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_valor_project'] = $strongarm;
 
@@ -2239,7 +2283,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_video_gallery';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_video_gallery'] = $strongarm;
 
@@ -2248,7 +2293,8 @@ function erasmus_core_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_options_webform';
   $strongarm->value = array(
-    0 => 'status',
+    0 => 'moderation',
+    1 => 'revision',
   );
   $export['node_options_webform'] = $strongarm;
 
@@ -2375,7 +2421,7 @@ function erasmus_core_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'node_submitted_book';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['node_submitted_book'] = $strongarm;
 
   $strongarm = new stdClass();
