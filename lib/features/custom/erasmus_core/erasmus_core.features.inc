@@ -110,7 +110,7 @@ function erasmus_core_node_info() {
       'help' => '',
     ),
     'opportunities_for_organisations' => array(
-      'name' => t('Opportunities for organisations'),
+      'name' => t('Possibilités pour les organisations'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',

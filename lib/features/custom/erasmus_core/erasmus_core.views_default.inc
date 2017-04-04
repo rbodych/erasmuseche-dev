@@ -3152,11 +3152,36 @@ function erasmus_core_views_default_views() {
   $handler->display->display_options['style_options']['justified'] = 0;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'full';
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['field_resources_link']['id'] = 'field_resources_link';
+  $handler->display->display_options['fields']['field_resources_link']['table'] = 'field_data_field_resources_link';
+  $handler->display->display_options['fields']['field_resources_link']['field'] = 'field_resources_link';
+  $handler->display->display_options['fields']['field_resources_link']['label'] = '';
+  $handler->display->display_options['fields']['field_resources_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_resources_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_resources_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_resources_link']['type'] = 'link_plain';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Content: Type */
+  $handler->display->display_options['fields']['field_type']['id'] = 'field_type';
+  $handler->display->display_options['fields']['field_type']['table'] = 'field_data_field_type';
+  $handler->display->display_options['fields']['field_type']['field'] = 'field_type';
+  $handler->display->display_options['fields']['field_type']['label'] = '';
+  $handler->display->display_options['fields']['field_type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_type']['element_label_colon'] = FALSE;
   /* Field: Field: Title */
   $handler->display->display_options['fields']['title_field']['id'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['table'] = 'field_data_title_field';
   $handler->display->display_options['fields']['title_field']['field'] = 'title_field';
   $handler->display->display_options['fields']['title_field']['label'] = '';
+  $handler->display->display_options['fields']['title_field']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title_field']['alter']['text'] = '[title_field]|[field_type]|[nid]|[field_resources_link]';
   $handler->display->display_options['fields']['title_field']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title_field']['link_to_entity'] = 1;
   /* Sort criterion: Content: Post date */
